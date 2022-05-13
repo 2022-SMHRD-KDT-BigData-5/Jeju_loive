@@ -37,7 +37,6 @@
 </head>
 <body>
 <% System.out.print(fullpath);
-fullpath=fullpath+filename1;
 session.setAttribute("fullpath", fullpath);
 response.sendRedirect("diary1.jsp");
 %>
