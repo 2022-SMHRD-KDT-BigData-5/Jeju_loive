@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
@@ -28,8 +30,8 @@
 			<header class="codrops-header">
 				<h1>Hover Effect Ideas <span>An inspirational collection of subtle hover effects</span></h1>
 				<nav class="codrops-demos">
-					<a href="diary1.html">Set 1</a>
-					<a class="current-demo" href="diary2.html">Set 2</a>
+					<a href="diary1.jsp">Set 1</a>
+					<a class="current-demo" href="diary2.jsp">Set 2</a>
 				</nav>
 			</header>
 			<div class="content">
@@ -109,7 +111,7 @@
 				<h2>Winston</h2>
 				<div class="grid">
 					<figure class="effect-winston">
-						<img src="images/1.jpg" alt="img30"/>
+						<img src="img/1.jpg" alt="img30"/>
 						<figcaption>
 							<h2>Jolly <span>Winston</span></h2>
 							<p>
@@ -289,7 +291,7 @@
 				<h2>Jazz</h2>
 				<div class="grid">
 					<figure class="effect-jazz">
-						<img src="images/1.jpg" alt="img25"/>
+						<img src="img/1.jpg" alt="img25"/>
 						<figcaption>
 							<h2>Dynamic <span>Jazz</span></h2>
 							<p>When Jazz starts to chase cars, the whole world stands still.</p>
@@ -297,7 +299,7 @@
 						</figcaption>			
 					</figure>
 					<figure class="effect-jazz">
-						<img src="images/1.jpg" alt="img06"/>
+						<img src="img/1.jpg" alt="img06"/>
 						<figcaption>
 							<h2>Dynamic <span>Jazz</span></h2>
 							<p>When Jazz starts to chase cars, the whole world stands still.</p>
@@ -364,8 +366,8 @@
 				</div>
 			</div>
 			<nav class="codrops-demos">
-				<a href="diary1.html">Set 1</a>
-				<a class="current-demo" href="diary2.html">Set 2</a>
+				<a href="diary1.jsp">Set 1</a>
+				<a class="current-demo" href="diary2.jsp">Set 2</a>
 			</nav>
 			<!-- Related demos -->
 			<section class="related">
@@ -388,3 +390,4 @@
 			} );
 		</script>
 	</body>
+</html>
