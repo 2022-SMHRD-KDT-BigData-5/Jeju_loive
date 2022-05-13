@@ -333,10 +333,6 @@
 							</form>
 							<%}
 							else{
-								
-								System.out.print(fullpath);
-								
-								fullpath="images/bg.jpg";
 								%>
 								<img alt="추가하세요" src="<%=fullpath%>">
 								<figcaption>
