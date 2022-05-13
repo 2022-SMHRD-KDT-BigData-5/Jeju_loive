@@ -37,6 +37,8 @@ ol, ul {
 	list-style: none;
 }
 
+
+
 blockquote, q {
 	quotes: none;
 }
@@ -578,7 +580,12 @@ input, select, textarea {
 	}
 
 /* Box */
-
+	.soohyeon{
+		
+		position: fixed;
+        right: 20px;
+       	top: 10px;
+	}
 	.box {
 		border-radius: 4px;
 		border: solid 1px #ffffff;
