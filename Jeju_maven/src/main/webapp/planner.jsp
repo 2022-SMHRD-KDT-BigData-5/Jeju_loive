@@ -29,9 +29,20 @@
                 <a href="#">View more</a>
             </figcaption>			
     </div>
-    <button class ="btn1">+</button>
+    <button id ="btn1">+</button>
 	
+	<script>
+    
+    $('#btn1').click(function(){
+        
+           $('div').append('<figure class="effect-ming"><img src="images/yeonhee-VWLhifg5VMA-unsplash.jpg" alt="yeonhee-VWLhifg5VMA-unsplash"/><figcaption><h2><span>Planner</span></h2><p>2022년 05월 13일</p><a href="#">View more</a></figcaption></figure>')
 
 
+        })
+    
+   
+</script>
 </body>
+
+
 </html>

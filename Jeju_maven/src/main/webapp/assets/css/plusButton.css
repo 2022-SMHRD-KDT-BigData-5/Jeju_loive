@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-button.btn1 {
+button#btn1 {
     border: 0;
     outline: none;
     width: 100px;
@@ -15,7 +15,7 @@ button.btn1 {
     margin-left: 200px;
   }
   
-  button.btn1:hover {
+  button#btn1:hover {
     box-shadow: 3px 3px 3px rgb(229, 233, 229);
     transition: 0.3s;
   }
