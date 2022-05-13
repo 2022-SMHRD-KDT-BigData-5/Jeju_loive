@@ -36,7 +36,7 @@
 						</div>
 						<nav>
 							<ul>
-								<li><a href="upload.jsp">planner</a></li>
+								<li><a href="planner.jsp">planner</a></li>
 								<li><a href="diary1.jsp">diary</a></li>
 								<li><a href="upload.jsp">tour</a></li>
 								<li><a href="upload.jsp">board</a></li>

@@ -13,6 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/set2.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/plusButton.css" />
 </head>
 <body>
@@ -21,7 +22,7 @@
 <h2 class="plan">Planner</h2>
     <div class="grid">
         <figure class="effect-ming">
-            <img src="img/yeonhee-VWLhifg5VMA-unsplash.jpg" alt="yeonhee-VWLhifg5VMA-unsplash"/>
+            <img src="images/yeonhee-VWLhifg5VMA-unsplash.jpg" alt="yeonhee-VWLhifg5VMA-unsplash"/>
             <figcaption>
                 <h2><span>Planner</span></h2>
                 <p>2022년 05월 13일</p>
@@ -29,7 +30,7 @@
             </figcaption>			
     </div>
     <button class ="btn1">+</button>
-
+	
 
 
 </body>
