@@ -15,6 +15,12 @@ public class LoginCon extends HttpServlet {
 		//post방식 요청 인코딩
 		request.setCharacterEncoding("UTF-8");
 		
+		//파라미터 받아오기
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		
+		
+		
 		
 		
 	}
