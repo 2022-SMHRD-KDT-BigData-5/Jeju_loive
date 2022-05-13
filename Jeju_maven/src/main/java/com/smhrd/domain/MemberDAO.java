@@ -1,6 +1,7 @@
 package com.smhrd.domain;
 
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionManager;
 
 
 
