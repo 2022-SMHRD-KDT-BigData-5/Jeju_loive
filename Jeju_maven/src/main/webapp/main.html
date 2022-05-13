@@ -17,7 +17,7 @@
 		<!-- Wrapper -->
 			<div id="wrapper">
 				<nav>
-					<a href="#contact" class="soohyeon">login</a>
+					<a href="#login" class="soohyeon">login</a>
 				</nav>
 				<!-- Header -->
 					<header id="header">
@@ -72,42 +72,56 @@
 
 						<!-- 로그인페이지/희연 -->
 							<article id="login">
-								<h2 class="major">LOGIN</h2>
+								<h2 class="major">로그인</h2>
 								<form method="post" action="#">
 									<div class="fields">
 										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
+											<label for="id">아이디</label>
+											<input type="text" name="id" id="id" />
 										</div>
 										<div class="field half">
-											<label for="password">Password</label>
+											<label for="password">비밀번호</label>
 											<input type="password" name="pw" id="pw" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
 										</div>
 									</div>
 									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="submit" value="Login" class="primary" /></li>
 										<li><input type="reset" value="Reset" /></li>
 									</ul>
 								</form>
-								<!-- 로그인페이지 끝 -->
+								<!-- 로그인 끝 -->
+								<!-- 회원가입 -->
+								<h2 class="major">회원가입</h2>
 								<form method="post" action="#">
 									<div class="fields">
 										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
+											<label for="name">이름</label>
+											<input type="text" name="name" id="name" />
 										</div>
 										<div class="field half">
-											<label for="password">Password</label>
+											<label for="tel">전화번호</label>
+											<input type="text" name="tel" id="tel" />
+											
+										</div>
+										<div class="field half">
+											<label for="id">ID</label>
+											<input type="text" name="id" id="id" />
+										</div>
+										<div class="field half">
+											<label for="idck">사용할 수 있는 ID입니다.</label>
+											<input type="button" name="idck" id="idck" />
+										</div>
+										
+										
+										<div class="field half">
+											<label for="password">비밀번호</label>
 											<input type="password" name="pw" id="pw" />
 										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
+										<div class="field half">
+											<label for="password">비밀번호확인</label>
+											<input type="password" name="pwck" id="pwck" />
 										</div>
+									
 									</div>
 									<ul class="actions">
 										<li><input type="submit" value="Send Message" class="primary" /></li>
@@ -121,6 +135,7 @@
 									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 								</ul>
 							</article>
+							<!-- 회원가입 끝 -->
 						
 							
 
@@ -384,6 +399,12 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<!-- 전화번호 하이픈(-) 자동입력  JS -->
+			<script>
+			$(document).on("keyup", "#tel", function(){
+				$(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); 
+			});
+			</script>
 
 	</body>
 </html>
