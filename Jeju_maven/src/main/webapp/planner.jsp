@@ -15,6 +15,7 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/set2.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/plusButton.css" />
+		<script src = "https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
@@ -27,7 +28,8 @@
                 <h2><span>Planner</span></h2>
                 <p>2022년 05월 13일</p>
                 <a href="#">View more</a>
-            </figcaption>			
+            </figcaption>
+            </figure>			
     </div>
     <button id ="btn1">+</button>
 	
@@ -36,7 +38,6 @@
     $('#btn1').click(function(){
         
            $('div').append('<figure class="effect-ming"><img src="images/yeonhee-VWLhifg5VMA-unsplash.jpg" alt="yeonhee-VWLhifg5VMA-unsplash"/><figcaption><h2><span>Planner</span></h2><p>2022년 05월 13일</p><a href="#">View more</a></figcaption></figure>')
-
 
         })
     
