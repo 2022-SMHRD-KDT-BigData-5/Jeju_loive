@@ -29,13 +29,19 @@
  }
  
  String fullpath = "./img/" + filename1;
+ session.removeAttribute("fullpath");
+ 
 %>
 
 <title>Insert title here</title>
 </head>
 <body>
-<img alt="실패" src="<%=fullpath%>"></img>
-<% System.out.print(fullpath); %>
+<% System.out.print(fullpath);
+fullpath=fullpath+filename1;
+session.setAttribute("fullpath", fullpath);
+response.sendRedirect("diary1.jsp");
+%>
+
 </body>
 </html>
 

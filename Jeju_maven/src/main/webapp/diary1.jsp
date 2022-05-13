@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
@@ -27,8 +29,8 @@
 			<header class="codrops-header">
 				<h1>Hover Effect Ideas <span>An inspirational collection of subtle hover effects</span></h1>
 				<nav class="codrops-demos">
-					<a class="current-demo" href="diary1.html">Set 1</a>
-					<a href="diary2.html">Set 2</a>
+					<a class="current-demo" href="diary1.jsp">Set 1</a>
+					<a href="diary2.jsp">Set 2</a>
 				</nav>
 			</header>
 			<div class="content">
@@ -319,18 +321,37 @@
 						</figcaption>			
 					</figure>
 					<figure class="effect-milo">
-						<img src="images/1.jpg" alt="img03"/>
-						<figcaption>
-							<h2>Faithful <span>Milo</span></h2>
-							<p>Milo went to the woods. He took a fun ride and never came back.</p>
-							<a href="#">View more</a>
-						</figcaption>			
+						<%
+							
+							String fullpath = (String)session.getAttribute("fullpath");
+							
+							if (fullpath==null){
+							%>
+							<form method="post" enctype="multipart/form-data" action="imgup.jsp">
+							<input type="file" name="filename1" size=40>
+							<input type="submit" value="업로드"><br><br>
+							</form>
+							<%}
+							else{
+								
+								System.out.print(fullpath);
+								
+								fullpath="images/bg.jpg";
+								%>
+								<img alt="추가하세요" src="<%=fullpath%>">
+								<figcaption>
+								<h2>Faithful <span>Milo</span></h2>
+								<p>Milo went to the woods. He took a fun ride and never came back.</p>
+								<a href="#">View more</a>
+								</figcaption>
+								<%	
+							}%>		
 					</figure>
 				</div>
 			</div>
 			<nav class="codrops-demos">
-				<a class="current-demo" href="diary1.html">Set 1</a>
-				<a href="diary2.html">Set 2</a>
+				<a class="current-demo" href="diary1.jsp">Set 1</a>
+				<a href="diary2.jsp">Set 2</a>
 			</nav>
 			<!-- Related demos -->
 			<section class="related">
