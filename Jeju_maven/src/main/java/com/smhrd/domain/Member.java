@@ -10,6 +10,21 @@ public class Member {
 	
 	
 	
+	//생성자
+		public Member(String id, String pw, String name, String tel) {
+			super();
+			this.id = id;
+			this.pw = pw;
+			this.name = name;
+			this.tel = tel;
+		}
+		public Member(String id, String pw) {
+			super();
+			this.id = id;
+			this.pw = pw;
+		}
+		
+	
 	//---- getter / setter
 	public String getId() {
 		return id;
@@ -37,19 +52,8 @@ public class Member {
 	}
 	
 	
-	//생성자
-	public Member(String id, String pw) {
-		super();
-		this.id = id;
-		this.pw = pw;
-	}
-	public Member(String id, String pw, String name, String tel) {
-		super();
-		this.id = id;
-		this.pw = pw;
-		this.name = name;
-		this.tel = tel;
-	}
+	
+	
 	
 	
 	

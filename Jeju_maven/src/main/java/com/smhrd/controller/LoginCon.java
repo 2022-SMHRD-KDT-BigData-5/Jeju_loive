@@ -27,7 +27,9 @@ public class LoginCon extends HttpServlet {
 		Member m_vo = new Member(id, pw);
 		
 		MemberDAO dao = new MemberDAO();
-		Member loginMember = dao.selectMember(m_vo);
+		Member loginMember=null;
+		
+		loginMember = dao.selectMember(m_vo);
 		
 		if(loginMember != null) {
 			//로그인 성공

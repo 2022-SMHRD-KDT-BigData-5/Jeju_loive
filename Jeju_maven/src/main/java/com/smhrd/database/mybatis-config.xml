@@ -8,7 +8,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
-                <property name="url" value="jdbc:oracle:thin:@project-db-stu.ddns.net"/>
+                <!-- url ==>jdbc:oracle:thin:@host:port:SID  -->
+                <property name="url" value="jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe"/>
                 <property name="username" value="campus_c_0509_2"/>
                 <property name="password" value="smhrd2"/>
             </dataSource>

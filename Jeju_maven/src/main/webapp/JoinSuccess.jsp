@@ -28,7 +28,7 @@
 		<table>
 			<tr>
 				<td>Id</td>	
-				<td>${requestScope.joinId }</td>
+				<td>${requestScope.joinId}</td>
 			</tr>
 		</table>
 		<a href="main.jsp"><input type="button" value="메인페이지로"></a> </nav>
