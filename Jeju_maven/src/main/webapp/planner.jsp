@@ -18,9 +18,22 @@
 		<script src = "https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+	
+
+	<nav id = "menuBlock">
+							<ul>
+								<li><a href="planner.jsp">planner</a></li>
+								<li><a href="diary1.jsp">diary</a></li>
+								<li><a href="upload.jsp">tour</a></li>
+								<li><a href="upload.jsp">board</a></li>
+								<li><a href="main.jsp">logout</a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+	
 
 
-<h2 class="plan">Planner</h2>
+	<h2 class="plan">Planner</h2>
     <div class="grid">
         <figure class="effect-ming">
             <img src="images/yeonhee-VWLhifg5VMA-unsplash.jpg" alt="yeonhee-VWLhifg5VMA-unsplash"/>
