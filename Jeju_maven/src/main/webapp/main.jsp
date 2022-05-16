@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+		pageEncoding="UTF-8" isELIgnored="false"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML>
 <!--
 	Dimension by HTML5 UP
@@ -19,14 +21,17 @@
 		<!-- Wrapper -->
 			<div id="wrapper">
 				<nav>
-				
-					<a href="#login" class="soohyeon">login</a>
-					<a href="LogoutCon" class="soohyeon">logout</a>
+					<c:choose>
+						<c:when test="${empty loginMember}">
+							<a href="#login" class="soohyeon">login</a>
+						</c:when>
+						<c:otherwise>
+							<a href="LogoutCon" class="soohyeon">logout</a>
+						</c:otherwise>
+					</c:choose>
+					
 				</nav>
 			
-				
-			
-				
 				<!-- Header -->
 					<header id="header">
 					
