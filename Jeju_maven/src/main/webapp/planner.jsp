@@ -46,6 +46,13 @@
     </div>
     <button id ="btn1">+</button>
 	
+	
+	
+	
+
+	
+	
+	
 	<script>
     
     $('#btn1').click(function(){
