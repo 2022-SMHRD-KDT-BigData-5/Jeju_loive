@@ -10,6 +10,7 @@
 <form method="post" enctype="multipart/form-data" action="imgup.jsp">
 <input type="file" name="filename1" size=40>
 <input type="submit" value="업로드"><br><br>
+
 </form>
 
 </body>
