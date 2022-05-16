@@ -27,7 +27,7 @@
 							<ul>
 								<li><a href="planner.jsp">PLANNER</a></li>
 								<li><a href="diary1.jsp">DIARY</a></li>
-								<li><a href="tour_att.jsp">TOUR</a></li>
+								<li><a href="tour.jsp">TOUR</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
@@ -37,7 +37,7 @@
 			<!-- Top Navigation -->
 			<div class="codrops-top clearfix">
 				<a class="codrops-icon codrops-icon-prev" href="main.jsp"><span>메인으로 돌아가기</span></a>
-				<span class="right"><a class="codrops-icon codrops-icon-drop" href="upload.jsp"><span>내 다이어리 공유하기</span></a></span>
+				<span class="right"><a class="codrops-icon codrops-icon-drop" href="main.jsp"><span>로그아웃</span></a></span>
 			</div>
 			<header class="codrops-header">
 				<h1>BOARD <span>사용자들의 다이어리를 훔쳐보는 공간~~0.0~</span><br></h1>
