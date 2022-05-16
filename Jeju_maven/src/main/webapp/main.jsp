@@ -7,6 +7,7 @@
    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+<<<<<<< HEAD
    <head>
       <title>Dimension by HTML5 UP</title>
       <meta charset="utf-8" />
@@ -52,6 +53,49 @@
                
             <!-- Main -->
                <div id="main">
+=======
+	<head>
+		<title>Dimension by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+			
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<nav>
+					<a href="#login" class="soohyeon">login</a>
+				</nav>
+				<!-- Header -->
+					<header id="header">
+					
+						<div class="logo">
+							<span class="fas fa-plane"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>Dimension</h1>
+								<p>A fully responsive site template designed by <a href="https://html5up.net">HTML5 UP</a> and released<br />
+								for free under the <a href="https://html5up.net/license">Creative Commons</a> license.</p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="planner.jsp">planner</a></li>
+								<li><a href="diary1.jsp">diary</a></li>
+								<li><a href="tour.jsp">tour</a></li>
+								<li><a href="board.jsp">board</a></li>
+
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+					</header>
+					
+				<!-- Main -->
+					<div id="main">
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
 
                   <!-- Intro -->
