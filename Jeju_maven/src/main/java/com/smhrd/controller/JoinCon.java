@@ -39,7 +39,10 @@ public class JoinCon extends HttpServlet {
 			//response.sendRedirect("JoinSuccess.jsp");
 			RequestDispatcher rd = request.getRequestDispatcher("JoinSuccess.jsp");
 			request.setAttribute("joinId", id);
+			request.setAttribute("joinName", name);
 			rd.forward(request, response);
+			response.sendRedirect("main.jsp");
+					
 			
 		}else {  	//회원가입 실패
 			System.out.println("회원가입 실패");

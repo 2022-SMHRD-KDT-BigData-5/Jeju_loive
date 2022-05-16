@@ -3,255 +3,132 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="assets/css/diaryMain.css">
-<title>Insert title here</title>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>BlueSky</title>
+      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/css/style.css">
+      <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+	  <link rel="stylesheet" href="assest/css/fontawesome-all.min.css">
+      <link rel="stylesheet" href="assets/css/diaryHome.css" />
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+   </head>
+      <body class="is-preload">
 
-<script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+         <!-- Content -->
+            <div id="content">
+               <div class="inner">
+      <div id="home" class="slider">
+         <div id="main_slider" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+               <li data-target="#main_slider" data-slide-to="0" class="active"></li>
+               <li data-target="#main_slider" data-slide-to="1"></li>
+               <li data-target="#main_slider" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+               <div class="carousel-item active">
+                  
+					<!-- Post -->
+						<article class="box post post-excerpt" id="first">
+							<header>
+								<!--
+									Note: Titles and subtitles will wrap automatically when necessary, so don't worry
+									if they get too long. You can also remove the <p> entirely if you don't
+									need a subtitle.
+								-->
+								<h2><a href="#">Welcome to Striped</a></h2>
+								<p>A free, fully responsive HTML5 site template by HTML5 UP</p>
+							</header>
+							
+							<div>
+								<img src="images/slide1.jpg" alt="" class="test" />
+								<img src="images/slide2.jpg" alt="" class="test2"/>
+								
 
-</head>
-<body>
-<% pageContext.setAttribute("nick", "쿠키몬스터"); %>
-<div class="v-center"></div>
-<div id="container">
-  <div class="book">
-    <div class="first paper">
-      <div class="page front contents">
-        <div class="intro">
-          <h2>DIARY</h2>
-          <h1>2019</h1>
-        </div>
-      </div>
-      <div class="page back">
-      		<%
+							</div>
+							<img src="images/pic1.jpg" alt="" class="test3"/>
 							
-							String fullpath = (String)session.getAttribute("fullpath");
+							<p>
+								<strong>Hello!</strong> You're looking at <strong>Striped</strong>, a fully responsive HTML5 site template designed by <a href="http://twitter.com/ajlkn">AJ</a>
+								for <a href="http://html5up.net">HTML5 UP</a> It features a clean, minimalistic design, styling for all basic page elements (including blockquotes, tables and lists), a
+								repositionable sidebar (left or right), and HTML5/CSS3 code designed for quick and easy customization (see code comments for details).
+							</p>
+							<p>
+								Striped is released for free under the <a href="http://html5up.net/license">Creative Commons Attribution license</a> so feel free to use it for personal projects
+								or even commercial ones &ndash; just be sure to credit <a href="http://html5up.net">HTML5 UP</a> for the design. If you like what you see here, be sure to check out
+								<a href="http://html5up.net">HTML5 UP</a> for more cool designs or follow me on <a href="http://twitter.com/ajlkn">Twitter</a> for new releases and updates.
+							</p>
+						</article>
+                  
+               </div>
+               <div class="carousel-item">
+                  
+					<!-- Post -->
+						<article class="box post post-excerpt" id="first">
+							<header>
+								<!--
+									Note: Titles and subtitles will wrap automatically when necessary, so don't worry
+									if they get too long. You can also remove the <p> entirely if you don't
+									need a subtitle.
+								-->
+								<h2><a href="#">Welcome to Striped</a></h2>
+								<p>A free, fully responsive HTML5 site template by HTML5 UP</p>
+							</header>
+							<div class="info">
+								<!--
+									Note: The date should be formatted exactly as it's shown below. In particular, the
+									"least significant" characters of the month should be encapsulated in a <span>
+									element to denote what gets dropped in 1200px mode (eg. the "uary" in "January").
+									Oh, and if you don't need a date for a particular page or post you can simply delete
+									the entire "date" element.
+
+								-->
+								<span class="date"><span class="month">Jul<span>y</span></span> <span class="day">14</span><span class="year">, 2014</span></span>
+								<!--
+									Note: You can change the number of list items in "stats" to whatever you want.
+								-->
+								<ul class="stats">
+									<li><a href="#" class="icon fa-comment">16</a></li>
+									<li><a href="#" class="icon fa-heart">32</a></li>
+									<li><a href="#" class="icon brands fa-twitter">64</a></li>
+									<li><a href="#" class="icon brands fa-facebook-f">128</a></li>
+								</ul>
+							</div>
+							<div>
+								<img src="images/pic01.jpg" alt="" class="test" />
+								<img src="images/pic01.jpg" alt="" class="test2"/>
+								
+
+							</div>
+							<img src="images/pic01.jpg" alt="" class="test3"/>
 							
-							if (fullpath==null){
-							%>
-							<form method="post" enctype="multipart/form-data" action="imgup.jsp">
-							<input type="file" name="filename1" size=40>
-							<input type="submit" value="업로드"><br><br>
-							</form>
-							<%}
-							else{
-								%>
-								<img alt="추가하세요" src="<%=fullpath%>"width=50px height = 50px>
-								<%	
-							}%>	
+							<p>
+								<strong>Hello!</strong> You're looking at <strong>Striped</strong>, a fully responsive HTML5 site template designed by <a href="http://twitter.com/ajlkn">AJ</a>
+								for <a href="http://html5up.net">HTML5 UP</a> It features a clean, minimalistic design, styling for all basic page elements (including blockquotes, tables and lists), a
+								repositionable sidebar (left or right), and HTML5/CSS3 code designed for quick and easy customization (see code comments for details).
+							</p>
+							<p>
+								Striped is released for free under the <a href="http://html5up.net/license">Creative Commons Attribution license</a> so feel free to use it for personal projects
+								or even commercial ones &ndash; just be sure to credit <a href="http://html5up.net">HTML5 UP</a> for the design. If you like what you see here, be sure to check out
+								<a href="http://html5up.net">HTML5 UP</a> for more cool designs or follow me on <a href="http://twitter.com/ajlkn">Twitter</a> for new releases and updates.
+							</p>
+						</article>
+                  
+               </div>
+            </div>
+            <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+            <img src="images/left.png" alt="#" />
+            </a>
+            <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+            <img src="images/right.png" alt="#" />
+            </a>
+         </div>
       </div>
-    </div>
-    <div class="second paper">
-      <div class="page front contents">
-        <div id="vara-container"></div>
-        <button id="test">test</button>
-      </div>
-      <div class="page back">
-      	<img alt="실패" src="images/bg.jpg" width=300px height = 300px>
-      	
-      </div>
-    </div>
-    <div class="third paper">
-      <div class="page front contents">
-        <div id="vara-container2"></div>
-      </div>
-      <div class="page back"></div>
-    </div>
-    <div class="fourth paper">
-      <div class="page last front contents">
-        <div id="vara-container3"></div>
-      </div>
-      <div class="page back"></div>
-    </div>
-    <div class="side"></div>
-    <div class="bottom"></div>
-    <div class="shadow"></div>
-  </div>
+   </div>
 </div>
-<a id="link" href="https://github.com/akzhy/Vara" target="_blank">VIEW ON GITHUB</a>
-<script src="js/vara.min.js" type="text/javascript"></script>
-
-<script>
-<%
-response.setCharacterEncoding("UTF-8");
-fullpath="테스트입니다";%>
-var winWidth = $(window).width();
-var ratio = winWidth / 1920;
-var fontSize = {
-  small: 12,
-  medium: 14
-};
-var played = [0, 0, 0];
-var vara = [];
-var bodyFontSize = Math.max(16 * ratio, 10);
-var posX = Math.max(80 * ratio, 30);
-
-$("body").css("font-size", bodyFontSize + "px");
-fontSize.small = Math.max(fontSize.small * ratio, 7);
-fontSize.medium = Math.max(fontSize.medium * ratio, 10);
-vara[0] = new Vara(
-  "#vara-container",
-  "https://rawcdn.githack.com/akzhy/Vara/ed6ab92fdf196596266ae76867c415fa659eb348/fonts/Satisfy/SatisfySL.json",
-  [
-    {
-      text: "<%=fullpath%>",
-      textAlign: "right",
-      y: 20,
-      x: -30,
-      delay: 500,
-      duration: 1500,
-      fontSize: fontSize.small
-    },
-    {
-      text: "Start the year with something cool.",
-      y: 40,
-      x: posX,
-      duration: 4000
-    },
-    {
-      text: "Like with a library,",
-      id: "sphinx",
-      x: posX,
-      delay: 1000,
-      duration: 4500
-    },
-    {
-      text: "..... that can animate text writing",
-      id: "end",
-      color: "#3f51b5",
-      delay: 1000,
-      x: posX,
-      duration: 4500
-    }
-  ],
-  {
-    strokeWidth: 2,
-    fontSize: fontSize.medium,
-    autoAnimation: false
-  }
-);
-vara[1] = new Vara(
-  "#vara-container2",
-  "https://rawcdn.githack.com/akzhy/Vara/ed6ab92fdf196596266ae76867c415fa659eb348/fonts/Satisfy/SatisfySL.json",
-  [
-    {
-	 
-      text: "16 Jan 2019",
-      textAlign: "right",
-      delay: 500,
-      y: 20,
-      x: -30,
-      duration: 1500,
-      fontSize: fontSize.small
-    },
-    {
-      text: "Try to create something else.",
-      y: 40,
-      x: posX,
-      duration: 4000
-    },
-    {
-      text: "Like a diary or a todo list.",
-      y: 40,
-      x: posX,
-      duration: 3500
-    }
-  ],
-  {
-    strokeWidth: 2,
-    fontSize: fontSize.medium,
-    autoAnimation: false
-  }
-);
-vara[2] = new Vara(
-  "#vara-container3",
-  "https://rawcdn.githack.com/akzhy/Vara/ed6ab92fdf196596266ae76867c415fa659eb348/fonts/Satisfy/SatisfySL.json",
-  [
-    {
-      text: "17 Jan 2019",
-      textAlign: "right",
-      delay: 500,
-      y: 20,
-      x: -30,
-      duration: 1500,
-      fontSize: fontSize.small
-    },
-    {
-      text: "Creating a Diary.",
-      y: 40,
-      x: posX,
-      duration: 4000
-    },
-    {
-      text: "View the library on,",
-      y: 20,
-      x: posX,
-      duration: 3500
-    },
-    {
-      text: "Github.",
-      y: 10,
-      color: "#3f51b5",
-      id: "link",
-      x: posX,
-      duration: 1500
-    }
-  ],
-  {
-    strokeWidth: 2,
-    fontSize: fontSize.medium,
-    autoAnimation: false
-  }
-);
-vara[2].ready(function() {
-  $(".front:not(.last)").click(function() {
-    var ix = $(this)
-      .parent(".paper")
-      .index();
-    $(".book").addClass("open");
-    $(this)
-      .parent(".paper")
-      .addClass("open");
-    if (!played[ix]) {
-      vara[ix].playAll();
-      vara[ix].animationEnd(function(i, o) {
-        played[ix] = 1;
-        if (i == "link") {
-          var group = o.container;
-          var rect = vara[2].createNode("rect", {
-            x: 0,
-            y: 0,
-            width: o.container.getBoundingClientRect().width,
-            height: o.container.getBoundingClientRect().height,
-            fill: "transparent"
-          });
-          group.appendChild(rect);
-          $(rect).css("cursor", "pointer");
-          $(rect).click(function() {
-            console.log(true);
-            document.querySelector("#link").click();
-          });
-        }
-      });
-    }
-  });
-  $(".back").click(function() {
-    if (
-      $(this)
-        .parent(".paper")
-        .index() == 0
-    )
-      $(".book").removeClass("open");
-    $(this)
-      .parent(".paper")
-      .removeClass("open");
-  });
-});
-
-
-</script>
-
-
-</body>
+      <script src="js/jquery-3.3.1.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      
+   </body>
 </html>
