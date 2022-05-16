@@ -4,13 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.domain.MemberDAO">
 	<insert id="insertMember" parameterType="com.smhrd.domain.Member">
-		insert into member(mem_id,mem_pw,mem_name,mem_tel) values(#{id}, #{pw}, #{name}, #{tel})
+		insert into member values(#{id}, #{pw}, #{name}, #{tel})
 	</insert>
 	<select id="selectMember" parameterType="com.smhrd.domain.Member" resultType="com.smhrd.domain.Member">
-		select * from member where email=#{id} and pw=#{pw}
+		select * from member where mem_id=#{id} and mem_pw=#{pw}
 	</select>
 	<update id="updateMember" parameterType="com.smhrd.domain.Member">
-		update member set pw=#{pw}, tel=#{tel}, name=#{name} where id=#{id}
+		update member set mem_pw=#{pw}, mem_tel=#{tel}, mem_name=#{name} where mem_id=#{id}
 	</update>
 	
 	<select id="selectAll" resultType="com.smhrd.domain.Member">
@@ -18,10 +18,10 @@
 	</select>
 	
 	<delete id="deleteMember" parameterType="String">
-		delete from member where id = #{id}
+		delete from member where mem_id = #{id}
 	</delete>
 	
-	<select id="selectEmail" parameterType="String" resultType="String">
-		select email from member where id=#{id}
+	<select id="selectId" parameterType="String" resultType="String">
+		select * from member where mem_id=#{id}
 	</select>
 </mapper>

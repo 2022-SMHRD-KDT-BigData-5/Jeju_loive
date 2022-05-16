@@ -23,16 +23,16 @@
 		<div class="container">
 			<!-- Top Navigation -->
 			<div class="codrops-top clearfix">
-				<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Tutorials/FourBoxes/"><span>Previous Demo</span></a>
-				<span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=19292"><span>Back to the Codrops Article</span></a></span>
+				<a class="codrops-icon codrops-icon-prev" href="main.jsp"><span>메인으로 돌아가기</span></a>
+				<span class="right"><a class="codrops-icon codrops-icon-drop" href="planner.jsp"><span>플래너 생성하기</span></a></span>
 			</div>
 			<header class="codrops-header">
-				<h1>Tour <span>관광지에 대한 정보를 추천해주는 메뉴입니다.</span></h1>
+				<h1>Food<span>관광지에 대한 정보를 추천해주는 메뉴입니다.</span></h1>
 				<nav class="codrops-demos">
 	
-					<a class="current-demo" href="#">관광지</a>
-					<a href="#">음식점</a>
-					<a href="#">카페</a>
+					<a  href="tour_att.jsp">관광지</a>
+					<a class="current-demo" href="tour_food.jsp">음식점</a>
+					<a href="tour_cafe.jsp">카페</a>
 					
 				</nav>
 			</header>
@@ -62,12 +62,13 @@
 				</div>
 			</div>
 			<nav class="codrops-demos">
-				<a class="current-demo" href="diary1.jsp">Set 1</a>
-				<a href="diary2.jsp">Set 2</a>
+					<a  href="tour_att.jsp">관광지</a>
+					<a class="current-demo" href="tour_food.jsp">음식점</a>
+					<a href="tour_cafe.jsp">카페</a>
 			</nav>
 			<!-- Related demos -->
 			<section class="related">
-				<p>Images from <a href="http://unsplash.com/">Unsplash</a>. <a href="https://gumroad.com/l/feather">Feather Icons</a> by Cole Bemis.</p>
+				
 				
 				
 				
