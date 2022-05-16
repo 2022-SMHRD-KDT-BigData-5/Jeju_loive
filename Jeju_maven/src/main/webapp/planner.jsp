@@ -15,21 +15,21 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/set2.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/plusButton.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
 		<script src = "https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 	
-
-	<nav id = "menuBlock">
+	<header id = "menuBlock">
+	<nav>
 							<ul>
-								<li><a href="planner.jsp">planner</a></li>
+								<li><a href="main.jsp">main</a></li>
 								<li><a href="diary1.jsp">diary</a></li>
 								<li><a href="upload.jsp">tour</a></li>
-								<li><a href="upload.jsp">board</a></li>
-								<li><a href="main.jsp">logout</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
+	</header>
 	
 
 
