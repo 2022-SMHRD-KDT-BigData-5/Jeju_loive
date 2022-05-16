@@ -20,7 +20,12 @@
 			<div id="wrapper">
 				<nav>
 					<a href="#login" class="soohyeon">login</a>
+					<a href="LogoutCon">logout</a>
 				</nav>
+			
+				
+			
+				
 				<!-- Header -->
 					<header id="header">
 					
