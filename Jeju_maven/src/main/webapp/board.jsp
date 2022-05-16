@@ -15,16 +15,29 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
 		<!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 </head>
 <body>
+
+<header id = "menuBlock">
+	<nav>
+							<ul>
+								<li><a href="planner.jsp">PLANNER</a></li>
+								<li><a href="diary1.jsp">DIARY</a></li>
+								<li><a href="tour.jsp">TOUR</a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+	</header>
+
 <div class="container">
 			<!-- Top Navigation -->
 			<div class="codrops-top clearfix">
-				<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Tutorials/FourBoxes/"><span>Previous Demo</span></a>
-				<span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=19292"><span>Back to the Codrops Article</span></a></span>
+				<a class="codrops-icon codrops-icon-prev" href="main.jsp"><span>메인으로 돌아가기</span></a>
+				<span class="right"><a class="codrops-icon codrops-icon-drop" href="main.jsp"><span>로그아웃</span></a></span>
 			</div>
 			<header class="codrops-header">
 				<h1>BOARD <span>사용자들의 다이어리를 훔쳐보는 공간~~0.0~</span><br></h1>
@@ -44,7 +57,7 @@
 							<h2>오늘도 <span>돼지력 폭발♥</span></h2>
 							<p class="icon-links">
 								<a href="#"><span class="icon-heart"></span></a>
-								<a href="#"><span class="icon-eye"></span></a>
+								<a href="#"><span class="icon-eye">🐷🐷<span></a>
 								<a href="#"><span class="icon-paper-clip"></span></a>
 							</p>
 							<p class="description">큐티돼지 히요니의 비밀 일기~~<br> 절대 훔쳐보지 마세욧!!!-_-+</p>
@@ -56,7 +69,7 @@
 							<h2>우리가 <span>함께한</span>순간</h2>
 							<p class="icon-links">
 								<a href="#"><span class="icon-heart"></span></a>
-								<a href="#"><span class="icon-eye"></span></a>
+								<a href="#"><span class="icon-eye">💑💑<span></a>
 								<a href="#"><span class="icon-paper-clip"></span></a>
 							</p>
 							<p class="description">네가 있어서...<br> 모든 게 완벽했다...<br> 이 날의 조명, 온도, 습도까지...</p>
