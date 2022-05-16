@@ -37,6 +37,7 @@
 											<label for="id">ID</label>
 											<input type="text" name="j_id" id="j_id" />
 										</div>
+										<il><input type="button" value="email중복체크" onclick="emailCheck()"></il>
 										<br><div class="field half">
 											<label for="idck">사용할 수 있는 ID입니다.</label>
 											<input type="button" name="j_idck" id="j_idck" />
