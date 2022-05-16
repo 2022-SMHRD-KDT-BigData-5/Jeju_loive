@@ -1,15 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원가입 성공</title>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+<link rel="stylesheet" href="assets/css/main.css" />
+<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+
 </head>
-<body>
-<!-- 회원가입 -->
-								<h2 class="major">회원가입</h2>
-								<form method="post" action="JoinCon">
+
+
+<body style="text-align: center;">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+		<!-- Menu -->
+		<form method="post" action="JoinCon">
 									<div class="fields">
 										<div class="field half">
 											<label for="name">이름</label>
@@ -38,18 +49,24 @@
 											<label for="password">비밀번호확인</label>
 											<input type="password" name="j_pwck" id="j_pwck" />
 										</div>
-									
+										<img src="">
+										
 									</div>
 									<ul class="actions">
 										<li><input type="submit" value="JOIN" class="primary" /></li>
 										<!-- <li><input type="reset" value="Reset" /></li> -->
 									</ul>
 								</form>
-								<ul class="icons">
-									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
+		<a href="main.jsp"><input type="button" value="메인페이지로"></a> </nav>
+	</div>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
 </body>
 </html>
+
