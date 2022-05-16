@@ -25,7 +25,7 @@
 							<ul>
 								<li><a href="main.jsp">main</a></li>
 								<li><a href="diary1.jsp">diary</a></li>
-								<li><a href="upload.jsp">tour</a></li>
+								<li><a href="tour_att.jsp">tour</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
