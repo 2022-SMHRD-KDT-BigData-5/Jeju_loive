@@ -90,7 +90,9 @@
 									<ul class="actions">
 										<li><input type="submit" value="Login" class="primary" /></li>
 										
-										<a href="Join.jsp" id="jsjoin"><li>Join</li></a>
+										<li>
+											<input type="button" value="Join" class="primary" onclick="location.href='Join.jsp'"/>
+										</li>
 										
 									</ul>
 									
