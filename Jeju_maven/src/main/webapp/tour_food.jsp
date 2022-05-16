@@ -38,7 +38,28 @@
 			</header>
 			<div class="content">
 				
-				<h2>Marley</h2>
+				<%for(int i=0; i<5; i++){
+				}%>
+				<h2>양식</h2>
+				<div class="grid">
+					<figure class="effect-marley">
+						<img src="images/1.jpg" alt="img11"/>
+						<figcaption>
+							<h2>Sweet <span>Marley</span></h2>
+							<p>Marley tried to convince her but she was not interested.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+					<figure class="effect-marley">
+						<img src="images/1.jpg" alt="img12"/>
+						<figcaption>
+							<h2>Sweet <span>Marley</span></h2>
+							<p>Marley tried to convince her but she was not interested.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+				</div>
+				<h2>한식</h2>
 				<div class="grid">
 					<figure class="effect-marley">
 						<img src="images/1.jpg" alt="img11"/>

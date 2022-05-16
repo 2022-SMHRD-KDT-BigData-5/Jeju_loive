@@ -15,17 +15,33 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
 		<!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 	</head>
 	<body>
+	
+		<header id = "menuBlock">
+	<nav>
+							<ul>
+								<li><a href="main.jsp">main</a></li>
+								<li><a href="diary1.jsp">diary</a></li>
+								<li><a href="tour_att.jsp">tour</a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+	</header>
+	
+	
+	
 		<div class="container">
 			<!-- Top Navigation -->
 			<div class="codrops-top clearfix">
 				<a class="codrops-icon codrops-icon-prev" href="main.jsp"><span>메인으로 돌아가기</span></a>
 				<span class="right"><a class="codrops-icon codrops-icon-drop" href="planner.jsp"><span>플래너 생성하기</span></a></span>
 			</div>
+			
 			<header class="codrops-header">
 				<h1>attraction<span>관광지에 대한 정보를 추천해주는 메뉴입니다.</span></h1>
 				<nav class="codrops-demos">
@@ -38,26 +54,61 @@
 			</header>
 			<div class="content">
 				
-				<h2>Marley</h2>
+				<h2>관광지 카테고리1</h2>
 				<div class="grid">
 					<figure class="effect-marley">
-						<img src="images/1.jpg" alt="img11"/>
+						<img src="images/벌레.png" alt="img11"/>
 						<figcaption>
-							<h2>Sweet <span>Marley</span></h2>
-							<p>Marley tried to convince her but she was not interested.</p>
+							<h2>진짜 멋있는<span>금오름</span></h2>
+							<p>관광지의 주소가 출력되는 곳입니다.</p>
 							<a href="#">View more</a>
 						</figcaption>			
 					</figure>
 					<figure class="effect-marley">
 						<img src="images/1.jpg" alt="img12"/>
 						<figcaption>
-							<h2>Sweet <span>Marley</span></h2>
-							<p>Marley tried to convince her but she was not interested.</p>
+							<h2>꼭 가야하는<span>한라산</span></h2>
+							<p>관광지의 주소가 출력되는 곳입니다.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+					<figure class="effect-marley">
+						<img src="images/1.jpg" alt="img12"/>
+						<figcaption>
+							<h2>별로 안가고싶은<span>관광지</span></h2>
+							<p>관광지의 주소가 출력되는 곳입니다.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+					<figure class="effect-marley">
+						<img src="images/1.jpg" alt="img12"/>
+						<figcaption>
+							<h2>별로 안가고싶은<span>관광지</span></h2>
+							<p>관광지의 주소가 출력되는 곳입니다.</p>
 							<a href="#">View more</a>
 						</figcaption>			
 					</figure>
 				</div>
-						
+				
+				<h2>관광지 카테고리2</h2>
+				<div class="grid">
+					<figure class="effect-marley">
+						<img src="images/벌레.png" alt="img11"/>
+						<figcaption>
+							<h2>진짜 멋있는<span>금오름</span></h2>
+							<p>관광지의 주소가 출력되는 곳입니다.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+					<figure class="effect-marley">
+						<img src="images/1.jpg" alt="img12"/>
+						<figcaption>
+							<h2>꼭 가야하는<span>한라산</span></h2>
+							<p>관광지의 주소가 출력되는 곳입니다.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+				</div>
 					
 				</div>
 			</div>
