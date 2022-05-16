@@ -39,20 +39,29 @@
 			<div class="content">
 				
 				<h2>Marley</h2>
+				
 				<div class="grid">
 					<figure class="effect-marley">
-						<img src="images/1.jpg" alt="img11"/>
+						<img src="images/벌레.png" alt="img11"/>
 						<figcaption>
-							<h2>Sweet <span>Marley</span></h2>
-							<p>Marley tried to convince her but she was not interested.</p>
+							<h2>진짜 멋있는<span>금오름</span></h2>
+							<p>관광지의 주소가 출력되는 곳입니다.</p>
 							<a href="#">View more</a>
 						</figcaption>			
 					</figure>
 					<figure class="effect-marley">
 						<img src="images/1.jpg" alt="img12"/>
 						<figcaption>
-							<h2>Sweet <span>Marley</span></h2>
-							<p>Marley tried to convince her but she was not interested.</p>
+							<h2>꼭 가야하는<span>한라산</span></h2>
+							<p>관광지의 주소가 출력되는 곳입니다.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+					<figure class="effect-marley">
+						<img src="images/1.jpg" alt="img12"/>
+						<figcaption>
+							<h2>별로 안가고싶은<span>관광지</span></h2>
+							<p>관광지의 주소가 출력되는 곳입니다.</p>
 							<a href="#">View more</a>
 						</figcaption>			
 					</figure>
