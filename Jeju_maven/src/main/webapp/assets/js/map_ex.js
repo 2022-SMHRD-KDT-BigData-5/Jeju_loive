@@ -1,18 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<div id="map" style="width: 500px; height: 400px;"></div>
-	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services,clusterer,drawing"></script>
 
-	<script src="./ex10외부방식.js"></script>
-	<script>
 	// 마커를 담을 배열입니다
 	var markers = [];
 
@@ -229,9 +215,3 @@
 	        el.removeChild (el.lastChild);
 	    }
 	}
-	</script>
-
-
-
-</body>
-</html>
