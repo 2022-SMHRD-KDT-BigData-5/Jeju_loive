@@ -3,32 +3,37 @@
 <html>
 
 <head>
-<title>Forty by HTML5 UP</title>
+<title>회원가입 성공</title>
 <meta charset="UTF-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 <link rel="stylesheet" href="assets/css/main.css" />
 <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+
 </head>
 
-<style>
-</style>
 
 <body style="text-align: center;">
+<style>
+	
 
+</style>
 	<!-- Wrapper -->
 	<div id="wrapper">
 		<!-- Menu -->
-		<nav id="Update"> <font size="8">회원가입성공</font>
-		<br>
-		정보를 확인하세요<br>
-		<br>
+		<nav id="Update"> <font size="8">회원가입성공!</font>
+		<li>제주살앙에 오신걸 환영합니다!<li>
+		
 		
 		<table>
 			<tr>
 				<td>Id</td>	
 				<td>${requestScope.joinId}</td>
+				<td>name</td>
+				<td>${requestScope.joinName}</td>
+				<td>${name }님, 가입을 환영합니다.</td>
 			</tr>
 		</table>
 		<a href="main.jsp"><input type="button" value="메인페이지로"></a> </nav>
