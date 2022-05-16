@@ -27,7 +27,7 @@
 				<span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=19292"><span>Back to the Codrops Article</span></a></span>
 			</div>
 			<header class="codrops-header">
-				<h1>Hover Effect Ideas <span>An inspirational collection of subtle hover effects</span></h1>
+				<h1>Tour <span>관광지에 대한 정보를 추천해주는 메뉴입니다.</span></h1>
 				<nav class="codrops-demos">
 	
 					<a class="current-demo" href="#">관광지</a>
@@ -57,28 +57,8 @@
 						</figcaption>			
 					</figure>
 				</div>
-						<%
-							
-							String fullpath = (String)session.getAttribute("fullpath");
-							
-							if (fullpath==null){
-							%>
-							<form method="post" enctype="multipart/form-data" action="imgup.jsp">
-							<input type="file" name="filename1" size=40>
-							<input type="submit" value="업로드"><br><br>
-							</form>
-							<%}
-							else{
-								%>
-								<img alt="추가하세요" src="<%=fullpath%>">
-								<figcaption>
-								<h2>Faithful <span>Milo</span></h2>
-								<p>Milo went to the woods. He took a fun ride and never came back.</p>
-								<a href="#">View more</a>
-								</figcaption>
-								<%	
-							}%>		
-					</figure>
+						
+					
 				</div>
 			</div>
 			<nav class="codrops-demos">
