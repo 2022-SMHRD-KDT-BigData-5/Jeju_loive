@@ -21,14 +21,14 @@ public class LoginCon extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		//아이디, 비밀번호를 받아와서
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
+		String id = request.getParameter("l_id");
+		String pw = request.getParameter("l_pw");
 		//Member객체에 담기
 		Member m_vo = new Member(id, pw);
 		
 		MemberDAO dao = new MemberDAO();
-		Member loginMember=null;
 		
+		Member loginMember=null;
 		loginMember = dao.selectMember(m_vo);
 		
 		if(loginMember != null) {

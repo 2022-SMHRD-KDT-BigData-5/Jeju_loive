@@ -18,6 +18,7 @@ public class Member {
 			this.name = name;
 			this.tel = tel;
 		}
+		
 		public Member(String id, String pw) {
 			super();
 			this.id = id;
