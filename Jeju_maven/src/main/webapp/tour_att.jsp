@@ -55,16 +55,26 @@
 		</header>
 		<div class="content">
 		
-		<!--  -->
-			<c:forEach var="m" items="${msList}" varStatus="status">
-				<tr>
-					<td>${status.count}</td>
-					<td><c:out value="${m.sendEmail}" /></td>
-					<td><c:out value="${m.message}" /></td>
-					<td><c:out value="${m.date}" /></td>
-					<td><a href="DeleteMessageCon?msgNum=${m.num}">삭제</a></td>
-				</tr>
+		<!-- 관광지 정보 반복출력 -->
+		
+		<h2>관광지 카테고리1</h2>
+			<div class="grid">
+			<c:forEach var="m" items="${attList}" varStatus="status">
+				
+				<figure class="effect-marley">
+				
+					<img src="images/벌레.png" alt="img11" />
+					<figcaption>
+						<h2>
+							진짜 멋있는<span>금오름</span>
+						</h2>
+						<p>관광지의 주소가 출력되는 곳입니다.</p>
+						<a href="#">View more</a>
+					</figcaption>
+				</figure>
 			</c:forEach>
+			</div>
+			
 			
 			<h2>관광지 카테고리1</h2>
 			<div class="grid">
