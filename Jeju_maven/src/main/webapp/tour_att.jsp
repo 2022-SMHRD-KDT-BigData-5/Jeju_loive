@@ -55,16 +55,20 @@
 		</header>
 		<div class="content">
 		
-		<!--  -->
-			<c:forEach var="m" items="${msList}" varStatus="status">
+		<!-- 관광지 정보 반복출력 -->
+		<h2>관광지 카테고리1</h2>
+			<div class="grid">
+			<c:forEach var="m" items="${attList}" varStatus="status">
 				<tr>
 					<td>${status.count}</td>
-					<td><c:out value="${m.sendEmail}" /></td>
+					<td><c:out value="${m.이미지주소}" /></td>
 					<td><c:out value="${m.message}" /></td>
 					<td><c:out value="${m.date}" /></td>
 					<td><a href="DeleteMessageCon?msgNum=${m.num}">삭제</a></td>
 				</tr>
 			</c:forEach>
+			</div>
+			
 			
 			<h2>관광지 카테고리1</h2>
 			<div class="grid">
