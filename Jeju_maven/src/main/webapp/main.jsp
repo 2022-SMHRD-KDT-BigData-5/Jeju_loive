@@ -38,8 +38,13 @@
 							<ul>
 								<li><a href="planner.jsp">planner</a></li>
 								<li><a href="diary1.jsp">diary</a></li>
+<<<<<<< HEAD
+								<li><a href="tour.jsp">tour</a></li>
+								<li><a href="board.jsp">board</a></li>
+=======
 								<li><a href="tour_att.jsp">tour</a></li>
 								<li><a href="upload.jsp">board</a></li>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
