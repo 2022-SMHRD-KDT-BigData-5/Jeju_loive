@@ -12,6 +12,7 @@
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
 
+
 </head>
 
 
@@ -50,13 +51,15 @@
 											<label for="password">비밀번호확인</label>
 											<input type="password" name="j_pwck" id="j_pwck" />
 										</div>
-										<img src="">
+										
 										
 									</div>
+									<div style="text-align: cetner;">
 									<ul class="actions">
-										<li><input type="submit" value="JOIN" class="primary" /></li>
+										<li><input type="submit" value="JOIN" class="primary"/></li>
 										<!-- <li><input type="reset" value="Reset" /></li> -->
 									</ul>
+									</div>
 								</form>
 		<a href="main.jsp"><input type="button" value="메인페이지로"></a> </nav>
 	</div>
