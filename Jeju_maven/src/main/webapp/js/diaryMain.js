@@ -1,3 +1,4 @@
+
 var winWidth = $(window).width();
 var ratio = winWidth / 1920;
 var fontSize = {
@@ -169,3 +170,8 @@ vara[2].ready(function() {
       .removeClass("open");
   });
 });
+
+
+
+
+

@@ -21,31 +21,32 @@
 	<div id="wrapper">
 		<!-- Menu -->
 		<form method="post" action="JoinCon">
-									<div class="fields">
-										<div class="field half">
+		<h1 style="text-align: cetner;">회원가입 하기</h1>
+									<h1><div class="fields"></h1>
+										<br><div class="field half">
 											<label for="name">이름</label>
 											<input type="text" name="name" id="name" />
 										</div>
-										<div class="field half">
+										<br><div class="field half">
 											<label for="tel">전화번호</label>
 											<input type="text" name="tel" id="tel" />
 											
 										</div>
-										<div class="field half">
+										<br><div class="field half">
 											<label for="id">ID</label>
 											<input type="text" name="j_id" id="j_id" />
 										</div>
-										<div class="field half">
+										<br><div class="field half">
 											<label for="idck">사용할 수 있는 ID입니다.</label>
 											<input type="button" name="j_idck" id="j_idck" />
 										</div>
 										
 										
-										<div class="field half">
+										<div class="field half"><br>
 											<label for="password">비밀번호</label>
 											<input type="password" name="j_pw" id="j_pw" />
 										</div>
-										<div class="field half">
+										<div class="field half"><br>
 											<label for="password">비밀번호확인</label>
 											<input type="password" name="j_pwck" id="j_pwck" />
 										</div>
