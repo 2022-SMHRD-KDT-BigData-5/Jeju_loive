@@ -37,10 +37,12 @@
 				<h2>Lily</h2>
 				<div class="grid">
 					<figure class="effect-lily">
+						<a href ="diaryMain.jsp">
 						<img src="images/1.jpg" alt="img12"/>
+						</a>
 						<figcaption>
 							<div>
-								<h2>Nice <span>Lily</span></h2>
+								<h2>1일차 <span>추억</span></h2>
 								<p>Lily likes to play with crayons and pencils</p>
 							</div>
 							<a href="#">View more</a>
