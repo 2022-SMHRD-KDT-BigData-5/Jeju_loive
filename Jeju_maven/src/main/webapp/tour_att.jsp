@@ -107,7 +107,6 @@
 			</div>
 		
 
-<<<<<<< HEAD
 
 			<h2>관광지 카테고리2</h2>
 			<div class="grid">
@@ -122,7 +121,6 @@
 					</figcaption>
 				</figure>
 			</div>
-=======
 		<h2>관광지 카테고리1</h2>
 			<div class="grid">
 			
@@ -142,7 +140,6 @@
 			</c:forEach>
 			</div>
 			
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
 		</div>
 		
