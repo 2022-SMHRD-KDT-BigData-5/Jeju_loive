@@ -8,12 +8,12 @@
 		select * from tour where tour_num > 600
 	</select>
 	
-	<select id="FoodList" resultType="com.smhrd.domain.tour">
-		select * from tour where tour_num between 1 and 400
+	<select id="selectFoodList" resultType="com.smhrd.domain.tour">
+		select * from tour where tour_num between 1 and 400 order by tour_num
 	</select>
 	
-	<select id="CafeList" resultType="com.smhrd.domain.tour">
-		select * from tour where tour_num between 401 and 600
+	<select id="selectCafeList" resultType="com.smhrd.domain.tour">
+		select * from tour where tour_num between 401 and 600 order by tour_num
 	</select>
 
 </mapper>

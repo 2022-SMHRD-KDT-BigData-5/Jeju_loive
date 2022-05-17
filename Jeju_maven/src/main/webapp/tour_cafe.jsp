@@ -1,13 +1,16 @@
+
 <%@page import="com.smhrd.domain.tour"%>
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.domain.tourDAO"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<% 
-	tourDAO dao = new tourDAO();
-	List<tour> tourList = dao.selectTourList();
-	pageContext.setAttribute("tourList", tourList);
+
+<%
+tourDAO dao = new tourDAO();
+List<tour> cafeList = dao.selectCafeList();
+pageContext.setAttribute("cafeList", cafeList);
 %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -73,6 +76,20 @@
 				</h1>
 				<nav class="codrops-demos">
 
+<<<<<<< HEAD
+			</nav>
+
+		</div><!-- /container -->
+		<script>
+			// For Demo purposes only (show hover effect on mobile devices)
+			[].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
+				el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
+			} );
+		</script>
+	</body>
+
+		</header>
+=======
 					<a href="tour_att.jsp">관광지</a>
 					<a href="tour_food.jsp">음식점</a>
 					<a href="#" class="current-demo">카페</a>
@@ -82,9 +99,35 @@
 		
 		
 		
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 		<div class="content">
 		
+<<<<<<< HEAD
+		
+		<h2>츄릅</h2>
+			<div class="grid">
+			
+			<c:forEach var="c" items="${cafeList}" varStatus="status">
+				
+				<figure class="effect-marley">
+				
+					<img src="images/벌레.png" alt="img11" />
+					<figcaption>
+						<h2>
+							<span><c:out value="${c.name}"/></span>
+							
+						</h2>
+						<p><c:out value="${c.address}"/></p>
+						<a href="#">View more</a>
+					</figcaption>
+				</figure>
+			</c:forEach>
+			</div>
+		
+		
+=======
 		<!-- 관광지 정보 반복출력 -->
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
 		<h2>관광지 카테고리1</h2>
 			<div class="grid">
@@ -96,7 +139,11 @@
 					<img src="images/벌레.png" alt="img11" /> <!-- 이미지 주소 출력하는곳 -->
 					<figcaption>
 						<h2>
+<<<<<<< HEAD
+							<span><%=cafeList.get(0).getName() %></span>
+=======
 							<span>${t.name}</span>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 						</h2>
 						<p>${t.address}</p>
 						<a href="#">View more</a>
