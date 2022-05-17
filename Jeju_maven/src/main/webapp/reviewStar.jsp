@@ -5,21 +5,33 @@
 <head>
 <meta charset="UTF-8">
 <title>별점</title>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script>
+		$(function(){
+			const rate=4.3;
+			const max=5;
+			const percent = rate/max*100;
+		
+			$(."score-wrapper").find(".foreground").css("width",percent+"%");
+			$(."scope-wrapper").find(".display").text(rate);
+		});
+	</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" type="text/css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin type="text/css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="assets/css/reviewStar.css"/>
 </head>
-<link rel="stylesheet" href="css/reviewStar.css">
 
 <body>
-	<div class="star-rating mx-auto">
-	<input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
-	<label for="5-stars" class="star pr-4">★</label>
-	<input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
-	<label for="4-stars" class="star">★</label>
-	<input type="radio" id="3-stars" name="rating" value="3" v-model="ratings"/>
-	<label for="3-stars" class="star">★</label>
-	<input type="radio" id="2-stars" name="rating" value="2" v-model="ratings"/>
-	<label for="2-stars" class="star">★</label>
-	<input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
-	<label for="1-star" class="star">★</label>
-</div>
+	<div class="score-wrapper">
+		<div class="score">
+			<div class="foreground">★★★★★</div>
+			<div class="background">☆☆☆☆☆</div>
+		</div>
+		<span class="display">
+			4.3
+		</span>43
+	</div>
 </body>
 </html>
