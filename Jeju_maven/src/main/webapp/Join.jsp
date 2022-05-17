@@ -12,6 +12,7 @@
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
 
+
 </head>
 
 
@@ -36,6 +37,7 @@
 											<label for="id">ID</label>
 											<input type="text" name="j_id" id="j_id" />
 										</div>
+										<il><input type="button" value="email중복체크" onclick="emailCheck()"></il>
 										<br><div class="field half">
 											<label for="idck">사용할 수 있는 ID입니다.</label>
 											<input type="button" name="j_idck" id="j_idck" />
@@ -50,16 +52,24 @@
 											<label for="password">비밀번호확인</label>
 											<input type="password" name="j_pwck" id="j_pwck" />
 										</div>
-										<img src="">
+										
 										
 									</div>
+<<<<<<< HEAD
 									
 									
+=======
+									<div style="text-align: cetner;">
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 									<ul class="actions">
-										<li><input type="submit" value="JOIN" class="primary" /></li>
+										<li><input type="submit" value="JOIN" class="primary"/></li>
 										<!-- <li><input type="reset" value="Reset" /></li> -->
 									</ul>
+<<<<<<< HEAD
 									
+=======
+									</div>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 								</form>
 		<a href="main.jsp"><input type="button" value="메인페이지로" ></a> </nav>
 	</div>

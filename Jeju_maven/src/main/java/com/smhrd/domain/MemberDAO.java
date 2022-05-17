@@ -54,6 +54,29 @@ public class MemberDAO {
 	      }
 	      return loginMember;
 	   }
+   //이메일 체크 기능
+   public boolean emailCheck(String email) {
+			SqlSession sqlSession = sqlSessionFactory.openSession();
+			boolean check = false; //사용할 수 있으면(db에 값이 없다) - true
+								   //사용할 수 없으면(db에 값이 있다) - false
+		try {
+			//email2 -> 이미 있는 이메일 입력한 경우에는 해당하는 이메일이 그대로 반환
+			//		 -> 없는 이메일 입력한 경우에는 null 반환
+			String email2 = sqlSession.selectOne("com.smhrd.domain.MemberDAO.selectEmail",email);
+			if(email2!=null) {
+				check=false;
+				sqlSession.commit();
+			}else {
+				check=true;
+				sqlSession.commit(); //select는 commit/rollback 생략 가능
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		return check;
+		}
    		
    	
    		

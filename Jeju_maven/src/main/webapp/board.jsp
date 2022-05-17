@@ -27,7 +27,7 @@
 							<ul>
 								<li><a href="planner.jsp">PLANNER</a></li>
 								<li><a href="diary1.jsp">DIARY</a></li>
-								<li><a href="tour.jsp">TOUR</a></li>
+								<li><a href="tour_att.jsp">TOUR</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
