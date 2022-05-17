@@ -9,6 +9,14 @@ public class inplan {
 	private String plan_pen;
 	private String mem_id;
 	
+	
+	
+	
+	public inplan(String mem_id) {
+		super();
+		this.mem_id = mem_id;
+	}
+
 	public int getInplan_num() {
 		return inplan_num;
 	}
