@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.smhrd.domain.tourDAO">
+	<select id="selectTourList" resultType="com.smhrd.domain.tour">
+		select * from tour where tour_num > 600
+	</select>
+	
+	<select id="FoodList" resultType="com.smhrd.domain.tour">
+		select * from tour where tour_num between 1 and 400
+	</select>
+	
+	<select id="CafeList" resultType="com.smhrd.domain.tour">
+		select * from tour where tour_num between 401 and 600
+	</select>
+
+</mapper>

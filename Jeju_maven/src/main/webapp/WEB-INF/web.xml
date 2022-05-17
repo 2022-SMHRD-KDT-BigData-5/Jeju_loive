@@ -1,3 +1,4 @@
+
 <!DOCTYPE web-app PUBLIC
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
@@ -40,6 +41,12 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.IdCheckCon</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>diaryCon</servlet-name>
+  	<display-name>diaryCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.diaryCon</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginCon</servlet-name>
   	<url-pattern>/LoginCon</url-pattern>
@@ -63,5 +70,9 @@
   <servlet-mapping>
   	<servlet-name>IdCheckCon</servlet-name>
   	<url-pattern>/IdCheckCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>diaryCon</servlet-name>
+  	<url-pattern>/diaryCon</url-pattern>
   </servlet-mapping>
 </web-app>

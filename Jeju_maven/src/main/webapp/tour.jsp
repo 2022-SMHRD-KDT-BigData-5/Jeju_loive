@@ -1,13 +1,5 @@
-<%@page import="com.smhrd.domain.tour"%>
-<%@page import="java.util.List"%>
-<%@page import="com.smhrd.domain.tourDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<% 
-	tourDAO dao = new tourDAO();
-	List<tour> tourList = dao.selectTourList();
-	pageContext.setAttribute("tourList", tourList);
-%>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -85,33 +77,18 @@
 		
 		<!-- 관광지 정보 반복출력 -->
 		
-		<h2>관광지 카테고리2</h2>
-			<div class="grid">
-				<figure class="effect-marley">
-					<img src="images/벌레.png" alt="img11" />
-					<figcaption>
-						<h2>
-							<span>맛짐^^</span>
-						</h2>
-						<p>관광지의 주소가 출력되는 곳입니다.</p>
-						<a href="#">View more</a>
-					</figcaption>
-				</figure>
-			</div>
-			
 		<h2>관광지 카테고리1</h2>
 			<div class="grid">
-			
-			<c:forEach var="t" items="${tourList}" varStatus="status">
+			<c:forEach var="m" items="${attList}" varStatus="status">
 				
 				<figure class="effect-marley">
 				
 					<img src="images/벌레.png" alt="img11" />
 					<figcaption>
 						<h2>
-							<span>${t.name}</span>
+							진짜 멋있는<span>금오름</span>
 						</h2>
-						<p></p>
+						<p>관광지의 주소가 출력되는 곳입니다.</p>
 						<a href="#">View more</a>
 					</figcaption>
 				</figure>
@@ -175,6 +152,16 @@
 						<a href="#">View more</a>
 					</figcaption>
 				</figure>
+				<figure class="effect-marley">
+					<img src="images/1.jpg" alt="img12" />
+					<figcaption>
+						<h2>
+							꼭 가야하는<span>한라산</span>
+						</h2>
+						<p>관광지의 주소가 출력되는 곳입니다.</p>
+						<a href="#">View more</a>
+					</figcaption>
+				</figure>
 			</div>
 
 		</div>
@@ -183,13 +170,13 @@
 		<div id="plan_div">
 			<header class="codrops-header">
 				<h1>
-					attraction<span>Plan 대한 정보를 추천해주는 메뉴입니다.</span>
+					Plan<span>Plan 대한 정보를 추천해주는 메뉴입니다.</span>
 				</h1>
 				<nav class="codrops-demos">
 
-					<a href="#" class="current-demo">관광지</a>
-					<a href="#">음식점</a>
-					<a href="#">카페</a>
+					<a href="#" class="current-demo">1일차 플랜</a>
+					<a href="#">2일차 플랜</a>
+					<a href="#">3일차 플랜</a>
 
 				</nav>
 			</header>

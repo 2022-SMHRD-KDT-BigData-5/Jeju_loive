@@ -1,5 +1,7 @@
 package com.smhrd.domain;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -8,14 +10,14 @@ import com.smhrd.database.SqlSessionManager;
 public class DiaryDAO {
 	
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
-	   
+	
 
 	   // 회원가입 기능
-	   public int insertMember(Member member) {
+	   public int insertDiary(Diary diary) {
 		   SqlSession sqlSession = sqlSessionFactory.openSession();
 	      int cnt = 0;
 	      try {
-	         cnt = sqlSession.insert("com.smhrd.domain.MemberDAO.insertMember", member);
+	         cnt = sqlSession.insert("com.smhrd.domain.DiaryDAO.insertDiary", diary);
 	         if (cnt > 0) {
 	            sqlSession.commit();
 	         } else {
@@ -30,16 +32,17 @@ public class DiaryDAO {
 	   }
 	   
 	   //로그인기능
-	   public Member selectMember(Member member) {
+	   public List<Diary> selectDiary(String mem_id) {
 		   SqlSession sqlSession = sqlSessionFactory.openSession();
-		   Member loginMember = null;
+		   List<Diary> diaryList = null;
 		   try {
-			   //selectOne() -> 결과값(Object)
-			   // -> 결과값이 항상 1개 아니면 null
-			   //같은 아이디/패스워드가 테이블에 여러개 들어가 있을 경우에는 오류!
-			   	 loginMember = sqlSession.selectOne("com.smhrd.domain.MemberDAO.selectMember", member);
-		         //cnt = sqlSession.insert("com.smhrd.domain.MemberDAO.insertMember", member);
-		         if (loginMember != null) {
+			   
+			   	 diaryList = sqlSession.selectList("com.smhrd.domain.DiaryDAO.selectDiary", mem_id);
+		         
+			   	
+			   	 System.out.print(diaryList);
+			   	 
+		         if (diaryList != null) {
 		            sqlSession.commit();
 		         } else {
 		            sqlSession.rollback();
@@ -49,31 +52,9 @@ public class DiaryDAO {
 		      } finally {
 		         sqlSession.close();
 		      }
-		      return loginMember;
+		      return diaryList;
 		   }
-	   //아이디 체크 기능
-	   public boolean idCheck(String j_id) {
-				SqlSession sqlSession = sqlSessionFactory.openSession();
-				boolean check = false; //사용할 수 있으면(db에 값이 없다) - true
-									   //사용할 수 없으면(db에 값이 있다) - false
-			try {
-				//idck -> 이미 있는 이메일 입력한 경우에는 해당하는 이메일이 그대로 반환
-				//		 -> 없는 이메일 입력한 경우에는 null 반환
-				String idck = sqlSession.selectOne("com.smhrd.domain.MemberDAO.selectId",j_id);
-				if(idck!=null) {
-					check=false;
-					sqlSession.commit();
-				}else {
-					check=true;
-					sqlSession.commit(); //select는 commit/rollback 생략 가능
-				}
-			}catch(Exception e) {
-				e.printStackTrace();
-			}finally {
-				sqlSession.close();
-			}
-			return check;
-			}
+	   
 	   		
 	   	
 	   		
