@@ -13,10 +13,9 @@ public class diaryDAO {
 			public List<diary> selectDiary(String mem_id) {
 				SqlSession sqlSession = sqlSessionFactory.openSession();
 				List<diary> diaryList = null;
-		
+				
 				try {
 					diaryList = sqlSession.selectList("com.smhrd.domain.diaryDAO.selectDiary",mem_id);
-					
 			     if (diaryList != null) {
 			            sqlSession.commit();
 			         } else {
