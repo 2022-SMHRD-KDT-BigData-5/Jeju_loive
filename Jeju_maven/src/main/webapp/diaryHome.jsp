@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="com.smhrd.domain.Diary"%>
 <%@page import="com.smhrd.domain.DiaryDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -6,7 +7,8 @@
 <%
 	String mem_id="jsh";
 	DiaryDAO dao= new DiaryDAO();
-	Diary contentdiary = dao.selectDiary(mem_id);
+	List<Diary> diaryList = dao.selectDiary(mem_id);
+	pageContext.setAttribute("diaryList",diaryList);
 	
 %>
 <!DOCTYPE HTML>
@@ -65,7 +67,7 @@
 							</div>
 							<img src="images/pic01.jpg" alt="실패"class="test3">
 							<p>
-								<%=contentdiary.getDia_content() %>
+								<%=diaryList.get(0).getDia_content() %>
 							</p>
 							<p>
 								Striped is released for free under the Creative Commons Attribution license so feel free to use it for personal projects
