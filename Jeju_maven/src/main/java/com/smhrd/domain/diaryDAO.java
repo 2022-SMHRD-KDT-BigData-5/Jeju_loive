@@ -10,6 +10,8 @@ import com.smhrd.database.SqlSessionManager;
 public class diaryDAO {
 		SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 			
+		
+			//사용자 정보로 다이어리 가져오는 메서드
 			public List<diary> selectDiary(String mem_id) {
 				SqlSession sqlSession = sqlSessionFactory.openSession();
 				List<diary> diaryList = null;
@@ -18,8 +20,10 @@ public class diaryDAO {
 					diaryList = sqlSession.selectList("com.smhrd.domain.diaryDAO.selectDiary",mem_id);
 			     if (diaryList != null) {
 			            sqlSession.commit();
+			            System.out.print("저장 성공");
 			         } else {
 			            sqlSession.rollback();
+			            System.out.print("저장 실패");
 			         }
 			      } catch (Exception e) {
 			         e.printStackTrace();
