@@ -76,7 +76,6 @@ pageContext.setAttribute("cafeList", cafeList);
 				</h1>
 				<nav class="codrops-demos">
 
-<<<<<<< HEAD
 			</nav>
 
 		</div><!-- /container -->
@@ -89,7 +88,7 @@ pageContext.setAttribute("cafeList", cafeList);
 	</body>
 
 		</header>
-=======
+
 					<a href="tour_att.jsp">관광지</a>
 					<a href="tour_food.jsp">음식점</a>
 					<a href="#" class="current-demo">카페</a>
@@ -99,10 +98,10 @@ pageContext.setAttribute("cafeList", cafeList);
 		
 		
 		
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
+
 		<div class="content">
 		
-<<<<<<< HEAD
+
 		
 		<h2>츄릅</h2>
 			<div class="grid">
@@ -125,77 +124,6 @@ pageContext.setAttribute("cafeList", cafeList);
 			</div>
 		
 		
-=======
-		<!-- 관광지 정보 반복출력 -->
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
-
-		<h2>관광지 카테고리1</h2>
-			<div class="grid">
-			
-			<c:forEach var="t" items="${tourList}" varStatus="status">
-				
-				<figure class="effect-marley">
-				
-					<img src="images/벌레.png" alt="img11" /> <!-- 이미지 주소 출력하는곳 -->
-					<figcaption>
-						<h2>
-<<<<<<< HEAD
-							<span><%=cafeList.get(0).getName() %></span>
-=======
-							<span>${t.name}</span>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
-						</h2>
-						<p>${t.address}</p>
-						<a href="#">View more</a>
-					</figcaption>
-				</figure>
-			</c:forEach>
-			</div>
-			
-			
-			<h2>관광지 카테고리1</h2>
-			<div class="grid">
-				<figure class="effect-marley">
-					<img src="images/벌레.png" alt="img11" />
-					<figcaption>
-						<h2>
-							진짜 멋있는<span>금오름</span>
-						</h2>
-						<p>관광지의 주소가 출력되는 곳입니다.</p>
-						<a href="#">View more</a>
-					</figcaption>
-				</figure>
-				<figure class="effect-marley">
-					<img src="images/1.jpg" alt="img12" />
-					<figcaption>
-						<h2>
-							꼭 가야하는<span>한라산</span>
-						</h2>
-						<p>관광지의 주소가 출력되는 곳입니다.</p>
-						<a href="#">View more</a>
-					</figcaption>
-				</figure>
-				<figure class="effect-marley">
-					<img src="images/1.jpg" alt="img12" />
-					<figcaption>
-						<h2>
-							별로 안가고싶은<span>관광지</span>
-						</h2>
-						<p>관광지의 주소가 출력되는 곳입니다.</p>
-						<a href="#">View more</a>
-					</figcaption>
-				</figure>
-				<figure class="effect-marley">
-					<img src="images/1.jpg" alt="img12" />
-					<figcaption>
-						<h2>
-							별로 안가고싶은<span>관광지</span>
-						</h2>
-						<p>관광지의 주소가 출력되는 곳입니다.</p>
-						<a href="#">View more</a>
-					</figcaption>
-				</figure>
-			</div>
 
 			<h2>관광지 카테고리2</h2>
 			<div class="grid">
@@ -214,19 +142,6 @@ pageContext.setAttribute("cafeList", cafeList);
 		</div>
 		</div>
 		
-		<div id="plan_div">
-			<header class="codrops-header">
-				<h1>
-					Plan<span>Plan에 대한 정보를 추천해주는 메뉴입니다.</span>
-				</h1>
-				<nav class="codrops-demos">
-
-					<a href="#" class="current-demo">관광지</a>
-					<a href="#">음식점</a>
-					<a href="#">카페</a>
-
-				</nav>
-			</header>
 		
 		
 		
