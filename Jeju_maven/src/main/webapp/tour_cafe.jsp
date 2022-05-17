@@ -44,6 +44,24 @@
 					class="current-demo" href="tour_cafe.jsp">카페</a>
 
 			</nav>
+<<<<<<< HEAD
+			<!-- Related demos -->
+			<section class="related">
+				
+			
+			<div>dd</div>	
+				
+				
+			</section>
+		</div><!-- /container -->
+		<script>
+			// For Demo purposes only (show hover effect on mobile devices)
+			[].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
+				el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
+			} );
+		</script>
+	</body>
+=======
 		</header>
 		<div class="content">
 
@@ -77,4 +95,5 @@
 
 
 </body>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 </html>
