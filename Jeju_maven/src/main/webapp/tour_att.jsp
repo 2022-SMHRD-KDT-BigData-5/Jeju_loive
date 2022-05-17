@@ -93,6 +93,47 @@
 				
 				<figure class="effect-marley">
 				
+					<img src="images/벌레.png" alt="img11" />
+					<figcaption>
+						<h2>
+							<span><c:out value="${t.name}"/></span>
+							
+						</h2>
+						<p><c:out value="${t.address}"/></p>
+						<a href="#">View more</a>
+					</figcaption>
+				</figure>
+			</c:forEach>
+			</div>
+		
+		
+		
+		
+		
+		<h2>관광지 카테고리2</h2>
+			<div class="grid">
+				<figure class="effect-marley">
+					<img src="images/벌레.png" alt="img11" />
+					<figcaption>
+						<h2>
+							<span>맛짐^^</span>
+						</h2>
+						<p>관광지의 주소가 출력되는 곳입니다.</p>
+						<a href="#">View more</a>
+					</figcaption>
+				</figure>
+			</div>
+			
+		
+
+
+		<h2>관광지 카테고리1</h2>
+			<div class="grid">
+			
+			<c:forEach var="t" items="${tourList}" varStatus="status">
+				
+				<figure class="effect-marley">
+				
 					<img src="images/벌레.png" alt="img11" /> <!-- 이미지 주소 출력하는곳 -->
 					<figcaption>
 						<h2>
