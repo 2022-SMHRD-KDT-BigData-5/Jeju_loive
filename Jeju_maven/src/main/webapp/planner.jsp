@@ -1,5 +1,16 @@
+   <%@page import="com.smhrd.domain.inplanDAO"%>
+   <%@page import="com.smhrd.domain.inplan"%>
+      <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+	inplanDAO dao = new inplanDAO();
+	String mem_id="123";
+	List<inplan> inplanList = dao.selectAllPlan(mem_id);
+	pageContext.setAttribute("inplanList",inplanList);
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,19 +42,24 @@
                   </nav>
    </header>
    
-
-
    <h2 class="plan">Planner</h2>
+	
+	<c:forEach var = "i" items="${inplanList}">
     <div class="grid">
         <figure class="effect-ming">
             <img src="images/yeonhee-VWLhifg5VMA-unsplash.jpg" alt="yeonhee-VWLhifg5VMA-unsplash"/>
             <figcaption>
+            	
                 <h2><span>Planner</span></h2>
-                <p>${onePlan.inplan_date}</p>
+                <p><%= inplanList.get(0).getInplan_date() %></p>
                 <a href="#">View more</a>
             </figcaption>
             </figure>         
     </div>
+	</c:forEach>
+	
+	
+	
     <button id ="btn1">+</button>
    
    <script>

@@ -1,5 +1,7 @@
 package com.smhrd.domain;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -9,14 +11,14 @@ public class inplanDAO {
 	
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
-	public inplan selectOnePlan(inplan inplan) {
+	public List<inplan> selectAllPlan(String mem_id) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		inplan onePlan = null;
+		List<inplan> inplanList = null;
 
 		try {
-			onePlan = sqlSession.selectOne("com.smhrd.domain.MemberDAO.selectMember", inplan);
+			inplanList = sqlSession.selectList("com.smhrd.domain.inplanDAO.selectAllPlan",mem_id);
 		
-	     if (onePlan != null) {
+	     if (inplanList != null) {
 	            sqlSession.commit();
 	         } else {
 	            sqlSession.rollback();
@@ -26,7 +28,7 @@ public class inplanDAO {
 	      } finally {
 	         sqlSession.close();
 	      }
-	      return onePlan;
+	      return inplanList;
 	   }
 	
 }
