@@ -1,26 +1,16 @@
-<<<<<<< HEAD
-<%@page import="com.smhrd.domain.tourDAO"%>
-<%@page import="com.smhrd.domain.tour"%>
-<%@page import="java.util.List"%>
-=======
+
 <%@page import="com.smhrd.domain.tour"%>
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.domain.tourDAO"%>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<<<<<<< HEAD
+
 <%
 tourDAO dao = new tourDAO();
 List<tour> cafeList = dao.selectCafeList();
 pageContext.setAttribute("cafeList", cafeList);
-=======
-<% 
-	tourDAO dao = new tourDAO();
-	List<tour> tourList = dao.selectTourList();
-	pageContext.setAttribute("tourList", tourList);
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
