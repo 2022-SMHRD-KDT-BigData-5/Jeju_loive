@@ -4,6 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
         
 <mapper namespace="com.smhrd.domain.tourDAO">
+
+	<select id="selectTourInfo" parameterType="int" resultType="com.smhrd.domain.tour">
+		select * from tour where tour_num = #{tourNum}
+	</select>
+
 	<select id="selectTourList" resultType="com.smhrd.domain.tour">
 		select * from tour where tour_num > 600
 	</select>
