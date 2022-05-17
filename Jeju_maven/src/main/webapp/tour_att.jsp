@@ -28,6 +28,7 @@
 <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
+
 <!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -40,13 +41,20 @@
 		width:20%
 		background-color:red;
 	}
+	.soohyeon{
+		position: fixed;
+        right: 20px;
+       	top: 10px;
+       	color:white
+	}
 </style>
 	
 </head>
 
 
 <body>
-
+	
+	
 
 	<header id="menuBlock">
 		<nav>
@@ -57,10 +65,18 @@
 				<li><a href="board.jsp">board</a></li>
 				<!--<li><a href="#elements">Elements</a></li>-->
 			</ul>
+			<c:choose>
+                  <c:when test="${empty loginMember}">
+                     <a href="#login" class="soohyeon">login</a>
+                  </c:when>
+                  <c:otherwise>
+                     <a href="LogoutCon" class="soohyeon">logout</a>
+                  </c:otherwise>
+               </c:choose>
 		</nav>
 	</header>
 
-
+          
 
 	<div class="container" id="flex_cont">
 	
@@ -103,8 +119,46 @@
 				</figure>
 			</c:forEach>
 			</div>
+<<<<<<< HEAD
 		
 
+
+			<h2>관광지 카테고리2</h2>
+			<div class="grid">
+				<figure class="effect-marley">
+					<img src="images/벌레.png" alt="img11" />
+					<figcaption>
+						<h2>
+							진짜 멋있는<span>금오름</span>
+						</h2>
+						<p>관광지의 주소가 출력되는 곳입니다.</p>
+						<a href="#">View more</a>
+					</figcaption>
+				</figure>
+			</div>
+		<h2>관광지 카테고리1</h2>
+			<div class="grid">
+			
+			<c:forEach var="t" items="${tourList}" varStatus="status">
+				
+				<figure class="effect-marley">
+				
+					<img src="images/벌레.png" alt="img11" /> <!-- 이미지 주소 출력하는곳 -->
+					<figcaption>
+						<h2>
+							<span>${t.name}</span>
+						</h2>
+						<p>${t.address}</p>
+						<a href="#">View more</a>
+					</figcaption>
+				</figure>
+			</c:forEach>
+			</div>
+			
+=======
+		
+
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
 		</div>
 		

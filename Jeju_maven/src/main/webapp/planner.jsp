@@ -44,19 +44,19 @@
    
    <h2 class="plan">Planner</h2>
 	
-	<c:forEach var = "i" items="${inplanList}">
     <div class="grid">
+	<c:forEach var = "t" items="${inplanList}" varStatus="status">
         <figure class="effect-ming">
             <img src="images/yeonhee-VWLhifg5VMA-unsplash.jpg" alt="yeonhee-VWLhifg5VMA-unsplash"/>
             <figcaption>
             	
                 <h2><span>Planner</span></h2>
-                <p><%= inplanList.get(0).getInplan_date() %></p>
+                <p><c:out value="${t.inplan_date}"/></p>
                 <a href="#">View more</a>
             </figcaption>
             </figure>         
-    </div>
 	</c:forEach>
+    </div>
 	
 	
 	
