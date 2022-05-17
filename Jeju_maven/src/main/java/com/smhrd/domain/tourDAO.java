@@ -12,7 +12,7 @@ public class tourDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
 	
-	
+		//관광지 정보 list 가져오는 메서드
 		public List<tour> selectTourList() {
 			SqlSession sqlSession = sqlSessionFactory.openSession();
 			List<tour> tourList = null;
@@ -32,7 +32,10 @@ public class tourDAO {
 			}
 			return tourList;
 		}
-	
+		
+		
+		
+		//음식 정보 list 가져오는 메서드
 		public List<tour> selectFoodList() {
 			SqlSession sqlSession = sqlSessionFactory.openSession();
 			List<tour> foodList = null;
@@ -55,6 +58,10 @@ public class tourDAO {
 			return foodList;
 		}
 		
+		
+		
+		
+		//카페 정보 list 가져오는 메서드
 		public List<tour> selectCafeList() {
 			SqlSession sqlSession = sqlSessionFactory.openSession();
 			List<tour> cafeList = null;
@@ -76,6 +83,35 @@ public class tourDAO {
 			}
 			return cafeList;
 		}
+		
+		
+		
+		// tour에서 관광지 상세정보 가져오는 메서드
+		public tour getTourInfo(int tourNum) {
+			SqlSession sqlSession = sqlSessionFactory.openSession();
+			
+			tour tourInfo = null;
+			try {
+				tourInfo = sqlSession.selectOne("com.smhrd.domain.tourDAO.selectTourInfo", tourNum);
+				
+				if(tourInfo!=null) {
+					sqlSession.commit();
+				}else {
+					sqlSession.rollback();
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				sqlSession.close();
+			}
+			return tourInfo;
+		}
+		
+		
+		
+		// tour_img에서 관광지 사진 가져오는 메서드
+		
 		
 
 }

@@ -118,6 +118,7 @@ pageContext.setAttribute("cafeList", cafeList);
 						</h2>
 						<p><c:out value="${c.address}"/></p>
 						<a href="#">View more</a>
+						
 					</figcaption>
 				</figure>
 			</c:forEach>

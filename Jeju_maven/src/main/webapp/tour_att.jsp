@@ -28,6 +28,7 @@
 <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
+
 <!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -40,13 +41,20 @@
 		width:20%
 		background-color:red;
 	}
+	.soohyeon{
+		position: fixed;
+        right: 20px;
+       	top: 10px;
+       	color:white
+	}
 </style>
 	
 </head>
 
 
 <body>
-
+	
+	
 
 	<header id="menuBlock">
 		<nav>
@@ -57,10 +65,18 @@
 				<li><a href="board.jsp">board</a></li>
 				<!--<li><a href="#elements">Elements</a></li>-->
 			</ul>
+			<c:choose>
+                  <c:when test="${empty loginMember}">
+                     <a href="#login" class="soohyeon">login</a>
+                  </c:when>
+                  <c:otherwise>
+                     <a href="LogoutCon" class="soohyeon">logout</a>
+                  </c:otherwise>
+               </c:choose>
 		</nav>
 	</header>
 
-
+          
 
 	<div class="container" id="flex_cont">
 	
@@ -92,22 +108,20 @@
 			<c:forEach var="t" items="${tourList}" varStatus="status">
 				
 				<figure class="effect-marley">
-				
-					<img src="images/벌레.png" alt="img11" />
+					<img src="images/벌레.png" alt="img11" /><!-- 이미지 주소를 넣는 공간입니다^^ -->
 					<figcaption>
 						<h2>
-							<span><c:out value="${t.name}"/></span>
-							
+							${status.count}<span><c:out value="${t.name}"/></span>
 						</h2>
 						<p><c:out value="${t.address}"/></p>
-						<a href="#">View more</a>
+						<a href="TourInfoCon?tourNum=${t.num}">View more</a>
 					</figcaption>
 				</figure>
 			</c:forEach>
 			</div>
+<<<<<<< HEAD
 		
 
-<<<<<<< HEAD
 
 			<h2>관광지 카테고리2</h2>
 			<div class="grid">
@@ -122,7 +136,6 @@
 					</figcaption>
 				</figure>
 			</div>
-=======
 		<h2>관광지 카테고리1</h2>
 			<div class="grid">
 			
@@ -142,6 +155,9 @@
 			</c:forEach>
 			</div>
 			
+=======
+		
+
 >>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
 		</div>
@@ -155,8 +171,6 @@
 		</nav>
 		
 		</div>
-		
-		
 		
 		
 		

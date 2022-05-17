@@ -9,6 +9,8 @@ public class tour {
 	private String address;
 	private BigDecimal lo;
 	private BigDecimal la;
+	
+	
 	public tour(BigDecimal num, String name, String address, BigDecimal lo, BigDecimal la) {
 		super();
 		this.num = num;

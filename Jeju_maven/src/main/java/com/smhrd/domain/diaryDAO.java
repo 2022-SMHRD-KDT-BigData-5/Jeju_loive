@@ -20,10 +20,10 @@ public class diaryDAO {
 					diaryList = sqlSession.selectList("com.smhrd.domain.diaryDAO.selectDiary",mem_id);
 			     if (diaryList != null) {
 			            sqlSession.commit();
-			            System.out.print("저장 성공");
+			            
 			         } else {
 			            sqlSession.rollback();
-			            System.out.print("저장 실패");
+			            
 			         }
 			      } catch (Exception e) {
 			         e.printStackTrace();
