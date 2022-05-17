@@ -17,11 +17,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </environments>
     <mappers>
     	<mapper resource="com/smhrd/database/MemberMapper.xml"/>
-<<<<<<< HEAD
     	<mapper resource="com/smhrd/database/TourMapper.xml"/>
-=======
     	<mapper resource="com/smhrd/database/DiaryMapper.xml"/>
     	<mapper resource="com/smhrd/database/inplanmapper.xml"/>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
+
     </mappers>
 </configuration>
