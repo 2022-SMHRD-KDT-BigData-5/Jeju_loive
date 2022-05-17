@@ -85,8 +85,7 @@
 		<div class="content">
 		
 		<!-- 관광지 정보 반복출력 -->
-<<<<<<< HEAD
-		
+
 		<h2>관광지 카테고리1</h2>
 			<div class="grid">
 			
@@ -126,7 +125,7 @@
 			</div>
 			
 		
-=======
+
 
 		<h2>관광지 카테고리1</h2>
 			<div class="grid">
@@ -146,7 +145,6 @@
 				</figure>
 			</c:forEach>
 			</div>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 			
 			
 			<h2>관광지 카테고리1</h2>
