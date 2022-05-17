@@ -53,21 +53,15 @@
 										
 										
 									</div>
-<<<<<<< HEAD
 									
 									
-=======
 									<div style="text-align: cetner;">
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 									<ul class="actions">
 										<li><input type="submit" value="JOIN" class="primary"/></li>
 										<!-- <li><input type="reset" value="Reset" /></li> -->
 									</ul>
-<<<<<<< HEAD
 									
-=======
 									</div>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 								</form>
 		<a href="main.jsp"><input type="button" value="메인페이지로" ></a> </nav>
 	</div>

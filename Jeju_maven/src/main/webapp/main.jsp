@@ -1,6 +1,6 @@
 
     <%@ page language="java" contentType="text/html; charset=UTF-8"
-		pageEncoding="UTF-8" isELIgnored="false"%>
+      pageEncoding="UTF-8" isELIgnored="false"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML>
 <!--
@@ -9,7 +9,6 @@
    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-<<<<<<< HEAD
    <head>
       <title>Dimension by HTML5 UP</title>
       <meta charset="utf-8" />
@@ -22,8 +21,17 @@
       <!-- Wrapper -->
          <div id="wrapper">
             <nav>
-               <a href="#login" class="soohyeon">login</a>
+               <c:choose>
+                  <c:when test="${empty loginMember}">
+                     <a href="#login" class="soohyeon">login</a>
+                  </c:when>
+                  <c:otherwise>
+                     <a href="LogoutCon" class="soohyeon">logout</a>
+                  </c:otherwise>
+               </c:choose>
+               
             </nav>
+         
             <!-- Header -->
                <header id="header">
                
@@ -41,7 +49,7 @@
                      <ul>
                         <li><a href="planner.jsp">planner</a></li>
                         <li><a href="diary1.jsp">diary</a></li>
-                        <li><a href="tour.jsp">tour</a></li>
+                        <li><a href="tour_att.jsp">tour</a></li>
                         <li><a href="board.jsp">board</a></li>
 
                         <!--<li><a href="#elements">Elements</a></li>-->
@@ -51,58 +59,6 @@
                
             <!-- Main -->
                <div id="main">
-=======
-	<head>
-		<title>Dimension by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
-			
-		<!-- Wrapper -->
-			<div id="wrapper">
-				<nav>
-					<c:choose>
-						<c:when test="${empty loginMember}">
-							<a href="#login" class="soohyeon">login</a>
-						</c:when>
-						<c:otherwise>
-							<a href="LogoutCon" class="soohyeon">logout</a>
-						</c:otherwise>
-					</c:choose>
-					
-				</nav>
-			
-				<!-- Header -->
-					<header id="header">
-					
-						<div class="logo">
-							<span class="fas fa-plane"></span>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>Dimension</h1>
-								<p>A fully responsive site template designed by <a href="https://html5up.net">HTML5 UP</a> and released<br />
-								for free under the <a href="https://html5up.net/license">Creative Commons</a> license.</p>
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="planner.jsp">planner</a></li>
-								<li><a href="diary1.jsp">diary</a></li>
-								<li><a href="tour_att.jsp">tour</a></li>
-								<li><a href="board.jsp">board</a></li>
-
-								<!--<li><a href="#elements">Elements</a></li>-->
-							</ul>
-						</nav>
-					</header>
-					
-				<!-- Main -->
-					<div id="main">
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
 
                   <!-- Intro -->
@@ -415,7 +371,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
       <!-- BG -->
          <div id="bg"></div>
 
-<<<<<<< HEAD
       <!-- Scripts -->
          <script src="assets/js/jquery.min.js"></script>
          <script src="assets/js/browser.min.js"></script>
@@ -427,25 +382,11 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
          $(document).on("keyup", "#tel", function(){
             $(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); 
          });
+         
          </script>
-=======
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<!-- 전화번호 하이픈(-) 자동입력  JS -->
-			<script>
-			$(document).on("keyup", "#tel", function(){
-				$(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); 
-			});
-			
-			</script>
-			
-				
-			
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
+         
+            
+         
 
    </body>
 </html>
