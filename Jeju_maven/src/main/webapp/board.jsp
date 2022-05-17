@@ -25,6 +25,7 @@
 <header id = "menuBlock">
 	<nav>
 							<ul>
+								<li><a href="main.jsp">main</a></li>
 								<li><a href="planner.jsp">PLANNER</a></li>
 								<li><a href="diary1.jsp">DIARY</a></li>
 								<li><a href="tour_att.jsp">TOUR</a></li>
