@@ -22,10 +22,8 @@ public class tourDAO {
 			
 				if(tourList!=null) {
 					sqlSession.commit();
-					System.out.print("리스트 저장 성공");
 				}else {
 					sqlSession.rollback();
-					System.out.print("리스트 저장 실패");
 				}
 			}catch(Exception e){
 				e.printStackTrace();

@@ -34,7 +34,7 @@
 <style>
 	#flex_cont{display:flex;}
 	#tour_div{
-		width:80%;
+		width:70%;
 	}
 	#plan_div{
 		width:20%
@@ -107,6 +107,7 @@
 			</div>
 		
 
+<<<<<<< HEAD
 
 			<h2>관광지 카테고리2</h2>
 			<div class="grid">
@@ -121,14 +122,50 @@
 					</figcaption>
 				</figure>
 			</div>
+=======
+		<h2>관광지 카테고리1</h2>
+			<div class="grid">
+			
+			<c:forEach var="t" items="${tourList}" varStatus="status">
+				
+				<figure class="effect-marley">
+				
+					<img src="images/벌레.png" alt="img11" /> <!-- 이미지 주소 출력하는곳 -->
+					<figcaption>
+						<h2>
+							<span>${t.name}</span>
+						</h2>
+						<p>${t.address}</p>
+						<a href="#">View more</a>
+					</figcaption>
+				</figure>
+			</c:forEach>
+			</div>
+			
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
 		</div>
+		
+		
+		<nav class="codrops-demos">
+				<a href="#" class="current-demo">관광지</a>
+				<a href="tour_food.jsp">음식점</a>
+				<a href="tour_cafe.jsp">카페</a>
+
+		</nav>
+		
 		</div>
+		
+		
+		
+		
+		
+		
 		
 		<div id="plan_div">
 			<header class="codrops-header">
 				<h1>
-					attraction<span>Plan 대한 정보를 추천해주는 메뉴입니다.</span>
+					Plan<span>Plan에 대한 정보를 추천해주는 메뉴입니다.</span>
 				</h1>
 				<nav class="codrops-demos">
 
@@ -164,10 +201,7 @@
 		</div>
 
 	</div>
-	<nav class="codrops-demos">
-		<a class="current-demo" href="#">관광지</a> <a href="tour_food.jsp">음식점</a>
-		<a href="tour_cafe.jsp">카페</a>
-	</nav>
+	
 	<!-- Related demos -->
 	<section class="related"></section>
 	</div>
