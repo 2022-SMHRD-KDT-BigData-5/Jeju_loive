@@ -28,6 +28,7 @@
 <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
+
 <!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -40,13 +41,20 @@
 		width:20%
 		background-color:red;
 	}
+	.soohyeon{
+		position: fixed;
+        right: 20px;
+       	top: 10px;
+       	color:white
+	}
 </style>
 	
 </head>
 
 
 <body>
-
+	
+	
 
 	<header id="menuBlock">
 		<nav>
@@ -57,10 +65,18 @@
 				<li><a href="board.jsp">board</a></li>
 				<!--<li><a href="#elements">Elements</a></li>-->
 			</ul>
+			<c:choose>
+                  <c:when test="${empty loginMember}">
+                     <a href="#login" class="soohyeon">login</a>
+                  </c:when>
+                  <c:otherwise>
+                     <a href="LogoutCon" class="soohyeon">logout</a>
+                  </c:otherwise>
+               </c:choose>
 		</nav>
 	</header>
 
-
+          
 
 	<div class="container" id="flex_cont">
 	
