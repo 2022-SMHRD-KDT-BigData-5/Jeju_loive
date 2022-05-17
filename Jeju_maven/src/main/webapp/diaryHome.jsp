@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.smhrd.domain.diaryDAO"%>
 <%@page import="com.smhrd.domain.diary"%>
 <%@page import="java.util.List"%>
@@ -10,6 +11,11 @@
 	String mem_id="jsh";
 	List<diary> diaryList = dao.selectDiary(mem_id);
 	pageContext.setAttribute("diaryList",diaryList);
+	SimpleDateFormat sdf2 = new SimpleDateFormat("MMM");
+	SimpleDateFormat sdf1 = new SimpleDateFormat("dd");
+	String month = sdf2.format(diaryList.get(0).getDia_date());
+	String day = sdf1.format(diaryList.get(0).getDia_date());
+	
 %>
 <!DOCTYPE HTML>
 <!--
@@ -50,7 +56,7 @@
 									the entire "date" element.
 
 								-->
-								<span class="date"><span class="month">Jul<span>y</span></span> <span class="day">14</span><span class="year">, 2014</span></span>
+								<span class="date"><span class="month"><%= month%><span><%=day%></span></span> <span class="day">14</span><span class="year">, 2014</span></span>
 								<!--
 									Note: You can change the number of list items in "stats" to whatever you want.
 								-->
@@ -62,7 +68,26 @@
 								</ul>
 							</div>
 							<div>
-								<img src="images/slide1.jpg" alt="실패" class="test">
+								<%
+							
+							String fullpath = (String)session.getAttribute("fullpath");
+							
+							if (fullpath==null){
+							%>
+							<div class="test">
+							<form method="post" enctype="multipart/form-data" action="imgup.jsp">
+							<input type="file" name="filename1" size=40>
+							<input type="submit" value="업로드"><br><br>
+							</form>
+							</div>
+							<%}
+							else{
+								%>
+								<img alt="추가하세요" src="<%=fullpath%> class="test">
+								
+								<%	
+							}%>	
+								
 								<img src="images/slide2.jpg" alt="실패" class="test2">
 							</div>
 							<img src="images/pic01.jpg" alt="실패"class="test3">
@@ -71,11 +96,7 @@
 									
 								
 							</p>
-							<p>
-								Striped is released for free under the Creative Commons Attribution license so feel free to use it for personal projects
-								or even commercial ones &ndash; just be sure to credit HTML5 UP for the design. If you like what you see here, be sure to check out
-								HTML5 UP for more cool designs or follow me on Twitter for new releases and updates.
-							</p>
+							
 						</article>
 
 					
@@ -122,15 +143,7 @@
 					
 
        			})
-				   $('.pages>a').click(function(){
-           			let k = $(this).text();
-					$('.pages>a').removeAttr('class');
-					$('.pages>a').eq(k-1).attr('class','active');
-					
-					
-					
-
-       			})
+				  
 				
 
 			</script>
