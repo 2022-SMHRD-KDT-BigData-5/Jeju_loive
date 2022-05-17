@@ -11,22 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 import com.smhrd.domain.MemberDAO;
 
 
-public class EmailCheckCon extends HttpServlet {
+public class IdCheckCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email = request.getParameter("email");
 		
+		String j_id = request.getParameter("j_id");
 		MemberDAO dao = new MemberDAO();
-		boolean check = dao.emailCheck(email);
-		//check : 사용할 수 있는 아이디 -> true
-		//		: 사용할 수 없는 아이디 -> false
+		boolean check = dao.idCheck(j_id);
 		
-		//클라이언트에게 응답(데이터를 출력)
+		//클라이언트 응답
 		PrintWriter out = response.getWriter();
-		//check -> boolean
-		//print -> 텍스트출력 ()
 		out.print(check);
 	}
 
