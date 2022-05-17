@@ -19,7 +19,7 @@
       <script src = "https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-<<<<<<< HEAD
+
    
    <header id = "menuBlock">
    <nav>
@@ -32,7 +32,7 @@
                   </nav>
    </header>
    
-=======
+
 	
 	<header id = "menuBlock">
 	<nav>
@@ -45,7 +45,7 @@
 						</nav>
 	</header>
 	
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
+
 
 
    <h2 class="plan">Planner</h2>
