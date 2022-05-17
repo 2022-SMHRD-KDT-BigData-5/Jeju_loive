@@ -44,18 +44,19 @@
 							<div>
 								<h2>1일차 <span>추억</span></h2>
 								<p>Lily likes to play with crayons and pencils</p>
-							</div>
 							<a href="diaryHome.jsp">View more</a>
 						</figcaption>			
 					</figure>
 					<figure class="effect-lily">
 						<img src="images/1.jpg" alt="img1"/>
+						
 						<figcaption>
 							<div>
 								<h2>Nice <span>Lily</span></h2>
 								<p>Lily likes to play with crayons and pencils</p>
 							</div>
 							<a href="#">View more</a>
+							
 						</figcaption>			
 					</figure>
 				</div>
