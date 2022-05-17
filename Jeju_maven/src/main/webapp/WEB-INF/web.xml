@@ -41,6 +41,12 @@
   	<servlet-class>com.smhrd.controller.EmailCheckCon</servlet-class>
 >>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
   </servlet>
+  <servlet>
+  	<servlet-name>IdCheckCon</servlet-name>
+  	<display-name>IdCheckCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.IdCheckCon</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginCon</servlet-name>
   	<url-pattern>/LoginCon</url-pattern>
@@ -65,5 +71,9 @@
   	<servlet-name>EmailCheckCon</servlet-name>
   	<url-pattern>/EmailCheckCon</url-pattern>
 >>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>IdCheckCon</servlet-name>
+  	<url-pattern>/IdCheckCon</url-pattern>
   </servlet-mapping>
 </web-app>

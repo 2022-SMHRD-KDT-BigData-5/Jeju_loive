@@ -22,6 +22,6 @@
 	</delete>
 	
 	<select id="selectId" parameterType="String" resultType="String">
-		select * from member where mem_id=#{id}
+		select mem_id from member where mem_id=#{j_id}
 	</select>
 </mapper>

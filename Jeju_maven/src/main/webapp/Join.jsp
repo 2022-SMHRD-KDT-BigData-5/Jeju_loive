@@ -37,11 +37,9 @@
 											<label for="id">ID</label>
 											<input type="text" name="j_id" id="j_id" />
 										</div>
-										<il><input type="button" value="email중복체크" onclick="emailCheck()"></il>
-										<br><div class="field half">
-											<label for="idck">사용할 수 있는 ID입니다.</label>
-											<input type="button" name="j_idck" id="j_idck" />
-										</div>
+										<il><input type="button" value="ID중복체크" onclick="idCheck()"></il>
+										<li><span id="check"></span></li>
+										
 										
 										
 										<div class="field half"><br>
@@ -80,6 +78,36 @@
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	
+	<script>
+			function idCheck(){
+				let j_id = $('#j_id').val();
+				
+				//jquery로 ajax(비동기통신) 작성
+				$.ajax({
+					//전송데이터(json)
+					data : {'j_id':j_id}, 
+					//요청경로(url매핑값)
+					url : 'IdCheckCon',
+					//요청방식(get/post)
+					method : 'get',
+					//전송데이터 정보(형식/인코딩방식)
+					contentType : 'application/json; charset=utf-8',
+					//응답데이터 형식지정
+					dataType : 'text',
+					success : function(data){ //'사용할 수 있다'(응답)->data('사용할 수 있다')
+						if(data=="true"){
+							$('#check').text('사용할 수 있는 아이디입니다.')
+						}else{
+							$('#check').text('사용할 수 없는 아이디입니다.')
+						}
+					},
+					error : function(){
+						alert("통신실패");
+					}
+				})
+			}
+		</script>
 	<script src="assets/js/main.js"></script>
 </body>
 </html>
