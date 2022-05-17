@@ -20,16 +20,17 @@
 			<div class="background">☆☆☆☆☆</div>
 		</div>
 		<span class="display">
-			4.3
+			3.6
 		</span>
 	</div>
 	
 	<script>
 		$(function(){
-			const rate=4.3;
+			const rate=3.6;
 			const max=5;
 			const percent = rate/max*100;
 		
+			
 			$(".score-wrapper").find(".foreground").css("width",percent+"%");
 			$(".scope-wrapper").find(".display").text(rate);
 		});
