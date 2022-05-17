@@ -53,12 +53,15 @@
 										<img src="">
 										
 									</div>
+									
+									
 									<ul class="actions">
 										<li><input type="submit" value="JOIN" class="primary" /></li>
 										<!-- <li><input type="reset" value="Reset" /></li> -->
 									</ul>
+									
 								</form>
-		<a href="main.jsp"><input type="button" value="메인페이지로"></a> </nav>
+		<a href="main.jsp"><input type="button" value="메인페이지로" ></a> </nav>
 	</div>
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
