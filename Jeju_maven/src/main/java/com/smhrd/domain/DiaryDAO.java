@@ -1,5 +1,7 @@
 package com.smhrd.domain;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -8,7 +10,7 @@ import com.smhrd.database.SqlSessionManager;
 public class DiaryDAO {
 	
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
-	   
+	
 
 	   // 회원가입 기능
 	   public int insertDiary(Diary diary) {
@@ -30,17 +32,17 @@ public class DiaryDAO {
 	   }
 	   
 	   //로그인기능
-	   public Diary selectDiary(String mem_id) {
+	   public List<Diary> selectDiary(String mem_id) {
 		   SqlSession sqlSession = sqlSessionFactory.openSession();
-		   Diary contentdiary = null;
+		   List<Diary> diaryList = null;
 		   try {
 			   
-			   	 contentdiary = sqlSession.selectOne("com.smhrd.domain.DiaryDAO.selectDiary", mem_id);
+			   	 diaryList = sqlSession.selectList("com.smhrd.domain.DiaryDAO.selectDiary", mem_id);
 		         
 			   	
-			   	 System.out.print(contentdiary);
+			   	 System.out.print(diaryList);
 			   	 
-		         if (contentdiary != null) {
+		         if (diaryList != null) {
 		            sqlSession.commit();
 		         } else {
 		            sqlSession.rollback();
@@ -50,7 +52,7 @@ public class DiaryDAO {
 		      } finally {
 		         sqlSession.close();
 		      }
-		      return contentdiary;
+		      return diaryList;
 		   }
 	   
 	   		

@@ -7,7 +7,6 @@
 		insert into diary values(#{dia_num}, #{dia_name}, #{dia_tripday}, #{dia_share}, #{dia_date}, #{mem_id}, #{dia_content})
 	</insert>
 	<select id="selectDiary" parameterType="String" resultType="com.smhrd.domain.Diary">
-		
 		select * from diary where mem_id=#{mem_id}
 	</select>
 	
