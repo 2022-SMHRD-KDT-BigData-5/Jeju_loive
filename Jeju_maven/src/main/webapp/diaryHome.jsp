@@ -1,6 +1,20 @@
+<%@page import="com.smhrd.domain.Diary"%>
+<%@page import="com.smhrd.domain.DiaryDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+	String mem_id="jsh";
+	DiaryDAO dao= new DiaryDAO();
+	Diary contentdiary = dao.selectDiary(mem_id);
+	
+%>
+<!DOCTYPE HTML>
+<!--
+	Striped by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
 	<head>
 		<title>Striped by HTML5 UP</title>
@@ -46,26 +60,24 @@
 								</ul>
 							</div>
 							<div>
-								<img src="images/bg.jpg" alt="실패" class="test">
-								<img src="images/벌레.png" alt="실패" class="test2">
+								<img src="images/slide1.jpg" alt="실패" class="test">
+								<img src="images/slide2.jpg" alt="실패" class="test2">
 							</div>
 							<img src="images/pic01.jpg" alt="실패"class="test3">
 							<p>
-								<strong>Hello!</strong> You're looking at <strong>Striped</strong>, a fully responsive HTML5 site template designed by <a href="http://twitter.com/ajlkn">AJ</a>
-								for <a href="http://html5up.net">HTML5 UP</a> It features a clean, minimalistic design, styling for all basic page elements (including blockquotes, tables and lists), a
-								repositionable sidebar (left or right), and HTML5/CSS3 code designed for quick and easy customization (see code comments for details).
+								<%=contentdiary.getDia_content() %>
 							</p>
 							<p>
-								Striped is released for free under the <a href="http://html5up.net/license">Creative Commons Attribution license</a> so feel free to use it for personal projects
-								or even commercial ones &ndash; just be sure to credit <a href="http://html5up.net">HTML5 UP</a> for the design. If you like what you see here, be sure to check out
-								<a href="http://html5up.net">HTML5 UP</a> for more cool designs or follow me on <a href="http://twitter.com/ajlkn">Twitter</a> for new releases and updates.
+								Striped is released for free under the Creative Commons Attribution license so feel free to use it for personal projects
+								or even commercial ones &ndash; just be sure to credit HTML5 UP for the design. If you like what you see here, be sure to check out
+								HTML5 UP for more cool designs or follow me on Twitter for new releases and updates.
 							</p>
 						</article>
 
 					
 					<!-- Pagination -->
 						<div class="pagination">
-							<!--<a href="#" class="button previous">Previous Page</a>-->
+							<a href="#" class="button previous" id="btnPrevious">Previous Page</a>
 							<div class="pages">
 								<a href="#" class="active">1</a>
 								<a href="#">2</a>
@@ -74,12 +86,12 @@
 								<span>&hellip;</span>
 								<a href="#">20</a>
 							</div>
-							<a href="#" class="button next">Next Page</a>
+							<a href="#" class="button next" id="btnNext">Next Page</a>
 						</div>
 
 				</div>
 			</div>
-		
+
 	
 
 		<!-- Scripts -->
@@ -88,6 +100,36 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/diaryHome.js"></script>
+			<script>
+				let i=0;
+				$('#btnNext').click(function(){
+					i++;
+					$('.pages>a').eq(i).attr('class','active');
+					
+					$('.pages>a').eq(i-1).removeAttr('class');
+					
+
+       			})
+				   $('#btnPrevious').click(function(){
+					i--;
+					$('.pages>a').eq(i).attr('class','active');
+					$('.pages>a').eq(i+1).removeAttr('class');
+					
+					
+
+       			})
+				   $('.pages>a').click(function(){
+           			let k = $(this).text();
+					$('.pages>a').removeAttr('class');
+					$('.pages>a').eq(k-1).attr('class','active');
+					
+					
+					
+
+       			})
+				
+
+			</script>
 
 	</body>
 </html>

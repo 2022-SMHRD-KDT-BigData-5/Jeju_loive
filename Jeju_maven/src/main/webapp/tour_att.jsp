@@ -44,6 +44,7 @@
 				<li><a href="main.jsp">main</a></li>
 				<li><a href="diary1.jsp">diary</a></li>
 				<li><a href="tour_att.jsp">tour</a></li>
+				<li><a href="board.jsp">board</a></li>
 				<!--<li><a href="#elements">Elements</a></li>-->
 			</ul>
 		</nav>
