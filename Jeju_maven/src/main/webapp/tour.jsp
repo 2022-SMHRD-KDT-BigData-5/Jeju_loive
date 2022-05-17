@@ -170,13 +170,13 @@
 		<div id="plan_div">
 			<header class="codrops-header">
 				<h1>
-					attraction<span>Plan 대한 정보를 추천해주는 메뉴입니다.</span>
+					Plan<span>Plan 대한 정보를 추천해주는 메뉴입니다.</span>
 				</h1>
 				<nav class="codrops-demos">
 
-					<a href="#" class="current-demo">관광지</a>
-					<a href="#">음식점</a>
-					<a href="#">카페</a>
+					<a href="#" class="current-demo">1일차 플랜</a>
+					<a href="#">2일차 플랜</a>
+					<a href="#">3일차 플랜</a>
 
 				</nav>
 			</header>
