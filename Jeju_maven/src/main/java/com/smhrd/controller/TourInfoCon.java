@@ -5,7 +5,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.smhrd.domain.tour;
 import com.smhrd.domain.tourDAO;
 
 
@@ -14,11 +16,25 @@ public class TourInfoCon extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//get방식(쿼리스트링)
+		System.out.println("[TourInfoCon]");
 		int tourNum = Integer.parseInt(request.getParameter("tourNum"));
-		
+		System.out.println(tourNum);
 		tourDAO dao = new tourDAO();
+		tour tourInfo =null;
 		
+		tourInfo = dao.getTourInfo(tourNum);
 		
+		if(tourInfo!=null) {
+			//관광정보 가져오기 성공
+			System.out.println("관광정보 가져오기 성공");
+			HttpSession session = request.getSession();
+			session.setAttribute("tourInfo", tourInfo);
+			response.sendRedirect("tour_info.jsp");
+		}else {
+			//관광정보 가져오기 실패
+			System.out.println("관광정보 가져오기 실패");
+			response.sendRedirect("tour_att.jsp");
+		}
 		
 	}
 
