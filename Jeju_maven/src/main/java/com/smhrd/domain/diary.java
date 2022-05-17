@@ -3,8 +3,7 @@ package com.smhrd.domain;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
-public class Diary {
-	//private BigDecimal num; //Oracle num
+public class diary {
 	private BigDecimal dia_num;
 	private String dia_name ;
 	private Timestamp dia_tripday;
@@ -12,7 +11,7 @@ public class Diary {
 	private Timestamp dia_date;//Oracle date
 	private String mem_id;
 	private String dia_content;
-	public Diary(BigDecimal dia_num, String dia_name, Timestamp dia_tripday, BigDecimal dia_share, Timestamp dia_date,
+	public diary(BigDecimal dia_num, String dia_name, Timestamp dia_tripday, BigDecimal dia_share, Timestamp dia_date,
 			String mem_id, String dia_content) {
 		super();
 		this.dia_num = dia_num;
@@ -23,6 +22,7 @@ public class Diary {
 		this.mem_id = mem_id;
 		this.dia_content = dia_content;
 	}
+	
 	public BigDecimal getDia_num() {
 		return dia_num;
 	}
@@ -46,6 +46,4 @@ public class Diary {
 	}
 	
 	
-	
-
 }
