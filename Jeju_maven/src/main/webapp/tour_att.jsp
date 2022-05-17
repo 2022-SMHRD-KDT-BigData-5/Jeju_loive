@@ -92,19 +92,18 @@
 			<c:forEach var="t" items="${tourList}" varStatus="status">
 				
 				<figure class="effect-marley">
-				
-					<img src="images/벌레.png" alt="img11" />
+					<img src="images/벌레.png" alt="img11" /><!-- 이미지 주소를 넣는 공간입니다^^ -->
 					<figcaption>
 						<h2>
-							<span><c:out value="${t.name}"/></span>
-							
+							${status.count}<span><c:out value="${t.name}"/></span>
 						</h2>
 						<p><c:out value="${t.address}"/></p>
-						<a href="#">View more</a>
+						<a href="TourInfoCon?tourNum=${t.num}">View more</a>
 					</figcaption>
 				</figure>
 			</c:forEach>
 			</div>
+<<<<<<< HEAD
 		
 
 
@@ -140,6 +139,10 @@
 			</c:forEach>
 			</div>
 			
+=======
+		
+
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
 		</div>
 		
@@ -152,8 +155,6 @@
 		</nav>
 		
 		</div>
-		
-		
 		
 		
 		
