@@ -1,25 +1,26 @@
 @charset "UTF-8";
-	*{
+*{
 	box-sizing: border-box;
 	}
 	
 	.score-wrapper{
-		
-		border:solid 1px #8080c0;
+		font-family: 'Noto Sans KR',sans-slef;
+		font-size: 20px;
+		border:1px solid black;
 		
 	}
-	.score-wrapper>.score{
+	.score-wrapper >.score{
 		position: relative;
 		display: inline-flex;
 		
 		border: 1px solid ridge;
 	}
-	.score-wrapper>.score>.foreground{
+	.score-wrapper >.score >.foreground{
 		width:15%;
 		overflow: hidden;
 		
 	}
 	
-	.score-wrapper>.score>.background{
+	.score-wrapper >.score >.background{
 		position: absolute;
 	}
