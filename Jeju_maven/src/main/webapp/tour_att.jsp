@@ -2,7 +2,8 @@
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.domain.tourDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <% 
 	tourDAO dao = new tourDAO();
 	List<tour> tourList = dao.selectTourList();
@@ -84,6 +85,7 @@
 		<div class="content">
 		
 		<!-- 관광지 정보 반복출력 -->
+<<<<<<< HEAD
 		
 		<h2>관광지 카테고리1</h2>
 			<div class="grid">
@@ -124,6 +126,27 @@
 			</div>
 			
 		
+=======
+
+		<h2>관광지 카테고리1</h2>
+			<div class="grid">
+			
+			<c:forEach var="t" items="${tourList}" varStatus="status">
+				
+				<figure class="effect-marley">
+				
+					<img src="images/벌레.png" alt="img11" /> <!-- 이미지 주소 출력하는곳 -->
+					<figcaption>
+						<h2>
+							<span>${t.name}</span>
+						</h2>
+						<p>${t.address}</p>
+						<a href="#">View more</a>
+					</figcaption>
+				</figure>
+			</c:forEach>
+			</div>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 			
 			
 			<h2>관광지 카테고리1</h2>
