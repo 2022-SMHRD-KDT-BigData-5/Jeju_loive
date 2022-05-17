@@ -40,6 +40,12 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.IdCheckCon</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>diaryCon</servlet-name>
+  	<display-name>diaryCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.diaryCon</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginCon</servlet-name>
   	<url-pattern>/LoginCon</url-pattern>
@@ -63,5 +69,9 @@
   <servlet-mapping>
   	<servlet-name>IdCheckCon</servlet-name>
   	<url-pattern>/IdCheckCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>diaryCon</servlet-name>
+  	<url-pattern>/diaryCon</url-pattern>
   </servlet-mapping>
 </web-app>
