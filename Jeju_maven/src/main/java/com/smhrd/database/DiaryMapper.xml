@@ -3,11 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.domain.DiaryDAO">
-	<insert id="insertdiary" parameterType="com.smhrd.domain.Member">
-		insert into member values(#{id}, #{pw}, #{name}, #{tel})
+	<insert id="insertDiary" parameterType="com.smhrd.domain.Diary">
+		insert into diary values(#{dia_num}, #{dia_name}, #{dia_tripday}, #{dia_share}, #{dia_date}, #{mem_id}, #{dia_content})
 	</insert>
-	<select id="selectdiary" parameterType="com.smhrd.domain.Member" resultType="com.smhrd.domain.Member">
-		select * from member where mem_id=#{id} and mem_pw=#{pw}
+	<select id="selectDiary" parameterType="String" resultType="com.smhrd.domain.Diary">
+		
+		select * from diary where mem_id=#{mem_id}
 	</select>
 	
 </mapper>

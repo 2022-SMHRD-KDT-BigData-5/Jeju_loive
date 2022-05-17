@@ -1,6 +1,14 @@
+<%@page import="com.smhrd.domain.Diary"%>
+<%@page import="com.smhrd.domain.DiaryDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+	String mem_id="jsh";
+	DiaryDAO dao= new DiaryDAO();
+	Diary contentdiary = dao.selectDiary(mem_id);
+	
+%>
 <!DOCTYPE HTML>
 <!--
 	Striped by HTML5 UP
@@ -57,14 +65,12 @@
 							</div>
 							<img src="images/pic01.jpg" alt="실패"class="test3">
 							<p>
-								Hello! You're looking at Striped, a fully responsive HTML5 site template designed by <a href="http://twitter.com/ajlkn">AJ</a>
-								for It features a clean, minimalistic design, styling for all basic page elements (including blockquotes, tables and lists), a
-								repositionable sidebar (left or right), and HTML5/CSS3 code designed for quick and easy customization (see code comments for details).
+								<%=contentdiary.getDia_content() %>
 							</p>
 							<p>
 								Striped is released for free under the Creative Commons Attribution license so feel free to use it for personal projects
 								or even commercial ones &ndash; just be sure to credit HTML5 UP for the design. If you like what you see here, be sure to check out
-								HTML5 UP</a> for more cool designs or follow me on Twitter for new releases and updates.
+								HTML5 UP for more cool designs or follow me on Twitter for new releases and updates.
 							</p>
 						</article>
 
