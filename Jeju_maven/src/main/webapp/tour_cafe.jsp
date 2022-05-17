@@ -44,7 +44,7 @@
 					class="current-demo" href="tour_cafe.jsp">카페</a>
 
 			</nav>
-<<<<<<< HEAD
+
 			<!-- Related demos -->
 			<section class="related">
 				
@@ -61,7 +61,7 @@
 			} );
 		</script>
 	</body>
-=======
+
 		</header>
 		<div class="content">
 
@@ -95,5 +95,4 @@
 
 
 </body>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 </html>
