@@ -85,6 +85,30 @@
 		
 		<!-- 관광지 정보 반복출력 -->
 		
+		<h2>관광지 카테고리1</h2>
+			<div class="grid">
+			
+			<c:forEach var="t" items="${tourList}" varStatus="status">
+				
+				<figure class="effect-marley">
+				
+					<img src="images/벌레.png" alt="img11" />
+					<figcaption>
+						<h2>
+							<span><c:out value="${t.name}"/></span>
+							
+						</h2>
+						<p><c:out value="${t.address}"/></p>
+						<a href="#">View more</a>
+					</figcaption>
+				</figure>
+			</c:forEach>
+			</div>
+		
+		
+		
+		
+		
 		<h2>관광지 카테고리2</h2>
 			<div class="grid">
 				<figure class="effect-marley">
@@ -99,24 +123,7 @@
 				</figure>
 			</div>
 			
-		<h2>관광지 카테고리1</h2>
-			<div class="grid">
-			
-			<c:forEach var="t" items="${tourList}" varStatus="status">
-				
-				<figure class="effect-marley">
-				
-					<img src="images/벌레.png" alt="img11" />
-					<figcaption>
-						<h2>
-							<span>${t.name}</span>
-						</h2>
-						<p></p>
-						<a href="#">View more</a>
-					</figcaption>
-				</figure>
-			</c:forEach>
-			</div>
+		
 			
 			
 			<h2>관광지 카테고리1</h2>
