@@ -86,7 +86,18 @@ public class tourDAO {
 		
 		
 		
-		//
+		// tour에서 관광지 상세정보 가져오는 메서드
+		public tour getTourInfo(int tourNum) {
+			
+			tour tourInfo = null;
+			
+			return tourInfo;
+		}
+		
+		
+		
+		// tour_img에서 관광지 사진 가져오는 메서드
+		
 		
 
 }
