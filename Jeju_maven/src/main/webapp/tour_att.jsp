@@ -34,7 +34,7 @@
 <style>
 	#flex_cont{display:flex;}
 	#tour_div{
-		width:80%;
+		width:70%;
 	}
 	#plan_div{
 		width:20%
@@ -105,72 +105,29 @@
 			</c:forEach>
 			</div>
 			
-			
-			<h2>관광지 카테고리1</h2>
-			<div class="grid">
-				<figure class="effect-marley">
-					<img src="images/벌레.png" alt="img11" />
-					<figcaption>
-						<h2>
-							진짜 멋있는<span>금오름</span>
-						</h2>
-						<p>관광지의 주소가 출력되는 곳입니다.</p>
-						<a href="#">View more</a>
-					</figcaption>
-				</figure>
-				<figure class="effect-marley">
-					<img src="images/1.jpg" alt="img12" />
-					<figcaption>
-						<h2>
-							꼭 가야하는<span>한라산</span>
-						</h2>
-						<p>관광지의 주소가 출력되는 곳입니다.</p>
-						<a href="#">View more</a>
-					</figcaption>
-				</figure>
-				<figure class="effect-marley">
-					<img src="images/1.jpg" alt="img12" />
-					<figcaption>
-						<h2>
-							별로 안가고싶은<span>관광지</span>
-						</h2>
-						<p>관광지의 주소가 출력되는 곳입니다.</p>
-						<a href="#">View more</a>
-					</figcaption>
-				</figure>
-				<figure class="effect-marley">
-					<img src="images/1.jpg" alt="img12" />
-					<figcaption>
-						<h2>
-							별로 안가고싶은<span>관광지</span>
-						</h2>
-						<p>관광지의 주소가 출력되는 곳입니다.</p>
-						<a href="#">View more</a>
-					</figcaption>
-				</figure>
-			</div>
-
-			<h2>관광지 카테고리2</h2>
-			<div class="grid">
-				<figure class="effect-marley">
-					<img src="images/벌레.png" alt="img11" />
-					<figcaption>
-						<h2>
-							진짜 멋있는<span>금오름</span>
-						</h2>
-						<p>관광지의 주소가 출력되는 곳입니다.</p>
-						<a href="#">View more</a>
-					</figcaption>
-				</figure>
-			</div>
 
 		</div>
+		
+		
+		<nav class="codrops-demos">
+				<a href="#" class="current-demo">관광지</a>
+				<a href="tour_food.jsp">음식점</a>
+				<a href="tour_cafe.jsp">카페</a>
+
+		</nav>
+		
 		</div>
+		
+		
+		
+		
+		
+		
 		
 		<div id="plan_div">
 			<header class="codrops-header">
 				<h1>
-					attraction<span>Plan 대한 정보를 추천해주는 메뉴입니다.</span>
+					Plan<span>Plan에 대한 정보를 추천해주는 메뉴입니다.</span>
 				</h1>
 				<nav class="codrops-demos">
 
@@ -206,10 +163,7 @@
 		</div>
 
 	</div>
-	<nav class="codrops-demos">
-		<a class="current-demo" href="#">관광지</a> <a href="tour_food.jsp">음식점</a>
-		<a href="tour_cafe.jsp">카페</a>
-	</nav>
+	
 	<!-- Related demos -->
 	<section class="related"></section>
 	</div>
