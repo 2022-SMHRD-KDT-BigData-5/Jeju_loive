@@ -1,5 +1,17 @@
+
+<%@page import="com.smhrd.domain.tour"%>
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.domain.tourDAO"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%
+tourDAO dao = new tourDAO();
+List<tour> cafeList = dao.selectCafeList();
+pageContext.setAttribute("cafeList", cafeList);
+%>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -18,13 +30,28 @@
 <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
 <!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-
+<style>
+	#flex_cont{display:flex;}
+	#tour_div{
+		width:70%;
+	}
+	#plan_div{
+		width:20%
+		background-color:red;
+	}
+</style>
+	
 </head>
+
+
 <body>
-<header id="menuBlock">
+
+
+	<header id="menuBlock">
 		<nav>
 			<ul>
 				<li><a href="main.jsp">main</a></li>
@@ -37,33 +64,20 @@
 	</header>
 
 
-	<div class="container">
-		<!-- Top Navigation -->
-		<div class="codrops-top clearfix">
-			<a class="codrops-icon codrops-icon-prev" href="main.jsp"><span>메인으로
-					돌아가기</span></a> <span class="right"><a
-				class="codrops-icon codrops-icon-drop" href="planner.jsp"><span>플래너
-						생성하기</span></a></span>
-		</div>
-		<header class="codrops-header">
-			<h1>
-				Tour <span>관광지에 대한 정보를 추천해주는 메뉴입니다.</span>
-			</h1>
-			<nav class="codrops-demos">
 
-				<a href="tour_att.jsp">관광지</a> <a href="tour_food.jsp">음식점</a> <a
-					class="current-demo" href="tour_cafe.jsp">카페</a>
+	<div class="container" id="flex_cont">
+	
+	
+		<div id="tour_div">
+		
+			<header class="codrops-header">
+				<h1>
+					attraction<span>관광지에 대한 정보를 추천해주는 메뉴입니다.</span>
+				</h1>
+				<nav class="codrops-demos">
 
 			</nav>
 
-			<!-- Related demos -->
-			<section class="related">
-				
-			
-			<div>dd</div>	
-				
-				
-			</section>
 		</div><!-- /container -->
 		<script>
 			// For Demo purposes only (show hover effect on mobile devices)
@@ -74,36 +88,103 @@
 	</body>
 
 		</header>
-		<div class="content">
 
-			<h2>Marley</h2>
+					<a href="tour_att.jsp">관광지</a>
+					<a href="tour_food.jsp">음식점</a>
+					<a href="#" class="current-demo">카페</a>
+
+				</nav>
+			</header>
+		
+		
+		
+
+		<div class="content">
+		
+
+		
+		<h2>츄릅</h2>
+			<div class="grid">
+			
+			<c:forEach var="c" items="${cafeList}" varStatus="status">
+				
+				<figure class="effect-marley">
+				
+					<img src="images/벌레.png" alt="img11" />
+					<figcaption>
+						<h2>
+							<span><c:out value="${c.name}"/></span>
+							
+						</h2>
+						<p><c:out value="${c.address}"/></p>
+						<a href="#">View more</a>
+					</figcaption>
+				</figure>
+			</c:forEach>
+			</div>
+		
+		
+
+			<h2>관광지 카테고리2</h2>
 			<div class="grid">
 				<figure class="effect-marley">
-					<img src="images/1.jpg" alt="img11" />
+					<img src="images/벌레.png" alt="img11" />
 					<figcaption>
 						<h2>
-							Sweet <span>Marley</span>
+							진짜 멋있는<span>금오름</span>
 						</h2>
-						<p>Marley tried to convince her but she was not interested.</p>
+						<p>관광지의 주소가 출력되는 곳입니다.</p>
 						<a href="#">View more</a>
 					</figcaption>
 				</figure>
-				<figure class="effect-marley">
-					<img src="images/1.jpg" alt="img12" />
-					<figcaption>
-						<h2>
-							Sweet <span>Marley</span>
-						</h2>
-						<p>Marley tried to convince her but she was not interested.</p>
-						<a href="#">View more</a>
-					</figcaption>
-				</figure>
-
-
 			</div>
+
+		</div>
+		</div>
+		
+		
+		
+		
+		<div class="content">
+		
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			
+			
+		</div>
 		</div>
 
-
-
+	</div>
+	<nav class="codrops-demos">
+					<a href="tour_att.jsp">관광지</a>
+					<a href="tour_food.jsp">음식점</a>
+					<a href="#" class="current-demo">카페</a>
+	</nav>
+	<!-- Related demos -->
+	<section class="related"></section>
+	</div>
+	<!-- /container -->
+	<script>
+		// For Demo purposes only (show hover effect on mobile devices)
+		[].slice.call(document.querySelectorAll('a[href="#"')).forEach(
+				function(el) {
+					el.addEventListener('click', function(ev) {
+						ev.preventDefault();
+					});
+				});
+	</script>
 </body>
 </html>

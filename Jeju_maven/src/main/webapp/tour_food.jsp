@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@page import="com.smhrd.domain.tour"%>
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.domain.tourDAO"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<% 
+	tourDAO dao = new tourDAO();
+	List<tour> foodList = dao.selectFoodList();
+	pageContext.setAttribute("foodList", foodList);
+%>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
@@ -48,34 +57,36 @@
 				</nav>
 			</header>
 			<div class="content">
-				
-				<%for(int i=0; i<5; i++){
-				}%>
-				<h2>양식</h2>
+
+			<h2>냠냠</h2>
+			<div class="grid">
+
+				<c:forEach var="f" items="${foodList}" varStatus="status">
+
+					<figure class="effect-marley">
+
+						<img src="images/벌레.png" alt="img11" />
+						<figcaption>
+							<h2>
+								<span><c:out value="${f.name}" /></span>
+
+							</h2>
+							<p>
+								<c:out value="${f.address}" />
+							</p>
+							<a href="#">View more</a>
+						</figcaption>
+					</figure>
+				</c:forEach>
+			</div>
+
+
+			<h2>한식</h2>
 				<div class="grid">
 					<figure class="effect-marley">
 						<img src="images/1.jpg" alt="img11"/>
 						<figcaption>
-							<h2>Sweet <span>Marley</span></h2>
-							<p>Marley tried to convince her but she was not interested.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-					<figure class="effect-marley">
-						<img src="images/1.jpg" alt="img12"/>
-						<figcaption>
-							<h2>Sweet <span>Marley</span></h2>
-							<p>Marley tried to convince her but she was not interested.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-				</div>
-				<h2>한식</h2>
-				<div class="grid">
-					<figure class="effect-marley">
-						<img src="images/1.jpg" alt="img11"/>
-						<figcaption>
-							<h2>Sweet <span>Marley</span></h2>
+							<h2>Sweet <span><%=foodList.get(0).getName() %></span></h2>
 							<p>Marley tried to convince her but she was not interested.</p>
 							<a href="#">View more</a>
 						</figcaption>			
