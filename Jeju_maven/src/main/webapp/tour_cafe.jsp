@@ -1,5 +1,14 @@
+<%@page import="com.smhrd.domain.tourDAO"%>
+<%@page import="com.smhrd.domain.tour"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+tourDAO dao = new tourDAO();
+List<tour> cafeList = dao.selectCafeList();
+pageContext.setAttribute("cafeList", cafeList);
+%>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -56,14 +65,6 @@
 
 			</nav>
 
-			<!-- Related demos -->
-			<section class="related">
-				
-			
-			<div>dd</div>	
-				
-				
-			</section>
 		</div><!-- /container -->
 		<script>
 			// For Demo purposes only (show hover effect on mobile devices)
@@ -75,6 +76,29 @@
 
 		</header>
 		<div class="content">
+		
+		
+		<h2>츄릅</h2>
+			<div class="grid">
+			
+			<c:forEach var="c" items="${cafeList}" varStatus="status">
+				
+				<figure class="effect-marley">
+				
+					<img src="images/벌레.png" alt="img11" />
+					<figcaption>
+						<h2>
+							<span><c:out value="${c.name}"/></span>
+							
+						</h2>
+						<p><c:out value="${c.address}"/></p>
+						<a href="#">View more</a>
+					</figcaption>
+				</figure>
+			</c:forEach>
+			</div>
+		
+		
 
 			<h2>Marley</h2>
 			<div class="grid">
@@ -82,7 +106,7 @@
 					<img src="images/1.jpg" alt="img11" />
 					<figcaption>
 						<h2>
-							Sweet <span>Marley</span>
+							<span><%=cafeList.get(0).getName() %></span>
 						</h2>
 						<p>Marley tried to convince her but she was not interested.</p>
 						<a href="#">View more</a>
