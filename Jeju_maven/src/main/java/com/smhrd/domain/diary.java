@@ -14,6 +14,7 @@ public class diary {
 	
 	
 	
+	
 	public diary(BigDecimal dia_num, String dia_name, Timestamp dia_tripday, BigDecimal dia_share, Timestamp dia_date,
 			String mem_id, String dia_content) {
 		super();

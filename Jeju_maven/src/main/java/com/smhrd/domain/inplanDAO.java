@@ -35,7 +35,7 @@ public class inplanDAO {
 	      return inplanList;
 	   }
 	
-	
+
 	//사용자의 하루 여행목록 전체주소를 받아오는 메서드
 	public List<String> selectTour(BigDecimal planNum) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
