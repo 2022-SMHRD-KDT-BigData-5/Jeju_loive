@@ -22,7 +22,9 @@ public class imgupCon extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 request.setCharacterEncoding("UTF-8");
-		 request.getParameter("");
+		 HttpSession session = request.getSession();
+		 String page = (String) request.getAttribute("page");
+		 System.out.print(page);
 		 
 		 String realFolder = "";
 		 String filename1 = "";
@@ -32,7 +34,7 @@ public class imgupCon extends HttpServlet {
 		 ServletContext scontext = getServletContext();
 		 realFolder = scontext.getRealPath(savefile);
 		 
-		 HttpSession session = request.getSession();
+		
 		 Member loginMember = (Member)session.getAttribute("loginMember");
 		 
 		 try{

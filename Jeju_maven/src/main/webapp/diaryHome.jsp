@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.smhrd.domain.diaryDAO"%>
 <%@page import="com.smhrd.domain.diary"%>
@@ -15,8 +16,9 @@
 	SimpleDateFormat sdf1 = new SimpleDateFormat("dd");
 	String month = sdf2.format(diaryList.get(0).getDia_date());
 	String day = sdf1.format(diaryList.get(0).getDia_date());
-	
+	System.out.print(diaryList.get(0).getDia_num());
 %>
+
 <!DOCTYPE HTML>
 <!--
 	Striped by HTML5 UP
@@ -24,6 +26,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+
 	<head>
 		<title>Striped by HTML5 UP</title>
 		<meta charset="utf-8" />
@@ -96,6 +99,7 @@
 							<form method="post" enctype="multipart/form-data" action="imgupCon">
 							<input type="file" name="filename1" size=40>
 							<input type="submit" value="업로드"><br><br>
+							
 							</form>
 							</div>
 							<%}
@@ -183,7 +187,12 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/diaryHome.js"></script>
 			<script>
-				
+			let date=<%=diaryList.get(0).getDia_num()%>
+			if(date==1){
+				$('.pages>a').removeAttr('class');
+				$('.pages>a').eq(3).attr('class','active');
+			}
+			
 				$('#btnNext').click(function(){
 					
 					$('.active').next().attr('class','active');
@@ -209,7 +218,6 @@
 					
 					
        			})
-				
 				
 
 			</script>
