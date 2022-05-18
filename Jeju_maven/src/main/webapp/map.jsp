@@ -1,13 +1,11 @@
-<<<<<<< HEAD
-=======
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 <!DOCTYPE html>
 <%@page import="com.smhrd.domain.MemberDAO"%>
 <html>
 <head>
-<<<<<<< HEAD
+
 <meta charset="utf-8">
 <title>키워드로 장소검색하고 목록으로 표출하기</title>
 <style>
@@ -196,9 +194,8 @@
 	cursor: default;
 	color: #777;
 }
-=======
+
     <meta charset="utf-8">
-<<<<<<< HEAD
     <title>키워드로 장소검색하고 목록으로 표출하기</title>
     <style>
 .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
@@ -237,17 +234,12 @@
 #pagination {margin:10px auto;text-align: center;}
 #pagination a {display:inline-block;margin-right:10px;}
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 </style>
-=======
+
     <title>여러개 마커에 이벤트 등록하기2</title>
     
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 </head>
 <body>
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 	<form action="FreeBoardWriteServlet" method="post"></form>
 	<label for="title">제목</label>
 	<div class="map_wrap">
@@ -274,14 +266,12 @@
 	<script>
 		// 마커를 담을 배열입니다
 		var markers = [];
-=======
+
 <div class="map_wrap">
     <div id="map" style="width:1000px;height:500px;position:relative;overflow:hidden;"></div>
-=======
-<div id="map" style="width:500px;height:500px;"></div>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
-<<<<<<< HEAD
+<div id="map" style="width:500px;height:500px;"></div>
+
     <div id="menu_wrap" class="bg_white">
         <div class="option">
             <div>
@@ -296,26 +286,22 @@
         <div id="pagination"></div>
     </div>
 </div>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
-<<<<<<< HEAD
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		mapOption = {
 			center : new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
 			level : 3
 		// 지도의 확대 레벨
 		};
-=======
+
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script>
-=======
+
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94"></script>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 <script>
-<<<<<<< HEAD
+
 // 마커를 담을 배열입니다
 var markers = [];
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
-=======
+
 var MARKER_WIDTH = 33, // 기본, 클릭 마커의 너비
     MARKER_HEIGHT = 36, // 기본, 클릭 마커의 높이
     OFFSET_X = 12, // 기본, 클릭 마커의 기준 X좌표
@@ -328,17 +314,14 @@ var MARKER_WIDTH = 33, // 기본, 클릭 마커의 너비
     SPRITE_WIDTH = 126, // 스프라이트 이미지 너비
     SPRITE_HEIGHT = 146, // 스프라이트 이미지 높이
     SPRITE_GAP = 10; // 스프라이트 이미지에서 마커간 간격
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 		// 지도를 생성합니다    
 		var map = new kakao.maps.Map(mapContainer, mapOption);
-=======
+
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
         center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-=======
+
 var markerSize = new kakao.maps.Size(MARKER_WIDTH, MARKER_HEIGHT), // 기본, 클릭 마커의 크기
     markerOffset = new kakao.maps.Point(OFFSET_X, OFFSET_Y), // 기본, 클릭 마커의 기준좌표
     overMarkerSize = new kakao.maps.Size(OVER_MARKER_WIDTH, OVER_MARKER_HEIGHT), // 오버 마커의 크기
@@ -355,55 +338,40 @@ var positions = [  // 마커의 위치
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
     mapOption = { 
         center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
         level: 3 // 지도의 확대 레벨
-<<<<<<< HEAD
-    };  
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
-=======
-    };
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+    };  
+
+    };
+
 		// 장소 검색 객체를 생성합니다
 		var ps = new kakao.maps.services.Places();
-=======
+
 // 지도를 생성합니다    
 var map = new kakao.maps.Map(mapContainer, mapOption); 
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
-=======
-var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
 		// 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
 		var infowindow = new kakao.maps.InfoWindow({
 			zIndex : 1
 		});
-=======
+
 // 장소 검색 객체를 생성합니다
 var ps = new kakao.maps.services.Places();  
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
-<<<<<<< HEAD
 		// 키워드로 장소를 검색합니다
 		searchPlaces();
-=======
+
 // 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
 var infowindow = new kakao.maps.InfoWindow({zIndex:1});
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
-<<<<<<< HEAD
 		// 키워드 검색을 요청하는 함수입니다
 		function searchPlaces() {
-=======
+
 // 키워드로 장소를 검색합니다
 searchPlaces();
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
-<<<<<<< HEAD
 			var keyword = document.getElementById('keyword').value;
 
 			if (!keyword.replace(/^\s+|\s+$/g, '')) {
@@ -599,7 +567,7 @@ searchPlaces();
 			}
 		}
 	</script>
-=======
+
 // 키워드 검색을 요청하는 함수입니다
 function searchPlaces() {
 
@@ -612,7 +580,7 @@ function searchPlaces() {
 
     // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
     ps.keywordSearch( keyword, placesSearchCB); 
-=======
+
 // 지도 위에 마커를 표시합니다
 for (var i = 0, len = positions.length; i < len; i++) {
     var gapX = (MARKER_WIDTH + SPRITE_GAP), // 스프라이트 이미지에서 마커로 사용할 이미지 X좌표 간격 값
@@ -624,8 +592,6 @@ for (var i = 0, len = positions.length; i < len; i++) {
         
     // 마커를 생성하고 지도위에 표시합니다
     addMarker(positions[i], normalOrigin, overOrigin, clickOrigin);
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
-}
 
 // 마커를 생성하고 지도 위에 표시하고, 마커에 mouseover, mouseout, click 이벤트를 등록하는 함수입니다
 function addMarker(position, normalOrigin, overOrigin, clickOrigin) {
@@ -700,6 +666,5 @@ function createMarkerImage(markerSize, offset, spriteOrigin) {
     return markerImage;
 }
 </script>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 </body>
 </html>
