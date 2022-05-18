@@ -1,3 +1,19 @@
+<%@page import="com.smhrd.domain.Member"%>
+<%@page import="java.math.BigDecimal"%>
+<%@page import="com.smhrd.domain.inplanDAO"%>
+<%@page import="com.smhrd.domain.inplan"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+inplanDAO dao = new inplanDAO();
+Member loginMember = (Member)session.getAttribute("loginMember");
+BigDecimal planNum= new BigDecimal(11);
+List<String> planAddList = dao.selectTour(planNum);
+pageContext.setAttribute("planAddList",planAddList);
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +22,7 @@
     
 </head>
 <body>
-<div id="map" style="width:100%;height:850px;"></div>
+<div id="map" style="width:100%;height:550px;"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94"></script>
 <script>
@@ -36,7 +52,6 @@ var positions = [  // 마커의 위치
     ],
     selectedMarker = null; // 클릭한 마커를 담을 변수
 
-    console.log(positions[0]);    
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
     mapOption = { 
         center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -50,7 +65,6 @@ for (var i = 0, len = positions.length; i < len; i++) {
     var gapX = (MARKER_WIDTH + SPRITE_GAP), // 스프라이트 이미지에서 마커로 사용할 이미지 X좌표 간격 값
         originY = (MARKER_HEIGHT + SPRITE_GAP) * i, // 스프라이트 이미지에서 기본, 클릭 마커로 사용할 Y좌표 값
         overOriginY = (OVER_MARKER_HEIGHT + SPRITE_GAP) * i, // 스프라이트 이미지에서 오버 마커로 사용할 Y좌표 값
-       
         normalOrigin = new kakao.maps.Point(0, originY), // 스프라이트 이미지에서 기본 마커로 사용할 영역의 좌상단 좌표
         clickOrigin = new kakao.maps.Point(gapX, originY), // 스프라이트 이미지에서 마우스오버 마커로 사용할 영역의 좌상단 좌표
         overOrigin = new kakao.maps.Point(gapX * 2, overOriginY); // 스프라이트 이미지에서 클릭 마커로 사용할 영역의 좌상단 좌표
@@ -132,8 +146,12 @@ function createMarkerImage(markerSize, offset, spriteOrigin) {
     return markerImage;
 }
 </script>
-
-
+<h1>List</h1>
+	<div><c:forEach var = "p" items="${planAddList}" varStatus="status">   
+                <h1>${p}</h1>                   
+	</c:forEach>
+</div>
+	
 
 
 </body>
