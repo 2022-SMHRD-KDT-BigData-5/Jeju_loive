@@ -13,14 +13,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	diaryDAO dao = new diaryDAO();
-	String mem_id="jsh";
+	Member loginMember = (Member)session.getAttribute("loginMember");
+	String mem_id=loginMember.getId();
 	List<diary> diaryList = dao.selectDiary(mem_id);
 	pageContext.setAttribute("diaryList",diaryList);
 	SimpleDateFormat sdf2 = new SimpleDateFormat("MMM");
 	SimpleDateFormat sdf1 = new SimpleDateFormat("dd");
 	Timestamp date=diaryList.get(0).getDia_date();
+	
 	String month = sdf2.format(diaryList.get(0).getDia_date());
+	System.out.println(month);
 	String day = sdf1.format(diaryList.get(0).getDia_date());
+	System.out.println(day);
+	
 	BigDecimal pagenum=diaryList.get(0).getDia_num();
 	diaryImg uploadimg=new diaryImg(pagenum,date,day);
 	session.setAttribute("pagenum", uploadimg);
@@ -84,7 +89,7 @@
 									the entire "date" element.
 
 								-->
-								<span class="date"><span class="month"><%= month%><span><%=day%></span></span> <span class="day">14</span><span class="year">, 2014</span></span>
+								<span class="date"><span class="month"><%= month%><span></span></span> <span class="day"><%=day%></span><span class="year">, 2014</span></span>
 								<!--
 									Note: You can change the number of list items in "stats" to whatever you want.
 								-->
@@ -97,7 +102,7 @@
 							</div>
 							<div id="flex_cont">
 							<%
-							Member loginMember = (Member)session.getAttribute("loginMember");
+							
 							diaryImg onloadimgf = null;
 							diaryImg k= new diaryImg(uploadimg.getD_num(),uploadimg.getD_num(),uploadimg.getD_tripday(),loginMember.getId());
 							onloadimgf = (diaryImg)dao.selectDimgf(k);
@@ -163,11 +168,23 @@
 							
 							</div>
 							
-							<p>
-								<%= diaryList.get(0).getDia_content() %>
+							
+								<%if(diaryList.get(0).getDia_content()==null){
+									%>
+									<textarea name="content" id="textcontent" cols="150" rows="6"></textarea>
+									
+									<%
+								}
+								else{
+									%><p><%= diaryList.get(0).getDia_content() %></p><% 
+								}
+								
+								%>
+								
+								
 									
 								
-							</p>
+							
 							
 						</article>
 
@@ -199,10 +216,10 @@
 			<script src="assets/js/diaryHome.js"></script>
 			<script>
 			let date=<%=diaryList.get(0).getDia_num()%>
-			if(date==1){
+			/* if(date==1){
 				$('.pages>a').removeAttr('class');
 				$('.pages>a').eq(3).attr('class','active');
-			}
+			} */
 			
 				$('#btnNext').click(function(){
 					
@@ -229,7 +246,9 @@
 					
 					
        			})
-				
+				<%-- $('.test').dblclick(function(){
+            		<% onloadimgf=null;%>
+        		}) --%>
 
 			</script>
 
