@@ -130,5 +130,9 @@ function createMarkerImage(markerSize, offset, spriteOrigin) {
     return markerImage;
 }
 </script>
+
+
+
+
 </body>
 </html>
