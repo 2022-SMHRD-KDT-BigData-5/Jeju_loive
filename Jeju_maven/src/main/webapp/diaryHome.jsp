@@ -93,7 +93,7 @@
 							if (fullpath==null){
 							%>
 							<div class="test">
-							<form method="post" enctype="multipart/form-data" action="imgup.jsp">
+							<form method="post" enctype="multipart/form-data" action="imgupCon">
 							<input type="file" name="filename1" size=40>
 							<input type="submit" value="업로드"><br><br>
 							</form>
@@ -207,7 +207,7 @@
 					
 					
 					
-
+					
        			})
 				
 				

@@ -32,5 +32,24 @@ public class diaryDAO {
 			      }
 			      return diaryList;
 			   }
+			
+			public int insertImg(diaryImg dimg) {
+				  SqlSession sqlSession = sqlSessionFactory.openSession();
+			      int cnt = 0;
+			      try {
+			         cnt = sqlSession.insert("com.smhrd.domain.MemberDAO.insertImg", dimg);
+			         if (cnt > 0) {
+			            sqlSession.commit();
+			         } else {
+			            sqlSession.rollback();
+			         }
+			      } catch (Exception e) {
+			         e.printStackTrace();
+			      } finally {
+			         sqlSession.close();
+			      }
+			      return cnt;
+			   }
+			   
 
 }

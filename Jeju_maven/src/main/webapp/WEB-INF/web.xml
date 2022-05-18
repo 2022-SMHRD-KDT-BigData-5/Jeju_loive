@@ -47,6 +47,12 @@
      <description></description>
      <servlet-class>com.smhrd.controller.IdCheckCon</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>imgupCon</servlet-name>
+  	<display-name>imgupCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.imgupCon</servlet-class>
+  </servlet>
   <servlet-mapping>
      <servlet-name>LoginCon</servlet-name>
      <url-pattern>/LoginCon</url-pattern>
@@ -74,5 +80,9 @@
   <servlet-mapping>
      <servlet-name>TourInfoCon</servlet-name>
      <url-pattern>/TourInfoCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>imgupCon</servlet-name>
+  	<url-pattern>/imgupCon</url-pattern>
   </servlet-mapping>
 </web-app>

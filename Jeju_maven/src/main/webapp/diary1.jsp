@@ -44,6 +44,7 @@
 							<div>
 								<h2>1일차 <span>추억</span></h2>
 								<p>Lily likes to play with crayons and pencils</p>
+							</div>
 							<a href="diaryHome.jsp">View more</a>
 						</figcaption>			
 					</figure>
