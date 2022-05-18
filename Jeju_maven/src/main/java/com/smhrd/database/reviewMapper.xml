@@ -8,16 +8,7 @@
 		values(#{tour_num},#{rev_user}, #{rev_star}, #{rev_content})
 	</insert>
 	
-	<select id="selectReview" parameterType="com.smhrd.domain.review" >
+	<select id="selectReview" parameterType="com.smhrd.domain.review" resultType="com.smhrd.domain.review">
 		select * from review where tour_num=#{tour_num}
 	</select>
-	
-	<update id="updateReview" parameterType="com.smhrd.domain.review">
-		update review set 
-	</update>
-	
-	<delete id="deleteReview" parameterType="">
-	
-	</delete>
-	
 </mapper>
