@@ -45,6 +45,15 @@ public class diaryImg {
 	
 
 
+	public diaryImg(BigDecimal p_num, BigDecimal d_num, Timestamp d_tripday, String p_memid) {
+		super();
+		this.p_num = p_num;
+		this.d_num = d_num;
+		this.d_tripday = d_tripday;
+		this.p_memid = p_memid;
+	}
+
+
 	public diaryImg(Timestamp d_tripday, String p_memid) {
 		super();
 		this.d_tripday = d_tripday;

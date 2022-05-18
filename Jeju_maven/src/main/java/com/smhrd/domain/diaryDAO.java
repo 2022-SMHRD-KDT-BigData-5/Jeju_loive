@@ -51,15 +51,13 @@ public class diaryDAO {
 			      return cnt;
 			   }
 			
-			public diaryImg selectDimgf(diaryImg k) {
+			public diaryImg selectDimgf(diaryImg diaryimg) {
 				   SqlSession sqlSession = sqlSessionFactory.openSession();
 				   diaryImg dimg = null;
 				   try {
-					   //selectOne() -> 결과값(Object)
-					   // -> 결과값이 항상 1개 아니면 null
-					   //같은 아이디/패스워드가 테이블에 여러개 들어가 있을 경우에는 오류!
-					   	 dimg = sqlSession.selectOne("com.smhrd.domain.diaryDAO.selectDimgf", k);
-				         //cnt = sqlSession.insert("com.smhrd.domain.MemberDAO.insertMember", member);
+					   
+					   	 dimg = sqlSession.selectOne("com.smhrd.domain.diaryDAO.selectDimgf", diaryimg);
+				         
 				         if (dimg != null) {
 				            sqlSession.commit();
 				         } else {
