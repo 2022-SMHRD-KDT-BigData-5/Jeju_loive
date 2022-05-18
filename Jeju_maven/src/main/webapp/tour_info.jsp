@@ -64,6 +64,8 @@
 				<li><a href="board.jsp">board</a></li>
 				<!--<li><a href="#elements">Elements</a></li>-->
 			</ul>
+			
+			<!-- 로그인/로그아웃 출력 -->
 			<c:choose>
                   <c:when test="${empty loginMember}">
                      <a href="#login" class="soohyeon">login</a>
@@ -76,44 +78,38 @@
 	</header>
 
           
+          
+          
+          
 
 	<div class="container" id="flex_cont">
 	
-	
+		
+		<!-- 관광지메뉴 영역 시작 -->
 		<div id="tour_div">
 		
 			<header class="codrops-header">
 				<h1>
-					attraction<span>관광지에 대한 정보를 추천해주는 메뉴입니다.</span>
+					tour 상세메뉴<span>${tourInfo.getName()}</span>
 				</h1>
-				<nav class="codrops-demos">
-
-					<a href="#" class="current-demo">관광지</a>
-					<a href="tour_food.jsp">음식점</a>
-					<a href="tour_cafe.jsp">카페</a>
-
-				</nav>
 			</header>
 		
 		
 		
 		<div class="content">
 		
-		<!-- 관광지 정보 반복출력 -->
-
-		<h2>가즈아</h2>
+		<!-- 관광지 정보 출력 영역 -->
 
 
-
-			<h2>관광지 카테고리2</h2>
-			<div class="grid">
+			<h2>무엇을 적으면 좋을까요</h2>
+			<div>
 				<figure class="effect-marley">
 					<img src="images/벌레.png" alt="img11" />
 					<figcaption>
 						<h2>
-							진짜 멋있는<span>금오름</span>
+							진짜 멋있는<span><%=tourInfo.getName() %></span>
 						</h2>
-						<p>관광지의 주소가 출력되는 곳입니다.</p>
+						<p><%= tourInfo.getAddress() %></p>
 						<a href="#">View more</a>
 					</figcaption>
 				</figure>
