@@ -1,4 +1,3 @@
-
 <!DOCTYPE web-app PUBLIC
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
@@ -29,6 +28,30 @@
      <description></description>
      <servlet-class>com.smhrd.controller.LogoutCon</servlet-class>
   </servlet>
+  <servlet>
+     <servlet-name>PlanCon</servlet-name>
+     <display-name>PlanCon</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.PlanCon</servlet-class>
+  </servlet>
+  <servlet>
+     <servlet-name>PlanAddCon</servlet-name>
+     <display-name>PlanAddCon</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.PlanAddCon</servlet-class>
+  </servlet>
+  <servlet>
+     <servlet-name>imgupCon</servlet-name>
+     <display-name>imgupCon</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.imgupCon</servlet-class>
+  </servlet>
+  <servlet>
+     <servlet-name>imgupCon2</servlet-name>
+     <display-name>imgupCon2</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.imgupCon2</servlet-class>
+  </servlet>
   <!-- <servlet>
      <servlet-name>emailcheckconc</servlet-name>
      <display-name>emailcheckconc</display-name>
@@ -46,18 +69,6 @@
      <display-name>IdCheckCon</display-name>
      <description></description>
      <servlet-class>com.smhrd.controller.IdCheckCon</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>imgupCon</servlet-name>
-  	<display-name>imgupCon</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.imgupCon</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>imgupCon2</servlet-name>
-  	<display-name>imgupCon2</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.imgupCon2</servlet-class>
   </servlet>
   <servlet-mapping>
      <servlet-name>LoginCon</servlet-name>
@@ -88,11 +99,19 @@
      <url-pattern>/TourInfoCon</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>imgupCon</servlet-name>
-  	<url-pattern>/imgupCon</url-pattern>
+     <servlet-name>PlanCon</servlet-name>
+     <url-pattern>/PlanCon</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>imgupCon2</servlet-name>
-  	<url-pattern>/imgupCon2</url-pattern>
+     <servlet-name>PlanAddCon</servlet-name>
+     <url-pattern>/PlanAddCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+     <servlet-name>imgupCon</servlet-name>
+     <url-pattern>/imgupCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+     <servlet-name>imgupCon2</servlet-name>
+     <url-pattern>/imgupCon2</url-pattern>
   </servlet-mapping>
 </web-app>

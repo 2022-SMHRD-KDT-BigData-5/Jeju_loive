@@ -95,9 +95,10 @@
 								</ul>
 							</div>
 							<div id="flex_cont">
-								<%
-								diaryImg onloadimgf = (diaryImg)session.getAttribute("onloadimgf");
-							if(onloadimgf != null){
+							<%
+							diaryImg onloadimgf = null;
+							onloadimgf = (diaryImg)session.getAttribute("onloadimgf");
+							if(onloadimgf == null){
 							%>
 							<div class="test">
 							<form method="post" enctype="multipart/form-data" action="imgupCon">
