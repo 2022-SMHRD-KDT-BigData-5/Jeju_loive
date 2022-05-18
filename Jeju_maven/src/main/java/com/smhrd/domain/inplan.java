@@ -5,56 +5,55 @@ import java.sql.Timestamp;
 
 public class inplan {
 	private BigDecimal inplan_num;
+	private BigDecimal plan_num;
+	private BigDecimal inplan_order;
 	private String inplan_name;
-	private Timestamp inplan_date;
-	private Timestamp inplan_time;
-	private String plan_tour;
+	private BigDecimal tour_num;
 	private String mem_id;
 	
 	
 	
-	
-	public inplan(String mem_id) {
-		super();
-		this.mem_id = mem_id;
-	}
-
+	//getter
 	public BigDecimal getInplan_num() {
 		return inplan_num;
 	}
-
+	public BigDecimal getPlan_num() {
+		return plan_num;
+	}
+	public BigDecimal getInplan_order() {
+		return inplan_order;
+	}
 	public String getInplan_name() {
 		return inplan_name;
 	}
-
-	public Timestamp getInplan_date() {
-		return inplan_date;
+	public BigDecimal getTour_num() {
+		return tour_num;
 	}
-
-	public Timestamp getInplan_time() {
-		return inplan_time;
-	}
-
-	public String getplan_tour() {
-		return plan_tour;
-	}
-
-
 	public String getMem_id() {
 		return mem_id;
 	}
-
-	public inplan(BigDecimal inplan_num, String inplan_name, Timestamp inplan_date, Timestamp inplan_time,
-			String plan_tour, String mem_id) {
+	
+	
+	
+	//생성자
+	public inplan(BigDecimal inplan_num, BigDecimal plan_num, BigDecimal inplan_order, String inplan_name,
+			BigDecimal tour_num, String mem_id) {
 		super();
 		this.inplan_num = inplan_num;
+		this.plan_num = plan_num;
+		this.inplan_order = inplan_order;
 		this.inplan_name = inplan_name;
-		this.inplan_date = inplan_date;
-		this.inplan_time = inplan_time;
-		this.plan_tour = plan_tour;
+		this.tour_num = tour_num;
 		this.mem_id = mem_id;
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }
