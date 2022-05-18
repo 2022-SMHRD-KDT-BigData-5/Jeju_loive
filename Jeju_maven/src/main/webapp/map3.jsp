@@ -8,7 +8,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 inplanDAO dao = new inplanDAO();
-Member loginMember = (Member)session.getAttribute("loginMember");
 BigDecimal planNum= new BigDecimal(123);
 System.out.print(planNum);
 List<String> planAddList = dao.selectTour(planNum);
