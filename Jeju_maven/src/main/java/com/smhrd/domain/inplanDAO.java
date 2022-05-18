@@ -1,6 +1,7 @@
 package com.smhrd.domain;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -40,7 +41,6 @@ public class inplanDAO {
 	public List<String> selectTour(BigDecimal planNum) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		List<String> tourList = null;
-
 		try {
 			tourList = sqlSession.selectList("com.smhrd.domain.inplanDAO.selectTour",planNum);
 		

@@ -55,12 +55,13 @@ public class imgupCon extends HttpServlet {
 		 int cnt = dao.insertImg(dimg);
 		 if(cnt>0) {	
 				System.out.println("사진업로드 성공");
-				diaryImg k= new diaryImg(uploadimg.getD_tripday(),loginMember.getId());
+				diaryImg k= new diaryImg(uploadimg.getD_num(),uploadimg.getD_num(),uploadimg.getD_tripday(),loginMember.getId());
 				diaryImg onloadimgf = (diaryImg)dao.selectDimgf(k);
+				
 				if(onloadimgf != null) {
 					System.out.println("사진출력 성공");
-					session.setAttribute("onloadimgf", onloadimgf);
-					response.sendRedirect("diaryHomef.jsp");
+					
+					response.sendRedirect("diaryHome.jsp");
 				}
 				else {
 					System.out.println("사진출력 실패");

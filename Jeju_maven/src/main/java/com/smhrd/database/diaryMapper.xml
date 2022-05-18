@@ -12,6 +12,6 @@
 		insert into diary_img values(diary_imgnum.nextval, #{d_num}, #{d_tripday}, #{p_oname}, #{p_loc}, #{p_memid})
 	</insert>
 	<select id="selectDimgf" parameterType="com.smhrd.domain.diaryImg" resultType="com.smhrd.domain.diaryImg">
-		select * from diary_img where p_memid={p_memid} and d_num={d_num}
+		select * from diary_img where p_memid=#{p_memid} and d_tripday=#{d_tripday} and d_num=#{d_num} and p_oname='첫번째'
 	</select>
 </mapper>
