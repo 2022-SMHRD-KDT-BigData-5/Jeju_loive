@@ -8,7 +8,7 @@
 		select * from inplan where mem_id=#{mem_id} 
 	</select>
 	
-	<select id="selectTour" parameterType="Integer" resultType="String">
+	<select id="selectTour" parameterType="BigDecimal" resultType="String">
 		select tour_address from tour
 		where tour_num in (select tour_num from inplan where plan_num=#{planNum})
 	</select>
