@@ -53,6 +53,8 @@
 
 <body>
 	
+	
+
 	<header id="menuBlock">
 		<nav>
 			<ul>
@@ -101,15 +103,16 @@
 
 			<h2>무엇을 적으면 좋을까요</h2>
 			<div>
-				
+				<figure class="effect-marley">
 					<img src="images/벌레.png" alt="img11" />
-					
+					<figcaption>
 						<h2>
 							진짜 멋있는<span>${tourInfo.getName()}</span>
 						</h2>
-						<p>${tourInfo.getAddress()}</p>
+						
 						<a href="#">View more</a>
-					
+					</figcaption>
+				</figure>
 			</div>
 
 
