@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.domain.MemberDAO">
+	<insert id="insertReview" parameterType="com.smhrd.domain.review">
+		insert into review(tour_num, rev_user, rev_star, rev_content)
+		values(#{tour_num},#{rev_user}, #{rev_star}, #{rev_content})
+	</insert>
+	
+	<select id="selectReview" parameterType="Integer" resultType="Integer">
+		select * from review where tour_num=#{tour_num}
+	</select>
+	
+	<update id="updateReview" parameterType="">
+		update review set 
+	</update>
+	
+	
+	
+</mapper>
