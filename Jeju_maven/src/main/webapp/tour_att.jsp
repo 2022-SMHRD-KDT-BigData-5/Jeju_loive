@@ -134,13 +134,13 @@
 		</div>
 		
 		
-		
+		<!-- ---------------------------~~지금부터 플래너 공간~~-------------------------- -->
 		
 		
 		<div id="plan_div">
 			<header class="codrops-header">
 				<h1>
-					Plan<span>Plan에 대한 정보를 추천해주는 메뉴입니다.</span>
+					Plan<span>Plan에 대한 정보를 출력해주는 메뉴입니다.</span>
 				</h1>
 				<nav class="codrops-demos">
 
@@ -154,7 +154,7 @@
 		
 		
 		<div class="content">
-		
+			
 			<h2>플래너가 출력되는 공간입니다.</h2>
 			<h2>플래너가 출력되는 공간입니다.</h2>
 			<h2>플래너가 출력되는 공간입니다.</h2>

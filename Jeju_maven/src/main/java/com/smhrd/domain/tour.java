@@ -11,6 +11,8 @@ public class tour {
 	private BigDecimal la;
 	
 	
+	
+	//생성자
 	public tour(BigDecimal num, String name, String address, BigDecimal lo, BigDecimal la) {
 		super();
 		this.num = num;

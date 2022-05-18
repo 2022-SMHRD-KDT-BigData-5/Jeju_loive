@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.domain.Member"%>
 <%@page import="com.smhrd.domain.tour"%>
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.domain.tourDAO"%>
@@ -85,7 +86,7 @@
 	<div class="container" id="flex_cont">
 	
 		
-		<!-- 관광지메뉴 영역 시작 -->
+		<!-- -------------------------관광지메뉴 영역 시작--------------------------------- -->
 		<div id="tour_div">
 		
 			<header class="codrops-header">
@@ -102,6 +103,12 @@
 
 
 			<h2>무엇을 적으면 좋을까요</h2>
+		
+			<div class="content">
+			<a href="PlanAddCon?tourNum=${tourInfo.getNum()}">플래너에 추가하기</a>
+			
+	   	 	</div>
+	    	
 			<br>
 			
 			<div>
@@ -122,7 +129,7 @@
 		</div>
 		
 		
-		
+		<!-- ---------------------------~~지금부터 플래너 공간~~-------------------------- -->
 		
 		
 		<div id="plan_div">
