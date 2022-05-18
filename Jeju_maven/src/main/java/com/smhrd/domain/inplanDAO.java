@@ -60,6 +60,27 @@ public class inplanDAO {
 	   }
 	
 	
+	//플래너에 일정을 추가하는 메서드
+		public int insertPlan(inplan inplan) {
+			SqlSession sqlSession = sqlSessionFactory.openSession();
+			int cnt=0;
+			try {
+				cnt = sqlSession.insert("com.smhrd.domain.inplanDAO.insertPlan", inplan);
+				
+				if(cnt>0) {
+				sqlSession.commit();
+				}else {
+					sqlSession.rollback();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				sqlSession.close();
+			}
+			
+			return cnt;
+		}
+
 	
 
 }
