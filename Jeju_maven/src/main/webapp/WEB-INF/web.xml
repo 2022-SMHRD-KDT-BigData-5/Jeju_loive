@@ -47,6 +47,18 @@
      <description></description>
      <servlet-class>com.smhrd.controller.IdCheckCon</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>PlanCon</servlet-name>
+  	<display-name>PlanCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.PlanCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>PlanAddCon</servlet-name>
+  	<display-name>PlanAddCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.PlanAddCon</servlet-class>
+  </servlet>
   <servlet-mapping>
      <servlet-name>LoginCon</servlet-name>
      <url-pattern>/LoginCon</url-pattern>
@@ -74,5 +86,13 @@
   <servlet-mapping>
      <servlet-name>TourInfoCon</servlet-name>
      <url-pattern>/TourInfoCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PlanCon</servlet-name>
+  	<url-pattern>/PlanCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PlanAddCon</servlet-name>
+  	<url-pattern>/PlanAddCon</url-pattern>
   </servlet-mapping>
 </web-app>
