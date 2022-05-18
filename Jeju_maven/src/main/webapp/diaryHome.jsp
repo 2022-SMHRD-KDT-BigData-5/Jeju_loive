@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.domain.Member"%>
 <%@page import="java.sql.Timestamp"%>
 <%@page import="com.smhrd.domain.diaryImg"%>
 <%@page import="java.math.BigDecimal"%>
@@ -96,8 +97,11 @@
 							</div>
 							<div id="flex_cont">
 							<%
+							Member loginMember = (Member)session.getAttribute("loginMember");
 							diaryImg onloadimgf = null;
-							onloadimgf = (diaryImg)session.getAttribute("onloadimgf");
+							diaryImg k= new diaryImg(uploadimg.getD_num(),uploadimg.getD_num(),uploadimg.getD_tripday(),loginMember.getId());
+							onloadimgf = (diaryImg)dao.selectDimgf(k);
+							System.out.print(onloadimgf);
 							if(onloadimgf == null){
 							%>
 							<div class="test">

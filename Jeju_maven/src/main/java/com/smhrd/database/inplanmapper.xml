@@ -3,14 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.domain.inplanDAO">
-	
-	<select id="selectAllPlan" parameterType="String" resultType="com.smhrd.domain.inplan">
-		select * from inplan where mem_id=#{mem_id} 
-	</select>
-	
-	<select id="selectTour" parameterType="BigDecimal" resultType="String">
-		select tour_address from tour
-		where tour_num in (select tour_num from inplan where plan_num=#{planNum})
-	</select>
-	
+   
+   <select id="selectAllPlan" parameterType="String" resultType="com.smhrd.domain.inplan">
+      select * from inplan where mem_id=#{mem_id} 
+   </select>
+   
+   <select id="selectTour" parameterType="BigDecimal" resultType="String">
+      select tour_address from tour
+      where tour_num in (select tour_num from inplan where plan_num=#{planNum})
+   </select>
+   
 </mapper>
