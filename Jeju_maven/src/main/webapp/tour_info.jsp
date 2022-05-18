@@ -102,29 +102,22 @@
 
 
 			<h2>무엇을 적으면 좋을까요</h2>
+			<br>
+			
 			<div>
-				<figure class="effect-marley">
+				<h2>진짜 멋있는<span>${tourInfo.getName()}</span></h2>
 					<img src="images/벌레.png" alt="img11" />
-					<figcaption>
-						<h2>
-							진짜 멋있는<span>${tourInfo.getName()}</span>
-						</h2>
+				
+						<h2>관광지 주소가 출력되는 자리입니다.<br><span>${tourInfo.getAddress()}</span></h2>
+						<h2>후기가 출력되는 자리입니다.</h2>
 						
-						<a href="#">View more</a>
-					</figcaption>
-				</figure>
 			</div>
-
+			
+			
 
 		</div>
 		
 		
-		<nav class="codrops-demos">
-				<a href="#" class="current-demo">관광지</a>
-				<a href="tour_food.jsp">음식점</a>
-				<a href="tour_cafe.jsp">카페</a>
-
-		</nav>
 		
 		</div>
 		
