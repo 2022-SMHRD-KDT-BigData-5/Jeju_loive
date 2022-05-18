@@ -18,7 +18,7 @@ public class TourInfoCon extends HttpServlet {
 		//get방식(쿼리스트링)
 		System.out.println("[TourInfoCon]");
 		int tourNum = Integer.parseInt(request.getParameter("tourNum"));
-		System.out.println(tourNum);
+		System.out.println("현재 관광번호는 "+tourNum);
 		tourDAO dao = new tourDAO();
 		tour tourInfo =null;
 		
@@ -29,6 +29,7 @@ public class TourInfoCon extends HttpServlet {
 			System.out.println("관광정보 가져오기 성공");
 			HttpSession session = request.getSession();
 			session.setAttribute("tourInfo", tourInfo);
+			session.setAttribute("tourNum", tourNum);
 			response.sendRedirect("tour_info.jsp");
 		}else {
 			//관광정보 가져오기 실패

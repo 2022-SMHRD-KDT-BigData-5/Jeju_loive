@@ -1,12 +1,13 @@
-   <%@page import="com.smhrd.domain.inplanDAO"%>
-   <%@page import="com.smhrd.domain.inplan"%>
-      <%@page import="java.util.List"%>
+<%@page import="com.smhrd.domain.Member"%>
+<%@page import="com.smhrd.domain.inplanDAO"%>
+<%@page import="com.smhrd.domain.inplan"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	inplanDAO dao = new inplanDAO();
-	String mem_id="123";
+	String mem_id ="123";
 	List<inplan> inplanList = dao.selectAllPlan(mem_id);
 	pageContext.setAttribute("inplanList",inplanList);
 
@@ -45,13 +46,12 @@
    <h2 class="plan">Planner</h2>
 	
     <div class="grid">
-	<c:forEach var = "t" items="${inplanList}" varStatus="status">
+	<c:forEach var = "i" items="${inplanList}" varStatus="status">
         <figure class="effect-ming">
             <img src="images/yeonhee-VWLhifg5VMA-unsplash.jpg" alt="yeonhee-VWLhifg5VMA-unsplash"/>
             <figcaption>
-            	
-                <h2><span>Planner</span></h2>
-                <p><c:out value="${t.inplan_date}"/></p>
+                <h2><span><c:out value="${i.inplan_name}"/></span></h2>
+                <p><c:out value="${i.inplan_date}"/></p>
                 <a href="#">View more</a>
             </figcaption>
             </figure>         
@@ -60,7 +60,7 @@
 	
 	
 	
-    <button id ="btn1">+</button>
+    <!-- <button id ="btn1">+</button>
    
    <script>
     
@@ -71,7 +71,7 @@
         })
     
    
-</script>
+</script> -->
 </body>
 
 

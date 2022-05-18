@@ -48,10 +48,17 @@
      <servlet-class>com.smhrd.controller.IdCheckCon</servlet-class>
   </servlet>
   <servlet>
+<<<<<<< HEAD
   	<servlet-name>review</servlet-name>
   	<display-name>review</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.domain.review</servlet-class>
+=======
+  	<servlet-name>TourInfoCon2</servlet-name>
+  	<display-name>TourInfoCon2</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.TourInfoCon2</servlet-class>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
   </servlet>
   <servlet-mapping>
      <servlet-name>LoginCon</servlet-name>
@@ -77,12 +84,20 @@
      <servlet-name>IdCheckCon</servlet-name>
      <url-pattern>/IdCheckCon</url-pattern>
   </servlet-mapping>
+<<<<<<< HEAD
   <servlet-mapping>
 <<<<<<< HEAD
   	<servlet-name>review</servlet-name>
   	<url-pattern>/review</url-pattern>
 =======
+=======
+  <servlet-mapping>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
      <servlet-name>TourInfoCon</servlet-name>
+<<<<<<< HEAD
+     <url-pattern>/TourInfoCon</url-pattern>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
+=======
      <url-pattern>/TourInfoCon</url-pattern>
 >>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
   </servlet-mapping>
