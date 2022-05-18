@@ -19,4 +19,9 @@
 	<delete id="deleteReview" parameterType="String">
 		delete from review where rev_user=#{user}
 	</delete>
+
+
+   
+
+
 </mapper>
