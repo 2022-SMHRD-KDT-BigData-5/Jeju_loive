@@ -1735,8 +1735,8 @@ input, select, textarea {
 		}
 
 /* Image */
-	.test{
-		float: left;
+	/* .test{
+		float: right;
 		width: 500px;
 		height: 500px;
 	}
@@ -1751,7 +1751,7 @@ input, select, textarea {
         bottom: 8px;
 		width: 250px;
 		height: 250px;
-	}
+	} */
 	
 	.image {
 		display: inline-block;

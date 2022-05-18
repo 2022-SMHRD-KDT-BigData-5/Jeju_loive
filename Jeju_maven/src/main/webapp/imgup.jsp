@@ -38,7 +38,7 @@
 <body>
 <% System.out.print(fullpath);
 session.setAttribute("fullpath", fullpath);
-response.sendRedirect("diaryMain.jsp");
+response.sendRedirect("diaryHome.jsp");
 %>
 
 </body>

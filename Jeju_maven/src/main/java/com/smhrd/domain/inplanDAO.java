@@ -31,6 +31,26 @@ public class inplanDAO {
 	      return inplanList;
 	   }
 	
+	public List<inplan> selectPlanAdd(String mem_id) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<inplan> addList = null;
+
+		try {
+			addList = sqlSession.selectList("com.smhrd.domain.inplanDAO.selectPlanAdd",mem_id);
+		
+	     if (addList != null) {
+	            sqlSession.commit();
+	         } else {
+	            sqlSession.rollback();
+	         }
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      } finally {
+	         sqlSession.close();
+	      }
+	      return addList;
+	   }
+	
 }
 	
 	
