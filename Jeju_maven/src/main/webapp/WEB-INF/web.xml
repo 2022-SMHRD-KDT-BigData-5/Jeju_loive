@@ -29,18 +29,18 @@
      <description></description>
      <servlet-class>com.smhrd.controller.LogoutCon</servlet-class>
   </servlet>
-  <servlet>
+  <!-- <servlet>
      <servlet-name>emailcheckconc</servlet-name>
      <display-name>emailcheckconc</display-name>
      <description></description>
      <servlet-class>com.smhrd.controller.emailcheckconc</servlet-class>
-  </servlet>
-  <servlet>
+  </servlet> -->
+  <!-- <servlet>
      <servlet-name>EmailCheckCon</servlet-name>
      <display-name>EmailCheckCon</display-name>
      <description></description>
      <servlet-class>com.smhrd.controller.EmailCheckCon</servlet-class>
-  </servlet>
+  </servlet> -->
   <servlet>
      <servlet-name>IdCheckCon</servlet-name>
      <display-name>IdCheckCon</display-name>
@@ -59,14 +59,14 @@
      <servlet-name>LogoutCon</servlet-name>
      <url-pattern>/LogoutCon</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
+ <!--  <servlet-mapping>
      <servlet-name>emailcheckconc</servlet-name>
      <url-pattern>/emailcheckconc</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
      <servlet-name>EmailCheckCon</servlet-name>
      <url-pattern>/EmailCheckCon</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
   <servlet-mapping>
      <servlet-name>IdCheckCon</servlet-name>
      <url-pattern>/IdCheckCon</url-pattern>

@@ -7,8 +7,10 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+//DB관련 정보 읽어오는 작업 - mybatis-config.xml
+//SqlSessionFactory 생성
 public class SqlSessionManager {
-	public static SqlSessionFactory sqlSession;
+	   public static SqlSessionFactory sqlSession;
 
 	   static {
 	      String resource = "com/smhrd/database/mybatis-config.xml";
@@ -20,10 +22,10 @@ public class SqlSessionManager {
 	         e.printStackTrace();
 	      }
 	   }
-	   
-	   //db연결, 종료, 실행 세션 관리
-	   //static 키워드 사용시 -> 어디에서든 호출 가능
 	   public static SqlSessionFactory getSqlSession() {
 	      return sqlSession;
 	   }
+	
+
 }
+
