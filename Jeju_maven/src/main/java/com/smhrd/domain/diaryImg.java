@@ -21,6 +21,37 @@ public class diaryImg {
 		this.p_loc = p_loc;
 		this.p_memid = p_memid;
 	}
+	
+	
+	public diaryImg(BigDecimal d_num, Timestamp d_tripday, String p_oname, String p_loc, String p_memid) {
+		super();
+		this.d_num = d_num;
+		this.d_tripday = d_tripday;
+		this.p_oname = p_oname;
+		this.p_loc = p_loc;
+		this.p_memid = p_memid;
+	}
+
+
+	public diaryImg(BigDecimal d_num, Timestamp d_tripday, String p_oname) {
+		super();
+		this.d_num = d_num;
+		this.d_tripday = d_tripday;
+		this.p_oname = p_oname;
+	}
+	
+	
+
+	
+
+
+	public diaryImg(Timestamp d_tripday, String p_memid) {
+		super();
+		this.d_tripday = d_tripday;
+		this.p_memid = p_memid;
+	}
+
+
 	public BigDecimal getP_num() {
 		return p_num;
 	}

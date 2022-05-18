@@ -1,3 +1,6 @@
+<%@page import="java.sql.Timestamp"%>
+<%@page import="com.smhrd.domain.diaryImg"%>
+<%@page import="java.math.BigDecimal"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.smhrd.domain.diaryDAO"%>
@@ -14,9 +17,12 @@
 	pageContext.setAttribute("diaryList",diaryList);
 	SimpleDateFormat sdf2 = new SimpleDateFormat("MMM");
 	SimpleDateFormat sdf1 = new SimpleDateFormat("dd");
+	Timestamp date=diaryList.get(0).getDia_date();
 	String month = sdf2.format(diaryList.get(0).getDia_date());
 	String day = sdf1.format(diaryList.get(0).getDia_date());
-	System.out.print(diaryList.get(0).getDia_num());
+	BigDecimal pagenum=diaryList.get(0).getDia_num();
+	diaryImg uploadimg=new diaryImg(pagenum,date,day);
+	session.setAttribute("pagenum", uploadimg);
 %>
 
 <!DOCTYPE HTML>
@@ -90,10 +96,8 @@
 							</div>
 							<div id="flex_cont">
 								<%
-							
-							String fullpath = (String)session.getAttribute("fullpath");
-							
-							if (fullpath==null){
+								diaryImg onloadimgf = (diaryImg)session.getAttribute("onloadimgf");
+							if(onloadimgf != null){
 							%>
 							<div class="test">
 							<form method="post" enctype="multipart/form-data" action="imgupCon">
@@ -106,13 +110,15 @@
 							else{
 								%>
 								<div class="test">
-								<img alt="추가하세요" src="<%=fullpath%>"class="test">
+								<img alt="추가하세요" src="<%=onloadimgf.getP_loc()%>"class="test">
 								</div>
 								<%	
 							}%>	
 								
 							<%
 							
+							
+							String fullpath = (String)session.getAttribute("fullpath");
 							
 							
 							if (fullpath==null){
