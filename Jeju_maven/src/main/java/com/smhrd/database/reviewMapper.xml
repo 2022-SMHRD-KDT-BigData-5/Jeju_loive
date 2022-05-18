@@ -16,6 +16,8 @@
 		update review set 
 	</update>
 	
+	<delete id="deleteReview" parameterType="">
 	
+	</delete>
 	
 </mapper>

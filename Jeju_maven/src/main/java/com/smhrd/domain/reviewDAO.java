@@ -29,5 +29,46 @@ public class reviewDAO {
 		}
 		return writeReview;
 	}
+	
+	//리뷰수정
+	public int updateReview(review rv) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int updateReview = 0;
+		try {
+			updateReview = sqlSession.update("com.smhrd.domain.reviewDAO.updateReview", updateReview);
+		
+			if(updateReview > 0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		return updateReview;
+	}
+	
+	
+	//리뷰삭제
+	public int deleteReview(String review) {
+		int cnt = 0;
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			cnt= sqlSession.delete("com.smhrd.domain.reviewDAO.deleteReview", review);
+			
+			if(cnt>0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		return cnt;
+		
+	}
 }
-
