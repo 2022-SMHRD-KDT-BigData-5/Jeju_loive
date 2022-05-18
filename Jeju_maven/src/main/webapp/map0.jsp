@@ -1,5 +1,21 @@
+<%@page import="com.smhrd.domain.Member"%>
+<%@page import="java.math.BigDecimal"%>
+<%@page import="com.smhrd.domain.inplanDAO"%>
+<%@page import="com.smhrd.domain.inplan"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+<%
+inplanDAO dao = new inplanDAO();
+Member loginMember = (Member)session.getAttribute("loginMember");
+BigDecimal planNum= new BigDecimal(123);
+System.out.print(planNum);
+List<String> planAddList = dao.selectTour(planNum);
+pageContext.setAttribute("planAddList",planAddList);
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +28,14 @@
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script>
 
+
+
+
+
 <script>
+
+
+
 
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
