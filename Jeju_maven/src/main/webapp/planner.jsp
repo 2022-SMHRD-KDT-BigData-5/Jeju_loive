@@ -60,7 +60,7 @@
 	
 	
 	
-    <!-- <button id ="btn1">+</button>
+     <button id ="btn1">+</button>
    
    <script>
     
@@ -71,7 +71,7 @@
         })
     
    
-</script> -->
+</script> 
 </body>
 
 
