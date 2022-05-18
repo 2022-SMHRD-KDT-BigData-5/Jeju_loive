@@ -1,3 +1,103 @@
+<<<<<<< HEAD
+
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+     <servlet-name>LoginCon</servlet-name>
+     <display-name>LoginCon</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.LoginCon</servlet-class>
+  </servlet>
+  <servlet>
+     <servlet-name>TourInfoCon</servlet-name>
+     <display-name>TourInfoCon</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.TourInfoCon</servlet-class>
+  </servlet>
+  <servlet>
+     <servlet-name>JoinCon</servlet-name>
+     <display-name>JoinCon</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.JoinCon</servlet-class>
+  </servlet>
+  <servlet>
+     <servlet-name>LogoutCon</servlet-name>
+     <display-name>LogoutCon</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.LogoutCon</servlet-class>
+  </servlet>
+  <!-- <servlet>
+     <servlet-name>emailcheckconc</servlet-name>
+     <display-name>emailcheckconc</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.emailcheckconc</servlet-class>
+  </servlet> -->
+  <!-- <servlet>
+     <servlet-name>EmailCheckCon</servlet-name>
+     <display-name>EmailCheckCon</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.EmailCheckCon</servlet-class>
+  </servlet> -->
+  <servlet>
+     <servlet-name>IdCheckCon</servlet-name>
+     <display-name>IdCheckCon</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.IdCheckCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>PlanCon</servlet-name>
+  	<display-name>PlanCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.PlanCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>PlanAddCon</servlet-name>
+  	<display-name>PlanAddCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.PlanAddCon</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>LoginCon</servlet-name>
+     <url-pattern>/LoginCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+     <servlet-name>JoinCon</servlet-name>
+     <url-pattern>/JoinCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+     <servlet-name>LogoutCon</servlet-name>
+     <url-pattern>/LogoutCon</url-pattern>
+  </servlet-mapping>
+ <!--  <servlet-mapping>
+     <servlet-name>emailcheckconc</servlet-name>
+     <url-pattern>/emailcheckconc</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+     <servlet-name>EmailCheckCon</servlet-name>
+     <url-pattern>/EmailCheckCon</url-pattern>
+  </servlet-mapping> -->
+  <servlet-mapping>
+     <servlet-name>IdCheckCon</servlet-name>
+     <url-pattern>/IdCheckCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+     <servlet-name>TourInfoCon</servlet-name>
+     <url-pattern>/TourInfoCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PlanCon</servlet-name>
+  	<url-pattern>/PlanCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PlanAddCon</servlet-name>
+  	<url-pattern>/PlanAddCon</url-pattern>
+  </servlet-mapping>
+</web-app>
+=======
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4" id="WebApp_ID">
 	<display-name>Jeju_maven</display-name>
@@ -21,3 +121,4 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
