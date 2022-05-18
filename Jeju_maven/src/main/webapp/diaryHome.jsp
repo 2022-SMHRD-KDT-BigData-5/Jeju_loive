@@ -29,13 +29,31 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/diaryHome.css" />
+		<style>
+			#flex_cont{display:flex;}
+			.test{
+				width:100%;
+				height:100%;
+				margin-right: -5px;
+			}
+			.test2{
+				width:100%;
+				height:100%;
+				margin-left: 5px;
+			}
+			
+			.test3{
+				width:100%;
+				height:100%;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
 		<!-- Content -->
 			<div id="content">
 				<div class="inner">
-
+						
 					<!-- Post -->
 						<article class="box post post-excerpt">
 							<header>
@@ -67,7 +85,7 @@
 									<li><a href="#" class="icon brands fa-facebook-f">128</a></li>
 								</ul>
 							</div>
-							<div>
+							<div id="flex_cont">
 								<%
 							
 							String fullpath = (String)session.getAttribute("fullpath");
@@ -83,14 +101,53 @@
 							<%}
 							else{
 								%>
-								<img alt="추가하세요" src="<%=fullpath%> class="test">
-								
+								<div class="test">
+								<img alt="추가하세요" src="<%=fullpath%>"class="test">
+								</div>
 								<%	
 							}%>	
 								
-								<img src="images/slide2.jpg" alt="실패" class="test2">
+							<%
+							
+							
+							
+							if (fullpath==null){
+							%>
+							<div class="test2">
+							<form method="post" enctype="multipart/form-data" action="imgup.jsp">
+							<input type="file" name="filename1" size=40>
+							<input type="submit" value="업로드"><br><br>
+							</form>
 							</div>
-							<img src="images/pic01.jpg" alt="실패"class="test3">
+							<%}
+							else{
+								%>
+								<div class="test2">
+								<img alt="추가하세요" src="<%=fullpath%>" class="test2">
+								</div>
+								<%	
+							}%>	
+							<%
+							if (fullpath==null){
+							%>
+							<div class="test2">
+							<form method="post" enctype="multipart/form-data" action="imgup.jsp">
+							<input type="file" name="filename1" size=40>
+							<input type="submit" value="업로드"><br><br>
+							</form>
+							</div>
+							<%}
+							else{
+								%>
+								<div class="test2">
+								<img alt="추가하세요" src="<%=fullpath%>"class="test2">
+								</div>
+								<%	
+							}%>	
+							
+							
+							</div>
+							
 							<p>
 								<%= diaryList.get(0).getDia_content() %>
 									
@@ -126,24 +183,33 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/diaryHome.js"></script>
 			<script>
-				let i=0;
+				
 				$('#btnNext').click(function(){
-					i++;
-					$('.pages>a').eq(i).attr('class','active');
 					
-					$('.pages>a').eq(i-1).removeAttr('class');
+					$('.active').next().attr('class','active');
+					
+					$('.active').eq(0).removeAttr('class');
 					
 
        			})
 				   $('#btnPrevious').click(function(){
-					i--;
-					$('.pages>a').eq(i).attr('class','active');
-					$('.pages>a').eq(i+1).removeAttr('class');
+					
+					$('.active').prev().attr('class','active');
+					$('.active').eq(1).removeAttr('class');
 					
 					
 
        			})
-				  
+				   $('.pages>a').click(function(){
+           			let k = $(this).text();
+					$('.pages>a').removeAttr('class');
+					$('.pages>a').eq(k-1).attr('class','active');
+					
+					
+					
+
+       			})
+				
 				
 
 			</script>
