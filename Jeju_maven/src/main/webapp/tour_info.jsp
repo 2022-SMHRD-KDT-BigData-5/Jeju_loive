@@ -1,3 +1,6 @@
+<%@page import="java.math.BigDecimal"%>
+<%@page import="com.smhrd.domain.review"%>
+<%@page import="com.smhrd.domain.reviewDAO"%>
 <%@page import="com.smhrd.domain.Member"%>
 <%@page import="com.smhrd.domain.tour"%>
 <%@page import="java.util.List"%>
@@ -6,8 +9,10 @@
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <% 
-	tourDAO dao = new tourDAO();
-	tour tourInfo = (tour)session.getAttribute("tourInfo");
+	reviewDAO dao = new reviewDAO();
+	BigDecimal tour_num = new BigDecimal(610);
+	List<review> ReviewList = dao.selectReview(tour_num);
+	pageContext.setAttribute("ReviewList", ReviewList);
 %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -112,11 +117,17 @@
 			<br>
 			
 			<div>
-				<h2>진짜 멋있는<span>${tourInfo.getName()}</span></h2>
 					<img src="images/벌레.png" alt="img11" />
 				
-						<h2>관광지 주소가 출력되는 자리입니다.<br><span>${tourInfo.getAddress()}</span></h2>
-						<h2>후기가 출력되는 자리입니다.</h2>
+			<c:forEach var="r" items="${ReviewList}" varStatus="status">
+				
+					
+						<h2>
+							<span><c:out value="${r.tour_num}"/></span>
+						</h2>
+						<p><c:out value="${r.rev_content}"/></p>
+						
+			</c:forEach>
 						
 			</div>
 			
