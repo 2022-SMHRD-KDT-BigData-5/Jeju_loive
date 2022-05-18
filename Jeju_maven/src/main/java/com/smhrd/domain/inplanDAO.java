@@ -31,6 +31,10 @@ public class inplanDAO {
 	      return inplanList;
 	   }
 	
+	
+	
+	
+	//
 	public List<inplan> selectPlanAdd(String mem_id) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		List<inplan> addList = null;
