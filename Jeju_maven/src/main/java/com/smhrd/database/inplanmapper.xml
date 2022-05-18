@@ -13,4 +13,8 @@
       where tour_num in (select tour_num from inplan where plan_num=#{planNum})
    </select>
    
+   <insert id="insertPlan" parameterType="com.smhrd.domain.inplan">
+   		insert into inplan values(pk_seq.nextval, #{plan_num}, #{inplan_name}, #{tour_num}, #{mem_id})
+   </insert>
+   
 </mapper>
