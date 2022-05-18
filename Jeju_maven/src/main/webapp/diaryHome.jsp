@@ -1,3 +1,7 @@
+<%@page import="java.sql.Timestamp"%>
+<%@page import="com.smhrd.domain.diaryImg"%>
+<%@page import="java.math.BigDecimal"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.smhrd.domain.diaryDAO"%>
 <%@page import="com.smhrd.domain.diary"%>
@@ -13,10 +17,14 @@
 	pageContext.setAttribute("diaryList",diaryList);
 	SimpleDateFormat sdf2 = new SimpleDateFormat("MMM");
 	SimpleDateFormat sdf1 = new SimpleDateFormat("dd");
+	Timestamp date=diaryList.get(0).getDia_date();
 	String month = sdf2.format(diaryList.get(0).getDia_date());
 	String day = sdf1.format(diaryList.get(0).getDia_date());
-	
+	BigDecimal pagenum=diaryList.get(0).getDia_num();
+	diaryImg uploadimg=new diaryImg(pagenum,date,day);
+	session.setAttribute("pagenum", uploadimg);
 %>
+
 <!DOCTYPE HTML>
 <!--
 	Striped by HTML5 UP
@@ -24,6 +32,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+
 	<head>
 		<title>Striped by HTML5 UP</title>
 		<meta charset="utf-8" />
@@ -86,29 +95,31 @@
 								</ul>
 							</div>
 							<div id="flex_cont">
-								<%
-							
-							String fullpath = (String)session.getAttribute("fullpath");
-							
-							if (fullpath==null){
+							<%
+							diaryImg onloadimgf = null;
+							onloadimgf = (diaryImg)session.getAttribute("onloadimgf");
+							if(onloadimgf == null){
 							%>
 							<div class="test">
-							<form method="post" enctype="multipart/form-data" action="imgup.jsp">
+							<form method="post" enctype="multipart/form-data" action="imgupCon">
 							<input type="file" name="filename1" size=40>
 							<input type="submit" value="업로드"><br><br>
+							
 							</form>
 							</div>
 							<%}
 							else{
 								%>
 								<div class="test">
-								<img alt="추가하세요" src="<%=fullpath%>"class="test">
+								<img alt="추가하세요" src="<%=onloadimgf.getP_loc()%>"class="test">
 								</div>
 								<%	
 							}%>	
 								
 							<%
 							
+							
+							String fullpath = (String)session.getAttribute("fullpath");
 							
 							
 							if (fullpath==null){
@@ -183,7 +194,12 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/diaryHome.js"></script>
 			<script>
-				
+			let date=<%=diaryList.get(0).getDia_num()%>
+			if(date==1){
+				$('.pages>a').removeAttr('class');
+				$('.pages>a').eq(3).attr('class','active');
+			}
+			
 				$('#btnNext').click(function(){
 					
 					$('.active').next().attr('class','active');
@@ -207,9 +223,8 @@
 					
 					
 					
-
+					
        			})
-				
 				
 
 			</script>
