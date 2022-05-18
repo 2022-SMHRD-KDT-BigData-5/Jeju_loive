@@ -121,39 +121,6 @@
 			</div>
 		
 
-
-			<h2>관광지 카테고리2</h2>
-			<div class="grid">
-				<figure class="effect-marley">
-					<img src="images/벌레.png" alt="img11" />
-					<figcaption>
-						<h2>
-							진짜 멋있는<span>금오름</span>
-						</h2>
-						<p>관광지의 주소가 출력되는 곳입니다.</p>
-						<a href="#">View more</a>
-					</figcaption>
-				</figure>
-			</div>
-		<h2>관광지 카테고리1</h2>
-			<div class="grid">
-			
-			<c:forEach var="t" items="${tourList}" varStatus="status">
-				
-				<figure class="effect-marley">
-				
-					<img src="images/벌레.png" alt="img11" /> <!-- 이미지 주소 출력하는곳 -->
-					<figcaption>
-						<h2>
-							<span>${t.name}</span>
-						</h2>
-						<p>${t.address}</p>
-						<a href="#">View more</a>
-					</figcaption>
-				</figure>
-			</c:forEach>
-			</div>
-
 		</div>
 		
 		
