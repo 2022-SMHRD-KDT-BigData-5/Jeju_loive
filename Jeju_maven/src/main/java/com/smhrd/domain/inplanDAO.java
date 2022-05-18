@@ -11,6 +11,9 @@ public class inplanDAO {
 	
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
+	
+	
+	//사용자의 플래너를 가져오는 메서드
 	public List<inplan> selectAllPlan(String mem_id) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		List<inplan> inplanList = null;
@@ -32,29 +35,7 @@ public class inplanDAO {
 	   }
 	
 	
-	
-	
-	//
-	public List<inplan> selectPlanAdd(String mem_id) {
-		SqlSession sqlSession = sqlSessionFactory.openSession();
-		List<inplan> addList = null;
 
-		try {
-			addList = sqlSession.selectList("com.smhrd.domain.inplanDAO.selectPlanAdd",mem_id);
-		
-	     if (addList != null) {
-	            sqlSession.commit();
-	         } else {
-	            sqlSession.rollback();
-	         }
-	      } catch (Exception e) {
-	         e.printStackTrace();
-	      } finally {
-	         sqlSession.close();
-	      }
-	      return addList;
-	   }
-	
 }
 	
 	

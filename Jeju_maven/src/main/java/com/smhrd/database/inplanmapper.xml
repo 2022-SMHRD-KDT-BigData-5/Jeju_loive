@@ -8,8 +8,4 @@
 		select * from inplan where mem_id=#{mem_id} 
 	</select>
 	
-	<select id="selectPlanAdd" resultType="com.smhrd.domain.inplan">
-		select plan_tour from inplan where mem_id=#{mem_id}
-	</select>
-	
 </mapper>
