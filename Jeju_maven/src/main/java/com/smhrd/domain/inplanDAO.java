@@ -1,6 +1,7 @@
 package com.smhrd.domain;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -40,7 +41,6 @@ public class inplanDAO {
 	public List<String> selectTour(BigDecimal planNum) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		List<String> tourList = null;
-
 		try {
 			tourList = sqlSession.selectList("com.smhrd.domain.inplanDAO.selectTour",planNum);
 		
@@ -58,6 +58,30 @@ public class inplanDAO {
 	      }
 	      return tourList;
 	   }
+	
+	
+	//플래너에 일정을 추가하는 메서드
+		public int insertPlan(inplan inplan) {
+			SqlSession sqlSession = sqlSessionFactory.openSession();
+			int cnt=0;
+			try {
+				cnt = sqlSession.insert("com.smhrd.domain.inplanDAO.insertPlan", inplan);
+				
+				if(cnt>0) {
+				sqlSession.commit();
+				}else {
+					sqlSession.rollback();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				sqlSession.close();
+			}
+			
+			return cnt;
+		}
+
+	
 
 }
 	
