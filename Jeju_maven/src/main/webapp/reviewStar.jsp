@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" type="text/css">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin type="text/css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="assets/css/reivewStar.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/reviewStar.css"/>
 </head>
 
 <body>

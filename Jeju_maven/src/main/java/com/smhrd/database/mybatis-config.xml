@@ -20,6 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	<mapper resource="com/smhrd/database/TourMapper.xml"/>
     	<mapper resource="com/smhrd/database/inplanmapper.xml"/>
     	<mapper resource="com/smhrd/database/diaryMapper.xml"/>
+    	<mapper resource="com/smhrd/database/reviewMapper.xml"/>
 
     </mappers>
 </configuration>
