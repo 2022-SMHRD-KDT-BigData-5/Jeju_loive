@@ -49,7 +49,7 @@ public class inplanDAO {
 	            System.out.println("입력 성공");
 	         } else {
 	            sqlSession.rollback();
-	            System.out.println("입력 실패 ㅗ");
+	            System.out.println("입력 실패");
 	         }
 	      } catch (Exception e) {
 	         e.printStackTrace();

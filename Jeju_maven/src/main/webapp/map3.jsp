@@ -9,7 +9,7 @@
 <%
 inplanDAO dao = new inplanDAO();
 Member loginMember = (Member)session.getAttribute("loginMember");
-BigDecimal planNum= new BigDecimal(123);
+BigDecimal planNum= new BigDecimal(11);
 List<String> planAddList = dao.selectTour(planNum);
 pageContext.setAttribute("planAddList",planAddList);
 
