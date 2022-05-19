@@ -3,16 +3,19 @@
 <%@page import="com.smhrd.domain.inplanDAO"%>
 <%@page import="com.smhrd.domain.inplan"%>
 <%@page import="java.util.List"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-    
+    pageEncoding="UTF-8" isELIgnored="false"%>    
 <%
 inplanDAO dao = new inplanDAO();
 Member loginMember = (Member)session.getAttribute("loginMember");
-BigDecimal planNum= new BigDecimal(123);
-System.out.print(planNum);
-List<String> planAddList = dao.selectTour(planNum);
+String mem_id = loginMember.getId();
+BigDecimal plan_num= new BigDecimal(1);
+inplan inplan= new inplan(plan_num,mem_id);
+
+
+List<inplan> planAddList = dao.selectTour(inplan);
+System.out.print(inplan);
 pageContext.setAttribute("planAddList",planAddList);
 
 %>
@@ -28,15 +31,9 @@ pageContext.setAttribute("planAddList",planAddList);
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script>
 
-
-
-
-
 <script>
-
-
-
-
+let ii = document.getElementsByClassName('planAddList');
+console.log(ii);
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 mapOption = { 
@@ -48,21 +45,9 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 
 var positions = [
     {
-		address:"제주특별자치도 제주시 원노형로 41",
+		address:"제주특별자치도 서귀포시 성산읍 일출로 284-12",
         text: '문광사서점'
-    },
-    {
-        address:'제주특별자치도 서귀포시 성산읍 고성동서로56번길 11',
-        text: '카페써니'
-    },
-    {
-        address:'제주특별자치도 서귀포시 대정읍 하모항구로 42',
-        text: '추성희헤어스투디오'
     }
-	,{
-		address:'제주특별자치도 제주시 조천읍 동백로 102',
-		text:'리헤어리더'
-	}
 ];
 
 for (var i = 0; i < positions.length; i ++) {
@@ -95,10 +80,12 @@ for (var i = 0; i < positions.length; i ++) {
 }
 
 </script>
-
-
-
-
+<h1>List</h1>
+	<div>
+	<c:forEach var = "p" items="${planAddList}" varStatus="status">   
+                <h1 class="planAddList">${p}</h1>                   
+	</c:forEach>
+</div>
 
 
 </body>

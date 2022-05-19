@@ -133,7 +133,7 @@ pageContext.setAttribute("cafeList", cafeList);
 							
 						</h2>
 						<p><c:out value="${c.address}"/></p>
-						<a href="TourInfoCon?tourNum=${t.num}">View more</a>
+						<a href="TourInfoCon?tourNum=${c.num}">View more</a>
 						
 					</figcaption>
 				</figure>

@@ -8,7 +8,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 inplanDAO dao = new inplanDAO();
-BigDecimal planNum= new BigDecimal(123);
+BigDecimal planNum= new BigDecimal(1);
 System.out.print(planNum);
 List<String> planAddList = dao.selectTour(planNum);
 pageContext.setAttribute("planAddList",planAddList);

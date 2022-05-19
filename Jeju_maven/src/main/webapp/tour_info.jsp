@@ -125,6 +125,7 @@
 						<h2>
 							<span><c:out value="${r.rev_star}"/></span>
 						</h2>
+						<c:out value="${r.rev_time}"/>
 						<p><c:out value="${r.rev_content}"/></p>
 						
 			</c:forEach>
