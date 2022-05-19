@@ -9,8 +9,9 @@
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <% 
+	String str_num = request.getParameter("tourNum");
 	reviewDAO dao = new reviewDAO();
-	BigDecimal tour_num = new BigDecimal(610);
+	BigDecimal tour_num = new BigDecimal(str_num);
 	List<review> ReviewList = dao.selectReview(tour_num);
 	pageContext.setAttribute("ReviewList", ReviewList);
 %>
@@ -122,7 +123,7 @@
 				
 					
 						<h2>
-							<span><c:out value="${r.tour_num}"/></span>
+							<span><c:out value="${r.rev_star}"/></span>
 						</h2>
 						<p><c:out value="${r.rev_content}"/></p>
 						

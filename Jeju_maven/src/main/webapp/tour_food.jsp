@@ -107,7 +107,7 @@
 							<p>
 								<c:out value="${f.address}" />
 							</p>
-							<a href="#">View more</a>
+							<a href="TourInfoCon?tourNum=${t.num}">View more</a>
 						</figcaption>
 					</figure>
 				</c:forEach>
