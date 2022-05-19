@@ -13,22 +13,40 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	diaryDAO dao = new diaryDAO();
+	diaryImg onloadimgf = null;
 	Member loginMember = (Member)session.getAttribute("loginMember");
-	String mem_id=loginMember.getId();
-	List<diary> diaryList = dao.selectDiary(mem_id);
-	pageContext.setAttribute("diaryList",diaryList);
-	SimpleDateFormat sdf2 = new SimpleDateFormat("MMM");
-	SimpleDateFormat sdf1 = new SimpleDateFormat("dd");
-	Timestamp date=diaryList.get(0).getDia_date();
+	List<diary> diaryList =null;
+	String month=null;
+	String day=null;
 	
-	String month = sdf2.format(diaryList.get(0).getDia_date());
-	System.out.println(month);
-	String day = sdf1.format(diaryList.get(0).getDia_date());
-	System.out.println(day);
-	
-	BigDecimal pagenum=diaryList.get(0).getDia_num();
-	diaryImg uploadimg=new diaryImg(pagenum,date,day);
-	session.setAttribute("pagenum", uploadimg);
+	if(loginMember != null){
+		String mem_id=loginMember.getId();
+		
+		diaryList = dao.selectDiary(mem_id);
+		System.out.print(diaryList);
+		if (diaryList.size()>0){
+			pageContext.setAttribute("diaryList",diaryList);
+			
+			Timestamp date=diaryList.get(0).getDia_date();
+			SimpleDateFormat sdf2 = new SimpleDateFormat("MMM");
+			SimpleDateFormat sdf1 = new SimpleDateFormat("dd");
+			month = sdf2.format(diaryList.get(0).getDia_date());
+
+			day = sdf1.format(diaryList.get(0).getDia_date());
+		
+		
+			BigDecimal pagenum=diaryList.get(0).getDia_num();
+			diaryImg uploadimg=new diaryImg(pagenum,date,day);
+			session.setAttribute("pagenum", uploadimg);
+			
+			diaryImg k= new diaryImg(uploadimg.getD_num(),uploadimg.getD_num(),uploadimg.getD_tripday(),loginMember.getId());
+			onloadimgf = (diaryImg)dao.selectDimgf(k);
+		}
+		
+	}
+	else{
+		
+	}
 %>
 
 <!DOCTYPE HTML>
@@ -77,8 +95,26 @@
 									if they get too long. You can also remove the <p> entirely if you don't
 									need a subtitle.
 								-->
-								<h2><a href="#">Welcome to Striped</a></h2>
-								<p>A free, fully responsive HTML5 site template by HTML5 UP</p>
+								<h2><a id="mainheading">
+								<%if(diaryList.size()<1){
+									%>Welcome to your diary<% 
+								}
+								else {
+									%>
+									<%=diaryList.get(0).getDia_name()%><%
+								}
+								%>
+								</a></h2>
+								<p id="subheading">
+								<%if(diaryList.size()<1){
+									%>제주도 여행 1일차<% 
+								}
+								else {
+									%>
+									<%=diaryList.get(0).getSub()%><%
+								}
+								%>
+								</p>
 							</header>
 							<div class="info">
 								<!--
@@ -89,7 +125,30 @@
 									the entire "date" element.
 
 								-->
-								<span class="date"><span class="month"><%= month%><span></span></span> <span class="day"><%=day%></span><span class="year">, 2014</span></span>
+								<span class="date">
+								<span class="month">
+								<%
+									if(diaryList.size()<1){
+										%><a href="#" class="fas fa-calendar-plus fa-2x" id="monthchange"></a><%
+									}
+									else{
+										%><%=month %> <%
+									}
+								
+								%>
+								</span> 
+								<span class="day">
+								<%
+									if(diaryList.size()<1){
+										%><a href="#" id="daychange"></a><%
+									}
+									else{
+										%><%=day %> <%
+									}
+								
+								%>
+								</span>
+								</span>
 								<!--
 									Note: You can change the number of list items in "stats" to whatever you want.
 								-->
@@ -97,16 +156,14 @@
 									<li><a href="#" class="icon fa-comment">16</a></li>
 									<li><a href="#" class="icon fa-heart">32</a></li>
 									<li><a href="#" class="icon brands fa-twitter">64</a></li>
-									<li><a href="#" class="icon brands fa-facebook-f">128</a></li>
+									<li id="save"><a href="#" class="fas fa-file-alt">save</a></li>
 								</ul>
 							</div>
 							<div id="flex_cont">
 							<%
 							
-							diaryImg onloadimgf = null;
-							diaryImg k= new diaryImg(uploadimg.getD_num(),uploadimg.getD_num(),uploadimg.getD_tripday(),loginMember.getId());
-							onloadimgf = (diaryImg)dao.selectDimgf(k);
-							System.out.print(onloadimgf);
+							
+							
 							if(onloadimgf == null){
 							%>
 							<div class="test">
@@ -169,10 +226,11 @@
 							</div>
 							
 							
-								<%if(diaryList.get(0).getDia_content()==null){
+								<%
+								if(diaryList.size()<1){
 									%>
-									<textarea name="content" id="textcontent" cols="150" rows="6"></textarea>
-									
+									<textarea name="content" id="textcontent" cols="130" rows="6"></textarea>
+									<button id="btn3">수정하기</button>
 									<%
 								}
 								else{
@@ -215,12 +273,14 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/diaryHome.js"></script>
 			<script>
-			let date=<%=diaryList.get(0).getDia_num()%>
+			<%-- let date=<%=diaryList.get(0).getDia_num()%> --%>
 			/* if(date==1){
 				$('.pages>a').removeAttr('class');
 				$('.pages>a').eq(3).attr('class','active');
 			} */
-			
+			let yearchange=0;
+			let monthchange=0;
+			let daychange=0;
 				$('#btnNext').click(function(){
 					
 					$('.active').next().attr('class','active');
@@ -242,12 +302,31 @@
 					$('.pages>a').removeAttr('class');
 					$('.pages>a').eq(k-1).attr('class','active');
        			})
+       			$(document).on('dblclick','#mainheading',function(){
+       				$(this).before('<textarea name="content" id="textcontent3" cols="70" rows="1"></textarea>');
+       				$(this).after('<button id="btn5">수정하기</button>');
+       				$(this).css("display" ,"none");
+        		})
+        		$(document).on('dblclick','#subheading',function(){
+       				$(this).before('<textarea name="content" id="textcontent4" cols="50" rows="1"></textarea>');
+       				$(this).after('<button id="btn6">수정하기</button>');
+       				$(this).css("display" ,"none");
+        		})
        			$(document).on('dblclick','#textc',function(){
        				$(this).before('<textarea name="content" id="textcontent2" cols="130" rows="6"></textarea>');
        				$(this).after('<button id="btn4">수정하기</button>');
        				$(this).css("display" ,"none");
         		})
-       				
+       			
+        		$(document).on('click','#btn3',function(){
+       				let changecontent=$('#textcontent').val();
+       				$(this).before('<p id="textc">'+changecontent+'</p>');
+       				$('#textcontent').remove();
+           			$(this).remove();
+           			
+           			
+        		})
+        		
        			$(document).on('click','#btn4',function(){
        				let changecontent=$('#textcontent2').val();
        				$('#textc').css("display" ,"inline");
@@ -257,7 +336,48 @@
            			
            			
         		})
-       			
+        		$(document).on('click','#btn5',function(){
+       				let changecontent=$('#textcontent3').val();
+       				$('#mainheading').text(changecontent);
+       				$('#mainheading').css("display" ,"inline");
+       				$('#textcontent3').remove();
+           			$(this).remove();
+           			
+           			
+        		})
+        		$(document).on('click','#btn6',function(){
+       				let changecontent=$('#textcontent4').val();
+       				$('#subheading').css("display" ,"block");
+       				$('#subheading').text(changecontent);
+       				$('#textcontent4').remove();
+           			$(this).remove();
+           			
+           			
+        		})
+       			$(document).on('click','#save',function(){
+       				let con = confirm('저장 하시겠습니까?');
+       				let text = $('#textc').text();
+       				let date = yearchange+'-0'+monthchange+'-'+daychange;
+       				let head = $('#mainheading').text();
+       				let sub = $('#subheading').text();
+       				let page=$('.active').text();
+       				if(con){
+       					$(location).attr('href', 'diaryCon?text='+text+'&date='+date+'&head='+head+'&sub='+sub+'&page='+page);
+       				}
+           			
+           			
+        		})
+        		
+        		$(document).on('click','#monthchange',function(){
+        			yearchange = prompt('Year를 입력해주세요');
+       				monthchange = prompt('Month를 입력해주세요');
+       				daychange = prompt('Day를 입력해주세요');
+       				$('.month').text(monthchange+"월");
+       				$(this).removeAttr();
+       				$('.day').text(daychange);
+           			
+           			
+        		})
        			
        			
 				<%-- $('.test').dblclick(function(){
