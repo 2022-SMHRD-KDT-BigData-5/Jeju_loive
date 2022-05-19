@@ -29,14 +29,12 @@ public class PlanAddCon extends HttpServlet {
 		//값 받아오기
 		request.getParameter("item");
 		
-		String[] itemList = request.getParameterValues("item");
+		String[] inPlanList = request.getParameterValues("item");
 		inplanDAO dao = new inplanDAO();
+		HttpSession session = request.getSession();
+		session.setAttribute("inPlan", inPlanList);
 		
-		
-		//잘담겼는지 확인하기 위해 콘솔창에 출력
-		for(String i : itemList) {
-			System.out.println(i);
-		}
+	
 		
 		response.sendRedirect("tour_detail.jsp");
 		
