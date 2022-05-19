@@ -1,5 +1,6 @@
 package com.smhrd.domain;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -86,6 +87,27 @@ public class diaryDAO {
 				      }
 				      return dimg;
 				   }
-			   
-
+			
+			//다이어리 공유여부체크
+			public boolean shareDiary(BigDecimal dia_share) {
+				SqlSession sqlSession = sqlSessionFactory.openSession();
+				boolean check = false; //사용할 수 있으면(db에 값이 없다) - true
+									   //사용할 수 없으면(db에 값이 있다) - false
+				
+				try {
+					BigDecimal diack = sqlSession.selectOne("com.smhrd.domain.diaryDAO.dia_share", dia_share);
+					if(diack!=null) {
+						check=false;
+						sqlSession.commit();
+					}else {
+						check=true;
+						sqlSession.commit();
+					}
+				}catch(Exception e) {
+					e.printStackTrace();
+				}finally {
+					sqlSession.close();
+				}
+				return check;
+			}
 }
