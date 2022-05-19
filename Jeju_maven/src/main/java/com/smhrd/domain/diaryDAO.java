@@ -10,7 +10,23 @@ import com.smhrd.database.SqlSessionManager;
 public class diaryDAO {
 		SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 			
-		
+		public int insertDiary(diary diary) {
+			  SqlSession sqlSession = sqlSessionFactory.openSession();
+		      int cnt = 0;
+		      try {
+		         cnt = sqlSession.insert("com.smhrd.domain.diaryDAO.insertDiary", diary);
+		         if (cnt > 0) {
+		            sqlSession.commit();
+		         } else {
+		            sqlSession.rollback();
+		         }
+		      } catch (Exception e) {
+		         e.printStackTrace();
+		      } finally {
+		         sqlSession.close();
+		      }
+		      return cnt;
+		   }
 			//사용자 정보로 다이어리 가져오는 메서드
 			public List<diary> selectDiary(String mem_id) {
 				SqlSession sqlSession = sqlSessionFactory.openSession();
