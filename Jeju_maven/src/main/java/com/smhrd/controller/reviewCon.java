@@ -43,7 +43,7 @@ public class reviewCon extends HttpServlet {
 				
 			}else {
 				System.out.println("리뷰쓰기 실패");
-				response.sendRedirect("main.jsp");
+				response.sendRedirect("tour.jsp");
 			}
 			
 	}
