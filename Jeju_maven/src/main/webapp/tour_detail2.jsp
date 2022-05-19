@@ -14,6 +14,7 @@
 	List<review> ReviewList = dao.selectReview(tour_num);
 	pageContext.setAttribute("ReviewList", ReviewList);
 	tour tourInfo = (tour)session.getAttribute("tourInfo");
+	String test = (String)session.getAttribute("inPlan");
 
 %>
 <!DOCTYPE html>
@@ -167,6 +168,8 @@
 		            <div style="clar:both;">
 		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}'); setInPlan();" />
 		                <input type="submit" id="submitItem" value="제출" onclick="submitItem();" />
+		                <h1>${test}</h1>
+		                
 		                
 		            </div>
 		        </div>
@@ -204,6 +207,11 @@
 			var itembox =  document.getElementsByClassName("itemBox");
 			itembox.innerText
 			setItem("inPlan", inplan);
+		}
+		
+		function getInPlan(){
+			var inplan = getItem("inPlan");
+			return inplan;
 		}
 	
 		

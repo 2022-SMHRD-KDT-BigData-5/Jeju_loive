@@ -23,8 +23,8 @@ function reorder() {
 }
 
 //아이템 추가하기
-function createItem() {
-    $(createBox())
+function createItem(tour_name) {
+    $(createBox(tour_name))
         .appendTo("#itemBoxWrap") //아이템 구성할 태그 반환받아 jquery객체로 만듦, 만들어진 아이템을 #itemBoxWrap에 추가
         .hover(                   //아이템에 마우스 오버와 마우스 아웃 시 동작 지정
             function () {         //마우스 오버시: 배경 노란색으로 바꾸고 삭제버튼 노출
@@ -56,17 +56,21 @@ function createItem() {
     // 숫자를 다시 붙인다.
     reorder();
 }
+
+
 // 아이템을 구성할 태그를 반환합니다.
-// itemBox 내에 번호를 표시할 itemNum 과 입력필드가 있습니다.
-function createBox() {
-
-    var contents
-        = "<div class='itemBox'>"
-        + "<div style='float:left;'>"
-        + "<span class='itemNum'></span> "
-        + "<input type='text' name='item' style='width:300px;'/>"
-        + "</div>"
-        + "</div>";
-    return contents;
-}
-
+		// itemBox 내에 번호를 표시할 itemNum 과 입력필드가 있습니다.
+		function createBox(tour_name) {
+		    var contents
+		        = "<div class='itemBox'>"
+		        + "<div style='float:left;'>"
+		        + "<span class='itemNum'></span> "
+		        + "<input type='text' name='item' style='width:300px;' value='"+tour_name+"'>"
+		        + "</div>"
+		        + "</div>";
+		    return contents;
+		    
+		}
+		
+		
+		
