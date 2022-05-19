@@ -9,7 +9,9 @@ public class tour {
 	private String address;
 	private BigDecimal lo;
 	private BigDecimal la;
-	
+	private BigDecimal tour_num;
+	private BigDecimal t_num;
+	private String t_add;
 	
 	
 	//생성자
@@ -35,6 +37,30 @@ public class tour {
 	}
 	public BigDecimal getLa() {
 		return la;
+	}
+	public tour(BigDecimal tour_num, String t_add, BigDecimal t_num) {
+		super();
+		this.tour_num = tour_num;
+		this.t_add = t_add;
+		this.t_num = t_num;
+	}
+	public BigDecimal getTour_num() {
+		return tour_num;
+	}
+	public void setTour_num(BigDecimal tour_num) {
+		this.tour_num = tour_num;
+	}
+	public String getT_add() {
+		return t_add;
+	}
+	public void setT_address(String t_add) {
+		this.t_add = t_add;
+	}
+	public BigDecimal getT_num() {
+		return t_num;
+	}
+	public void setT_num(BigDecimal t_num) {
+		this.t_num = t_num;
 	}
 	
 	
