@@ -52,10 +52,10 @@ public class PlanAddCon extends HttpServlet {
 			int cnt = dao.insertPlan(inplan);
 			if(cnt>0) {
 				System.out.println("inplan저장 성공");
-				response.sendRedirect("tour_info.jsp");
+				response.sendRedirect("tour_att.jsp");
 			}else {
 				System.out.println("inplan저장 실패");
-				response.sendRedirect("tour_att.jsp");
+				response.sendRedirect("main.jsp");
 			}
 			
 			
