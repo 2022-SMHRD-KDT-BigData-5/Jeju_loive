@@ -11,12 +11,9 @@ public class diary {
 	private Timestamp dia_date;//Oracle date
 	private String mem_id;
 	private String dia_content;
-	
-	
-	
-	
+	private String sub;
 	public diary(BigDecimal dia_num, String dia_name, Timestamp dia_tripday, BigDecimal dia_share, Timestamp dia_date,
-			String mem_id, String dia_content) {
+			String mem_id, String dia_content, String sub) {
 		super();
 		this.dia_num = dia_num;
 		this.dia_name = dia_name;
@@ -25,8 +22,8 @@ public class diary {
 		this.dia_date = dia_date;
 		this.mem_id = mem_id;
 		this.dia_content = dia_content;
+		this.sub = sub;
 	}
-	
 	public BigDecimal getDia_num() {
 		return dia_num;
 	}
@@ -48,6 +45,14 @@ public class diary {
 	public String getDia_content() {
 		return dia_content;
 	}
+	public String getSub() {
+		return sub;
+	}
+	
+	
+	
+	
+	
 	
 	
 }

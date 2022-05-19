@@ -43,6 +43,11 @@ public class inplan {
 		this.tour_num = tour_num;
 		this.mem_id = mem_id;
 	}
+	public inplan(BigDecimal plan_num, String mem_id) {
+		super();
+		this.plan_num = plan_num;
+		this.mem_id = mem_id;
+	}
 	
 	
 	

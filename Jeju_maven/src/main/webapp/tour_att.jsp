@@ -120,7 +120,7 @@
 				</figure>
 			</c:forEach>
 			</div>
-		
+
 
 		</div>
 		

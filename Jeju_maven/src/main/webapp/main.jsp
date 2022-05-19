@@ -14,6 +14,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       <link rel="stylesheet" href="assets/css/main.css" />
       <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+      
    </head>
    <body class="is-preload">
          
@@ -83,7 +84,7 @@
                         <p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
                      </article>
 
-                  <!-- 로그인페이지/희연 -->
+                  <!-- 로그인페이지/돼지 -->
                      <article id="login">
                         <h2 class="major">로그인</h2>
                         <form method="post" action="LoginCon">

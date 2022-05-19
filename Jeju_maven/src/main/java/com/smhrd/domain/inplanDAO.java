@@ -38,11 +38,11 @@ public class inplanDAO {
 	
 
 	//사용자의 하루 여행목록 전체주소를 받아오는 메서드
-	public List<String> selectTour(BigDecimal planNum) {
+	public List<inplan> selectTour(inplan inplan) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		List<String> tourList = null;
+		List<inplan> tourList = null;
 		try {
-			tourList = sqlSession.selectList("com.smhrd.domain.inplanDAO.selectTour",planNum);
+			tourList = sqlSession.selectList("com.smhrd.domain.inplanDAO.selectTour",inplan);
 		
 	     if (tourList != null) {
 	            sqlSession.commit();
