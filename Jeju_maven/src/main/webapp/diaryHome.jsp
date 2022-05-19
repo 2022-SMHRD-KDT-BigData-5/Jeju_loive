@@ -176,12 +176,12 @@
 									<%
 								}
 								else{
-									%><p><%= diaryList.get(0).getDia_content() %></p><% 
+									%><p id="textc"><%= diaryList.get(0).getDia_content() %></p><% 
 								}
 								
 								%>
 								
-								
+							
 									
 								
 							
@@ -241,11 +241,25 @@
            			let k = $(this).text();
 					$('.pages>a').removeAttr('class');
 					$('.pages>a').eq(k-1).attr('class','active');
-					
-					
-					
-					
        			})
+       			$(document).on('dblclick','#textc',function(){
+       				$(this).before('<textarea name="content" id="textcontent2" cols="130" rows="6"></textarea>');
+       				$(this).after('<button id="btn4">수정하기</button>');
+       				$(this).css("display" ,"none");
+        		})
+       				
+       			$(document).on('click','#btn4',function(){
+       				let changecontent=$('#textcontent2').val();
+       				$('#textc').css("display" ,"inline");
+       				$('#textc').text(changecontent);
+       				$('#textcontent2').remove();
+           			$(this).remove();
+           			
+           			
+        		})
+       			
+       			
+       			
 				<%-- $('.test').dblclick(function(){
             		<% onloadimgf=null;%>
         		}) --%>
