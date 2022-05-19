@@ -70,8 +70,16 @@
 					
 						<img src="images/hyy.jpg" alt="img25"/>
 						<figcaption>
-							<button id="btn4"><h2>다이어리<span>보기</span></h2></button>
-							
+						<h2>다이어리<span>클릭하긔</span></h2>
+							<c:choose>
+			                  <c:when test="${empty loginMember}">
+			                     <a href="main.jsp#login">View more</a>
+			                  </c:when>
+			                  <c:otherwise>
+			                     <a href="diary1.jsp">View more</a>
+			                  </c:otherwise>
+			              	 </c:choose>
+										
 							
 							
 							
@@ -102,12 +110,15 @@
 					<figure class="effect-zoe">
 						<img src="images/hy.jpg" alt="img26"/>
 						<figcaption>
-							<button id="btn4"><h2>다이어리<span>보기</span></h2></button>
-							
-							<p class="description">행복한<br>하루<br>보내세요..</p>
-							<p class="icon-links">
-                            <a href="#"><span class="icon-heart">🍚🍚<span></a>
-							
+							<h2>다이어리<span>클릭하긔</span></h2>
+							<c:choose>
+			                  <c:when test="${empty loginMember}">
+			                     <a href="main.jsp#login">View more</a>
+			                  </c:when>
+			                  <c:otherwise>
+			                     <a href="diary1.jsp">View more</a>
+			                  </c:otherwise>
+			              	 </c:choose>
 						</figcaption>			
 					</figure>
 				</div>
