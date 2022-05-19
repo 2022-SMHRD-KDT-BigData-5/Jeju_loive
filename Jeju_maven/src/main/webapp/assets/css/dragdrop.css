@@ -1,0 +1,27 @@
+@charset "UTF-8";
+/* 리스트 생김새 */
+        /*리스트에 포함될 아이템 스타일*/
+        .itemBox {
+            border: solid 1px black;
+            width: 400px;
+            height: 50px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        /*아이템 드래거하여 놓은 자리 알려주는 스타일*/
+        .itemBoxHighlight {
+            border: solid 1px black;
+            width: 400px;
+            height: 50px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: orange;
+        }
+
+        /*아이템 삭제버튼 스타일*/
+        .deleteBox {
+            float: right;
+            display: none;
+            cursor: pointer;
+        }
