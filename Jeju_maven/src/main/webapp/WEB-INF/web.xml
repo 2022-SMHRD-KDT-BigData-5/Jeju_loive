@@ -70,6 +70,7 @@
      <description></description>
      <servlet-class>com.smhrd.controller.IdCheckCon</servlet-class>
   </servlet>
+ 
   <servlet-mapping>
      <servlet-name>LoginCon</servlet-name>
      <url-pattern>/LoginCon</url-pattern>
@@ -113,5 +114,9 @@
   <servlet-mapping>
      <servlet-name>imgupCon2</servlet-name>
      <url-pattern>/imgupCon2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>boardCon</servlet-name>
+  	<url-pattern>/boardCon</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -80,6 +80,7 @@
 								<a href="#"><span class="icon-eye">🐷🐷<span></a>
 								<a href="#"><span class="icon-paper-clip"></span></a>
 							</p>
+							<a href="diaryHome.jsp">다여리보기</a>
 							<p class="description">큐티돼지 히요니의 비밀 일기~~<br> 절대 훔쳐보지 마세욧!!!-_-+</p>
 						</figcaption>			
 					</figure>
