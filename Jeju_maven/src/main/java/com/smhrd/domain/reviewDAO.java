@@ -1,5 +1,6 @@
 package com.smhrd.domain;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -70,5 +71,28 @@ public class reviewDAO {
 		}
 		return cnt;
 		
+	}
+	//리뷰 리스트 
+	public List<review> selectReview(BigDecimal tour_num){
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<review> ReviewList = null;
+		System.out.println(tour_num);
+		try {
+			ReviewList = sqlSession.selectList("com.smhrd.domain.reviewDAO.selectReview", tour_num);
+		
+			if(ReviewList!=null) {
+				sqlSession.commit();
+				System.out.println("성공");
+			}else {
+				sqlSession.rollback();
+				System.out.println("실패");
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		return ReviewList;
+	
 	}
 }
