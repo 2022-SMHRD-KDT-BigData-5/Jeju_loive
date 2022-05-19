@@ -24,22 +24,55 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
 		<!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+		<style>
+	#flex_cont{display:flex;}
+	#tour_div{
+		width:70%;
+	}
+	#plan_div{
+		width:20%
+		background-color:red;
+	}
+	.soohyeon{
+		position: fixed;
+        right: 20px;
+       	top: 10px;
+       	color:white
+	}
+</style>
 	</head>
 	<body>
+	
+	
+	
 	<header id="menuBlock">
 		<nav>
 			<ul>
 				<li><a href="main.jsp">main</a></li>
-				<li><a href="diary1.jsp">diary</a></li>
 				<li><a href="tour_att.jsp">tour</a></li>
+				<li><a href="planner.jsp">planner</a></li>
+				<li><a href="diary1.jsp">diary</a></li>
 				<li><a href="board.jsp">board</a></li>
 				<!--<li><a href="#elements">Elements</a></li>-->
 			</ul>
+			<c:choose>
+                  <c:when test="${empty loginMember}">
+                     <a href="Join.jsp" class="soohyeon">login</a>
+                  </c:when>
+                  <c:otherwise>
+                     <a href="LogoutCon" class="soohyeon">logout</a>
+                  </c:otherwise>
+               </c:choose>
 		</nav>
 	</header>
+
+	
+	
+	
 		<div class="container">
 			<!-- Top Navigation -->
 			<div class="codrops-top clearfix">

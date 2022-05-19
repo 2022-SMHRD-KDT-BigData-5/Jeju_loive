@@ -43,6 +43,12 @@ pageContext.setAttribute("cafeList", cafeList);
 		width:20%
 		background-color:red;
 	}
+	.soohyeon{
+		position: fixed;
+        right: 20px;
+       	top: 10px;
+       	color:white
+	}
 </style>
 	
 </head>
@@ -55,13 +61,23 @@ pageContext.setAttribute("cafeList", cafeList);
 		<nav>
 			<ul>
 				<li><a href="main.jsp">main</a></li>
-				<li><a href="diary1.jsp">diary</a></li>
 				<li><a href="tour_att.jsp">tour</a></li>
+				<li><a href="planner.jsp">planner</a></li>
+				<li><a href="diary1.jsp">diary</a></li>
 				<li><a href="board.jsp">board</a></li>
 				<!--<li><a href="#elements">Elements</a></li>-->
 			</ul>
+			<c:choose>
+                  <c:when test="${empty loginMember}">
+                     <a href="Join.jsp" class="soohyeon">login</a>
+                  </c:when>
+                  <c:otherwise>
+                     <a href="LogoutCon" class="soohyeon">logout</a>
+                  </c:otherwise>
+               </c:choose>
 		</nav>
 	</header>
+
 
 
 

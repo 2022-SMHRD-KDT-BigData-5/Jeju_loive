@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,23 +17,41 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
+				<style>
+		.soohyeon{
+		position: fixed;
+        right: 20px;
+       	top: 10px;
+       	color:white
+		}
+		</style>
 		<!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 </head>
 <body>
 
-<header id = "menuBlock">
-	<nav>
-							<ul>
-								<li><a href="main.jsp">main</a></li>
-								<li><a href="planner.jsp">PLANNER</a></li>
-								<li><a href="diary1.jsp">DIARY</a></li>
-								<li><a href="tour_att.jsp">TOUR</a></li>
-								<!--<li><a href="#elements">Elements</a></li>-->
-							</ul>
-						</nav>
+	<header id="menuBlock">
+		<nav>
+			<ul>
+				<li><a href="main.jsp">main</a></li>
+				<li><a href="tour_att.jsp">tour</a></li>
+				<li><a href="planner.jsp">planner</a></li>
+				<li><a href="diary1.jsp">diary</a></li>
+				<li><a href="board.jsp">board</a></li>
+				<!--<li><a href="#elements">Elements</a></li>-->
+			</ul>
+			<c:choose>
+                  <c:when test="${empty loginMember}">
+                     <a href="Join.jsp" class="soohyeon">login</a>
+                  </c:when>
+                  <c:otherwise>
+                     <a href="LogoutCon" class="soohyeon">logout</a>
+                  </c:otherwise>
+               </c:choose>
+		</nav>
 	</header>
+	
 
 <div class="container">
 			<!-- Top Navigation -->

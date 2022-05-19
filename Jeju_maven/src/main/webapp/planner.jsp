@@ -29,19 +29,39 @@
       <link rel="stylesheet" type="text/css" href="assets/css/plusButton.css" />
       <link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
       <script src = "https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      		<style>
+		.soohyeon{
+		position: fixed;
+        right: 20px;
+       	top: 10px;
+       	color:white
+		}
+		</style>
 </head>
+
 <body>
    
-   <header id = "menuBlock">
-   <nav>
-                     <ul>
-                        <li><a href="main.jsp">main</a></li>
-                        <li><a href="diary1.jsp">diary</a></li>
-                        <li><a href="tour_att.jsp">tour</a></li>
-                        <!--<li><a href="#elements">Elements</a></li>-->
-                     </ul>
-                  </nav>
-   </header>
+   <header id="menuBlock">
+		<nav>
+			<ul>
+				<li><a href="main.jsp">main</a></li>
+				<li><a href="tour_att.jsp">tour</a></li>
+				<li><a href="planner.jsp">planner</a></li>
+				<li><a href="diary1.jsp">diary</a></li>
+				<li><a href="board.jsp">board</a></li>
+				<!--<li><a href="#elements">Elements</a></li>-->
+			</ul>
+			<c:choose>
+                  <c:when test="${empty loginMember}">
+                     <a href="Join.jsp" class="soohyeon">login</a>
+                  </c:when>
+                  <c:otherwise>
+                     <a href="LogoutCon" class="soohyeon">logout</a>
+                  </c:otherwise>
+               </c:choose>
+		</nav>
+	</header>
+
    
    <h2 class="plan">Planner</h2>
 	
