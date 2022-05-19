@@ -27,7 +27,7 @@ pageContext.setAttribute("planAddList",planAddList);
 </head>
 <body>
 
-<div id="map" style="width:100%;height:350px;"></div>
+<div id="map" style="width:100%;height:600px;"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script>
 
