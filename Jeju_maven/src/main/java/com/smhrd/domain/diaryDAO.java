@@ -10,7 +10,7 @@ import com.smhrd.database.SqlSessionManager;
 
 public class diaryDAO {
 		SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
-			
+		//다이어리 데이터 추가하기	
 		public int insertDiary(diary diary) {
 			  SqlSession sqlSession = sqlSessionFactory.openSession();
 		      int cnt = 0;
@@ -49,7 +49,7 @@ public class diaryDAO {
 			      }
 			      return diaryList;
 			   }
-			
+			//다이어리 이미지 저장하기
 			public int insertImg(diaryImg dimg) {
 				  SqlSession sqlSession = sqlSessionFactory.openSession();
 			      int cnt = 0;
@@ -67,7 +67,7 @@ public class diaryDAO {
 			      }
 			      return cnt;
 			   }
-			
+			//저장한 이미지 가져오기
 			public diaryImg selectDimgf(diaryImg diaryimg) {
 				   SqlSession sqlSession = sqlSessionFactory.openSession();
 				   diaryImg dimg = null;
@@ -87,7 +87,26 @@ public class diaryDAO {
 				      }
 				      return dimg;
 				   }
-			
+			//이미지 수정
+			public int updateMember(diaryImg dimg) {
+				  SqlSession sqlSession = sqlSessionFactory.openSession();
+			      int cnt = 0;
+			      try {
+			         
+			         cnt = sqlSession.update("com.smhrd.domain.diaryDAO.updateDimg", dimg);
+			         
+			         if(cnt>0) {
+			            sqlSession.commit();
+			         }else {
+			            sqlSession.rollback();
+			         }
+			      }catch(Exception e) {
+			         e.printStackTrace();
+			      }finally{
+			         sqlSession.close();
+			      }
+			      return cnt;
+			   }
 			//다이어리 공유여부체크
 			public boolean shareDiary(BigDecimal dia_share) {
 				SqlSession sqlSession = sqlSessionFactory.openSession();
