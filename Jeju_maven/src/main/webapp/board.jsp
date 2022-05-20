@@ -35,7 +35,6 @@
 <body>
 	
 	
-	
 	<br><header id="menuBlock">
 		<nav>
 			<ul>
@@ -57,7 +56,7 @@
 				<span class="right"><a class="codrops-icon codrops-icon-drop" href="main.jsp"><span>로그아웃</span></a></span>
 			</div>
 			<header class="codrops-header">
-				<h1>BOARD <span>사용자들의 다이어리를 훔쳐보는 공간~~0.0~</span><br></h1>
+				<h1>BOARD <span></span><br></h1>
 				<nav class="codrops-demos">
 	
 					<a href="#">최신순</a>
