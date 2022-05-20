@@ -23,8 +23,8 @@ function reorder() {
 }
 
 //아이템 추가하기
-function createItem(tour_name, tour_num) {
-    $(createBox(tour_name,tour_num))
+function createItem(tour_name, tour_num,tour_add) {
+    $(createBox(tour_name,tour_num,tour_add))
         .appendTo("#itemBoxWrap") //아이템 구성할 태그 반환받아 jquery객체로 만듦, 만들어진 아이템을 #itemBoxWrap에 추가
         .hover(                   //아이템에 마우스 오버와 마우스 아웃 시 동작 지정
             function () {         //마우스 오버시: 배경 노란색으로 바꾸고 삭제버튼 노출
@@ -55,24 +55,78 @@ function createItem(tour_name, tour_num) {
 
     // 숫자를 다시 붙인다.
     reorder();
+    			//itemBox에 함께 저장된 값 숨겨주기 ㅎㅅㅎ
+    			$(document).find('.tourNum').hide();
+				$(document).find('.tourAdd').hide();
 }
 
 
 // 아이템을 구성할 태그를 반환합니다.
 		// itemBox 내에 번호를 표시할 itemNum 과 입력필드가 있습니다.
-		function createBox(tour_name,tour_num) {
+		function createBox(tour_name,tour_num,tour_add) {
+				
 		    var contents
 		        = "<div class='itemBox'>"
 		        + "<div style='float:left;'>"
 		        + "<span class='itemNum'></span> "
-		        + "<input type='text' name='item' style='width:300px;' value='"+tour_name+"'>"
-		        + "<p>"+tour_num+"</p>"
+		        + "<input type='text' name='item' style='width:300px;' value='"+tour_name+"'/>"
+		        + "<span class='tourNum'>"+tour_num+"</span>"
+		        + "<span class='tourAdd'>"+tour_add+"</span>"
 		        + "</div>"
-		        + "</div>";
-		        
+		        + "</div>"
+		        ;
 		    return contents;
 		    
+		    
 		}
+		
+		function setInPlan(){
+            //값 가져오기
+            //1) name이 item인 input태그 내의 value 가져오기
+            //2) class=tourNum, class=tourAdd인 span태그의 text값 가져오기 /
+            var tourNums=[];
+            var tourAdds=[];
+            var tourNames=[];
+            var nums=[];
+            var adds=[];
+            var names=[];
+            
+            tourNums = document.getElementsByClassName('tourNum');
+            tourAdds = document.getElementsByClassName('tourAdd');
+            
+            var len = $("input[name=item]").length;
+            for(var i=0; i<len; i++){                          
+    			tourNames[i] = $("input[name=item]").eq(i).val();
+    		}
+            
+            //배열에 순서대로 담기
+            for(i=0; i<tourNums.length; i++){
+            	nums.push(tourNums[i].innerText);
+            	adds.push(tourAdds[i].innerText);
+            	names.push(tourNames[i]);
+            }
+            
+            //확인용(콘솔창 확인)
+            console.log(nums);
+            console.log(adds);
+            console.log(names);
+            
+         	// 객체, 배열을 JSON 문자열로 변환
+            const numsString = JSON.stringify(nums);
+            const addsString = JSON.stringify(adds);
+            const namesString = JSON.stringify(names);
+			
+            //문자열로 잘 변환되었는지 확인
+            console.log(namesString);
+
+            
+			//localStorage에 배열 저장
+			window.localStorage.setItem('tourNum', nums)
+			window.localStorage.setItem('tourAdd', adds)
+			window.localStorage.setItem('tourName', names)
+			
+		}
+		
 		
 		
 		
