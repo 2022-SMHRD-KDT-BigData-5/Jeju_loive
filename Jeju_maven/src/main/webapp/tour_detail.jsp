@@ -166,23 +166,13 @@
 		        <div>
 		            <div style="float:left;width:100px;">아이템 추가 :</div>
 		            <div style="clar:both;">
-		            	<c:choose>
 		            	
-		            	<h1>
-		            	<c:when test="${not empty inPlanList}">
-		            	
-		            			<c:forEach var="p" items="inPlanList" varStatus="status">
-		            				createItem(${p})
-		            			</c:forEach>
-		            			
-							</c:when>
-		            	</h1>
-		            		
-		            	
-		            		
-		            	</c:choose>
-		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}'); location.href='PlanAddCon'"  />
+		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}');"  />
 		                <input type="submit" id="submitItem" value="제출" onclick="submitItem();" />
+		                <script>window.onload="createBox('tour_name')"</script>
+
+
+
 		                
 		                
 		            </div>
@@ -217,16 +207,7 @@
 	
 	<!-- 드래그앤드롭 JS -->
 	<script>
-		function setInPlan(){
-			var itembox =  document.getElementsByClassName("itemBox");
-			itembox.innerText
-			setItem("inPlan", inplan);
-			
-			
-		}
-	
-		
-
+		$(document).ready(createItem('${tourInfo.getName()}'))
 	</script>
 </body>
 </html>

@@ -30,12 +30,7 @@
 	content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
 <meta name="author" content="Codrops" />
 <link rel="shortcut icon" href="../favicon.ico">
-<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300'
-	rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
-<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
-<link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
-<link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
+
 <link rel="stylesheet" href="assets/css/dragdrop.css" />
 <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -43,179 +38,48 @@
 <script src="assets/js/dragdrop.js"></script>
 
 
-<!--[if IE]>
-  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-<style>
-	#flex_cont{display:flex;}
-	#tour_div{width:70%;}
-	#plan_div{width:20%;}
-	.soohyeon{position: fixed; right:20px; top:10px; color:white;}
-</style>
-	
 </head>
 
 
 <body>
 	
-	
-
-	<header id="menuBlock">
-		<nav>
-			<ul>
-				<li><a href="main.jsp">main</a></li>
-				<li><a href="tour_att.jsp">tour</a></li>
-				<li><a href="planner.jsp">planner</a></li>
-				<li><a href="diary1.jsp">diary</a></li>
-				<li><a href="board.jsp">board</a></li>
-				<!--<li><a href="#elements">Elements</a></li>-->
-			</ul>
-			<c:choose>
-                  <c:when test="${empty loginMember}">
-                     <a href="Join.jsp" class="soohyeon">login</a>
-                  </c:when>
-                  <c:otherwise>
-                     <a href="LogoutCon" class="soohyeon">logout</a>
-                  </c:otherwise>
-               </c:choose>
-		</nav>
-	</header>
-
-          
-          
-          
-          
-
-	<div class="container" id="flex_cont">
-	
-		
-		<!-- -------------------------관광지메뉴 영역 시작--------------------------------- -->
-		<div id="tour_div">
-		
-			<header class="codrops-header">
-				<h1>
-					tour 상세메뉴<span>${tourInfo.getName()}</span>
-				</h1>
-			</header>
-		
-		
-		
-		<div class="content">
-		
-		<!-- 관광지 정보 출력 영역 -->
-
-
-			<h2>무엇을 적으면 좋을까요</h2>
-		
-			<div class="content">
-			<a href="PlanAddCon?tourNum=${tourInfo.getNum()}">플래너에 추가하기</a>
-			
-	   	 	</div>
-	    	
-			<br>
-			
-			<div>
-					<img src="images/벌레.png" alt="img11" />
-				
-			<c:forEach var="r" items="${ReviewList}" varStatus="status">
-				
-					
-						<h2>
-							<span>${r.tour_num}</span>
-						</h2>
-						<p>${r.rev_content}</p>
-						
-			</c:forEach>
-						
-			</div>
-			
-			
-
-		</div>
-		
-		
-		
-		</div>
-		
-		
-		<!-- ---------------------------~~지금부터 플래너 공간~~-------------------------- -->
-		
-		
-		<div id="plan_div">
-			<header class="codrops-header">
-				<h1>
-					Plan<span>Plan에 대한 정보를 추천해주는 메뉴입니다.</span>
-				</h1>
-				<nav class="codrops-demos">
-
-					<a href="#" class="current-demo">관광지</a>
-					<a href="#">음식점</a>
-					<a href="#">카페</a>
-
-				</nav>
-			</header>
-		
-		
-		
-		<div class="content">
-			
-			<!-- itemNum : 박스 번호 -->
-			<!-- item : input태그 내에 작성된 내용 -->
-			
-			<form action="PlanAddCon" method="post">
-		        <div>
-		            <div style="float:left;width:100px;">아이템 추가 :</div>
-		            <div style="clar:both;">
-		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}'); setInPlan();" />
-		                <input type="submit" id="submitItem" value="제출" onclick="submitItem();" />
-		                <h1>${test}</h1>
-		                
-		                
-		            </div>
-		        </div>
-		        <br />
-		        <div id="itemBoxWrap"></div>
-		    </form>
-		    
-		</div>
-		
-		
-		
-		
-		
-		</div> <!-- ----------------plan 영역 끝----------------- -->
-
-	</div>
-	
-	<!-- Related demos -->
-	<section class="related"></section>
-	</div>
-	<!-- /container -->
 	<script>
-		// For Demo purposes only (show hover effect on mobile devices)
-		[].slice.call(document.querySelectorAll('a[href="#"')).forEach(
-				function(el) {
-					el.addEventListener('click', function(ev) {
-						ev.preventDefault();
-					});
-				});
-	</script>
-	
-	<!-- 드래그앤드롭 JS -->
-	<script>
-		function setInPlan(){
-			var itembox =  document.getElementsByClassName("itemBox");
-			itembox.innerText
-			setItem("inPlan", inplan);
-		}
+		$(document).ready(function createItem('tour_name') {
+		    $(createBox(tour_name))
+	        .appendTo("#itemBoxWrap") //아이템 구성할 태그 반환받아 jquery객체로 만듦, 만들어진 아이템을 #itemBoxWrap에 추가
+	        .hover(                   //아이템에 마우스 오버와 마우스 아웃 시 동작 지정
+	            function () {         //마우스 오버시: 배경 노란색으로 바꾸고 삭제버튼 노출
+	                $(this).css('backgroundColor', '#f9f9f5');
+	                $(this).find('.deleteBox').show();
+	            },
+	            function () {         //마우스 아웃시 : 배경 원래대로 돌리고 삭제버튼 숨김
+	                $(this).css('background', 'none');
+	                $(this).find('.deleteBox').hide();
+	            }
+	        )
+	        .append("<div class='deleteBox'>[삭제]</div>") //아이템에 삭제버튼 추가
+	        .find(".deleteBox").click(function () {       // 삭제버튼 클릭 시 동작 지정(입력필드에 값이 있으면 정말 삭제할지 물어봄)
+	            var valueCheck = false;
+	            $(this).parent().find('input').each(function () {
+	                if ($(this).attr("name") != "type" && $(this).val() != '') {
+	                    valueCheck = true;
+	                }
+	            });
+	            if (valueCheck) {
+	                var delCheck = confirm('입력하신 내용이 있습니다.\n삭제하시겠습니까?');
+	            }
+	            if (!valueCheck || delCheck == true) {
+	                $(this).parent().remove();
+	                reorder();
+	            }
+	        });
+
+	    // 숫자를 다시 붙인다.
+	    reorder();)
 		
-		function getInPlan(){
-			var inplan = getItem("inPlan");
-			return inplan;
-		}
-	
 		
 
 	</script>
+
 </body>
 </html>
