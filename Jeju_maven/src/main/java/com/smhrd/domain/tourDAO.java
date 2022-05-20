@@ -120,8 +120,10 @@ public class tourDAO {
 			
 				if(ImgList!=null) {
 					sqlSession.commit();
+					System.out.println("이미지성공");
 				}else {
 					sqlSession.rollback();
+					System.out.println("이미지실패");
 				}
 			}catch(Exception e){
 				e.printStackTrace();
