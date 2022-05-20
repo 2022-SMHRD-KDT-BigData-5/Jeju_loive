@@ -18,6 +18,7 @@
 	List<diary> diaryList =null;
 	String month=null;
 	String day=null;
+	String test=null;
 	
 	if(loginMember != null){
 		String mem_id=loginMember.getId();
@@ -41,6 +42,7 @@
 			diaryImg k= new diaryImg(uploadimg.getD_num(),uploadimg.getD_num(),uploadimg.getD_tripday(),loginMember.getId());
 			onloadimgf = (diaryImg)dao.selectDimgf(k);
 			String oname=onloadimgf.getP_oname();
+			test=diaryList.get(0).getDia_content();
 			diaryImg updateimg=new diaryImg(pagenum,date,oname);
 			session.setAttribute("updateimg", updateimg);
 		}
@@ -157,7 +159,7 @@
 								<ul class="stats">
 									<li><a href="#" class="icon fa-comment">16</a></li>
 									<li><a href="#" class="icon fa-heart">32</a></li>
-									<li><a href="#" class="icon brands fa-twitter">64</a></li>
+									<li id="mod"><a href="#" class="fas fa-edit">mod</a></li>
 									<li id="save"><a href="#" class="fas fa-file-alt">save</a></li>
 								</ul>
 							</div>
@@ -373,10 +375,22 @@
        				let head = $('#mainheading').text();
        				let sub = $('#subheading').text();
        				let page=$('.active').text();
+       				var check= "<%=test%>";
        				if(con){
-       					$(location).attr('href', 'diaryCon?text='+text+'&date='+date+'&head='+head+'&sub='+sub+'&page='+page);
+       					if(check==null){
+       						$(location).attr('href', 'diaryCon?text='+text+'&date='+date+'&head='+head+'&sub='+sub+'&page='+page);
+       					}
+       					else{
+       						
+       						$(location).attr('href', 'diaryUpdateCon?text='+text+'&date='+date+'&head='+head+'&sub='+sub+'&page='+page);
+       					}
+       					
        				}
            			
+           			
+        		})
+        		$(document).on('click','#mod',function(){
+        			alert('수정 할려고 하는 텍스트 및 사진을 더블클릭하세요!');
            			
         		})
         		
