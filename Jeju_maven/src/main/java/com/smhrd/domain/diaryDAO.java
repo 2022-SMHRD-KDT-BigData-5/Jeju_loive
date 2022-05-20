@@ -49,6 +49,27 @@ public class diaryDAO {
 			      }
 			      return diaryList;
 			   }
+			//다이어리 내용 업데이트
+			public int updateDiary(diary diary) {
+				  SqlSession sqlSession = sqlSessionFactory.openSession();
+			      int cnt = 0;
+			      try {
+			         
+			         cnt = sqlSession.update("com.smhrd.domain.diaryDAO.updateDiary", diary);
+			         
+			         if(cnt>0) {
+			            sqlSession.commit();
+			         }else {
+			            sqlSession.rollback();
+			         }
+			      }catch(Exception e) {
+			         e.printStackTrace();
+			      }finally{
+			         sqlSession.close();
+			      }
+			      return cnt;
+			   }
+			
 			//다이어리 이미지 저장하기
 			public int insertImg(diaryImg dimg) {
 				  SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -88,7 +109,7 @@ public class diaryDAO {
 				      return dimg;
 				   }
 			//이미지 수정
-			public int updateMember(diaryImg dimg) {
+			public int updateDimg(diaryImg dimg) {
 				  SqlSession sqlSession = sqlSessionFactory.openSession();
 			      int cnt = 0;
 			      try {

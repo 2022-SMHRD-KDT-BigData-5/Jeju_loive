@@ -10,7 +10,7 @@
 	font: inherit;
 	vertical-align: baseline;
 	position: relative;
-	top : -25px;
+	top : 20px;
 	
 	
 }
@@ -106,6 +106,6 @@
 		}
 		
 		#menuBlock ul li a {
-			color : black;
+
 		}
 		

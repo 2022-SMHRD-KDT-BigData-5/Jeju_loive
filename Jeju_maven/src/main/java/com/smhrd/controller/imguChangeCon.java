@@ -51,13 +51,15 @@ public class imguChangeCon extends HttpServlet {
 		 diaryImg dimg= new diaryImg(updateimg.getD_num(),updateimg.getD_num(),updateimg.getD_tripday(),updateimg.getP_oname(),fullpath,loginMember.getId());
 		 System.out.println(dimg.getP_oname());
 		 diaryDAO dao =new diaryDAO();
-		 int cnt = dao.updateMember(dimg);
+		 int cnt = dao.updateDimg(dimg);
 		 
 		 if(cnt>0) {
 			 System.out.print("업데이트 성공");
 	     }else {
 	    	 System.out.print("업데이트 실패");
 	     }
+		 session.removeAttribute("pagenum");
+		 session.removeAttribute("updateimg");
 		 response.sendRedirect("diaryHome.jsp");
 		 
 	}

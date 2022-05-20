@@ -32,9 +32,18 @@ pageContext.setAttribute("planAddList",planAddList);
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script>
 
 <script>
-let ii = document.getElementsByClassName('planAddList');
-console.log(ii);
+var positions = [""];
+console.log("<%=planAddList.get(0)%>")
+<% for(int i =0; i< planAddList.size(); i++){%>
+positions.push("<%=planAddList.get(i)%>")
 
+<%}%>
+/* let list1 = document.getElementsByClassName('planAddList');
+
+for(var i = 0; i< list1.length; i++){
+	
+}
+ */
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 mapOption = { 
     center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -43,18 +52,20 @@ mapOption = {
 
 var map = new kakao.maps.Map(mapContainer, mapOption); 
 
-var positions = [
+/* var positions = [
     {
 		address:"제주특별자치도 서귀포시 성산읍 일출로 284-12",
         text: '문광사서점'
     }
-];
+]; */
+
+
 
 for (var i = 0; i < positions.length; i ++) {
 	// 주소-좌표 변환 객체를 생성합니다
 	var geocoder = new kakao.maps.services.Geocoder();
 	// 주소로 좌표를 검색합니다
-	geocoder.addressSearch(positions[i].address, function(result, status) {
+	geocoder.addressSearch(positions[i], function(result, status) {
 		// 정상적으로 검색이 완료됐으면 
 		 if (status === kakao.maps.services.Status.OK) {
 			var coords = new kakao.maps.LatLng(result[0].y, result[0].x);

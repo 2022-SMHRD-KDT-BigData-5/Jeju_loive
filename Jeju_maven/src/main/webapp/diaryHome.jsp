@@ -18,7 +18,9 @@
 	List<diary> diaryList =null;
 	String month=null;
 	String day=null;
-	
+	String test=null;
+	int i=0;
+	int num=1;
 	if(loginMember != null){
 		String mem_id=loginMember.getId();
 		
@@ -41,6 +43,7 @@
 			diaryImg k= new diaryImg(uploadimg.getD_num(),uploadimg.getD_num(),uploadimg.getD_tripday(),loginMember.getId());
 			onloadimgf = (diaryImg)dao.selectDimgf(k);
 			String oname=onloadimgf.getP_oname();
+			test=diaryList.get(0).getDia_content();
 			diaryImg updateimg=new diaryImg(pagenum,date,oname);
 			session.setAttribute("updateimg", updateimg);
 		}
@@ -90,7 +93,10 @@
 				<div class="inner">
 						
 					<!-- Post -->
-						<article class="box post post-excerpt">
+					<c:forEach var="t" items="${diaryList}" varStatus="status">
+						
+						<article class="box post post-excerpt" id="num<%=num%>">
+						
 							<header>
 								<!--
 									Note: Titles and subtitles will wrap automatically when necessary, so don't worry
@@ -103,7 +109,7 @@
 								}
 								else {
 									%>
-									<%=diaryList.get(0).getDia_name()%><%
+									<%=diaryList.get(num-1).getDia_name()%><%
 								}
 								%>
 								</a></h2>
@@ -113,7 +119,7 @@
 								}
 								else {
 									%>
-									<%=diaryList.get(0).getSub()%><%
+									<%=diaryList.get(num-1).getSub()%><%
 								}
 								%>
 								</p>
@@ -157,7 +163,7 @@
 								<ul class="stats">
 									<li><a href="#" class="icon fa-comment">16</a></li>
 									<li><a href="#" class="icon fa-heart">32</a></li>
-									<li><a href="#" class="icon brands fa-twitter">64</a></li>
+									<li id="mod"><a href="#" class="fas fa-edit">mod</a></li>
 									<li id="save"><a href="#" class="fas fa-file-alt">save</a></li>
 								</ul>
 							</div>
@@ -236,29 +242,35 @@
 									<%
 								}
 								else{
-									%><p id="textc"><%= diaryList.get(0).getDia_content() %></p><% 
+									%><p id="textc"><%= diaryList.get(num-1).getDia_content() %></p><% 
 								}
 								
 								%>
-								
+								<%num++;  %>
 							
 									
 								
 							
 							
 						</article>
-
+					</c:forEach>
 					
 					<!-- Pagination -->
 						<div class="pagination">
 							<a href="#" class="button previous" id="btnPrevious">Previous Page</a>
 							<div class="pages">
-								<a href="#" class="active">1</a>
+								<!-- <a href="#" class="active">1</a>
 								<a href="#">2</a>
 								<a href="#">3</a>
 								<a href="#">4</a>
 								<span>&hellip;</span>
-								<a href="#">20</a>
+								<a href="#">20</a> -->
+								<c:forEach var="t" items="${diaryList}" varStatus="status">
+								<%
+								
+								out.print("<a href='#'>"+diaryList.get(i).getDia_num()+"</a>");
+								i++;%> 
+								</c:forEach>
 							</div>
 							<a href="#" class="button next" id="btnNext">Next Page</a>
 						</div>
@@ -280,30 +292,54 @@
 				$('.pages>a').removeAttr('class');
 				$('.pages>a').eq(3).attr('class','active');
 			} */
+			$('.pages>a').eq(0).attr('class','active')
 			let yearchange=0;
 			let monthchange=0;
 			let daychange=0;
-				$('#btnNext').click(function(){
-					
-					$('.active').next().attr('class','active');
-					
-					$('.active').eq(0).removeAttr('class');
-					
+			let i=$('.active').text();
+			let k=0;
+			
+				for(k=1;k<=5;k++){
+					$('#num'+k).css("display" ,"none")
+				}
+				$('#num'+i).css("display" ,"inline")			
+			
+			$(document).on('click','#btnNext',function(){
+				
+				$('.active').next().attr('class','active');
+				
+				$('.active').eq(0).removeAttr('class');
+				i=$('.active').text();
+				for(k=1;k<=5;k++){
+					$('#num'+k).css("display" ,"none")
+				}
+				$('#num'+i).css("display" ,"inline")
 
-       			})
-				   $('#btnPrevious').click(function(){
-					
-					$('.active').prev().attr('class','active');
-					$('.active').eq(1).removeAttr('class');
-					
-					
+   			})
+			   $(document).on('click','#btnPrevious',function(){
+			  
+				
+				$('.active').prev().attr('class','active');
+				$('.active').eq(1).removeAttr('class');
+				i=$('.active').text();
+				for(k=1;k<=5;k++){
+					$('#num'+k).css("display" ,"none")
+				}
+				$('#num'+i).css("display" ,"inline")
+				
 
-       			})
-				   $('.pages>a').click(function(){
-           			let k = $(this).text();
-					$('.pages>a').removeAttr('class');
-					$('.pages>a').eq(k-1).attr('class','active');
-       			})
+   			})
+			   $(document).on('click','.pages>a',function(){
+			  
+       			let k = $(this).text();
+				$('.pages>a').removeAttr('class');
+				$('.pages>a').eq(k-1).attr('class','active');
+				i=$('.active').text();
+				for(k=1;k<=5;k++){
+					$('#num'+k).css("display" ,"none")
+				}
+				$('#num'+i).css("display" ,"inline")
+   			})
        			$(document).on('dblclick','#mainheading',function(){
        				$(this).before('<textarea name="content" id="textcontent3" cols="70" rows="1"></textarea>');
        				$(this).after('<button id="btn5">수정하기</button>');
@@ -373,10 +409,22 @@
        				let head = $('#mainheading').text();
        				let sub = $('#subheading').text();
        				let page=$('.active').text();
+       				var check= "<%=test%>";
        				if(con){
-       					$(location).attr('href', 'diaryCon?text='+text+'&date='+date+'&head='+head+'&sub='+sub+'&page='+page);
+       					if(check==null){
+       						$(location).attr('href', 'diaryCon?text='+text+'&date='+date+'&head='+head+'&sub='+sub+'&page='+page);
+       					}
+       					else{
+       						
+       						$(location).attr('href', 'diaryUpdateCon?text='+text+'&date='+date+'&head='+head+'&sub='+sub+'&page='+page);
+       					}
+       					
        				}
            			
+           			
+        		})
+        		$(document).on('click','#mod',function(){
+        			alert('수정 할려고 하는 텍스트 및 사진을 더블클릭하세요!');
            			
         		})
         		

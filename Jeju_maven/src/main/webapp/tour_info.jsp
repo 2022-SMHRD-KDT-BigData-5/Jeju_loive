@@ -14,6 +14,10 @@
 	BigDecimal tour_num = new BigDecimal(str_num);
 	List<review> ReviewList = dao.selectReview(tour_num);
 	pageContext.setAttribute("ReviewList", ReviewList);
+	tourDAO tdao = new tourDAO();
+	int tourNum = Integer.parseInt(str_num);
+	List<tour> ImgList = tdao.selectImgList(tourNum);
+	pageContext.setAttribute("ImgList", ImgList);
 %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -117,8 +121,9 @@
 			<br>
 			
 			<div>
-					<img src="images/벌레.png" alt="img11" />
-				
+			<c:forEach var="i" items="${ImgList}" varStatus="status">
+					<img src="${i}" alt="img11" />
+				</c:forEach>
 			<c:forEach var="r" items="${ReviewList}" varStatus="status">
 				
 					

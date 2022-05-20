@@ -82,10 +82,10 @@ public class reviewDAO {
 		
 			if(ReviewList!=null) {
 				sqlSession.commit();
-				System.out.println("성공");
+				System.out.println("리뷰성공");
 			}else {
 				sqlSession.rollback();
-				System.out.println("실패");
+				System.out.println("리뷰실패");
 			}
 		}catch(Exception e){
 			e.printStackTrace();
