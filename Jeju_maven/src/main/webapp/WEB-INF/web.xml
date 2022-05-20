@@ -78,6 +78,12 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.imguChangeCon</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>diaryUpdateCon</servlet-name>
+  	<display-name>diaryUpdateCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.diaryUpdateCon</servlet-class>
+  </servlet>
   <servlet-mapping>
      <servlet-name>LoginCon</servlet-name>
      <url-pattern>/LoginCon</url-pattern>
@@ -128,5 +134,9 @@
   <servlet-mapping>
   	<servlet-name>imguChangeCon</servlet-name>
   	<url-pattern>/imguChangeCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>diaryUpdateCon</servlet-name>
+  	<url-pattern>/diaryUpdateCon</url-pattern>
   </servlet-mapping>
 </web-app>

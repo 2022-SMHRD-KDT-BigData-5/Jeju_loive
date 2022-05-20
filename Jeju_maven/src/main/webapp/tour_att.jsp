@@ -8,6 +8,9 @@
 	tourDAO dao = new tourDAO();
 	List<tour> tourList = dao.selectTourList();
 	pageContext.setAttribute("tourList", tourList);
+	List<tour> tourImgList = dao.selectTourImgList();
+	pageContext.setAttribute("tourImgList", tourImgList);
+	
 %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -105,7 +108,7 @@
 
 		<h2>가즈아</h2>
 			<div class="grid">
-			
+			<h1><%=tourImgList.get(1).getT_add() %></h1>
 			<c:forEach var="t" items="${tourList}" varStatus="status">
 				
 				<figure class="effect-marley">
