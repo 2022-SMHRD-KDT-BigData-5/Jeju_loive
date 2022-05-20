@@ -30,7 +30,7 @@ public class TourInfoCon extends HttpServlet {
          HttpSession session = request.getSession();
          session.setAttribute("tourInfo", tourInfo);
          session.setAttribute("tourNum", tourNum);
-         response.sendRedirect("tour_info.jsp?tourNum="+tourNum);
+         response.sendRedirect("tour_detail.jsp?tourNum="+tourNum);
       }else {
          //관광정보 가져오기 실패
          System.out.println("관광정보 가져오기 실패");

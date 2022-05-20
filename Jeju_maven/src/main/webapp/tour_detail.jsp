@@ -167,12 +167,9 @@
 		            <div style="float:left;width:100px;">아이템 추가 :</div>
 		            <div style="clar:both;">
 		            	
-		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}');"  />
+		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}'); setInPlan();"  />
 		                <input type="submit" id="submitItem" value="제출" onclick="submitItem();" />
-		                <script>window.onload="createBox('tour_name')"</script>
-
-
-
+						
 		                
 		                
 		            </div>
@@ -207,7 +204,40 @@
 	
 	<!-- 드래그앤드롭 JS -->
 	<script>
-		$(document).ready(createItem('${tourInfo.getName()}'))
+		//임시저장된 플래너 자동출력
+		
+		$(document).ready(createItem('${tourInfo.getName()}', '${tourInfo.getNum()}'))
+		$(document).ready(createItem('${tourInfo.getName()}', '${tourInfo.getNum()}'))
+		
+		
+		
+		
+		//추가 클릭시 localStorage에 값을 저장하는 함수
+		function setInPlan(){
+            //값 가져오기
+			var tour_num = '${tourInfo.getNum()}'
+			var tour_name = '${tourInfo.getName()}'
+			var tour_add = '${tourInfo.getAddress()}'
+            //객체 생성
+            let ob1 = {
+            tourNum : tour_num,
+            tourName : tour_name,
+            tourAdd : tour_add,
+            };
+			
+			//객체저장
+			window.localStorage.setItem('ob1', ob1)
+			
+			//객체 불러내서 변수에 담기
+            var get_ob1 = window.localStorage.getItem('ob1');
+			
+			//객체의 요소 가져오기
+            var add = ob1.tourAdd
+            var num = ob1.tourNum
+            $(document).ready(createItem(add))
+            $(document).ready(createItem(num))
+		}
+		
 	</script>
 </body>
 </html>
