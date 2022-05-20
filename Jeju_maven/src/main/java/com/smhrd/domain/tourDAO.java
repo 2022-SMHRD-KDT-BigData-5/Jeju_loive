@@ -109,9 +109,91 @@ public class tourDAO {
 		}
 		
 		
+		//tour_img 에서 사진 가져오는 메서드
+		
+		public List<tour> selectImgList(int tourNum) {
+			SqlSession sqlSession = sqlSessionFactory.openSession();
+			List<tour> ImgList = null;
+			
+			try {
+				ImgList = sqlSession.selectList("com.smhrd.domain.tourDAO.selectImgList",tourNum);
+			
+				if(ImgList!=null) {
+					sqlSession.commit();
+				}else {
+					sqlSession.rollback();
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}finally {
+				sqlSession.close();
+			}
+			return ImgList;
+		}
+
 		
 		// tour_img에서 관광지 사진 가져오는 메서드
-		
+		public List<tour> selectTourImgList() {
+			SqlSession sqlSession = sqlSessionFactory.openSession();
+			List<tour> tourImgList = null;
+			
+			try {
+				tourImgList = sqlSession.selectList("com.smhrd.domain.tourDAO.selectTourImgList");
+			
+				if(tourImgList!=null) {
+					sqlSession.commit();
+				}else {
+					sqlSession.rollback();
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}finally {
+				sqlSession.close();
+			}
+			return tourImgList;
+		}
+
+		// tour_img에서 음식점 사진 가져오는 메서드
+		public List<tour> selectFoodImgList() {
+			SqlSession sqlSession = sqlSessionFactory.openSession();
+			List<tour> foodImgList = null;
+			
+			try {
+				foodImgList = sqlSession.selectList("com.smhrd.domain.tourDAO.selectFoodImgList");
+			
+				if(foodImgList!=null) {
+					sqlSession.commit();
+				}else {
+					sqlSession.rollback();
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}finally {
+				sqlSession.close();
+			}
+			return foodImgList;
+		}
+
+		// tour_img에서 카페 사진 가져오는 메서드
+		public List<tour> selectCafeImgList() {
+			SqlSession sqlSession = sqlSessionFactory.openSession();
+			List<tour> cafeImgList = null;
+			
+			try {
+				cafeImgList = sqlSession.selectList("com.smhrd.domain.tourDAO.selectCafeImgList");
+			
+				if(cafeImgList!=null) {
+					sqlSession.commit();
+				}else {
+					sqlSession.rollback();
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}finally {
+				sqlSession.close();
+			}
+			return cafeImgList;
+		}
 		
 
 }

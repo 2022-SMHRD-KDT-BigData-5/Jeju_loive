@@ -32,8 +32,11 @@ pageContext.setAttribute("planAddList",planAddList);
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script>
 
 <script>
-let ii = document.getElementsByClassName('planAddList');
-console.log(ii);
+let list1 = document.getElementsByClassName('planAddList');
+console.log(list1[0].innerHTML);
+for(var i = 0; i< list1.length; i++){
+	console.log(list1[i].innerHTML);
+}
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 mapOption = { 
