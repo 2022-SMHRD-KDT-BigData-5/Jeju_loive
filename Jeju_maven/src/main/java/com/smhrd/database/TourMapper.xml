@@ -37,11 +37,11 @@
 		select t_add from tour_img where tour_num = #{tourNum}
 	</select>
 	
-	<select id="pagingtour" parameterType="int" resultType="String">
+	<!-- <select id="pagingtour" parameterType="int" resultType="String">
 		select * from ( select * from ( select rownum row_num, tour.* from tour) where 
 			row_num <![CDATA[ >= ]]> ((#{page}-1)*10+1) )where row_num <![CDATA[ <= ]]> #{page}*10
 	</select>
-
+ -->
 
 
 </mapper>
