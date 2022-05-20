@@ -16,8 +16,7 @@ import com.smhrd.domain.Member;
 import com.smhrd.domain.diaryDAO;
 import com.smhrd.domain.diaryImg;
 
-
-public class imguChangeCon extends HttpServlet {
+public class imguChangeCon3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
@@ -45,13 +44,13 @@ public class imguChangeCon extends HttpServlet {
 		 
 		 String fullpath = "./img/" + filename1;
 		 System.out.println(fullpath);
-		 diaryImg updateimg = (diaryImg)session.getAttribute("updateimg");
+		 diaryImg updateimg = (diaryImg)session.getAttribute("updateimg3");
 		 Member loginMember = (Member)session.getAttribute("loginMember");
-		 System.out.println(updateimg.getP_oname());
-		 diaryImg dimg= new diaryImg(updateimg.getD_num(),updateimg.getD_num(),updateimg.getD_tripday(),updateimg.getP_oname(),fullpath,loginMember.getId());
+		 String name="세번째";
+		 diaryImg dimg= new diaryImg(updateimg.getD_num(),updateimg.getD_num(),updateimg.getD_tripday(),name,fullpath,loginMember.getId());
 		 System.out.println(dimg.getP_oname());
 		 diaryDAO dao =new diaryDAO();
-		 int cnt = dao.updateDimg(dimg);
+		 int cnt = dao.updateDimg3(dimg);
 		 
 		 if(cnt>0) {
 			 System.out.print("업데이트 성공");
@@ -61,7 +60,6 @@ public class imguChangeCon extends HttpServlet {
 		 session.removeAttribute("pagenum");
 		 session.removeAttribute("updateimg");
 		 response.sendRedirect("diaryHome.jsp");
-		 
 	}
 
 }

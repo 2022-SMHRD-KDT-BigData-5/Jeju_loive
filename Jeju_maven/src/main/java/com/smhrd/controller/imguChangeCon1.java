@@ -1,10 +1,8 @@
 package com.smhrd.controller;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.Enumeration;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,14 +17,13 @@ import com.smhrd.domain.diaryDAO;
 import com.smhrd.domain.diaryImg;
 
 
-public class imgupCon extends HttpServlet {
+public class imguChangeCon1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 request.setCharacterEncoding("UTF-8");
 		 HttpSession session = request.getSession();
-		 
 		 String realFolder = "";
 		 String filename1 = "";
 		 int maxSize = 1024*1024*5;
@@ -34,9 +31,6 @@ public class imgupCon extends HttpServlet {
 		 String savefile = "img";
 		 ServletContext scontext = getServletContext();
 		 realFolder = scontext.getRealPath(savefile);
-		 
-		 diaryImg uploadimg = (diaryImg)session.getAttribute("pagenum");
-		 Member loginMember = (Member)session.getAttribute("loginMember");
 		 
 		 try{
 		  MultipartRequest multi=new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
@@ -47,32 +41,27 @@ public class imgupCon extends HttpServlet {
 		 } catch(Exception e) {
 		  e.printStackTrace();
 		 }
+		
 		 
 		 String fullpath = "./img/" + filename1;
-		 String oname="첫번째";
-		 diaryImg dimg= new diaryImg(uploadimg.getD_num(),uploadimg.getD_tripday(),oname,fullpath,loginMember.getId());
-		 diaryDAO dao=new diaryDAO();
-		 int cnt = dao.insertImg(dimg);
-		 if(cnt>0) {	
-				System.out.println("사진업로드 성공");
-				diaryImg k= new diaryImg(uploadimg.getD_num(),uploadimg.getD_num(),uploadimg.getD_tripday(),loginMember.getId());
-				diaryImg onloadimgf = (diaryImg)dao.selectDimgf(k);
-				
-				if(onloadimgf != null) {
-					System.out.println("사진출력 성공");
-					
-					response.sendRedirect("diaryHome.jsp");
-				}
-				else {
-					System.out.println("사진출력 실패");
-					response.sendRedirect("diaryHome.jsp");
-				}
-						
-				
-		}else {  	
-				System.out.println("사진업로드 실패");
-				
-		}
+		 System.out.println(fullpath);
+		 diaryImg updateimg = (diaryImg)session.getAttribute("updateimg");
+		 Member loginMember = (Member)session.getAttribute("loginMember");
+		 System.out.println(updateimg.getP_oname());
+		 diaryImg dimg= new diaryImg(updateimg.getD_num(),updateimg.getD_num(),updateimg.getD_tripday(),updateimg.getP_oname(),fullpath,loginMember.getId());
+		 System.out.println(dimg.getP_oname());
+		 diaryDAO dao =new diaryDAO();
+		 int cnt = dao.updateDimg(dimg);
+		 
+		 if(cnt>0) {
+			 System.out.print("업데이트 성공");
+	     }else {
+	    	 System.out.print("업데이트 실패");
+	     }
+		 session.removeAttribute("pagenum");
+		 session.removeAttribute("updateimg");
+		 response.sendRedirect("diaryHome.jsp");
+		 
 	}
 
 }

@@ -18,10 +18,9 @@ import com.smhrd.domain.diaryDAO;
 import com.smhrd.domain.diaryImg;
 
 
-public class imgupCon2 extends HttpServlet {
+public class imgupCon3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		 HttpSession session = request.getSession();
@@ -48,14 +47,14 @@ public class imgupCon2 extends HttpServlet {
 		 }
 		 
 		 String fullpath = "./img/" + filename1;
-		 String oname="두번째";
+		 String oname="세번째";
 		 diaryImg dimg= new diaryImg(uploadimg.getD_num(),uploadimg.getD_tripday(),oname,fullpath,loginMember.getId());
 		 diaryDAO dao=new diaryDAO();
-		 int cnt = dao.insertImg2(dimg);
+		 int cnt = dao.insertImg3(dimg);
 		 if(cnt>0) {	
 				System.out.println("사진업로드 성공");
 				diaryImg k= new diaryImg(uploadimg.getD_num(),uploadimg.getD_num(),uploadimg.getD_tripday(),loginMember.getId());
-				List<diaryImg> dimgList =dao.selectDimg2(loginMember.getId());
+				List<diaryImg> dimgList =dao.selectDimg3(loginMember.getId());
 				
 				if(dimgList != null) {
 					System.out.println("사진출력 성공");

@@ -28,15 +28,15 @@
 		<style>
 		.material-symbols-outlined {
 		position: fixed;
-        right: 30px;
+        right: 20px;
        	top: 20px;
        	color:black;
 		}
 		
 		.logo{
-		position: fixed;
+		position: relative;
         left: 5px;
-       	top: -55px;
+       	top: -100px;
 		}
 	
 	</style>
@@ -71,7 +71,7 @@
 		<div class="container">
 			<!-- Top Navigation -->
 			<div class="codrops-top clearfix">
-				<a class="logo" href="main.jsp"><span><img src="images/logo2.png" alt="logo"></span></a>
+				<a class="logo" href="main.jsp"><span><img src="images/logo3.png" alt="logo"></span></a>
 				
 			</div>
 			<header class="codrops-header">

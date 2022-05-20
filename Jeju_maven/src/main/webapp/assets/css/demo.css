@@ -17,17 +17,17 @@ body {
 	background: #F6F6F6;
 	color: black;
 
-	background: rgb(253, 253, 253);
-	color: rgb(9, 9, 9);
+	background: #F6F6F6(253, 253, 253);
+	color: rgb(0 0 0);
 
-	font-weight: 400;
+	font-weight: 500;
 	font-size: 1em;
 	font-family: 'Raleway', Arial, sans-serif;
 }
 
 a {
 	outline: none;
-	color: #FFBB00;
+	color:darkorange;
 	text-decoration: none;
 }
 
