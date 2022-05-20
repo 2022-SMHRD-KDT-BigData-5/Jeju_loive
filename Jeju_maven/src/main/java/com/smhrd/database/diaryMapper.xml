@@ -41,7 +41,9 @@
 	<update id="updateDimg3" parameterType="com.smhrd.domain.diaryImg">
 		update diary_img3 set p_loc=#{p_loc} where d_num=#{d_num} and p_oname=#{p_oname} and p_memid=#{p_memid}
 	</update>
-	
+	<insert id="insertDiary2" parameterType="com.smhrd.domain.diary">
+		insert into diary(dia_num,mem_id) values(#{dia_num}, #{mem_id} )
+	</insert>
 	
 	
 	<update id="updateDiary" parameterType="com.smhrd.domain.diary">

@@ -44,7 +44,7 @@ public class imguChangeCon3 extends HttpServlet {
 		 
 		 String fullpath = "./img/" + filename1;
 		 System.out.println(fullpath);
-		 diaryImg updateimg = (diaryImg)session.getAttribute("updateimg3");
+		 diaryImg updateimg = (diaryImg)session.getAttribute("updateimg1");
 		 Member loginMember = (Member)session.getAttribute("loginMember");
 		 String name="세번째";
 		 diaryImg dimg= new diaryImg(updateimg.getD_num(),updateimg.getD_num(),updateimg.getD_tripday(),name,fullpath,loginMember.getId());
