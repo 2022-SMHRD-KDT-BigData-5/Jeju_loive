@@ -9,7 +9,9 @@
 -->
 <html>
    <head>
-      <title>Dimension by HTML5 UP</title>
+      <title>돌하르방이</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+      <script src="https://kit.fontawesome.com/6208020662.js" crossorigin="anonymous"></script>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       <link rel="stylesheet" href="assets/css/main.css" />
@@ -36,7 +38,7 @@
                <header id="header">
                
                   <div class="logo">
-                     <span class="fas fa-plane"></span>
+                     <span class="fa-solid fa-plane-up fa-2xl"></span>
                   </div>
                   <div class="content">
                      <div class="inner">
@@ -387,6 +389,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
          
             
          
-
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
    </body>
 </html>
