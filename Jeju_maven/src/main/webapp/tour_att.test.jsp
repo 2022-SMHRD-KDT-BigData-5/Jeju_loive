@@ -128,15 +128,6 @@
 							</figcaption>
 						</figure>
 
-						<include page="/paging/paging.jsp">
-						<param value="${paging.page}" name="page" />
-						<param value="${paging.beginPage}" name="beginPage" />
-						<param value="${paging.endPage}" name="endPage" />
-						<param value="${paging.prev}" name="prev" />
-						<param value="${paging.next}" name="next" />
-						</include>
-
-
 					</c:forEach>
 				</div>
 
@@ -192,9 +183,9 @@
 
 			</div>
 		</div>
-
+			
 	</div>
-
+	
 	<!-- Related demos -->
 	<section class="related"></section>
 	</div>

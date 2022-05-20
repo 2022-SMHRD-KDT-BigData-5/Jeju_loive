@@ -33,6 +33,13 @@ public class pagingTourListCon extends HttpServlet{
         
         RequestDispatcher dispatcher = req.getRequestDispatcher("./tour_att.test.jsp");
         dispatcher.forward(req, res);
+        
+    	
+     
+
+        
+        
+        
     }
 
 
