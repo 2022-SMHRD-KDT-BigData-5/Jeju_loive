@@ -32,5 +32,9 @@
 	<select id="selectCafeImgList" resultType="com.smhrd.domain.tour">
 		select * from tour_img where tour_num between 401 and 600 order by tour_num
 	</select>
+	
+	<select id="selectImgList" parameterType="int" resultType="String">
+		select t_add from tour_img where tour_num = #{tourNum}
+	</select>
 
 </mapper>
