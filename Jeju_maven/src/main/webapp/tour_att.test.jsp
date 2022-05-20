@@ -54,13 +54,6 @@
        	color:white
 	}
 
-	.paging-div { 
-	padding: 15px 0 5px 10px; 
-	display: table; 
-	margin-left: auto; 
-	margin-right: auto; 
-	text-align: center; 
-	}
 
 
 	
@@ -70,12 +63,6 @@
 
 
 <body>
-	
-	<form>
-	<input type="hidden" name="currPage" /> 
-	<input type="hidden" name="pageSize" />
-
-	</form>
 
 
 	<header id="menuBlock">
@@ -206,8 +193,15 @@
 	<!-- /container -->
 	
 	
-    <ul id="pagination-demo" class="pagination-sm"></ul>
-	
+	<jsp:include page="/paging/paging.jsp">
+    <jsp:param value="${paging.page}" name="page"/>
+    <jsp:param value="${paging.beginPage}" name="beginPage"/>
+    <jsp:param value="${paging.endPage}" name="endPage"/>
+    <jsp:param value="${paging.prev}" name="prev"/>
+    <jsp:param value="${paging.next}" name="next"/>
+</jsp:include>
+
+
 	
 	<script>
 		// For Demo purposes only (show hover effect on mobile devices)
@@ -219,13 +213,6 @@
 				});
 		
 		
-		  $('#pagination-demo').twbsPagination({
-		        totalPages: 35,
-		        visiblePages: 7,
-		        onPageClick: function (event, page) {
-		            $('#page-content').text('Page ' + page);
-		        }
-		    });
 	</script>
 	
 	
@@ -241,21 +228,6 @@
 	<script >
 	
 	
-	
-	window.pagObj = $('#pagination').twbsPagination({ 
-	totalPages: [[${dataListPage.totalPages}]], 
-	// 전체 페이지 startPage: parseInt([[${dataListPage.number}]] + 1), // 시작(현재) 페이지 
-	visiblePages: 10, // 최대로 보여줄 페이지 
-	prev: "‹", // Previous Button Label 
-	next: "›", // Next Button Label f
-	irst: '«', // First Button Label 
-	last: '»', // Last Button Label 
-	onPageClick: function (event, page) { // Page Click event 
-		console.info("current page : " + page); 
-	}
-	}).on('page', function (event, page) { 
-		searchDataList(page); 
-		});
 
 	</script>
 	
