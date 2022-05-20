@@ -31,7 +31,7 @@ public class pagingTourListCon extends HttpServlet{
         req.setAttribute("pagingtolist", pagingtolist);
         req.setAttribute("paging", paging);
         
-        RequestDispatcher dispatcher = req.getRequestDispatcher("./member/MemberList.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("./tour_att.test.jsp");
         dispatcher.forward(req, res);
     }
 

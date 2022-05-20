@@ -5,10 +5,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
 <style type="text/css">
+body{
+    text-align:center;
+}
+
 #paging {
 	font-size: 22pt;
 }
@@ -17,7 +21,7 @@
 <body>
 	<div id="paging">
 		<!-- 1~10까지 있는 페이지의 페이징 -->
-		<c:url var="action" value="/memList.do" />
+		<c:url var="action" value="/pagingtolist.do" />
 		<c:if test="${param.prev}">
 			<a href="${action}?page=${param.beginPage-1}">prev</a>
 		</c:if>
