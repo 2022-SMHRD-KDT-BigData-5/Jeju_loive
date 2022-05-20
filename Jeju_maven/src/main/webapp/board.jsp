@@ -33,8 +33,9 @@
 		<![endif]-->
 </head>
 <body>
-
-	<header id="menuBlock">
+	
+	
+	<br><header id="menuBlock">
 		<nav>
 			<ul>
 				<li><a href="main.jsp">main</a></li>
@@ -55,7 +56,7 @@
 				<span class="right"><a class="codrops-icon codrops-icon-drop" href="main.jsp"><span>로그아웃</span></a></span>
 			</div>
 			<header class="codrops-header">
-				<h1>BOARD <span>사용자들의 다이어리를 훔쳐보는 공간~~0.0~</span><br></h1>
+				<h1>BOARD <span></span><br></h1>
 				<nav class="codrops-demos">
 	
 					<a href="#">최신순</a>
@@ -70,8 +71,16 @@
 					
 						<img src="images/hyy.jpg" alt="img25"/>
 						<figcaption>
-							<button id="btn4"><h2>다이어리<span>보기</span></h2></button>
-							
+						<h2>다이어리<span>클릭하긔</span></h2>
+							<c:choose>
+			                  <c:when test="${empty loginMember}">
+			                     <a href="main.jsp#login">View more</a>
+			                  </c:when>
+			                  <c:otherwise>
+			                     <a href="diary1.jsp">View more</a>
+			                  </c:otherwise>
+			              	 </c:choose>
+										
 							
 							
 							
@@ -102,12 +111,15 @@
 					<figure class="effect-zoe">
 						<img src="images/hy.jpg" alt="img26"/>
 						<figcaption>
-							<button id="btn4"><h2>다이어리<span>보기</span></h2></button>
-							
-							<p class="description">행복한<br>하루<br>보내세요..</p>
-							<p class="icon-links">
-                            <a href="#"><span class="icon-heart">🍚🍚<span></a>
-							
+							<h2>다이어리<span>클릭하긔</span></h2>
+							<c:choose>
+			                  <c:when test="${empty loginMember}">
+			                     <a href="main.jsp#login">View more</a>
+			                  </c:when>
+			                  <c:otherwise>
+			                     <a href="diary1.jsp">View more</a>
+			                  </c:otherwise>
+			              	 </c:choose>
 						</figcaption>			
 					</figure>
 				</div>

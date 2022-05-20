@@ -19,7 +19,8 @@
 	String month=null;
 	String day=null;
 	String test=null;
-	
+	int i=0;
+	int num=1;
 	if(loginMember != null){
 		String mem_id=loginMember.getId();
 		
@@ -92,7 +93,10 @@
 				<div class="inner">
 						
 					<!-- Post -->
-						<article class="box post post-excerpt">
+					<c:forEach var="t" items="${diaryList}" varStatus="status">
+						
+						<article class="box post post-excerpt" id="num<%=num%>">
+						
 							<header>
 								<!--
 									Note: Titles and subtitles will wrap automatically when necessary, so don't worry
@@ -105,7 +109,7 @@
 								}
 								else {
 									%>
-									<%=diaryList.get(0).getDia_name()%><%
+									<%=diaryList.get(num-1).getDia_name()%><%
 								}
 								%>
 								</a></h2>
@@ -115,7 +119,7 @@
 								}
 								else {
 									%>
-									<%=diaryList.get(0).getSub()%><%
+									<%=diaryList.get(num-1).getSub()%><%
 								}
 								%>
 								</p>
@@ -238,29 +242,35 @@
 									<%
 								}
 								else{
-									%><p id="textc"><%= diaryList.get(0).getDia_content() %></p><% 
+									%><p id="textc"><%= diaryList.get(num-1).getDia_content() %></p><% 
 								}
 								
 								%>
-								
+								<%num++;  %>
 							
 									
 								
 							
 							
 						</article>
-
+					</c:forEach>
 					
 					<!-- Pagination -->
 						<div class="pagination">
 							<a href="#" class="button previous" id="btnPrevious">Previous Page</a>
 							<div class="pages">
-								<a href="#" class="active">1</a>
+								<!-- <a href="#" class="active">1</a>
 								<a href="#">2</a>
 								<a href="#">3</a>
 								<a href="#">4</a>
 								<span>&hellip;</span>
-								<a href="#">20</a>
+								<a href="#">20</a> -->
+								<c:forEach var="t" items="${diaryList}" varStatus="status">
+								<%
+								
+								out.print("<a href='#'>"+diaryList.get(i).getDia_num()+"</a>");
+								i++;%> 
+								</c:forEach>
 							</div>
 							<a href="#" class="button next" id="btnNext">Next Page</a>
 						</div>
@@ -282,30 +292,54 @@
 				$('.pages>a').removeAttr('class');
 				$('.pages>a').eq(3).attr('class','active');
 			} */
+			$('.pages>a').eq(0).attr('class','active')
 			let yearchange=0;
 			let monthchange=0;
 			let daychange=0;
-				$('#btnNext').click(function(){
-					
-					$('.active').next().attr('class','active');
-					
-					$('.active').eq(0).removeAttr('class');
-					
+			let i=$('.active').text();
+			let k=0;
+			
+				for(k=1;k<=5;k++){
+					$('#num'+k).css("display" ,"none")
+				}
+				$('#num'+i).css("display" ,"inline")			
+			
+			$(document).on('click','#btnNext',function(){
+				
+				$('.active').next().attr('class','active');
+				
+				$('.active').eq(0).removeAttr('class');
+				i=$('.active').text();
+				for(k=1;k<=5;k++){
+					$('#num'+k).css("display" ,"none")
+				}
+				$('#num'+i).css("display" ,"inline")
 
-       			})
-				   $('#btnPrevious').click(function(){
-					
-					$('.active').prev().attr('class','active');
-					$('.active').eq(1).removeAttr('class');
-					
-					
+   			})
+			   $(document).on('click','#btnPrevious',function(){
+			  
+				
+				$('.active').prev().attr('class','active');
+				$('.active').eq(1).removeAttr('class');
+				i=$('.active').text();
+				for(k=1;k<=5;k++){
+					$('#num'+k).css("display" ,"none")
+				}
+				$('#num'+i).css("display" ,"inline")
+				
 
-       			})
-				   $('.pages>a').click(function(){
-           			let k = $(this).text();
-					$('.pages>a').removeAttr('class');
-					$('.pages>a').eq(k-1).attr('class','active');
-       			})
+   			})
+			   $(document).on('click','.pages>a',function(){
+			  
+       			let k = $(this).text();
+				$('.pages>a').removeAttr('class');
+				$('.pages>a').eq(k-1).attr('class','active');
+				i=$('.active').text();
+				for(k=1;k<=5;k++){
+					$('#num'+k).css("display" ,"none")
+				}
+				$('#num'+i).css("display" ,"inline")
+   			})
        			$(document).on('dblclick','#mainheading',function(){
        				$(this).before('<textarea name="content" id="textcontent3" cols="70" rows="1"></textarea>');
        				$(this).after('<button id="btn5">수정하기</button>');

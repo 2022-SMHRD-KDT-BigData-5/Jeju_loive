@@ -14,8 +14,12 @@
 .clearfix:after { clear: both; }
 
 body {
+	background: #F6F6F6;
+	color: black;
+
 	background: rgb(253, 253, 253);
 	color: rgb(9, 9, 9);
+
 	font-weight: 400;
 	font-size: 1em;
 	font-family: 'Raleway', Arial, sans-serif;
@@ -23,7 +27,7 @@ body {
 
 a {
 	outline: none;
-	color: #3498db;
+	color: #FFBB00;
 	text-decoration: none;
 }
 
