@@ -13,26 +13,43 @@
 </head>
 
 <style>
+body {
+	min-height: 100vh;
+	background: -webkit-gradient(linear, left bottom, right top, from(#92b5db),
+		to(#1d466c));
+	background: -webkit-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);
+	background: -moz-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);
+	background: -o-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);
+	background: linear-gradient(to top right, #92b5db 0%, #1d466c 100%);
+}
+
+ table {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 </style>
 
 <body style="text-align: center;">
-
-	<!-- Wrapper -->
-	<div id="wrapper">
+	<div class="container">
+	
 		<!-- Menu -->
-		<nav id="Update"> <font size="8">회원가입성공</font>
+		<div class= "row">
+		<div id="Update" class  = "col"> <font size="8">회원가입성공</font>
+		</div>
 		<br>
 		${requestScope.joinName }님! 환영합니다🍊<br>
-		<br>
-		
+		<br>		
+		</div>
 		<table>
 			<tr>
 				<td>ID</td>	
 				<td>${requestScope.joinId }</td>
 			</tr>
 		</table>
-		<a href="main.jsp"><input type="button" value="메인페이지로"></a> </nav>
+		<a href="main.jsp"><input type="button" value="메인페이지로"></a>
+		 </div>
 	</div>
+	
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -41,6 +58,7 @@
 	<script src="assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
 
