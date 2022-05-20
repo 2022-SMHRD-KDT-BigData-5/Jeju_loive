@@ -9,8 +9,12 @@
 	List<tour> tourList = dao.selectTourList();
 	pageContext.setAttribute("tourList", tourList);
 	List<tour> tourImgList = dao.selectTourImgList();
+
 	pageContext.setAttribute("tourImgList", tourImgList);
 	int num=1;
+
+	pageContext.setAttribute("tourImgList", tourImgList);	
+
 %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
