@@ -34,13 +34,15 @@
 
 			day = sdf1.format(diaryList.get(0).getDia_date());
 		
-		
 			BigDecimal pagenum=diaryList.get(0).getDia_num();
 			diaryImg uploadimg=new diaryImg(pagenum,date,day);
 			session.setAttribute("pagenum", uploadimg);
 			
 			diaryImg k= new diaryImg(uploadimg.getD_num(),uploadimg.getD_num(),uploadimg.getD_tripday(),loginMember.getId());
 			onloadimgf = (diaryImg)dao.selectDimgf(k);
+			String oname=onloadimgf.getP_oname();
+			diaryImg updateimg=new diaryImg(pagenum,date,oname);
+			session.setAttribute("updateimg", updateimg);
 		}
 		
 	}
@@ -96,7 +98,7 @@
 									need a subtitle.
 								-->
 								<h2><a id="mainheading">
-								<%if(diaryList.size()<1){
+								<%if(diaryList==null||diaryList.size()<1){
 									%>Welcome to your diary<% 
 								}
 								else {
@@ -106,7 +108,7 @@
 								%>
 								</a></h2>
 								<p id="subheading">
-								<%if(diaryList.size()<1){
+								<%if(diaryList==null||diaryList.size()<1){
 									%>제주도 여행 1일차<% 
 								}
 								else {
@@ -128,7 +130,7 @@
 								<span class="date">
 								<span class="month">
 								<%
-									if(diaryList.size()<1){
+									if(diaryList==null||diaryList.size()<1){
 										%><a href="#" class="fas fa-calendar-plus fa-2x" id="monthchange"></a><%
 									}
 									else{
@@ -139,7 +141,7 @@
 								</span> 
 								<span class="day">
 								<%
-									if(diaryList.size()<1){
+									if(diaryList==null||diaryList.size()<1){
 										%><a href="#" id="daychange"></a><%
 									}
 									else{
@@ -177,7 +179,7 @@
 							else{
 								%>
 								<div class="test">
-								<img alt="추가하세요" src="<%=onloadimgf.getP_loc()%>"class="test">
+								<img alt="추가하세요" src="<%=onloadimgf.getP_loc()%>"class="test" id="firstimg">
 								</div>
 								<%	
 							}%>	
@@ -227,7 +229,7 @@
 							
 							
 								<%
-								if(diaryList.size()<1){
+								if(diaryList==null||diaryList.size()<1){
 									%>
 									<textarea name="content" id="textcontent" cols="130" rows="6"></textarea>
 									<button id="btn3">수정하기</button>
@@ -317,7 +319,17 @@
        				$(this).after('<button id="btn4">수정하기</button>');
        				$(this).css("display" ,"none");
         		})
-       			
+        		$(document).on('dblclick','.date',function(){
+        			yearchange = prompt('변경할 Year를 입력해주세요 >> 2017' );
+       				monthchange = prompt('변경할 Month를 입력해주세요 >>5');
+       				daychange = prompt('변경할 Day를 입력해주세요 >>07');
+       				$('.month').text(monthchange+"월");
+       				$('.day').text(daychange);
+        		})
+       			$(document).on('dblclick','#firstimg',function(){
+       				$(this).before('<form method="post" enctype="multipart/form-data" action="imguChangeCon"><input type="file" name="filename1" size=40><input type="submit" value="업로드"><br><br></form>')
+       				$(this).css("display" ,"none");
+        		})
         		$(document).on('click','#btn3',function(){
        				let changecontent=$('#textcontent').val();
        				$(this).before('<p id="textc">'+changecontent+'</p>');
@@ -369,9 +381,9 @@
         		})
         		
         		$(document).on('click','#monthchange',function(){
-        			yearchange = prompt('Year를 입력해주세요');
-       				monthchange = prompt('Month를 입력해주세요');
-       				daychange = prompt('Day를 입력해주세요');
+        			yearchange = prompt('Year를 입력해주세요 >> 2017');
+       				monthchange = prompt('Month를 입력해주세요 >> 7');
+       				daychange = prompt('Day를 입력해주세요 >>05');
        				$('.month').text(monthchange+"월");
        				$(this).removeAttr();
        				$('.day').text(daychange);

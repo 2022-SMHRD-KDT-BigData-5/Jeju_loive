@@ -16,4 +16,8 @@
 	<select id="selectDimgf" parameterType="com.smhrd.domain.diaryImg" resultType="com.smhrd.domain.diaryImg">
 		select * from diary_img where p_memid=#{p_memid} and d_tripday=#{d_tripday} and d_num=#{d_num} and p_oname='첫번째'
 	</select>
+	
+	<update id="updateDimg" parameterType="com.smhrd.domain.diaryImg">
+		update diary_img set p_loc=#{p_loc} where d_num=#{d_num} and d_tripday=#{d_tripday} and p_oname=#{p_oname} and p_memid=#{p_memid}
+	</update>
 </mapper>
