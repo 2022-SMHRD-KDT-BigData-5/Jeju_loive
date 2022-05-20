@@ -66,6 +66,7 @@ function createItem(tour_name, tour_num) {
 		        + "<div style='float:left;'>"
 		        + "<span class='itemNum'></span> "
 		        + "<input type='text' name='item' style='width:300px;' value='"+tour_name+"'>"
+		        + "<p>"+tour_num+"</p>"
 		        + "</div>"
 		        + "</div>";
 		        

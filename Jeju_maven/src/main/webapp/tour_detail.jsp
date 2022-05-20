@@ -234,6 +234,8 @@
 			//객체의 요소 가져오기
             var add = ob1.tourAdd
             var num = ob1.tourNum
+            
+            //테스트
             $(document).ready(createItem(add))
             $(document).ready(createItem(num))
 		}
