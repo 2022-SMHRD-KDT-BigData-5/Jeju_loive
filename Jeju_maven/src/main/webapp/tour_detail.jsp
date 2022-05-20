@@ -161,14 +161,19 @@
 			
 			<!-- itemNum : 박스 번호 -->
 			<!-- item : input태그 내에 작성된 내용 -->
+			<!-- createItem() : tour_name,tour_num,tour_add 값 입력받아 tour_name은 출력해주고, num과 address는 저장해줌 -->
 			
 			<form action="PlanAddCon" method="post">
 		        <div>
 		            <div style="float:left;width:100px;">아이템 추가 :</div>
 		            <div style="clar:both;">
 		            	
-		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}'); setInPlan();"  />
-		                <input type="submit" id="submitItem" value="제출" onclick="submitItem();" />
+		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');"/>
+		                <input type="button" value="임시저장" onclick="setInPlan();">
+		                <input type="submit" id="submitItem" value="내 플래너에 추가하기" onclick="submitItem();" />
+		               
+		                
+		              
 						
 		                
 		                
@@ -205,39 +210,37 @@
 	<!-- 드래그앤드롭 JS -->
 	<script>
 		//임시저장된 플래너 자동출력
+		//반복문 통해서 저장된 값만큼 출력하기
+	
+				$(document).ready(createItem('${tourInfo.getName()}', '${tourInfo.getNum()}','${tourInfo.getAddress()}'))
+				$(document).ready(createItem('${tourInfo.getName()}', '${tourInfo.getNum()}','${tourInfo.getAddress()}'))
+				$(document).ready(createItem('${tourInfo.getName()}', '${tourInfo.getNum()}','${tourInfo.getAddress()}'))
+				
 		
-		$(document).ready(createItem('${tourInfo.getName()}', '${tourInfo.getNum()}'))
-		$(document).ready(createItem('${tourInfo.getName()}', '${tourInfo.getNum()}'))
-		
+
+		$(document).find('.tourNum').hide();
+		$(document).find('.tourAdd').hide();
 		
 		
 		
 		//추가 클릭시 localStorage에 값을 저장하는 함수
-		function setInPlan(){
-            //값 가져오기
-			var tour_num = '${tourInfo.getNum()}'
-			var tour_name = '${tourInfo.getName()}'
-			var tour_add = '${tourInfo.getAddress()}'
-            //객체 생성
-            let ob1 = {
-            tourNum : tour_num,
-            tourName : tour_name,
-            tourAdd : tour_add,
-            };
+		
+		
+		
+		function getInPlan(){
+
+			//localStorage에서 꺼내기
+			var getNums =[];
+			var getAdds =[];
+			var getNames =[];
+		
+         	// JSON 문자열을 객체, 배열로 변환
+            getNums = JSON.parse(window.localStorage.getItem('tourNum'));
+            getAdds = JSON.parse(window.localStorage.getItem('tourAdd'));
+            getNames = JSON.parse(window.localStorage.getItem('tourName'));
 			
-			//객체저장
-			window.localStorage.setItem('ob1', ob1)
-			
-			//객체 불러내서 변수에 담기
-            var get_ob1 = window.localStorage.getItem('ob1');
-			
-			//객체의 요소 가져오기
-            var add = ob1.tourAdd
-            var num = ob1.tourNum
+            console.log(getAdds);
             
-            //테스트
-            $(document).ready(createItem(add))
-            $(document).ready(createItem(num))
 		}
 		
 	</script>
