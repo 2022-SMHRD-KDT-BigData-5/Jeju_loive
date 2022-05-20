@@ -76,10 +76,13 @@ function createItem(tour_name, tour_num,tour_add) {
 		        + "</div>"
 		        ;
 		    return contents;
-		    
-		    
 		}
 		
+		
+		
+		
+		
+		//추가 클릭시 localStorage에 값을 저장하는 함수
 		function setInPlan(){
             //값 가져오기
             //1) name이 item인 input태그 내의 value 가져오기
@@ -126,6 +129,9 @@ function createItem(tour_name, tour_num,tour_add) {
 			window.localStorage.setItem('tourName', names)
 			
 		}
+		
+		
+		
 		
 		
 		
