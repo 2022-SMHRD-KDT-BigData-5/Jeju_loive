@@ -3,7 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.domain.diaryDAO">
-	
+	<insert id="insertDiary" parameterType="com.smhrd.domain.diary">
+		insert into diary values(#{dia_num}, #{dia_name}, #{dia_tripday}, #{dia_share}, #{dia_date}, #{mem_id},#{dia_content},#{sub})
+	</insert>
 	<select id="selectDiary" parameterType="com.smhrd.domain.diary" resultType="com.smhrd.domain.diary">
 		select * from diary where mem_id=#{mem_id} 
 	</select>
@@ -14,4 +16,8 @@
 	<select id="selectDimgf" parameterType="com.smhrd.domain.diaryImg" resultType="com.smhrd.domain.diaryImg">
 		select * from diary_img where p_memid=#{p_memid} and d_tripday=#{d_tripday} and d_num=#{d_num} and p_oname='첫번째'
 	</select>
+	
+	<update id="updateDimg" parameterType="com.smhrd.domain.diaryImg">
+		update diary_img set p_loc=#{p_loc} where d_num=#{d_num} and d_tripday=#{d_tripday} and p_oname=#{p_oname} and p_memid=#{p_memid}
+	</update>
 </mapper>

@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.domain.Member"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
@@ -17,6 +19,7 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
+		<script src="js/jquery-3.3.1.min.js"></script>
 				<style>
 		.soohyeon{
 		position: fixed;
@@ -41,14 +44,6 @@
 				<li><a href="board.jsp">board</a></li>
 				<!--<li><a href="#elements">Elements</a></li>-->
 			</ul>
-			<c:choose>
-                  <c:when test="${empty loginMember}">
-                     <a href="Join.jsp" class="soohyeon">login</a>
-                  </c:when>
-                  <c:otherwise>
-                     <a href="LogoutCon" class="soohyeon">logout</a>
-                  </c:otherwise>
-               </c:choose>
 		</nav>
 	</header>
 	
@@ -69,30 +64,50 @@
 			</header>
 			<div class="content">
 				
-				<h2>히요미의 다이어리 잇힝♡</h2>
+				<h2>다이어리 리스트</h2>
 				<div class="grid">
 					<figure class="effect-zoe">
+					
 						<img src="images/hyy.jpg" alt="img25"/>
 						<figcaption>
-							<h2>오늘도 <span>돼지력 폭발♥</span></h2>
-							<p class="icon-links">
-								<a href="#"><span class="icon-heart"></span></a>
-								<a href="#"><span class="icon-eye">🐷🐷<span></a>
-								<a href="#"><span class="icon-paper-clip"></span></a>
-							</p>
-							<p class="description">큐티돼지 히요니의 비밀 일기~~<br> 절대 훔쳐보지 마세욧!!!-_-+</p>
-						</figcaption>			
+							<button id="btn4"><h2>다이어리<span>보기</span></h2></button>
+							
+							
+							
+							
+						
+							
+							
+								<!-- 사용자가 작성한 다이어리 보려고 하는데 로그인이 안되어있으면? -> Join.jsp -->
+							
+							<!-- <p class="description">큐티돼지 히요니의 비밀 일기~~<br> 절대 훔쳐보지 마세욧!!!-_-+</p> -->
+							
+							
+							<%
+								
+								Member loginM = null;
+								loginM=(Member)session.getAttribute("loginMember");
+								/* if(loginM != null){
+									response.sendRedirect("Join.jsp");
+								} */
+								
+							%>
+							
+							
+							
+						</figcaption>	
+								
 					</figure>
+					
 					<figure class="effect-zoe">
 						<img src="images/hy.jpg" alt="img26"/>
 						<figcaption>
-							<h2>우리가 <span>함께한</span>순간</h2>
+							<button id="btn4"><h2>다이어리<span>보기</span></h2></button>
+							
+							<p class="description">행복한<br>하루<br>보내세요..</p>
 							<p class="icon-links">
-								<a href="#"><span class="icon-heart"></span></a>
-								<a href="#"><span class="icon-eye">💑💑<span></a>
-								<a href="#"><span class="icon-paper-clip"></span></a>
-							</p>
-							<p class="description">네가 있어서...<br> 모든 게 완벽했다...<br> 이 날의 조명, 온도, 습도까지...</p>
+                            <a href="#"><span class="icon-heart">🍚🍚<span></a>
+							
 						</figcaption>			
 					</figure>
 				</div>
@@ -101,8 +116,7 @@
 				
 						
 					
-				</div>
-			</div>
+				
 			<nav class="codrops-demos">
 				<a class="current-demo" href="diary1.jsp">Set 1</a>
 				<a href="diary2.jsp">Set 2</a>
@@ -120,6 +134,17 @@
 			[].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
 				el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
 			} );
+			
+			
+			$(document).on('click','#btn4',function(){
+				let loginM=<%=loginM%>
+				if(loginM !=null){
+					location.href= "diary1.jsp";
+				}
+				else{
+					location.href= "main.jsp#login";
+				}
+			})
 		</script>
 
 </body>
