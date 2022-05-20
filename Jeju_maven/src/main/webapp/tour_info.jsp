@@ -15,6 +15,9 @@
 	List<review> ReviewList = dao.selectReview(tour_num);
 	pageContext.setAttribute("ReviewList", ReviewList);
 	tourDAO tdao = new tourDAO();
+	int tourNum = Integer.parseInt(str_num);
+	List<tour> ImgList = tdao.selectImgList(tourNum);
+	pageContext.setAttribute("ImgList", ImgList);
 %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -119,8 +122,8 @@
 			
 			<div>
 			<c:forEach var="i" items="${ImgList}" varStatus="status">
-					<img src="${i}" alt="img11" /></c:forEach>
-				
+					<img src="${i}" alt="img11" />
+				</c:forEach>
 			<c:forEach var="r" items="${ReviewList}" varStatus="status">
 				
 					
