@@ -37,10 +37,6 @@ public class PlanInsertCon extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		Member loginMember = (Member)session.getAttribute("loginMember");
-		String planDate = request.getParameter("plan_date");
-		String[] items = request.getParameterValues("item");
-		
-		
 		
 		
 		if(loginMember==null) {
@@ -48,6 +44,15 @@ public class PlanInsertCon extends HttpServlet {
 			System.out.println("로그인이 필요한 작업입니다.");
 			response.sendRedirect("Join.jsp");
 		}else {
+			//로그인 한 경우
+			//로그인 한 사용자의 id
+			String mem_id = loginMember.getId();
+			//plan_num에 저장할 plan_date
+			String planDate = request.getParameter("plan_date");
+			//사용자가 설정한 tour_name
+			String[] items = request.getParameterValues("item");
+			
+			
 			
 			
 			
