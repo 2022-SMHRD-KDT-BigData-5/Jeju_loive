@@ -14,7 +14,7 @@
 <body>
     <section class = "login-form">
         <h1>제주살앙</h1>
-        <form action="">
+        <form action="LoginCon" method = "post">
             <div class = "int-area">
                 <input type = "text" name = "l_id" id = "l_id" autocomplete="off" required>
                 <label for ="id">USER NAME</label>
@@ -68,13 +68,13 @@
     <script src="mail/contact.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="assets/js/maintest.js"></script>
     
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/maintest.js"></script>
     
 </body>
 </html>
