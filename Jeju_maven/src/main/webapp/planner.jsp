@@ -36,6 +36,9 @@
        	top: 10px;
        	color:white
 		}
+		
+		
+		
 		</style>
 </head>
 
@@ -63,15 +66,15 @@
 	</header>
 
    
-   <h2 class="plan">Planner</h2>
+   <div><h2 class="plan">Planner</h2></div>
 	
     <div class="grid">
 	<c:forEach var = "i" items="${inplanList}" varStatus="status">
         <figure class="effect-ming">
             <img src="images/yeonhee-VWLhifg5VMA-unsplash.jpg" alt="yeonhee-VWLhifg5VMA-unsplash"/>
             <figcaption>
-                <h2><span><c:out value="${i.inplan_name}"/></span></h2>
-                <p><c:out value="${i.inplan_date}"/></p>
+                <h2><span><c:out value="${i.inplan_num}"/></span>일차 플랜</h2>
+                <p><c:out value="${i.inplan_name}"/></p>
                 <a href="#">View more</a>
             </figcaption>
             </figure>         
@@ -86,7 +89,7 @@
     
     $('#btn1').click(function(){
         
-           $('div').append('<figure class="effect-ming"><img src="images/yeonhee-VWLhifg5VMA-unsplash.jpg" alt="yeonhee-VWLhifg5VMA-unsplash"/><figcaption><h2><span>Planner</span></h2><p>2022년 05월 13일</p><a href="#">View more</a></figcaption></figure>')
+           $('div.grid').append('<figure class="effect-ming"><img src="images/yeonhee-VWLhifg5VMA-unsplash.jpg" alt="yeonhee-VWLhifg5VMA-unsplash"/><figcaption><h2><span>Planner</span></h2><p>2022년 05월 13일</p><a href="#">View more</a></figcaption></figure>')
 
         })
     

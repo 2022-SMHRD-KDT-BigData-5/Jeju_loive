@@ -77,19 +77,23 @@
 		<style>
 			#flex_cont{display:flex;}
 			.test{
-				width:100%;
-				height:100%;
-				margin-right: -5px;
+				width:350px;
+				height:250px;
+				margin-right: 10px;
 			}
 			.test2{
-				width:100%;
-				height:100%;
-				margin-left: 5px;
+				width:350px;
+				height:250px;
+				margin-right: 10px;
 			}
 			
 			.test3{
-				width:100%;
-				height:100%;
+				width:350px;
+				height:250px;
+				
+			}
+			#textc{
+				margin-top: 30px;
 			}
 		</style>
 	</head>
@@ -111,7 +115,7 @@
 									need a subtitle.
 								-->
 								<h2><a id="mainheading">
-								<%if(diaryList==null||diaryList.size()<num){
+								<%if(diaryList==null||diaryList.size()<num||diaryList.get(num-1).getDia_name()==null){
 									%>Welcome to your diary<% 
 								}
 								else {
@@ -121,7 +125,7 @@
 								%>
 								</a></h2>
 								<p id="subheading">
-								<%if(diaryList==null||diaryList.size()<num){
+								<%if(diaryList==null||diaryList.size()<num||diaryList.get(num-1).getSub()==null){
 									%>제주도 여행 1일차<% 
 								}
 								else {
@@ -143,7 +147,7 @@
 								<span class="date">
 								<span class="month">
 								<%
-									if(diaryList==null||diaryList.size()<num){
+									if(diaryList==null||diaryList.size()<num||diaryList.get(num-1).getDia_date()==null){
 										%><a href="#" class="fas fa-calendar-plus fa-2x" id="monthchange"></a><%
 									}
 									else{
@@ -157,7 +161,7 @@
 								</span> 
 								<span class="day">
 								<%
-									if(diaryList==null||diaryList.size()<num){
+									if(diaryList==null||diaryList.size()<num||diaryList.get(num-1).getDia_date()==null){
 										%><a href="#" id="daychange"></a><%
 									}
 									else{
@@ -172,10 +176,11 @@
 									Note: You can change the number of list items in "stats" to whatever you want.
 								-->
 								<ul class="stats">
-									<li><a href="#" class="icon fa-comment">16</a></li>
-									<li><a href="#" class="icon fa-heart">32</a></li>
+									
+									<li id="add"><a href="#" class="fas fa-pen">add</a></li>
 									<li id="mod"><a href="#" class="fas fa-edit">mod</a></li>
 									<li id="save"><a href="#" class="fas fa-file-alt">save</a></li>
+									<li id="share"><a href="#" class="fas fa-user">share</a></li>
 								</ul>
 							</div>
 							<div id="flex_cont">
@@ -242,7 +247,7 @@
 							
 							
 								<%
-								if(diaryList==null||diaryList.size()<num){
+								if(diaryList==null||diaryList.size()<num||diaryList.get(num-1).getDia_content()==null){
 									%>
 									<textarea name="content" id="textcontent" cols="130" rows="6"></textarea>
 									<button id="btn3">수정하기</button>
@@ -254,11 +259,14 @@
 								
 								%>
 								<% 
-								Timestamp date=diaryList.get(num-1).getDia_date();
-								String oname=dimgList.get(num-1).getP_oname();
-								BigDecimal pagenum=diaryList.get(num-1).getDia_num();
-								diaryImg updateimg=new diaryImg(pagenum,date,oname);
-								session.setAttribute("updateimg"+num, updateimg);
+								if(diaryList.get(num-1).getDia_date()!=null){
+									Timestamp date=diaryList.get(num-1).getDia_date();
+									String oname=dimgList.get(num-1).getP_oname();
+									BigDecimal pagenum=diaryList.get(num-1).getDia_num();
+									diaryImg updateimg=new diaryImg(pagenum,date,oname);
+									session.setAttribute("updateimg"+num, updateimg);
+								}
+								
 								num++;
 								%>
 							
@@ -323,6 +331,7 @@
 				$('.active').next().attr('class','active');
 				
 				$('.active').eq(0).removeAttr('class');
+				
 				i=$('.active').text();
 				for(k=1;k<=5;k++){
 					$('#num'+k).css("display" ,"none")
@@ -449,6 +458,15 @@
         		})
         		$(document).on('click','#mod',function(){
         			alert('수정 할려고 하는 텍스트 및 사진을 더블클릭하세요!');
+           			
+        		})
+        		$(document).on('click','#share',function(){
+        			let share = confirm('공유 하시겠습니까??');
+           			
+        		})
+        		$(document).on('click','#add',function(){
+        			let num="<%=diaryList.size()%>";
+        			$(location).attr('href', 'diaryUpdateCon2?num='+num);
            			
         		})
         		
