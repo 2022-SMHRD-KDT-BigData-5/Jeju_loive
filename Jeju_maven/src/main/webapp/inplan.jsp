@@ -229,10 +229,25 @@ figure{
 	left : 80%;
 	top : -140px;
 	z-index: 1;
-	 
-	 
-
 }
+
+
+.rightPage{
+	position : absolute;
+	right : -120px;
+	top : 35%;
+	border-radius: 70%;
+	background-color: rgb(255,255,255,0);
+}
+
+.leftPage{
+	position : absolute;
+	left : -120px;
+	top : 35%;
+	border-radius: 70%;
+	background-color: rgb(255,255,255,0);
+}
+
 
 
     </style>
@@ -264,6 +279,16 @@ figure{
 	
     <div id = "main_plan">
     <div> <a class="logo" href="main.jsp"><span><img src="images/logo2.png" alt="logo"></span></a></div>
+    <img src="images/right.png" class = "rightPage"> <!--다음 플래너로 넘어 가기  -->
+    <img src="images/left.png" class = "leftPage"> <!--이전 플래너로 넘어 가기  -->
+    
+    
+    
+    
+    
+    
+    
+    
         <ul class = "list_theme">
             <li class = "theme_itme">
                 <div class="imgBoxDiv">
