@@ -8,6 +8,7 @@ public class inplan {
 	private String inplan_name;
 	private BigDecimal tour_num;
 	private String mem_id;
+	private Timestamp plan_date;
 	
 	
 	public BigDecimal getInplan_num() {
@@ -23,14 +24,17 @@ public class inplan {
 		return mem_id;
 	}
 	
-	public inplan(BigDecimal inplan_num, String inplan_name, BigDecimal tour_num, String mem_id) {
+	public Timestamp getPlan_date() {
+		return plan_date;
+	}
+	public inplan(BigDecimal inplan_num, String inplan_name, BigDecimal tour_num, String mem_id, Timestamp plan_date) {
 		super();
 		this.inplan_num = inplan_num;
 		this.inplan_name = inplan_name;
 		this.tour_num = tour_num;
 		this.mem_id = mem_id;
+		this.plan_date = plan_date;
 	}
-	
 	public inplan(String inplan_name, BigDecimal tour_num, String mem_id) {
 		super();
 		this.inplan_name = inplan_name;

@@ -7,7 +7,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	inplanDAO dao = new inplanDAO();
-	String mem_id ="123";
+	String mem_id ="11";
 	List<inplan> inplanList = dao.selectAllPlan(mem_id);
 	pageContext.setAttribute("inplanList",inplanList);
 
@@ -74,9 +74,9 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
-                    <a href="main.jsp" class="nav-item nav-link active">Home</a>
+                    <a href="main.jsp" class="nav-item nav-link">Home</a>
                     <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
-                    <a href="planner.jsp" class="nav-item nav-link">플래너</a>
+                    <a href="planner.jsp" class="nav-item nav-link active">플래너</a>
                     <a href= "diary1.jsp" class="nav-item nav-link">다이어리</a>
                     <a href= "board.jsp" class="nav-item nav-link">게시판</a>
                 </div>
@@ -94,8 +94,10 @@
                
                  </nav>
             </div>
-        </nav>
-    </div>
+      
+   
+   
+   
    
    <div><h2 class="plan">Planner</h2></div>
 	
@@ -106,7 +108,7 @@
             <figcaption>
                 <h2><span><c:out value="${i.inplan_num}"/></span></h2>
                 <p><c:out value="${i.tour_num}"/></p>
-                <a href="#">View more</a>
+                <a href="inplan.jsp">View more</a>
             </figcaption>
             </figure>         
 	</c:forEach>

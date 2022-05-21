@@ -8,6 +8,9 @@
 	<select id="selectTourInfo" parameterType="int" resultType="com.smhrd.domain.tour">
 		select * from tour where tour_num = #{tourNum}
 	</select>
+	<select id="selectTourInfo2" parameterType="Bigdecimal" resultType="com.smhrd.domain.tour">
+		select * from tour where tour_num = #{tourNum}
+	</select>
 
 	<select id="selectTourList" resultType="com.smhrd.domain.tour">
 		select * from tour where tour_num > 600 order by tour_num

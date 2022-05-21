@@ -75,10 +75,6 @@ public class inplanDAO {
 		
 		public void setPlan() {
 			
-			
-			
-			
-			
 		}
 
 }

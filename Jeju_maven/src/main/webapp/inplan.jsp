@@ -1,5 +1,38 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.math.BigDecimal"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="com.smhrd.domain.tour"%>
+<%@page import="com.smhrd.domain.tourDAO"%>
+<%@page import="com.smhrd.domain.Member"%>
+<%@page import="com.smhrd.domain.inplanDAO"%>
+<%@page import="com.smhrd.domain.inplan"%>
+<%@page import="java.util.List"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	inplanDAO dao = new inplanDAO();
+	tourDAO dao2= new tourDAO();
+	String mem_id ="11";
+	List<tour> tourList = new ArrayList<tour>();
+	List<inplan> inplanList = dao.selectAllPlan(mem_id);
+
+	for(int i =0;i<inplanList.size();i++){
+		BigDecimal tournum = inplanList.get(i).getTour_num();
+		System.out.println(tournum);
+		tour tourInfo = dao2.selectTourInfo2(tournum);
+		System.out.println(tourInfo.getAddress());
+		tourList.add(tourInfo);
+		System.out.println(tourList.get(0).getAddress());
+	}
+	pageContext.setAttribute("tourList",tourList);
+	
+	
+	
+	int num=0;
+%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -275,7 +308,7 @@ figure{
 }
 
     </style>
-
+	
   </head>
 
   <body>
@@ -310,8 +343,7 @@ figure{
                
                  </nav>
             </div>
-        </nav>
-    </div>
+        
   
     <div  class = "dayPlan"><h1> 1일차 플랜</h1></div>
 	
@@ -324,114 +356,30 @@ figure{
     <img src="images/left.png" class = "leftPage"> <!--이전 플래너로 넘어 가기  -->
     
     
-    
-    
-    
-    
-    
-    
+    	<c:forEach var="t" items="${tourList}" varStatus="status">
         <ul class = "list_theme">
             <li class = "theme_itme">
                 <div class="imgBoxDiv">
-
                     <a href="#" class="theme_thumb">
                         <div class = "imgDiv"><img src="./images/yeonhee-VWLhifg5VMA-unsplash.jpg"></div>
                         <div class = "imgDescDiv">별점 들어가라</div>
-
-                        
                         <span class="thumb_bd"></span>
                     </a>
                 </div>
-
-                <strong calss = "title elss">점심</strong>
-                <p class = "desc">"오늘의 점심은 무엇을 먹을지 의문입니다 이거 프로젝트 맞아요? 하면서 의문이 들면서 이게 내가 할 수 있는 범위 인가 생각이 들면서 기간내에 할 수 있을지도 의문이면서"</p>
-
-            
-
+                <strong calss = "title elss"><%=tourList.get(num).getName() %></strong>
+                <p class = "desc"><%=tourList.get(num).getAddress() %></p>
                 <div class="source_box">
                     <span class="reviewDate">후기 날짜</span>
                     <span class="source">
                         <span class = "source_inner"> 랜덤 후기 가능한가요?</span>
-                        </div>
+                 </div>
                         
             </li>
-            <li class = "theme_itme">
-                <div class="imgBoxDiv">
-
-                    <a href="#" class="theme_thumb">
-                        <div class = "imgDiv"><img src="./imgaes/yeonhee-VWLhifg5VMA-unsplash.jpg"></div>
-                        <div class = "imgDescDiv">별점 들어가라</div>
-
-                        
-                        <span class="thumb_bd"></span>
-                    </a>
-                </div>
-
-                <strong calss = "title elss">점심</strong>
-                <p class = "desc">"오늘의 점심은 무엇을 먹을지 의문입니다 이거 프로젝트 맞아요? 하면서 의문이 들면서 이게 내가 할 수 있는 범위 인가 생각이 들면서 기간내에 할 수 있을지도 의문이면서"</p>
-
-            
-
-                <div class="source_box">
-                    <span class="reviewDate">후기 날짜</span>
-                    <span class="source">
-                        <span class = "source_inner"> 랜덤 후기 가능한가요?</span>
-                        </div>
-                        
-            </li>
-
-            <li class = "theme_itme">
-                <div class="imgBoxDiv">
-
-                    <a href="#" class="theme_thumb">
-                        <div class = "imgDiv"><img src="./imgaes/yeonhee-VWLhifg5VMA-unsplash.jpg"></div>
-                        <div class = "imgDescDiv">별점 들어가라</div>
-
-                        
-                        <span class="thumb_bd"></span>
-                    </a>
-                </div>
-
-                <strong calss = "title elss">점심</strong>
-                <p class = "desc">"오늘의 점심은 무엇을 먹을지 의문입니다 이거 프로젝트 맞아요? 하면서 의문이 들면서 이게 내가 할 수 있는 범위 인가 생각이 들면서 기간내에 할 수 있을지도 의문이면서"</p>
-
-            
-
-                <div class="source_box">
-                    <span class="reviewDate">후기 날짜</span>
-                    <span class="source">
-                        <span class = "source_inner"> 랜덤 후기 가능한가요?</span>
-                        </div>
-                        
-            </li>
-
-            <li class = "theme_itme">
-                <div class="imgBoxDiv">
-
-                    <a href="#" class="theme_thumb">
-                        <div class = "imgDiv"><img src="./imgaes/yeonhee-VWLhifg5VMA-unsplash.jpg"></div>
-                        <div class = "imgDescDiv">별점 들어가라</div>
-
-                        
-                        <span class="thumb_bd"></span>
-                    </a>
-                </div>
-
-                <strong calss = "title elss">점심</strong>
-                <p class = "desc">"오늘의 점심은 무엇을 먹을지 의문입니다 이거 프로젝트 맞아요? 하면서 의문이 들면서 이게 내가 할 수 있는 범위 인가 생각이 들면서 기간내에 할 수 있을지도 의문이면서"</p>
-
-            
-
-                <div class="source_box">
-                    <span class="reviewDate">후기 날짜</span>
-                    <span class="source">
-                        <span class = "source_inner"> 랜덤 후기 가능한가요?</span>
-                        </div>
-                        
-            </li>
-
         </ul>
-
+        <%num++; %>
+        </c:forEach>
+	</div>
+	
   </body>
 
 
