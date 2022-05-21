@@ -25,7 +25,12 @@
                 <label for ="pw">PASSWORD</label>
             </div>
             <div class = "btn-area">
-                <button id = "btn" type = "submit" onclick="location.href='maintest.jsp'">LOGIN</button>
+            	<button id = "btn" type = "submit" >LOGIN</button>
+            	
+            </div>
+           
+            <div class = "caption">
+                <a href='jointest.jsp'>회원가입하러 가기</a>
             </div>
         </form>
 
@@ -49,5 +54,27 @@
         });
 
     </script>
+    
+     <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    
 </body>
 </html>
