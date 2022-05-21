@@ -209,40 +209,29 @@
 	
 	<!-- 드래그앤드롭 JS -->
 	<script>
-		//임시저장된 플래너 자동출력
-		//반복문 통해서 저장된 값만큼 출력하기
-	
-				$(document).ready(createItem('${tourInfo.getName()}', '${tourInfo.getNum()}','${tourInfo.getAddress()}'))
-				$(document).ready(createItem('${tourInfo.getName()}', '${tourInfo.getNum()}','${tourInfo.getAddress()}'))
-				$(document).ready(createItem('${tourInfo.getName()}', '${tourInfo.getNum()}','${tourInfo.getAddress()}'))
-				
-		
+			//페이지 이동시 localStorage의 값을 가져오는 함수(자동실행)
+			$(document).ready(
+					function getInPlan(){
 
-		$(document).find('.tourNum').hide();
-		$(document).find('.tourAdd').hide();
-		
-		
-		
-		//추가 클릭시 localStorage에 값을 저장하는 함수
-		
-		
-		
-		function getInPlan(){
-
-			//localStorage에서 꺼내기
-			var getNums =[];
-			var getAdds =[];
-			var getNames =[];
-		
-         	// JSON 문자열을 객체, 배열로 변환
-            getNums = JSON.parse(window.localStorage.getItem('tourNum'));
-            getAdds = JSON.parse(window.localStorage.getItem('tourAdd'));
-            getNames = JSON.parse(window.localStorage.getItem('tourName'));
+						//localStorage에서 꺼내기
+						var getNums =[];
+						var getAdds =[];
+						var getNames =[];
+					
+			         	// JSON 문자열을 객체, 배열로 변환
+			         	getNums = localStorage.getItem('tourNum');
+			         	getAdds = localStorage.getItem('tourAdd');
+			         	getNames = localStorage.getItem('tourName');
+			         	numList = getNums.split(",");
+			         	addList = getAdds.split(",");
+			         	nameList = getNames.split(",");
+			         	console.log(numList);
+			            
+			           for(i=0; i<numList.length; i++){
+							$(document).ready(createItem(nameList[i], numList[i], addList[i]));
+						}
+					});
 			
-            console.log(getAdds);
-            
-		}
-		
 	</script>
 </body>
 </html>

@@ -13,9 +13,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	diaryDAO dao = new diaryDAO();
-	diaryImg onloadimgf = null;
+	int pagenumber=1;
+	SimpleDateFormat sdf2 = new SimpleDateFormat("MMM");
+	SimpleDateFormat sdf1 = new SimpleDateFormat("dd");
 	Member loginMember = (Member)session.getAttribute("loginMember");
 	List<diary> diaryList =null;
+	List<diaryImg> dimgList=null;
+	List<diaryImg> dimgList2=null;
+	List<diaryImg> dimgList3=null;
 	String month=null;
 	String day=null;
 	String test=null;
@@ -25,13 +30,13 @@
 		String mem_id=loginMember.getId();
 		
 		diaryList = dao.selectDiary(mem_id);
+		
 		System.out.print(diaryList);
 		if (diaryList.size()>0){
 			pageContext.setAttribute("diaryList",diaryList);
 			
 			Timestamp date=diaryList.get(0).getDia_date();
-			SimpleDateFormat sdf2 = new SimpleDateFormat("MMM");
-			SimpleDateFormat sdf1 = new SimpleDateFormat("dd");
+			
 			month = sdf2.format(diaryList.get(0).getDia_date());
 
 			day = sdf1.format(diaryList.get(0).getDia_date());
@@ -41,8 +46,10 @@
 			session.setAttribute("pagenum", uploadimg);
 			
 			diaryImg k= new diaryImg(uploadimg.getD_num(),uploadimg.getD_num(),uploadimg.getD_tripday(),loginMember.getId());
-			onloadimgf = (diaryImg)dao.selectDimgf(k);
-			String oname=onloadimgf.getP_oname();
+			dimgList=dao.selectDimgf(mem_id);
+			dimgList2=dao.selectDimg2(mem_id);
+			dimgList3=dao.selectDimg3(mem_id);
+			String oname=dimgList.get(0).getP_oname();
 			test=diaryList.get(0).getDia_content();
 			diaryImg updateimg=new diaryImg(pagenum,date,oname);
 			session.setAttribute("updateimg", updateimg);
@@ -70,19 +77,23 @@
 		<style>
 			#flex_cont{display:flex;}
 			.test{
-				width:100%;
-				height:100%;
-				margin-right: -5px;
+				width:350px;
+				height:250px;
+				margin-right: 10px;
 			}
 			.test2{
-				width:100%;
-				height:100%;
-				margin-left: 5px;
+				width:350px;
+				height:250px;
+				margin-right: 10px;
 			}
 			
 			.test3{
-				width:100%;
-				height:100%;
+				width:350px;
+				height:250px;
+				
+			}
+			#textc{
+				margin-top: 30px;
 			}
 		</style>
 	</head>
@@ -104,7 +115,7 @@
 									need a subtitle.
 								-->
 								<h2><a id="mainheading">
-								<%if(diaryList==null||diaryList.size()<1){
+								<%if(diaryList==null||diaryList.size()<num||diaryList.get(num-1).getDia_name()==null){
 									%>Welcome to your diary<% 
 								}
 								else {
@@ -114,7 +125,7 @@
 								%>
 								</a></h2>
 								<p id="subheading">
-								<%if(diaryList==null||diaryList.size()<1){
+								<%if(diaryList==null||diaryList.size()<num||diaryList.get(num-1).getSub()==null){
 									%>제주도 여행 1일차<% 
 								}
 								else {
@@ -136,10 +147,13 @@
 								<span class="date">
 								<span class="month">
 								<%
-									if(diaryList==null||diaryList.size()<1){
+									if(diaryList==null||diaryList.size()<num||diaryList.get(num-1).getDia_date()==null){
 										%><a href="#" class="fas fa-calendar-plus fa-2x" id="monthchange"></a><%
 									}
 									else{
+										month = sdf2.format(diaryList.get(num-1).getDia_date());
+
+										
 										%><%=month %> <%
 									}
 								
@@ -147,10 +161,11 @@
 								</span> 
 								<span class="day">
 								<%
-									if(diaryList==null||diaryList.size()<1){
+									if(diaryList==null||diaryList.size()<num||diaryList.get(num-1).getDia_date()==null){
 										%><a href="#" id="daychange"></a><%
 									}
 									else{
+										day = sdf1.format(diaryList.get(num-1).getDia_date());
 										%><%=day %> <%
 									}
 								
@@ -161,10 +176,11 @@
 									Note: You can change the number of list items in "stats" to whatever you want.
 								-->
 								<ul class="stats">
-									<li><a href="#" class="icon fa-comment">16</a></li>
-									<li><a href="#" class="icon fa-heart">32</a></li>
+									
+									<li id="add"><a href="#" class="fas fa-pen">add</a></li>
 									<li id="mod"><a href="#" class="fas fa-edit">mod</a></li>
 									<li id="save"><a href="#" class="fas fa-file-alt">save</a></li>
+									<li id="share"><a href="#" class="fas fa-user">share</a></li>
 								</ul>
 							</div>
 							<div id="flex_cont">
@@ -172,10 +188,10 @@
 							
 							
 							
-							if(onloadimgf == null){
+							if(dimgList == null || dimgList.size()<num){
 							%>
 							<div class="test">
-							<form method="post" enctype="multipart/form-data" action="imgupCon">
+							<form method="post" enctype="multipart/form-data" action="imgupCon1">
 							<input type="file" name="filename1" size=40>
 							<input type="submit" value="업로드"><br><br>
 							
@@ -185,57 +201,53 @@
 							else{
 								%>
 								<div class="test">
-								<img alt="추가하세요" src="<%=onloadimgf.getP_loc()%>"class="test" id="firstimg">
+								<img alt="추가하세요" src="<%=dimgList.get(num-1).getP_loc()%>"class="test" id="firstimg">
 								</div>
 								<%	
 							}%>	
-								
-							<%
 							
-							
-							String fullpath = (String)session.getAttribute("fullpath");
-							
-							
-							if (fullpath==null){
+							<% 	
+							if(dimgList2 == null || dimgList2.size()<num){
 							%>
 							<div class="test2">
-							<form method="post" enctype="multipart/form-data" action="imgup.jsp">
+							<form method="post" enctype="multipart/form-data" action="imgupCon2">
 							<input type="file" name="filename1" size=40>
 							<input type="submit" value="업로드"><br><br>
+							
 							</form>
 							</div>
 							<%}
 							else{
 								%>
 								<div class="test2">
-								<img alt="추가하세요" src="<%=fullpath%>" class="test2">
+								<img alt="추가하세요" src="<%=dimgList2.get(num-1).getP_loc()%>"class="test2" id="secondimg">
 								</div>
 								<%	
 							}%>	
-							<%
-							if (fullpath==null){
+							<% 	
+							if(dimgList3 == null || dimgList3.size()<num){
 							%>
-							<div class="test2">
-							<form method="post" enctype="multipart/form-data" action="imgup.jsp">
+							<div class="test3">
+							<form method="post" enctype="multipart/form-data" action="imgupCon3">
 							<input type="file" name="filename1" size=40>
 							<input type="submit" value="업로드"><br><br>
+							
 							</form>
 							</div>
 							<%}
 							else{
 								%>
-								<div class="test2">
-								<img alt="추가하세요" src="<%=fullpath%>"class="test2">
+								<div class="test3">
+								<img alt="추가하세요" src="<%=dimgList3.get(num-1).getP_loc()%>"class="test3" id="thirdimg">
 								</div>
 								<%	
 							}%>	
-							
 							
 							</div>
 							
 							
 								<%
-								if(diaryList==null||diaryList.size()<1){
+								if(diaryList==null||diaryList.size()<num||diaryList.get(num-1).getDia_content()==null){
 									%>
 									<textarea name="content" id="textcontent" cols="130" rows="6"></textarea>
 									<button id="btn3">수정하기</button>
@@ -246,7 +258,17 @@
 								}
 								
 								%>
-								<%num++;  %>
+								<% 
+								if(diaryList.get(num-1).getDia_date()!=null){
+									Timestamp date=diaryList.get(num-1).getDia_date();
+									String oname=dimgList.get(num-1).getP_oname();
+									BigDecimal pagenum=diaryList.get(num-1).getDia_num();
+									diaryImg updateimg=new diaryImg(pagenum,date,oname);
+									session.setAttribute("updateimg"+num, updateimg);
+								}
+								
+								num++;
+								%>
 							
 									
 								
@@ -309,12 +331,13 @@
 				$('.active').next().attr('class','active');
 				
 				$('.active').eq(0).removeAttr('class');
+				
 				i=$('.active').text();
 				for(k=1;k<=5;k++){
 					$('#num'+k).css("display" ,"none")
 				}
 				$('#num'+i).css("display" ,"inline")
-
+				
    			})
 			   $(document).on('click','#btnPrevious',function(){
 			  
@@ -339,6 +362,7 @@
 					$('#num'+k).css("display" ,"none")
 				}
 				$('#num'+i).css("display" ,"inline")
+				
    			})
        			$(document).on('dblclick','#mainheading',function(){
        				$(this).before('<textarea name="content" id="textcontent3" cols="70" rows="1"></textarea>');
@@ -363,9 +387,18 @@
        				$('.day').text(daychange);
         		})
        			$(document).on('dblclick','#firstimg',function(){
-       				$(this).before('<form method="post" enctype="multipart/form-data" action="imguChangeCon"><input type="file" name="filename1" size=40><input type="submit" value="업로드"><br><br></form>')
+       				$(this).before('<form method="post" enctype="multipart/form-data" action="imguChangeCon1"><input type="file" name="filename1" size=40><input type="submit" value="업로드"><br><br></form>')
        				$(this).css("display" ,"none");
         		})
+        		$(document).on('dblclick','#secondimg',function(){
+       				$(this).before('<form method="post" enctype="multipart/form-data" action="imguChangeCon2"><input type="file" name="filename1" size=40><input type="submit" value="업로드"><br><br></form>')
+       				$(this).css("display" ,"none");
+        		})
+        		$(document).on('dblclick','#thirdimg',function(){
+       				$(this).before('<form method="post" enctype="multipart/form-data" action="imguChangeCon3"><input type="file" name="filename1" size=40><input type="submit" value="업로드"><br><br></form>')
+       				$(this).css("display" ,"none");
+        		})
+        		
         		$(document).on('click','#btn3',function(){
        				let changecontent=$('#textcontent').val();
        				$(this).before('<p id="textc">'+changecontent+'</p>');
@@ -425,6 +458,15 @@
         		})
         		$(document).on('click','#mod',function(){
         			alert('수정 할려고 하는 텍스트 및 사진을 더블클릭하세요!');
+           			
+        		})
+        		$(document).on('click','#share',function(){
+        			let share = confirm('공유 하시겠습니까??');
+           			
+        		})
+        		$(document).on('click','#add',function(){
+        			let num="<%=diaryList.size()%>";
+        			$(location).attr('href', 'diaryUpdateCon2?num='+num);
            			
         		})
         		

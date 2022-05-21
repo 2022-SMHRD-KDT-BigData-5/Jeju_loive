@@ -17,7 +17,7 @@ import com.smhrd.domain.diaryDAO;
 import com.smhrd.domain.diaryImg;
 
 
-public class imguChangeCon extends HttpServlet {
+public class imguChangeCon1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	

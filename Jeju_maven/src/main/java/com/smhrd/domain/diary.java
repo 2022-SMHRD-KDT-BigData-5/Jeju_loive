@@ -24,6 +24,15 @@ public class diary {
 		this.dia_content = dia_content;
 		this.sub = sub;
 	}
+	
+	
+	public diary(BigDecimal dia_num, String mem_id) {
+		super();
+		this.dia_num = dia_num;
+		this.mem_id = mem_id;
+	}
+
+
 	public BigDecimal getDia_num() {
 		return dia_num;
 	}
