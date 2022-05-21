@@ -46,7 +46,7 @@ body {
 				<td>${requestScope.joinId }</td>
 			</tr>
 		</table>
-		<a href="main.jsp"><input type="button" value="메인페이지로"></a>
+		<a href="maintest.jsp"><input type="button" value="메인페이지로"></a>
 		 </div>
 	</div>
 	
