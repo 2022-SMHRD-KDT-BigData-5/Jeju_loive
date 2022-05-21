@@ -2,6 +2,7 @@ package com.smhrd.controller;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.Enumeration;
 import java.util.List;
 
@@ -51,7 +52,10 @@ public class imgupCon1 extends HttpServlet {
 		 
 		 String fullpath = "./img/" + filename1;
 		 String oname="첫번째";
-		 diaryImg dimg= new diaryImg(uploadimg.getD_num(),uploadimg.getD_tripday(),oname,fullpath,loginMember.getId());
+		 String date="2017-05-17";
+		 date=date+" "+"00:00:00.0";
+		 Timestamp timestamp = Timestamp.valueOf(date);
+		 diaryImg dimg= new diaryImg(uploadimg.getD_num(),timestamp,oname,fullpath,loginMember.getId());
 		 diaryDAO dao=new diaryDAO();
 		 int cnt = dao.insertImg(dimg);
 		 if(cnt>0) {	

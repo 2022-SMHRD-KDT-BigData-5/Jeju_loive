@@ -34,25 +34,48 @@
 		System.out.print(diaryList);
 		if (diaryList.size()>0){
 			pageContext.setAttribute("diaryList",diaryList);
-			
-			Timestamp date=diaryList.get(0).getDia_date();
-			
-			month = sdf2.format(diaryList.get(0).getDia_date());
-
-			day = sdf1.format(diaryList.get(0).getDia_date());
-		
-			BigDecimal pagenum=diaryList.get(0).getDia_num();
-			diaryImg uploadimg=new diaryImg(pagenum,date,day);
-			session.setAttribute("pagenum", uploadimg);
-			
-			diaryImg k= new diaryImg(uploadimg.getD_num(),uploadimg.getD_num(),uploadimg.getD_tripday(),loginMember.getId());
+			BigDecimal pagenum=new BigDecimal(diaryList.size());
+			String k2="아무거나";
 			dimgList=dao.selectDimgf(mem_id);
 			dimgList2=dao.selectDimg2(mem_id);
 			dimgList3=dao.selectDimg3(mem_id);
-			String oname=dimgList.get(0).getP_oname();
+			if(diaryList.get(0).getDia_date()!=null){
+				Timestamp date=diaryList.get(0).getDia_date();
+				
+				month = sdf2.format(diaryList.get(0).getDia_date());
+
+				day = sdf1.format(diaryList.get(0).getDia_date());
+				diaryImg uploadimg=new diaryImg(pagenum,date,k2);
+				session.setAttribute("pagenum", uploadimg);
+				String oname=dimgList.get(0).getP_oname();
+				diaryImg updateimg=new diaryImg(pagenum,date,oname);
+				session.setAttribute("updateimg", updateimg);
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			test=diaryList.get(0).getDia_content();
-			diaryImg updateimg=new diaryImg(pagenum,date,oname);
-			session.setAttribute("updateimg", updateimg);
+			
+			
+		}
+		else if(diaryList.size()==0){
+			BigDecimal firstpage = new BigDecimal(1);
+			diary diary =new diary(firstpage,loginMember.getId());
+			int cnt = dao.insertDiary2(diary);
+			diaryList = dao.selectDiary(mem_id);
+			System.out.println(diaryList.size());
+			pageContext.setAttribute("diaryList",diaryList);
+			BigDecimal pagenum=new BigDecimal(diaryList.size());
+			String k2="아무거나";
+			Timestamp date=diaryList.get(0).getDia_date();
+			diaryImg uploadimg=new diaryImg(pagenum,date,k2);
+			session.setAttribute("pagenum", uploadimg);
 		}
 		
 	}
@@ -75,7 +98,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/diaryHome.css" />
 		<style>
-			#flex_cont{display:flex;}
+			.flex_cont{display:flex;}
 			.test{
 				width:350px;
 				height:250px;
@@ -92,7 +115,7 @@
 				height:250px;
 				
 			}
-			#textc{
+			.textc{
 				margin-top: 30px;
 			}
 		</style>
@@ -102,7 +125,8 @@
 		<!-- Content -->
 			<div id="content">
 				<div class="inner">
-						
+					
+					
 					<!-- Post -->
 					<c:forEach var="t" items="${diaryList}" varStatus="status">
 						
@@ -114,7 +138,7 @@
 									if they get too long. You can also remove the <p> entirely if you don't
 									need a subtitle.
 								-->
-								<h2><a id="mainheading">
+								<h2><a class="mainheading">
 								<%if(diaryList==null||diaryList.size()<num||diaryList.get(num-1).getDia_name()==null){
 									%>Welcome to your diary<% 
 								}
@@ -124,7 +148,7 @@
 								}
 								%>
 								</a></h2>
-								<p id="subheading">
+								<p class="subheading">
 								<%if(diaryList==null||diaryList.size()<num||diaryList.get(num-1).getSub()==null){
 									%>제주도 여행 1일차<% 
 								}
@@ -148,7 +172,7 @@
 								<span class="month">
 								<%
 									if(diaryList==null||diaryList.size()<num||diaryList.get(num-1).getDia_date()==null){
-										%><a href="#" class="fas fa-calendar-plus fa-2x" id="monthchange"></a><%
+										%><a href="#" class="fas fa-calendar-plus fa-2x"></a><%
 									}
 									else{
 										month = sdf2.format(diaryList.get(num-1).getDia_date());
@@ -162,7 +186,7 @@
 								<span class="day">
 								<%
 									if(diaryList==null||diaryList.size()<num||diaryList.get(num-1).getDia_date()==null){
-										%><a href="#" id="daychange"></a><%
+										%><a href="#" class="daychange"></a><%
 									}
 									else{
 										day = sdf1.format(diaryList.get(num-1).getDia_date());
@@ -177,13 +201,13 @@
 								-->
 								<ul class="stats">
 									
-									<li id="add"><a href="#" class="fas fa-pen">add</a></li>
-									<li id="mod"><a href="#" class="fas fa-edit">mod</a></li>
-									<li id="save"><a href="#" class="fas fa-file-alt">save</a></li>
-									<li id="share"><a href="#" class="fas fa-user">share</a></li>
+									<li class="add"><a href="#" class="fas fa-pen">add</a></li>
+									<li class="mod"><a href="#" class="fas fa-edit">mod</a></li>
+									<li class="save"><a href="#" class="fas fa-file-alt">save</a></li>
+									<li class="share"><a href="#" class="fas fa-user">share</a></li>
 								</ul>
 							</div>
-							<div id="flex_cont">
+							<div class="flex_cont">
 							<%
 							
 							
@@ -201,7 +225,7 @@
 							else{
 								%>
 								<div class="test">
-								<img alt="추가하세요" src="<%=dimgList.get(num-1).getP_loc()%>"class="test" id="firstimg">
+								<img alt="추가하세요" src="<%=dimgList.get(num-1).getP_loc()%>"class="test" >
 								</div>
 								<%	
 							}%>	
@@ -220,7 +244,7 @@
 							else{
 								%>
 								<div class="test2">
-								<img alt="추가하세요" src="<%=dimgList2.get(num-1).getP_loc()%>"class="test2" id="secondimg">
+								<img alt="추가하세요" src="<%=dimgList2.get(num-1).getP_loc()%>"class="test2" >
 								</div>
 								<%	
 							}%>	
@@ -238,7 +262,7 @@
 							else{
 								%>
 								<div class="test3">
-								<img alt="추가하세요" src="<%=dimgList3.get(num-1).getP_loc()%>"class="test3" id="thirdimg">
+								<img alt="추가하세요" src="<%=dimgList3.get(num-1).getP_loc()%>"class="test3">
 								</div>
 								<%	
 							}%>	
@@ -249,12 +273,12 @@
 								<%
 								if(diaryList==null||diaryList.size()<num||diaryList.get(num-1).getDia_content()==null){
 									%>
-									<textarea name="content" id="textcontent" cols="130" rows="6"></textarea>
-									<button id="btn3">수정하기</button>
+									<textarea name="content" class="textcontent" cols="130" rows="6"></textarea>
+									<button class="btn3">수정하기</button>
 									<%
 								}
 								else{
-									%><p id="textc"><%= diaryList.get(num-1).getDia_content() %></p><% 
+									%><p class="textc"><%= diaryList.get(num-1).getDia_content() %></p><% 
 								}
 								
 								%>
@@ -314,6 +338,7 @@
 				$('.pages>a').removeAttr('class');
 				$('.pages>a').eq(3).attr('class','active');
 			} */
+			
 			$('.pages>a').eq(0).attr('class','active')
 			let yearchange=0;
 			let monthchange=0;
@@ -364,19 +389,19 @@
 				$('#num'+i).css("display" ,"inline")
 				
    			})
-       			$(document).on('dblclick','#mainheading',function(){
-       				$(this).before('<textarea name="content" id="textcontent3" cols="70" rows="1"></textarea>');
-       				$(this).after('<button id="btn5">수정하기</button>');
+       			$(document).on('dblclick','.mainheading',function(){
+       				$(this).before('<textarea name="content" class="textcontent3" cols="70" rows="1"></textarea>');
+       				$(this).after('<button class="btn5">수정하기</button>');
        				$(this).css("display" ,"none");
         		})
-        		$(document).on('dblclick','#subheading',function(){
-       				$(this).before('<textarea name="content" id="textcontent4" cols="50" rows="1"></textarea>');
-       				$(this).after('<button id="btn6">수정하기</button>');
+        		$(document).on('dblclick','.subheading',function(){
+       				$(this).before('<textarea name="content" class="textcontent4" cols="50" rows="1"></textarea>');
+       				$(this).after('<button class="btn6">수정하기</button>');
        				$(this).css("display" ,"none");
         		})
-       			$(document).on('dblclick','#textc',function(){
-       				$(this).before('<textarea name="content" id="textcontent2" cols="130" rows="6"></textarea>');
-       				$(this).after('<button id="btn4">수정하기</button>');
+       			$(document).on('dblclick','.textc',function(){
+       				$(this).before('<textarea name="content" class="textcontent2" cols="130" rows="6"></textarea>');
+       				$(this).after('<button class="btn4">수정하기</button>');
        				$(this).css("display" ,"none");
         		})
         		$(document).on('dblclick','.date',function(){
@@ -386,61 +411,61 @@
        				$('.month').text(monthchange+"월");
        				$('.day').text(daychange);
         		})
-       			$(document).on('dblclick','#firstimg',function(){
+       			$(document).on('dblclick','.firstimg',function(){
        				$(this).before('<form method="post" enctype="multipart/form-data" action="imguChangeCon1"><input type="file" name="filename1" size=40><input type="submit" value="업로드"><br><br></form>')
        				$(this).css("display" ,"none");
         		})
-        		$(document).on('dblclick','#secondimg',function(){
+        		$(document).on('dblclick','.secondimg',function(){
        				$(this).before('<form method="post" enctype="multipart/form-data" action="imguChangeCon2"><input type="file" name="filename1" size=40><input type="submit" value="업로드"><br><br></form>')
        				$(this).css("display" ,"none");
         		})
-        		$(document).on('dblclick','#thirdimg',function(){
+        		$(document).on('dblclick','.thirdimg',function(){
        				$(this).before('<form method="post" enctype="multipart/form-data" action="imguChangeCon3"><input type="file" name="filename1" size=40><input type="submit" value="업로드"><br><br></form>')
        				$(this).css("display" ,"none");
         		})
         		
-        		$(document).on('click','#btn3',function(){
-       				let changecontent=$('#textcontent').val();
-       				$(this).before('<p id="textc">'+changecontent+'</p>');
-       				$('#textcontent').remove();
+        		$(document).on('click','.btn3',function(){
+       				let changecontent=$('.textcontent').val();
+       				$(this).before('<p class="textc">'+changecontent+'</p>');
+       				$('.textcontent').remove();
            			$(this).remove();
            			
            			
         		})
         		
-       			$(document).on('click','#btn4',function(){
-       				let changecontent=$('#textcontent2').val();
-       				$('#textc').css("display" ,"inline");
-       				$('#textc').text(changecontent);
-       				$('#textcontent2').remove();
+       			$(document).on('click','.btn4',function(){
+       				let changecontent=$('.textcontent2').val();
+       				$('.textc').css("display" ,"inline");
+       				$('.textc').text(changecontent);
+       				$('.textcontent2').remove();
            			$(this).remove();
            			
            			
         		})
-        		$(document).on('click','#btn5',function(){
-       				let changecontent=$('#textcontent3').val();
-       				$('#mainheading').text(changecontent);
-       				$('#mainheading').css("display" ,"inline");
-       				$('#textcontent3').remove();
+        		$(document).on('click','.btn5',function(){
+       				let changecontent=$('.textcontent3').val();
+       				$('.mainheading').text(changecontent);
+       				$('.mainheading').css("display" ,"inline");
+       				$('.textcontent3').remove();
            			$(this).remove();
            			
            			
         		})
-        		$(document).on('click','#btn6',function(){
-       				let changecontent=$('#textcontent4').val();
-       				$('#subheading').css("display" ,"block");
-       				$('#subheading').text(changecontent);
-       				$('#textcontent4').remove();
+        		$(document).on('click','.btn6',function(){
+       				let changecontent=$('.textcontent4').val();
+       				$('.subheading').css("display" ,"block");
+       				$('.subheading').text(changecontent);
+       				$('.textcontent4').remove();
            			$(this).remove();
            			
            			
         		})
-       			$(document).on('click','#save',function(){
+       			$(document).on('click','.save',function(){
        				let con = confirm('저장 하시겠습니까?');
-       				let text = $('#textc').text();
+       				let text = $('.textc').text();
        				let date = yearchange+'-0'+monthchange+'-'+daychange;
-       				let head = $('#mainheading').text();
-       				let sub = $('#subheading').text();
+       				let head = $('.mainheading').text();
+       				let sub = $('.subheading').text();
        				let page=$('.active').text();
        				var check= "<%=test%>";
        				if(con){
@@ -456,21 +481,21 @@
            			
            			
         		})
-        		$(document).on('click','#mod',function(){
+        		$(document).on('click','.mod',function(){
         			alert('수정 할려고 하는 텍스트 및 사진을 더블클릭하세요!');
            			
         		})
-        		$(document).on('click','#share',function(){
+        		$(document).on('click','.share',function(){
         			let share = confirm('공유 하시겠습니까??');
            			
         		})
-        		$(document).on('click','#add',function(){
+        		$(document).on('click','.add',function(){
         			let num="<%=diaryList.size()%>";
         			$(location).attr('href', 'diaryUpdateCon2?num='+num);
            			
         		})
         		
-        		$(document).on('click','#monthchange',function(){
+        		$(document).on('click','. fas fa-calendar-plus fa-2x',function(){
         			yearchange = prompt('Year를 입력해주세요 >> 2017');
        				monthchange = prompt('Month를 입력해주세요 >> 7');
        				daychange = prompt('Day를 입력해주세요 >>05');
