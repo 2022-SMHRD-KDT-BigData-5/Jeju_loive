@@ -13,8 +13,8 @@ inplanDAO dao = new inplanDAO();
 tourDAO tdao = new tourDAO();
 Member loginMember = (Member)session.getAttribute("loginMember");
 String mem_id = loginMember.getId();
-BigDecimal plan_num= new BigDecimal(1);
-inplan inplan= new inplan(plan_num,mem_id);
+String inplan_name = "ㅇㅇ";
+inplan inplan= new inplan(inplan_name,mem_id);
 
 List<tour> planAddList = tdao.selectTour(inplan);
 System.out.print(inplan);
@@ -117,8 +117,8 @@ for (var i = 0; i < positions.length; i ++) {
 <h2>여행지List</h2>
 	<div>
 	<c:forEach var = "p" items="${planAddList}" varStatus="status">   
+                <p class="name${status.index}">${p.name}</p>
                 <p class="planAddList">${p.address}</p>
-                <p class="name${status.index}" hidden>${p.name}</p>
 	</c:forEach>
 </div>
 
