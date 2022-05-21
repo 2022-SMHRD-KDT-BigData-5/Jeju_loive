@@ -6,20 +6,45 @@
 	<insert id="insertDiary" parameterType="com.smhrd.domain.diary">
 		insert into diary values(#{dia_num}, #{dia_name}, #{dia_tripday}, #{dia_share}, #{dia_date}, #{mem_id},#{dia_content},#{sub})
 	</insert>
-	<select id="selectDiary" parameterType="com.smhrd.domain.diary" resultType="com.smhrd.domain.diary">
+	<select id="selectDiary" parameterType="String" resultType="com.smhrd.domain.diary">
 		select * from diary where mem_id=#{mem_id} 
 	</select>
 	
 	<insert id="insertImg" parameterType="com.smhrd.domain.diaryImg">
 		insert into diary_img values(diary_imgnum.nextval, #{d_num}, #{d_tripday}, #{p_oname}, #{p_loc}, #{p_memid})
 	</insert>
-	<select id="selectDimgf" parameterType="com.smhrd.domain.diaryImg" resultType="com.smhrd.domain.diaryImg">
-		select * from diary_img where p_memid=#{p_memid} and d_num=#{d_num} and p_oname='첫번째'
+	<select id="selectDimgf" parameterType="String" resultType="com.smhrd.domain.diaryImg">
+		select * from diary_img where p_memid=#{p_memid} and p_oname='첫번째'
 	</select>
 	
 	<update id="updateDimg" parameterType="com.smhrd.domain.diaryImg">
 		update diary_img set p_loc=#{p_loc} where d_num=#{d_num} and d_tripday=#{d_tripday} and p_oname=#{p_oname} and p_memid=#{p_memid}
 	</update>
+	
+	<insert id="insertImg2" parameterType="com.smhrd.domain.diaryImg">
+		insert into diary_img2 values(diary_imgnum.nextval, #{d_num}, #{d_tripday}, #{p_oname}, #{p_loc}, #{p_memid})
+	</insert>
+	<select id="selectDimg2" parameterType="String" resultType="com.smhrd.domain.diaryImg">
+		select * from diary_img2 where p_memid=#{p_memid} and p_oname='두번째'
+	</select>
+	
+	<update id="updateDimg2" parameterType="com.smhrd.domain.diaryImg">
+		update diary_img2 set p_loc=#{p_loc} where d_num=#{d_num} and p_oname=#{p_oname} and p_memid=#{p_memid}
+	</update>
+	<insert id="insertImg3" parameterType="com.smhrd.domain.diaryImg">
+		insert into diary_img3 values(diary_imgnum.nextval, #{d_num}, #{d_tripday}, #{p_oname}, #{p_loc}, #{p_memid})
+	</insert>
+	<select id="selectDimg3" parameterType="String" resultType="com.smhrd.domain.diaryImg">
+		select * from diary_img3 where p_memid=#{p_memid} and p_oname='세번째'
+	</select>
+	
+	<update id="updateDimg3" parameterType="com.smhrd.domain.diaryImg">
+		update diary_img3 set p_loc=#{p_loc} where d_num=#{d_num} and p_oname=#{p_oname} and p_memid=#{p_memid}
+	</update>
+	<insert id="insertDiary2" parameterType="com.smhrd.domain.diary">
+		insert into diary(dia_num,mem_id) values(#{dia_num}, #{mem_id} )
+	</insert>
+	
 	
 	<update id="updateDiary" parameterType="com.smhrd.domain.diary">
 		update diary set dia_name = #{dia_name}, dia_tripday = #{dia_tripday}, dia_share = #{dia_share}, dia_date = #{dia_date}, dia_content = #{dia_content},dia_subname = #{sub} where dia_num=#{dia_num} and mem_id=#{mem_id}

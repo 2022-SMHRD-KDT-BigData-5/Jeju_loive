@@ -69,6 +69,144 @@ public class diaryDAO {
 			      }
 			      return cnt;
 			   }
+			public int insertDiary2(diary diary) {
+				  SqlSession sqlSession = sqlSessionFactory.openSession();
+			      int cnt = 0;
+			      try {
+			         
+			         cnt = sqlSession.insert("com.smhrd.domain.diaryDAO.insertDiary2",diary);
+			         
+			         if(cnt>0) {
+			            sqlSession.commit();
+			         }else {
+			            sqlSession.rollback();
+			         }
+			      }catch(Exception e) {
+			         e.printStackTrace();
+			      }finally{
+			         sqlSession.close();
+			      }
+			      return cnt;
+			   }
+			//다이어리 이미지 저장하기
+			public int insertImg2(diaryImg dimg) {
+				  SqlSession sqlSession = sqlSessionFactory.openSession();
+			      int cnt = 0;
+			      try {
+			         cnt = sqlSession.insert("com.smhrd.domain.diaryDAO.insertImg2", dimg);
+			         if (cnt > 0) {
+			            sqlSession.commit();
+			         } else {
+			            sqlSession.rollback();
+			         }
+			      } catch (Exception e) {
+			         e.printStackTrace();
+			      } finally {
+			         sqlSession.close();
+			      }
+			      return cnt;
+			   }
+			//저장한 이미지 가져오기
+			public List<diaryImg> selectDimg2(String id) {
+				   SqlSession sqlSession = sqlSessionFactory.openSession();
+				   List<diaryImg> dimg = null;
+				   try {
+					   
+					   	 dimg = sqlSession.selectList("com.smhrd.domain.diaryDAO.selectDimg2", id);
+				         
+				         if (dimg != null) {
+				            sqlSession.commit();
+				         } else {
+				            sqlSession.rollback();
+				         }
+				      } catch (Exception e) {
+				         e.printStackTrace();
+				      } finally {
+				         sqlSession.close();
+				      }
+				      return dimg;
+				   }
+			//이미지 수정
+			public int updateDimg2(diaryImg dimg) {
+				  SqlSession sqlSession = sqlSessionFactory.openSession();
+			      int cnt = 0;
+			      try {
+			         
+			         cnt = sqlSession.update("com.smhrd.domain.diaryDAO.updateDimg2", dimg);
+			         
+			         if(cnt>0) {
+			            sqlSession.commit();
+			         }else {
+			            sqlSession.rollback();
+			         }
+			      }catch(Exception e) {
+			         e.printStackTrace();
+			      }finally{
+			         sqlSession.close();
+			      }
+			      return cnt;
+			   }
+			
+			
+			//다이어리 이미지 저장하기
+			public int insertImg3(diaryImg dimg) {
+				  SqlSession sqlSession = sqlSessionFactory.openSession();
+			      int cnt = 0;
+			      try {
+			         cnt = sqlSession.insert("com.smhrd.domain.diaryDAO.insertImg3", dimg);
+			         if (cnt > 0) {
+			            sqlSession.commit();
+			         } else {
+			            sqlSession.rollback();
+			         }
+			      } catch (Exception e) {
+			         e.printStackTrace();
+			      } finally {
+			         sqlSession.close();
+			      }
+			      return cnt;
+			   }
+			//저장한 이미지 가져오기
+			public List<diaryImg> selectDimg3(String id) {
+				   SqlSession sqlSession = sqlSessionFactory.openSession();
+				   List<diaryImg> dimg = null;
+				   try {
+					   
+					   	 dimg = sqlSession.selectList("com.smhrd.domain.diaryDAO.selectDimg3", id);
+				         
+				         if (dimg != null) {
+				            sqlSession.commit();
+				         } else {
+				            sqlSession.rollback();
+				         }
+				      } catch (Exception e) {
+				         e.printStackTrace();
+				      } finally {
+				         sqlSession.close();
+				      }
+				      return dimg;
+				   }
+			//이미지 수정
+			public int updateDimg3(diaryImg dimg) {
+				  SqlSession sqlSession = sqlSessionFactory.openSession();
+			      int cnt = 0;
+			      try {
+			         
+			         cnt = sqlSession.update("com.smhrd.domain.diaryDAO.updateDimg3", dimg);
+			         
+			         if(cnt>0) {
+			            sqlSession.commit();
+			         }else {
+			            sqlSession.rollback();
+			         }
+			      }catch(Exception e) {
+			         e.printStackTrace();
+			      }finally{
+			         sqlSession.close();
+			      }
+			      return cnt;
+			   }
+			
 			
 			//다이어리 이미지 저장하기
 			public int insertImg(diaryImg dimg) {
@@ -89,12 +227,12 @@ public class diaryDAO {
 			      return cnt;
 			   }
 			//저장한 이미지 가져오기
-			public diaryImg selectDimgf(diaryImg diaryimg) {
+			public List<diaryImg> selectDimgf(String id) {
 				   SqlSession sqlSession = sqlSessionFactory.openSession();
-				   diaryImg dimg = null;
+				   List<diaryImg> dimg = null;
 				   try {
 					   
-					   	 dimg = sqlSession.selectOne("com.smhrd.domain.diaryDAO.selectDimgf", diaryimg);
+					   	 dimg = sqlSession.selectList("com.smhrd.domain.diaryDAO.selectDimgf", id);
 				         
 				         if (dimg != null) {
 				            sqlSession.commit();
@@ -128,6 +266,7 @@ public class diaryDAO {
 			      }
 			      return cnt;
 			   }
+			
 			//다이어리 공유여부체크
 			public boolean shareDiary(BigDecimal dia_share) {
 				SqlSession sqlSession = sqlSessionFactory.openSession();

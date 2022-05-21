@@ -17,20 +17,33 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+		 <link href="https://fonts.googleapis.com/
+    		icon?family=Material+Icons|Material+Icons+Sharp|Material+Icons+Two+Tone|Material+Icons+Outlined"
+    		rel="stylesheet">
+    	
 		<!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<style>
-		.soohyeon{
+		.material-symbols-outlined {
 		position: fixed;
         right: 20px;
-       	top: 10px;
-       	color:white
+       	top: 20px;
+       	color:black;
 		}
-		</style>
+		
+		.logo{
+		position: relative;
+        left: 5px;
+       	top: -100px;
+		}
+	
+	</style>
 	</head>
 	<body>
-		<header id="menuBlock">
+	
+		<br><header id="menuBlock">
 		<nav>
 			<ul>
 				<li><a href="main.jsp">main</a></li>
@@ -40,29 +53,29 @@
 				<li><a href="board.jsp">board</a></li>
 				<!--<li><a href="#elements">Elements</a></li>-->
 			</ul>
+			
+		
 			<c:choose>
                   <c:when test="${empty loginMember}">
-                     <a href="Join.jsp" class="soohyeon">login</a>
+                     <a href="LoginCon" class="m"><span class="material-symbols-outlined">login</span></a>
                   </c:when>
                   <c:otherwise>
-                     <a href="LogoutCon" class="soohyeon">logout</a>
+                     <a href="LogoutCon" class="m"><span class="material-symbols-outlined">logout</span></a>
                   </c:otherwise>
                </c:choose>
 		</nav>
 	</header>
+	
 		
-	
-	
-	
-	
+		
 		<div class="container">
 			<!-- Top Navigation -->
 			<div class="codrops-top clearfix">
-				<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Tutorials/FourBoxes/"><span>Previous Demo</span></a>
-				<span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=19292"><span>Back to the Codrops Article</span></a></span>
+				<a class="logo" href="main.jsp"><span><img src="images/logo3.png" alt="logo"></span></a>
+				
 			</div>
 			<header class="codrops-header">
-				<h1>Hover Effect Ideas <span>An inspirational collection of subtle hover effects</span></h1>
+				<h1><span>너와 나의 memory..</span></h1>
 				<nav class="codrops-demos">
 					<a class="current-demo" href="diary1.jsp">Set 1</a>
 					<a href="diary2.jsp">Set 2</a>

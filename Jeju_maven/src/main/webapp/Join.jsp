@@ -5,10 +5,7 @@
 
 <head>
 <title>회원가입 성공</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
+
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -62,38 +59,39 @@ body {
 						<form class="validation-form" novalidate>
 							<div class="row">
 								<div class="col-md-6 mb-3">
-									<label for="id">아이디</label>
-									 <input type="text"	class="form-control" name="j_id" id="j_id" placeholder="" required>
-									 <div class="invalid-feedback">
-									 아이디를 입력해주세요.</div>
+									<label for="id">아이디</label> <input type="text"
+										class="form-control" name="j_id" id="j_id" placeholder=""
+										required>
+									<div class="invalid-feedback">아이디를 입력해주세요.</div>
 								</div>
 								<br>
 								<div class="col-md-12">
-									<input type="button" value="ID중복체크" class="primary" onclick="idCheck()">
+									<input type="button" value="ID중복체크" class="primary"
+										onclick="idCheck()">
 								</div>
 								<div>
 									<span id="check"></span>
 								</div>
 								<br> <br>
 								<div class="col-md-6 mb-3">
-									<label for="password">비밀번호</label>
-									 <input type="password"	class="form-control" name="j_pw" id="j_pw" placeholder="" required>
-									<div class="invalid-feedback">
-									비밀번호를 입력해주세요.</div>
+									<label for="password">비밀번호</label> <input type="password"
+										class="form-control" name="j_pw" id="j_pw" placeholder=""
+										required>
+									<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
 								</div>
 
 								<div class="col-md-6 mb-3">
-									<label for="password">비밀번호확인</label>
-									 <input type="password"	class="form-control" name="j_pwck" id="j_pwck" placeholder="" required>
-									<div class="invalid-feedback">
-									비밀번호를 다시한번 입력해주세요.</div>
+									<label for="password">비밀번호확인</label> <input type="password"
+										class="form-control" name="j_pwck" id="j_pwck" placeholder=""
+										required>
+									<div class="invalid-feedback">비밀번호를 다시한번 입력해주세요.</div>
 								</div>
 
 								<div class="col-md-6 mb-3">
-									<label for="name">이름</label>
-									 <input type="text" class="form-control" name="name" id="name" placeholder="" required>
-									<div class="invalid-feedback">
-									이름을 입력해주세요.</div>
+									<label for="name">이름</label> <input type="text"
+										class="form-control" name="name" id="name" placeholder=""
+										required>
+									<div class="invalid-feedback">이름을 입력해주세요.</div>
 								</div>
 							</div>
 
@@ -101,7 +99,7 @@ body {
 							<div class="row">
 								<div class="col-md-6 mb-3">
 									<label for="tel">전화번호</label> <input type="text"
-										class="form-control" name="name" id="name" placeholder=""
+										class="form-control" name="tel" id=""tel"" placeholder=""
 										required>
 									<div class="invalid-feedback">전화번호를 입력해주세요.</div>
 								</div>
@@ -110,16 +108,17 @@ body {
 
 							</div>
 
-							<div class="mb-4"></div>
+							<div class="mb-4">
 							<button class="btn btn-primary btn-lg btn-block" type="submit">가입
 								완료</button>
-							<br> <br> <a href="main.jsp"><input type="button"
+							<br> <br> <a href="main.jsp">
+							<input type="button"
 								value="메인페이지로" class="primary"></a>
-						</form>
+						</div>
 					</div>
 				</div>
 			</div>
-
+</form>
 
 			<script>
     window.addEventListener('load', () => {
@@ -137,7 +136,7 @@ body {
       });
     }, false);
   </script>
-		</form>
+		
 
 	</div>
 
@@ -184,7 +183,10 @@ body {
 		}
 	</script>
 	<script src="assets/js/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
 </body>
 </html>
 

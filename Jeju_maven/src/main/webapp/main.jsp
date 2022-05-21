@@ -42,9 +42,10 @@
                   </div>
                   <div class="content">
                      <div class="inner">
-                        <h1>Dimension</h1>
-                        <p>A fully responsive site template designed by <a href="https://html5up.net">HTML5 UP</a> and released<br />
-                        for free under the <a href="https://html5up.net/license">Creative Commons</a> license.</p>
+                        <h1>제주살앙</h1>
+                        <p>360여 개의 크고 작은 오름을 비롯하여 눈 돌리면 어디에서나 마주치는 한라산 그리고 푸른 바다….<br />
+                        <br/>
+                        제주의 보석 같은 여행지가 여러분의 선택을 기다린다.</p>
                      </div>
                   </div>
                   <nav>
@@ -111,10 +112,10 @@
                            </ul>
                            
                         </form>
-                        <!-- 로그인 끝 -->
                         
                         
                      </article>
+                        <!-- 로그인 끝 -->
                      
                   
                      
@@ -372,7 +373,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
       <!-- BG -->
          <div id="bg"></div>
-
+lo
       <!-- Scripts -->
          <script src="assets/js/jquery.min.js"></script>
          <script src="assets/js/browser.min.js"></script>
