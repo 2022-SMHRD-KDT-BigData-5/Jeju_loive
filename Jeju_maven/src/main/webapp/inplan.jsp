@@ -30,6 +30,9 @@
     	
     	
 <style>
+
+
+
         body{
     font-size: 12px;
     line-height: 16px;
@@ -266,7 +269,10 @@ figure{
 	background-color: rgb(255,255,255,0);
 }
 
-
+.p-0{
+	background-color : #FFFFF0;
+	color : #FFFFF0;
+}
 
     </style>
 

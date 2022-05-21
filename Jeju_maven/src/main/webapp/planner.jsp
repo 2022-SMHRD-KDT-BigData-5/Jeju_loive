@@ -102,8 +102,8 @@
         <figure class="effect-ming">
             <img src="images/yeonhee-VWLhifg5VMA-unsplash.jpg" alt="yeonhee-VWLhifg5VMA-unsplash"/>
             <figcaption>
-                <h2><span><c:out value="${i.inplan_name}"/></span></h2>
-                <p><c:out value="${i.inplan_date}"/></p>
+                <h2><span><c:out value="${i.inplan_num}"/></span></h2>
+                <p><c:out value="${i.tour_num}"/></p>
                 <a href="#">View more</a>
             </figcaption>
             </figure>         
