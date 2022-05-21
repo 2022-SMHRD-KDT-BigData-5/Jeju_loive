@@ -231,6 +231,10 @@
 			for(h=1;h<=s;h++){
 				$('#num'+h).css("display" ,"none")
 			}
+			
+			
+			
+			
 			if(i2==1){
 				for(h=1;h<=30;h++){
 					$('#num'+h).css("display" ,"inline")
@@ -260,10 +264,44 @@
 				for(h=151;h<=180;h++){
 					$('#num'+h).css("display" ,"inline")
 				}
-			}
+			} 
+			else if(i2==7){
+				for(h=181;h<=210;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==8){
+				for(h=211;h<=240;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==9){
+				for(h=241;h<=270;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==10){
+				for(h=271;h<=300;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
 			
 		
 		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		// For Demo purposes only (show hover effect on mobile devices)
 		[].slice.call(document.querySelectorAll('a[href="#"')).forEach(
 				function(el) {

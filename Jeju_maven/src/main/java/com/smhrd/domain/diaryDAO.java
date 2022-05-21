@@ -69,7 +69,25 @@ public class diaryDAO {
 			      }
 			      return cnt;
 			   }
-			
+			public int insertDiary2(diary diary) {
+				  SqlSession sqlSession = sqlSessionFactory.openSession();
+			      int cnt = 0;
+			      try {
+			         
+			         cnt = sqlSession.insert("com.smhrd.domain.diaryDAO.insertDiary2",diary);
+			         
+			         if(cnt>0) {
+			            sqlSession.commit();
+			         }else {
+			            sqlSession.rollback();
+			         }
+			      }catch(Exception e) {
+			         e.printStackTrace();
+			      }finally{
+			         sqlSession.close();
+			      }
+			      return cnt;
+			   }
 			//다이어리 이미지 저장하기
 			public int insertImg2(diaryImg dimg) {
 				  SqlSession sqlSession = sqlSessionFactory.openSession();

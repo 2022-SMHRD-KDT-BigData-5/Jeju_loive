@@ -3,16 +3,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    <style>
+    <link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+		 <link href="https://fonts.googleapis.com/
+    		icon?family=Material+Icons|Material+Icons+Sharp|Material+Icons+Two+Tone|Material+Icons+Outlined"
+    		rel="stylesheet">
+    	
+<style>
         body{
     font-size: 12px;
     line-height: 16px;
+    background-image: url("./images/inplanbg.png");
+   background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+   	
 }
 
 
 h1{
     text-align: center;
+    font-size : 50px;
 }
 
 
@@ -36,14 +49,18 @@ h1{
 }
 
 #main_plan{
-    width: 750px;
-    height: 800px;
-    border : 1px solid orange;
+	position : relative;
+    width: 1000px;
+    height: 1200px;
+    
     padding: 20px 30px;
     margin: 0 auto;
+    margin-bottom : 30px;
+    z-index: 2;
+    background-color : 	#FFFFF0;
 }
 
-li{
+#main_plan li{
     display: list-item;
     margin-bottom:  80px;
     border-top: 1px solid orange;
@@ -60,6 +77,7 @@ li{
     position: relative;
     cursor: pointer;
     overflow: hidden;
+    
     
 }
 
@@ -147,10 +165,10 @@ strong{
     width:100%;
     height: 100%px;
     position: absolute;
-    background: lightblue;
+   
     z-index: 1;
     -webkit-transition: all .5s ease;
-    bottom: 0px;
+    bottom: -6px;
     overflow: hidden;
 
 }
@@ -161,10 +179,10 @@ strong{
 
 .imgDescDiv{
     width: 100%;
-    height: 10px;
-    padding: 10px;
-    color: #FFFFFF;
-    background: #f2cbf2;
+    height: 25px;
+    padding: 5px;
+    color: black;
+    background: white;
     position: absolute;
     bottom: 0px;
 }
@@ -193,6 +211,43 @@ figure{
     margin-inline-end: 40px;
 }
 
+.dayPlan{
+	margin-top: 50px;
+	font-size
+	
+	
+
+}
+
+#menuBlock{
+	margin-bottom : 30px;
+}
+
+.logo{
+	
+	position: absolute;
+	left : 80%;
+	top : -140px;
+	z-index: 1;
+}
+
+
+.rightPage{
+	position : absolute;
+	right : -120px;
+	top : 35%;
+	border-radius: 70%;
+	background-color: rgb(255,255,255,0);
+}
+
+.leftPage{
+	position : absolute;
+	left : -120px;
+	top : 35%;
+	border-radius: 70%;
+	background-color: rgb(255,255,255,0);
+}
+
 
 
     </style>
@@ -200,10 +255,40 @@ figure{
   </head>
 
   <body>
-    <h1> 1일차 플랜</h1>
-
-
+  
+  <header>
+  	<br><header id="menuBlock">
+		<nav>
+			<ul>
+				<li><a href="main.jsp">main</a></li>
+				<li><a href="tour_att.jsp">tour</a></li>
+				<li><a href="planner.jsp">planner</a></li>
+				<li><a href="diary1.jsp">diary</a></li>
+				<li><a href="board.jsp">board</a></li>
+				<!--<li><a href="#elements">Elements</a></li>-->
+			</ul>
+				
+			</nav>
+			
+  
+  </header>
+    <div  class = "dayPlan"><h1> 1일차 플랜</h1></div>
+	
+	
+	
+	
     <div id = "main_plan">
+    <div> <a class="logo" href="main.jsp"><span><img src="images/logo2.png" alt="logo"></span></a></div>
+    <img src="images/right.png" class = "rightPage"> <!--다음 플래너로 넘어 가기  -->
+    <img src="images/left.png" class = "leftPage"> <!--이전 플래너로 넘어 가기  -->
+    
+    
+    
+    
+    
+    
+    
+    
         <ul class = "list_theme">
             <li class = "theme_itme">
                 <div class="imgBoxDiv">
