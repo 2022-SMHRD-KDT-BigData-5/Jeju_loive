@@ -42,6 +42,7 @@ public class PlanInsertCon extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		Member loginMember = (Member)session.getAttribute("loginMember");
+		inplanDAO dao = new inplanDAO();
 		
 		if(loginMember==null) {
 			//로그인 하지 않은 경우
@@ -58,6 +59,37 @@ public class PlanInsertCon extends HttpServlet {
 			System.out.println(planDateStr);
 			Date planDate = Date.valueOf(planDateStr);
 			//사용자가 저장한 tour_num목록들
+			String[] tourNumStr = request.getParameterValues("tourNum");
+			String[] tourAdd = request.getParameterValues("tourAdd");
+
+			//잘 담겼나 테스트해보기><
+			for(int i=0; i<tourNumStr.length; i++) {System.out.print(tourNumStr[i]);}
+			
+			//tourNum을 BigDecimal로 바꾸기
+			List<Integer> tourNumInt=null;
+			for(int i=0; i<tourNumStr.length; i++) {
+				tourNumInt.add(Integer.parseInt(tourNumStr[i]));
+			}
+			List<BigDecimal> tourNum = null;
+			for(int i=0; i<tourNumInt.size(); i++) {
+				tourNum.add(new BigDecimal(tourNumInt.get(i)));
+			}
+			
+			
+			for(int i=0; i<tourNum.size(); i++) {
+				inplan inplan = new inplan(items[i], tourNum.get(i), mem_id, planDate);
+				int cnt = dao.insertInplan(inplan);
+					if(cnt>0) {
+						System.out.println(i+"번째 inplan 입력 성공");
+					}else {
+						System.out.println(i+"번째 inplan 입력 실패");
+					}
+			}
+			
+			
+			
+			response.sendRedirect("planner.jsp");
+			
 			
 			
 		}

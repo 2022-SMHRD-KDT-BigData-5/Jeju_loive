@@ -73,10 +73,24 @@ public class inplanDAO {
 
 	//---------------------------------------여기부터 진짜시작;;ㅎㅎ------------------------------------
 		
-		public void setPlan() {
+		public int insertInplan(inplan inplan) {
+			SqlSession sqlSession = sqlSessionFactory.openSession();
+			int cnt=0;
+			try {
+				cnt = sqlSession.insert("com.smhrd.domain.inplanDAO.insertInplan", inplan);
+				if(cnt>0) {
+					sqlSession.commit();
+				}else {
+					sqlSession.rollback();
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				sqlSession.close();
+			}
 			
-			
-			
+			return cnt;
 			
 			
 		}

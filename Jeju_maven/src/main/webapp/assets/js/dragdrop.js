@@ -70,8 +70,8 @@ function createItem(tour_name, tour_num,tour_add) {
 		        + "<div style='float:left;'>"
 		        + "<span class='itemNum'></span> "
 		        + "<input type='text' name='item' style='width:300px;' value='"+tour_name+"'/>"
-		        + "<input type='button' class='tourNum' value='"+tour_num+"'/>"
-		        + "<input type='button' class='tourAdd' value='"+tour_add+"'/>"
+		        + "<input type='text' name='tourNum' class='tourNum' value='"+tour_num+"'/>"
+		        + "<input type='text' name='tourAdd' class='tourAdd' value='"+tour_add+"'/>"
 		        + "</div>"
 		        + "</div>"
 		        ;
@@ -82,53 +82,7 @@ function createItem(tour_name, tour_num,tour_add) {
 		
 		
 		
-		//추가 클릭시 localStorage에 값을 저장하는 함수
-		function setInPlan(){
-            //값 가져오기
-            //1) name이 item인 input태그 내의 value 가져오기
-            //2) class=tourNum, class=tourAdd인 span태그의 text값 가져오기 /
-            var tourNums=[];
-            var tourAdds=[];
-            var tourNames=[];
-            var nums=[];
-            var adds=[];
-            var names=[];
-            
-            tourNums = document.getElementsByClassName('tourNum');
-            tourAdds = document.getElementsByClassName('tourAdd');
-            
-            var len = $("input[name=item]").length;
-            for(var i=0; i<len; i++){                          
-    			tourNames[i] = $("input[name=item]").eq(i).val();
-    		}
-            
-            //배열에 순서대로 담기
-            for(i=0; i<tourNums.length; i++){
-            	nums.push(tourNums[i].innerText);
-            	adds.push(tourAdds[i].innerText);
-            	names.push(tourNames[i]);
-            }
-            
-            //확인용(콘솔창 확인)
-            console.log(nums);
-            console.log(adds);
-            console.log(names);
-            
-         	// 객체, 배열을 JSON 문자열로 변환
-            const numsString = JSON.stringify(nums);
-            const addsString = JSON.stringify(adds);
-            const namesString = JSON.stringify(names);
-			
-            //문자열로 잘 변환되었는지 확인
-            console.log(namesString);
-
-            
-			//localStorage에 배열 저장
-			window.localStorage.setItem('tourNum', nums)
-			window.localStorage.setItem('tourAdd', adds)
-			window.localStorage.setItem('tourName', names)
-			
-		}
+		
 		
 		
 		
