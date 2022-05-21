@@ -47,7 +47,7 @@ public class imguChangeCon1 extends HttpServlet {
 		 System.out.println(fullpath);
 		 diaryImg updateimg = (diaryImg)session.getAttribute("updateimg");
 		 Member loginMember = (Member)session.getAttribute("loginMember");
-		 System.out.println(updateimg.getP_oname());
+		 
 		 diaryImg dimg= new diaryImg(updateimg.getD_num(),updateimg.getD_num(),updateimg.getD_tripday(),updateimg.getP_oname(),fullpath,loginMember.getId());
 		 System.out.println(dimg.getP_oname());
 		 diaryDAO dao =new diaryDAO();

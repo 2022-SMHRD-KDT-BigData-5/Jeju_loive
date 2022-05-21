@@ -108,6 +108,28 @@ public class tourDAO {
 			return tourInfo;
 		}
 		
+		//사용자의 하루 여행목록 받아오는 메서드
+		public List<tour> selectTour(inplan inplan) {
+			SqlSession sqlSession = sqlSessionFactory.openSession();
+			List<tour> tourList = null;
+			try {
+				tourList = sqlSession.selectList("com.smhrd.domain.tourDAO.selectTour",inplan);
+			
+		     if (tourList != null) {
+		            sqlSession.commit();
+		            System.out.println("입력 성공");
+		         } else {
+		            sqlSession.rollback();
+		            System.out.println("입력 실패");
+		         }
+		      } catch (Exception e) {
+		         e.printStackTrace();
+		      } finally {
+		         sqlSession.close();
+		      }
+		      return tourList;
+		   }
+		
 		
 		//tour_img 에서 사진 가져오는 메서드
 		
