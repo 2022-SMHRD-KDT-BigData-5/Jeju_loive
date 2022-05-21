@@ -37,27 +37,17 @@ public class inplanDAO {
 	   }
 	
 
-	//사용자의 하루 여행목록 전체주소를 받아오는 메서드
-	public List<inplan> selectTour(inplan inplan) {
-		SqlSession sqlSession = sqlSessionFactory.openSession();
-		List<inplan> tourList = null;
-		try {
-			tourList = sqlSession.selectList("com.smhrd.domain.inplanDAO.selectTour",inplan);
-		
-	     if (tourList != null) {
-	            sqlSession.commit();
-	            System.out.println("입력 성공");
-	         } else {
-	            sqlSession.rollback();
-	            System.out.println("입력 실패");
-	         }
-	      } catch (Exception e) {
-	         e.printStackTrace();
-	      } finally {
-	         sqlSession.close();
-	      }
-	      return tourList;
-	   }
+		/*
+		 * //사용자의 하루 여행목록 전체주소를 받아오는 메서드 public List<tour> selectTour(inplan inplan) {
+		 * SqlSession sqlSession = sqlSessionFactory.openSession(); List<tour> tourList
+		 * = null; try { tourList =
+		 * sqlSession.selectList("com.smhrd.domain.inplanDAO.selectTour",inplan);
+		 * 
+		 * if (tourList != null) { sqlSession.commit(); System.out.println("입력 성공"); }
+		 * else { sqlSession.rollback(); System.out.println("입력 실패"); } } catch
+		 * (Exception e) { e.printStackTrace(); } finally { sqlSession.close(); } return
+		 * tourList; }
+		 */
 	
 	
 	//플래너에 일정을 추가하는 메서드

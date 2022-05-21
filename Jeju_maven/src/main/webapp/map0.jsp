@@ -1,20 +1,22 @@
+<%@page import="com.smhrd.domain.tourDAO"%>
 <%@page import="com.smhrd.domain.Member"%>
 <%@page import="java.math.BigDecimal"%>
 <%@page import="com.smhrd.domain.inplanDAO"%>
 <%@page import="com.smhrd.domain.inplan"%>
+<%@page import="com.smhrd.domain.tour"%>
 <%@page import="java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>    
 <%
 inplanDAO dao = new inplanDAO();
+tourDAO tdao = new tourDAO();
 Member loginMember = (Member)session.getAttribute("loginMember");
 String mem_id = loginMember.getId();
 BigDecimal plan_num= new BigDecimal(1);
 inplan inplan= new inplan(plan_num,mem_id);
 
-
-List<inplan> planAddList = dao.selectTour(inplan);
+List<tour> planAddList = tdao.selectTour(inplan);
 System.out.print(inplan);
 pageContext.setAttribute("planAddList",planAddList);
 
@@ -33,9 +35,9 @@ pageContext.setAttribute("planAddList",planAddList);
 
 <script>
 var positions = [""];
-console.log("<%=planAddList.get(0)%>")
+<%-- console.log("<%=planAddList.get(0)%>") --%>
 <% for(int i =0; i< planAddList.size(); i++){%>
-positions.push("<%=planAddList.get(i)%>")
+positions.push("<%=planAddList.get(i).getAddress()%>")
 
 <%}%>
 /* let list1 = document.getElementsByClassName('planAddList');
@@ -47,7 +49,7 @@ for(var i = 0; i< list1.length; i++){
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 mapOption = { 
     center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-    level: 8 // 지도의 확대 레벨
+    level: 9 // 지도의 확대 레벨
 };
 
 var map = new kakao.maps.Map(mapContainer, mapOption); 
@@ -75,11 +77,29 @@ for (var i = 0; i < positions.length; i ++) {
 				map: map,
 				position: coords
 			});
+			
+			<% for(int j =0; j< planAddList.size(); j++){
+				System.out.print(planAddList.get(j).getName());
+			%>
+			console.log(document.getElementsByClassName('name<%=j%>')[0].innerHTML);
+			var iwContent = '<div style="padding:5px;">'+ '임의값' +'</div>', //인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+		    iwPosition = new kakao.maps.LatLng(result[0].y, result[0].x), //인포윈도우 표시 위치입니다
+		    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+			<%}%>
+		// 인포윈도우를 생성하고 지도에 표시합니다
+		var infowindow = new kakao.maps.InfoWindow({
+		    map: map, // 인포윈도우가 표시될 지도
+		    position : iwPosition, 
+		    content : iwContent,
+		    removable : iwRemoveable
+		});
+			
+			 
 			// 마커에 표시할 인포윈도우를 생성합니다 
-			/* 	var infowindow = new kakao.maps.InfoWindow({
+			/* var infowindow = new kakao.maps.InfoWindow({
 				//content: positions[i].content // 인포윈도우에 표시할 내용
 				content: '<div style="width:150px;text-align:center;padding:6px 0;">'+positions[i].text+'</div>' // 인포윈도우에 표시할 내용
-			}); */
+			});  */
 			//infowindow.open(map, marker);
 			/* kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
 			kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow)); */
@@ -87,14 +107,18 @@ for (var i = 0; i < positions.length; i ++) {
 			//map.setCenter(coords);
 		} 
 
-	});   
+	}); 
+	
 }
 
+
+
 </script>
-<h1>List</h1>
+<h2>여행지List</h2>
 	<div>
 	<c:forEach var = "p" items="${planAddList}" varStatus="status">   
-                <h1 class="planAddList">${p}</h1>                   
+                <p class="planAddList">${p.address}</p>
+                <p class="name${status.index}" hidden>${p.name}</p>
 	</c:forEach>
 </div>
 

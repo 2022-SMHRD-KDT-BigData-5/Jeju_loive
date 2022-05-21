@@ -10,7 +10,7 @@
 	</select>
 
 	<select id="selectTourList" resultType="com.smhrd.domain.tour">
-		select * from tour where tour_num > 600
+		select * from tour where tour_num > 600 order by tour_num
 	</select>
 	
 	<select id="selectFoodList" resultType="com.smhrd.domain.tour">
@@ -43,5 +43,9 @@
 	</select>
  -->
 
+   <select id="selectTour" parameterType="com.smhrd.domain.inplan" resultType="com.smhrd.domain.tour">
+      select * from tour
+      where tour_num in (select tour_num from inplan where plan_num=#{plan_num} and mem_id=#{mem_id})
+   </select>
 
 </mapper>
