@@ -114,17 +114,17 @@
 			<div class="grid">
 
 <%-- 			<h1><%=tourImgList.get(1).getT_add() %></h1> --%>
-				<%-- 	<c:set var="str" value="" /> --%>
+				 	<%-- <c:set var="str" value="" />  --%>
 						<c:forEach var="t" items="${tourList}" varStatus="statusNum">
-					<%-- <c:forEach var="i" items="${tourImgList}" varStatus="status">
-							<c:if test="${i.tour_num != str }"> --%>
+					<%--  <c:forEach var="i" items="${tourImgList}" varStatus="status">
+							<c:if test="${i.tour_num != str }">  --%>
 								<figure class="effect-marley">
-									<img src="images/벌레.png" alt="img11" />
+									<img src="images/벌레.png" alt="img11" width=480px" height="300px" />
 									<!-- 이미지 주소를 넣는 공간입니다^^ -->
 
 									<figcaption>
 										<h2>
-											${status.index}<span><c:out value="${t.name}" /></span>
+											<span><c:out value="${t.name}" /></span>
 										</h2>
 										<p>
 											<c:out value="${t.address}" />
@@ -132,10 +132,9 @@
 										<a href="TourInfoCon?tourNum=${t.num}">View more</a>
 									</figcaption>
 								</figure>
-
-							<%-- </c:if>
-							<c:set var="str" value="${i.tour_num}" /> --%>
-						<%-- </c:forEach> --%>
+							<%--  </c:if>
+							<c:set var="str" value="${i.tour_num}" />
+						 </c:forEach>  --%>
 					</c:forEach>
 				</div>
 			

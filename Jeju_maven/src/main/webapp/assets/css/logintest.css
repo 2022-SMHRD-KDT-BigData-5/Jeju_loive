@@ -96,3 +96,23 @@ body::before {
     font-size: 15px; color:#999;
     text-decoration: none;
 }
+span {
+	color: white;
+	padding: 20px 10px 10px;
+}
+
+.join-area {
+    width: 400px; position: relative;
+    margin-top: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.join-area input {
+    width: 50%; height: 50px;
+    background: #d96014;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    border-radius: 25px;
+}
