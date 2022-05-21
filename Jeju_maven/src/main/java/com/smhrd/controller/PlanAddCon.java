@@ -48,18 +48,15 @@ public class PlanAddCon extends HttpServlet {
 			inplanDAO dao = new inplanDAO();
 			
 			//생성자에 추가할 값 담아주기
-			inplan inplan = new inplan(plan_num, inplan_name, tour_num, mem_id);
+			/* inplan inplan = new inplan(plan_num, inplan_name, tour_num, mem_id); */
 			
 			//플래너에 일정 추가하기(메서드 사용)
-			int cnt = dao.insertPlan(inplan);
-			if(cnt>0) {
-				System.out.println("inplan저장 성공");
-				response.sendRedirect("tour_att.jsp");
-			}else {
-				System.out.println("inplan저장 실패");
-				response.sendRedirect("main.jsp");
-			}
-			
+			/*
+			 * int cnt = dao.insertPlan(inplan); if(cnt>0) {
+			 * System.out.println("inplan저장 성공"); response.sendRedirect("tour_att.jsp");
+			 * }else { System.out.println("inplan저장 실패"); response.sendRedirect("main.jsp");
+			 * }
+			 */
 			
 			
 		}

@@ -41,5 +41,19 @@ public class inplan {
 		return plan_date;
 	}
 	
+
+	
+	public inplan(String inplan_name, String mem_id) {
+		super();
+		this.inplan_name = inplan_name;
+		this.mem_id = mem_id;
+	}
+	public void setInplan_name(String inplan_name) {
+		this.inplan_name = inplan_name;
+	}
+	public void setMem_id(String mem_id) {
+		this.mem_id = mem_id;
+	}
+	
 	
 }
