@@ -165,7 +165,7 @@
 		            	
 		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');"/>
 		                <input type="button" value="임시저장" onclick="setInPlan();">
-		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="submitItem();" />
+		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="getInPlan();" />
 		               
 		            </div>
 		        </div>
@@ -220,6 +220,7 @@
 			           for(i=0; i<numList.length; i++){
 							$(document).ready(createItem(nameList[i], numList[i], addList[i]));
 						}
+			           return numList;
 					});
 			
 	</script>
