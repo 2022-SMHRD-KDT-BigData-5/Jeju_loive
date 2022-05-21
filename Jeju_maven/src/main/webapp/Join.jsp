@@ -108,13 +108,13 @@ body {
 
 							</div>
 
-							<div class="mb-4"></div>
+							<div class="mb-4">
 							<button class="btn btn-primary btn-lg btn-block" type="submit">가입
 								완료</button>
 							<br> <br> <a href="main.jsp">
 							<input type="button"
 								value="메인페이지로" class="primary"></a>
-						
+						</div>
 					</div>
 				</div>
 			</div>
