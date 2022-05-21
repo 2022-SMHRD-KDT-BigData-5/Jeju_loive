@@ -15,12 +15,17 @@
         body{
     font-size: 12px;
     line-height: 16px;
-   
+    background-image: url("./images/inplanbg.png");
+   background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+   	
 }
 
 
 h1{
     text-align: center;
+    font-size : 50px;
 }
 
 
@@ -44,12 +49,15 @@ h1{
 }
 
 #main_plan{
+	position : relative;
     width: 1000px;
     height: 1200px;
-    border : 1px solid orange;
+    
     padding: 20px 30px;
     margin: 0 auto;
     margin-bottom : 30px;
+    z-index: 2;
+    background-color : 	#FFFFF0;
 }
 
 #main_plan li{
@@ -69,6 +77,7 @@ h1{
     position: relative;
     cursor: pointer;
     overflow: hidden;
+    
     
 }
 
@@ -156,10 +165,10 @@ strong{
     width:100%;
     height: 100%px;
     position: absolute;
-    background: lightblue;
+   
     z-index: 1;
     -webkit-transition: all .5s ease;
-    bottom: 0px;
+    bottom: -6px;
     overflow: hidden;
 
 }
@@ -170,10 +179,10 @@ strong{
 
 .imgDescDiv{
     width: 100%;
-    height: 10px;
-    padding: 10px;
-    color: #FFFFFF;
-    background: #f2cbf2;
+    height: 25px;
+    padding: 5px;
+    color: black;
+    background: white;
     position: absolute;
     bottom: 0px;
 }
@@ -204,14 +213,28 @@ figure{
 
 .dayPlan{
 	margin-top: 50px;
+	font-size
 	
 	
 
 }
 
 #menuBlock{
-margin-bottom : 30px;
+	margin-bottom : 30px;
 }
+
+.logo{
+	
+	position: absolute;
+	left : 80%;
+	top : -140px;
+	z-index: 1;
+	 
+	 
+
+}
+
+
     </style>
 
   </head>
@@ -236,8 +259,11 @@ margin-bottom : 30px;
   </header>
     <div  class = "dayPlan"><h1> 1일차 플랜</h1></div>
 	
-	<div> <a class="logo" href="main.jsp"><span><img src="images/logo2.png" alt="logo"></span></a></div>
+	
+	
+	
     <div id = "main_plan">
+    <div> <a class="logo" href="main.jsp"><span><img src="images/logo2.png" alt="logo"></span></a></div>
         <ul class = "list_theme">
             <li class = "theme_itme">
                 <div class="imgBoxDiv">
