@@ -14,7 +14,6 @@
 	List<review> ReviewList = dao.selectReview(tour_num);
 	pageContext.setAttribute("ReviewList", ReviewList);
 	tour tourInfo = (tour)session.getAttribute("tourInfo");
-	List<String> inPlanList = (List<String>)session.getAttribute("inPlan");
 
 %>
 <!DOCTYPE html>
@@ -107,11 +106,6 @@
 
 			<h2>무엇을 적으면 좋을까요</h2>
 		
-			<div class="content">
-			<a href="PlanAddCon?tourNum=${tourInfo.getNum()}">플래너에 추가하기</a>
-			
-	   	 	</div>
-	    	
 			<br>
 			
 			<div>
@@ -163,20 +157,16 @@
 			<!-- item : input태그 내에 작성된 내용 -->
 			<!-- createItem() : tour_name,tour_num,tour_add 값 입력받아 tour_name은 출력해주고, num과 address는 저장해줌 -->
 			
-			<form action="PlanAddCon" method="post">
+			<form action="PlanInsertCon" method="post">
+			여행일을 선택해주세요 >> <input type="date" name="plan_date"><br/><br/>
 		        <div>
 		            <div style="float:left;width:100px;">아이템 추가 :</div>
 		            <div style="clar:both;">
 		            	
 		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');"/>
 		                <input type="button" value="임시저장" onclick="setInPlan();">
-		                <input type="submit" id="submitItem" value="내 플래너에 추가하기" onclick="submitItem();" />
+		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="submitItem();" />
 		               
-		                
-		              
-						
-		                
-		                
 		            </div>
 		        </div>
 		        <br />
