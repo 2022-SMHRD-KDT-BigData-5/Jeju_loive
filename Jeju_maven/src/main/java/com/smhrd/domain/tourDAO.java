@@ -1,5 +1,6 @@
 package com.smhrd.domain;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -93,6 +94,26 @@ public class tourDAO {
 			tour tourInfo = null;
 			try {
 				tourInfo = sqlSession.selectOne("com.smhrd.domain.tourDAO.selectTourInfo", tourNum);
+				
+				if(tourInfo!=null) {
+					sqlSession.commit();
+				}else {
+					sqlSession.rollback();
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				sqlSession.close();
+			}
+			return tourInfo;
+		}
+		public tour selectTourInfo2(BigDecimal tourNum) {
+			SqlSession sqlSession = sqlSessionFactory.openSession();
+			
+			tour tourInfo = null;
+			try {
+				tourInfo = sqlSession.selectOne("com.smhrd.domain.tourDAO.selectTourInfo2", tourNum);
 				
 				if(tourInfo!=null) {
 					sqlSession.commit();

@@ -1,5 +1,38 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.math.BigDecimal"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="com.smhrd.domain.tour"%>
+<%@page import="com.smhrd.domain.tourDAO"%>
+<%@page import="com.smhrd.domain.Member"%>
+<%@page import="com.smhrd.domain.inplanDAO"%>
+<%@page import="com.smhrd.domain.inplan"%>
+<%@page import="java.util.List"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	inplanDAO dao = new inplanDAO();
+	tourDAO dao2= new tourDAO();
+	String mem_id ="11";
+	List<tour> tourList = new ArrayList<tour>();
+	List<inplan> inplanList = dao.selectAllPlan(mem_id);
+
+	for(int i =0;i<inplanList.size();i++){
+		BigDecimal tournum = inplanList.get(i).getTour_num();
+		System.out.println(tournum);
+		tour tourInfo = dao2.selectTourInfo2(tournum);
+		System.out.println(tourInfo.getAddress());
+		tourList.add(tourInfo);
+		System.out.println(tourList.get(0).getAddress());
+	}
+	pageContext.setAttribute("tourList",tourList);
+	
+	
+	
+	int num=0; 
+%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +44,28 @@
     		icon?family=Material+Icons|Material+Icons+Sharp|Material+Icons+Two+Tone|Material+Icons+Outlined"
     		rel="stylesheet">
     	
+    	 <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="assets/css/maintest.css" />
+</head>
+    	
+    	
 <style>
+
+
+
         body{
     font-size: 12px;
     line-height: 16px;
@@ -248,30 +302,49 @@ figure{
 	background-color: rgb(255,255,255,0);
 }
 
-
+.p-0{
+	background-color : #FFFFF0;
+	color : #FFFFF0;
+}
 
     </style>
-
+	
   </head>
 
   <body>
   
-  <header>
-  	<br><header id="menuBlock">
-		<nav>
-			<ul>
-				<li><a href="main.jsp">main</a></li>
-				<li><a href="tour_att.jsp">tour</a></li>
-				<li><a href="planner.jsp">planner</a></li>
-				<li><a href="diary1.jsp">diary</a></li>
-				<li><a href="board.jsp">board</a></li>
-				<!--<li><a href="#elements">Elements</a></li>-->
-			</ul>
-				
-			</nav>
-			
+  <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="main.jsp" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-paper-plane"></i> 제주살앙</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="main.jsp" class="nav-item nav-link active">Home</a>
+                    <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
+                    <a href="planner.jsp" class="nav-item nav-link">플래너</a>
+                    <a href= "diary1.jsp" class="nav-item nav-link">다이어리</a>
+                    <a href= "board.jsp" class="nav-item nav-link">게시판</a>
+                </div>
+               <nav>
+                <c:choose>
+                  <c:when test="${empty loginMember}">
+                     <a href="logintest.jsp" class="btn btn-primary py-2 px-4 d-none d-lg-block">login</a>
+                  </c:when>
+                  <c:otherwise>
+                     <a href="LogoutCon" class="btn btn-primary py-2 px-4 d-none d-lg-block">logout</a>
+                  </c:otherwise>
+               </c:choose>
+               </nav>
+                </div>
+               
+                 </nav>
+            </div>
+        
   
-  </header>
     <div  class = "dayPlan"><h1> 1일차 플랜</h1></div>
 	
 	
@@ -283,114 +356,30 @@ figure{
     <img src="images/left.png" class = "leftPage"> <!--이전 플래너로 넘어 가기  -->
     
     
-    
-    
-    
-    
-    
-    
+    	<c:forEach var="t" items="${tourList}" varStatus="status">
         <ul class = "list_theme">
             <li class = "theme_itme">
                 <div class="imgBoxDiv">
-
                     <a href="#" class="theme_thumb">
                         <div class = "imgDiv"><img src="./images/yeonhee-VWLhifg5VMA-unsplash.jpg"></div>
                         <div class = "imgDescDiv">별점 들어가라</div>
-
-                        
                         <span class="thumb_bd"></span>
                     </a>
                 </div>
-
-                <strong calss = "title elss">점심</strong>
-                <p class = "desc">"오늘의 점심은 무엇을 먹을지 의문입니다 이거 프로젝트 맞아요? 하면서 의문이 들면서 이게 내가 할 수 있는 범위 인가 생각이 들면서 기간내에 할 수 있을지도 의문이면서"</p>
-
-            
-
+                <strong calss = "title elss"><%=tourList.get(num).getName() %></strong>
+                <p class = "desc"><%=tourList.get(num).getAddress() %></p>
                 <div class="source_box">
                     <span class="reviewDate">후기 날짜</span>
                     <span class="source">
-                        <span class = "source_inner"> 랜덤 후기 가능한가요?</span>
-                        </div>
+                        <span class = "source_inner"> <%=tourList.get(num).getAddress() %></span>
+                 </div>
                         
             </li>
-            <li class = "theme_itme">
-                <div class="imgBoxDiv">
-
-                    <a href="#" class="theme_thumb">
-                        <div class = "imgDiv"><img src="./imgaes/yeonhee-VWLhifg5VMA-unsplash.jpg"></div>
-                        <div class = "imgDescDiv">별점 들어가라</div>
-
-                        
-                        <span class="thumb_bd"></span>
-                    </a>
-                </div>
-
-                <strong calss = "title elss">점심</strong>
-                <p class = "desc">"오늘의 점심은 무엇을 먹을지 의문입니다 이거 프로젝트 맞아요? 하면서 의문이 들면서 이게 내가 할 수 있는 범위 인가 생각이 들면서 기간내에 할 수 있을지도 의문이면서"</p>
-
-            
-
-                <div class="source_box">
-                    <span class="reviewDate">후기 날짜</span>
-                    <span class="source">
-                        <span class = "source_inner"> 랜덤 후기 가능한가요?</span>
-                        </div>
-                        
-            </li>
-
-            <li class = "theme_itme">
-                <div class="imgBoxDiv">
-
-                    <a href="#" class="theme_thumb">
-                        <div class = "imgDiv"><img src="./imgaes/yeonhee-VWLhifg5VMA-unsplash.jpg"></div>
-                        <div class = "imgDescDiv">별점 들어가라</div>
-
-                        
-                        <span class="thumb_bd"></span>
-                    </a>
-                </div>
-
-                <strong calss = "title elss">점심</strong>
-                <p class = "desc">"오늘의 점심은 무엇을 먹을지 의문입니다 이거 프로젝트 맞아요? 하면서 의문이 들면서 이게 내가 할 수 있는 범위 인가 생각이 들면서 기간내에 할 수 있을지도 의문이면서"</p>
-
-            
-
-                <div class="source_box">
-                    <span class="reviewDate">후기 날짜</span>
-                    <span class="source">
-                        <span class = "source_inner"> 랜덤 후기 가능한가요?</span>
-                        </div>
-                        
-            </li>
-
-            <li class = "theme_itme">
-                <div class="imgBoxDiv">
-
-                    <a href="#" class="theme_thumb">
-                        <div class = "imgDiv"><img src="./imgaes/yeonhee-VWLhifg5VMA-unsplash.jpg"></div>
-                        <div class = "imgDescDiv">별점 들어가라</div>
-
-                        
-                        <span class="thumb_bd"></span>
-                    </a>
-                </div>
-
-                <strong calss = "title elss">점심</strong>
-                <p class = "desc">"오늘의 점심은 무엇을 먹을지 의문입니다 이거 프로젝트 맞아요? 하면서 의문이 들면서 이게 내가 할 수 있는 범위 인가 생각이 들면서 기간내에 할 수 있을지도 의문이면서"</p>
-
-            
-
-                <div class="source_box">
-                    <span class="reviewDate">후기 날짜</span>
-                    <span class="source">
-                        <span class = "source_inner"> 랜덤 후기 가능한가요?</span>
-                        </div>
-                        
-            </li>
-
         </ul>
-
+        <%num++; %>
+        </c:forEach>
+	</div>
+	
   </body>
 
 
