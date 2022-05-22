@@ -3,7 +3,12 @@ package com.smhrd.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -37,17 +42,53 @@ public class PlanInsertCon extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		Member loginMember = (Member)session.getAttribute("loginMember");
-		String planDate = request.getParameter("plan_date");
-		String[] items = request.getParameterValues("item");
-		
-		
-		
+		inplanDAO dao = new inplanDAO();
 		
 		if(loginMember==null) {
 			//로그인 하지 않은 경우
 			System.out.println("로그인이 필요한 작업입니다.");
-			response.sendRedirect("Join.jsp");
+			response.sendRedirect("jointest.jsp");
 		}else {
+			//로그인 한 경우
+			//로그인 한 사용자의 id
+			String mem_id = loginMember.getId();
+			//사용자가 설정한 tour_name
+			String[] items = request.getParameterValues("item");
+			//plan_num에 저장할 plan_date
+			String planDateStr = request.getParameter("plan_date");
+			System.out.println(planDateStr);
+			Date planDate = Date.valueOf(planDateStr);
+			//사용자가 저장한 tour_num목록들
+			String[] tourNumStr = request.getParameterValues("tourNum");
+			String[] tourAdd = request.getParameterValues("tourAdd");
+
+			//잘 담겼나 테스트해보기><
+			for(int i=0; i<tourNumStr.length; i++) {System.out.print(tourNumStr[i]);}
+			
+			//tourNum을 BigDecimal로 바꾸기
+			List<Integer> tourNumInt=null;
+			for(int i=0; i<tourNumStr.length; i++) {
+				tourNumInt.add(Integer.parseInt(tourNumStr[i]));
+			}
+			List<BigDecimal> tourNum = null;
+			for(int i=0; i<tourNumInt.size(); i++) {
+				tourNum.add(new BigDecimal(tourNumInt.get(i)));
+			}
+			
+			
+			for(int i=0; i<tourNum.size(); i++) {
+				inplan inplan = new inplan(items[i], tourNum.get(i), mem_id, planDate);
+				int cnt = dao.insertInplan(inplan);
+					if(cnt>0) {
+						System.out.println(i+"번째 inplan 입력 성공");
+					}else {
+						System.out.println(i+"번째 inplan 입력 실패");
+					}
+			}
+			
+			
+			
+			response.sendRedirect("planner.jsp");
 			
 			
 			

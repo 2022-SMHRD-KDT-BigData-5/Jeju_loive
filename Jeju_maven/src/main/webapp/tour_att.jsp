@@ -9,7 +9,6 @@
 	List<tour> tourList = dao.selectTourList();
 	pageContext.setAttribute("tourList", tourList);
 	List<tour> tourImgList = dao.selectTourImgList();
-
 	pageContext.setAttribute("tourImgList", tourImgList);
 	int num=1;
 	
@@ -93,7 +92,7 @@
 		
 			<header class="codrops-header">
 				<h1>
-					attraction<span>관광지에 대한 정보를 추천해주는 메뉴입니다.</span>
+					ATTRACTION<span>관광지에 대한 정보를 추천해주는 메뉴입니다.</span>
 				</h1>
 				<nav class="codrops-demos">
 
@@ -112,16 +111,14 @@
 
 		<h2 id="sh">가즈아</h2>
 			<div class="grid">
-
 <%-- 			<h1><%=tourImgList.get(1).getT_add() %></h1> --%>
 				 	<%-- <c:set var="str" value="" />  --%>
 						<c:forEach var="t" items="${tourList}" varStatus="statusNum">
 					<%--  <c:forEach var="i" items="${tourImgList}" varStatus="status">
 							<c:if test="${i.tour_num != str }">  --%>
 								<figure class="effect-marley">
-									<img src="images/벌레.png" alt="img11" width=480px" height="300px" />
+									<img src="${t.img }" alt="img11" width=480px" height="300px" />
 									<!-- 이미지 주소를 넣는 공간입니다^^ -->
-
 									<figcaption>
 										<h2>
 											<span><c:out value="${t.name}" /></span>
