@@ -47,7 +47,7 @@ public class PlanInsertCon extends HttpServlet {
 		if(loginMember==null) {
 			//로그인 하지 않은 경우
 			System.out.println("로그인이 필요한 작업입니다.");
-			response.sendRedirect("Join.jsp");
+			response.sendRedirect("jointest.jsp");
 		}else {
 			//로그인 한 경우
 			//로그인 한 사용자의 id
