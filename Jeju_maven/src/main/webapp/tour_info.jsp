@@ -120,9 +120,10 @@
 	    	
 			<br>
 			
-			<div>
+			<div><%-- 
+			<%=ImgList.get(0)%> --%>
 			<c:forEach var="i" items="${ImgList}" varStatus="status">
-					<img src="${i}" alt="img11" />
+					<img src="${i}" alt="img11" width="300px" height="200px"/>
 				</c:forEach>
 			<c:forEach var="r" items="${ReviewList}" varStatus="status">
 				

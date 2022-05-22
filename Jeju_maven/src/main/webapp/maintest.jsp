@@ -70,7 +70,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
-                    <a href="main.jsp" class="nav-item nav-link active">Home</a>
+                    <a href="maintest.jsp" class="nav-item nav-link active">Home</a>
                     <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
                     <a href="planner.jsp" class="nav-item nav-link">플래너</a>
                     <a href= "diary1.jsp" class="nav-item nav-link">다이어리</a>
@@ -270,6 +270,8 @@
 								
                 </p>
             </div>
+            </div>
+            </div>
            
     <!-- Footer End -->
 
@@ -291,13 +293,13 @@
     <script src="mail/contact.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="assets/js/maintest.js"></script>
     
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/maintest.js"></script>
 
 	<!-- 전화번호 하이픈(-) 자동입력  JS -->
     <script>
@@ -306,7 +308,7 @@
          });
          
     </script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 
 </html>

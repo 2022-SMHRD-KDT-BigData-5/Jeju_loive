@@ -73,14 +73,15 @@
 	
 	
 	
-		<div class="container">
+		<div class="container" id="flex_cont">
+		<div id="tour_div">
 			<!-- Top Navigation -->
-			<div class="codrops-top clearfix">
+			<!-- <div class="codrops-top clearfix">
 				<a class="codrops-icon codrops-icon-prev" href="main.jsp"><span>메인으로 돌아가기</span></a>
 				<span class="right"><a class="codrops-icon codrops-icon-drop" href="planner.jsp"><span>플래너 생성하기</span></a></span>
-			</div>
+			</div> -->
 			<header class="codrops-header">
-				<h1>Food<span>관광지에 대한 정보를 추천해주는 메뉴입니다.</span></h1>
+				<h1>RESTAURANT<span>관광지에 대한 정보를 추천해주는 메뉴입니다.</span></h1>
 				<nav class="codrops-demos">
 	
 					<a  href="tour_att.jsp">관광지</a>
@@ -93,55 +94,58 @@
 
 			<h2>냠냠</h2>
 			<div class="grid">
-
-				<c:forEach var="f" items="${foodList}" varStatus="status">
-
-					<figure class="effect-marley">
-
-						<img src="images/벌레.png" alt="img11" />
-						<figcaption>
-							<h2>
-								<span><c:out value="${f.name}" /></span>
-
-							</h2>
-							<p>
-								<c:out value="${f.address}" />
-							</p>
-							<a href="TourInfoCon?tourNum=${f.num}">View more</a>
-						</figcaption>
-					</figure>
-				</c:forEach>
+<%-- <c:set var="str" value="" />  --%>
+						<c:forEach var="f" items="${foodList}" varStatus="statusNum">
+					<%--  <c:forEach var="i" items="${tourImgList}" varStatus="status">
+							<c:if test="${i.tour_num != str }">  --%>
+								<figure class="effect-marley">
+									<img src="${f.img }" alt="img11" width=480px" height="300px" />
+									<!-- 이미지 주소를 넣는 공간입니다^^ -->
+									<figcaption>
+										<h2><span><c:out value="${f.name}" /></span></h2>
+										<p><c:out value="${f.address}" /></p>
+										<a href="TourInfoCon?tourNum=${f.num}">View more</a>
+								</figcaption></figure>
+							<%--  </c:if>
+							<c:set var="str" value="${i.tour_num}" />
+						 </c:forEach>  --%>
+					</c:forEach>
 			</div>
 
 
-			<h2>한식</h2>
-				<div class="grid">
-					<figure class="effect-marley">
-						<img src="images/1.jpg" alt="img11"/>
-						<figcaption>
-							<h2>Sweet <span><%=foodList.get(0).getName() %></span></h2>
-							<p>Marley tried to convince her but she was not interested.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-					<figure class="effect-marley">
-						<img src="images/1.jpg" alt="img12"/>
-						<figcaption>
-							<h2>Sweet <span>Marley</span></h2>
-							<p>Marley tried to convince her but she was not interested.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-				</div>
-						
 					
 				</div>
 			</div>
-			<nav class="codrops-demos">
+			</div>
+			
+			
+			<div class="content">
+		
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			<h2>플래너가 출력되는 공간입니다.</h2>
+			
+			
+		</div>
+		</div>
+		<nav class="codrops-demos">
 					<a  href="tour_att.jsp">관광지</a>
 					<a class="current-demo" href="tour_food.jsp">음식점</a>
 					<a href="tour_cafe.jsp">카페</a>
 			</nav>
+			
 			<!-- Related demos -->
 			<section class="related">
 				
@@ -156,5 +160,6 @@
 				el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
 			} );
 		</script>
+		
 	</body>
 </html>

@@ -8,10 +8,8 @@
       select * from inplan where mem_id=#{mem_id} 
    </select>
    
-
-   
-   <insert id="insertPlan" parameterType="com.smhrd.domain.inplan">
-   		insert into inplan values(pk_seq.nextval, #{plan_num}, #{inplan_name}, #{tour_num}, #{mem_id})
+   <insert id="insertInplan" parameterType="com.smhrd.domain.inplan">
+   		insert into inplan values(pk_seq.nextval, #{inplan_name}, #{tour_num}, #{mem_id}, #{plan_date})
    </insert>
    
 </mapper>

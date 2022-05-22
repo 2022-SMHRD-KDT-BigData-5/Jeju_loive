@@ -7,17 +7,19 @@ public class tour {
 	private BigDecimal num;
 	private String name;
 	private String address;
+	private String img;
 	private BigDecimal tour_num;
 	private BigDecimal t_num;
 	private String t_add;
 	
 	
 	//생성자
-	public tour(BigDecimal num, String name, String address) {
+	public tour(BigDecimal num, String name, String address, String img) {
 		super();
 		this.num = num;
 		this.name = name;
 		this.address = address;
+		this.img = img;
 		
 	}
 	public BigDecimal getNum() {
@@ -28,6 +30,9 @@ public class tour {
 	}
 	public String getAddress() {
 		return address;
+	}
+	public String getImg() {
+		return img;
 	}
 	
 	

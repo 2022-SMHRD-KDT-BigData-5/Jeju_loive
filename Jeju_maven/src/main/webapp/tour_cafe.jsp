@@ -88,22 +88,18 @@ pageContext.setAttribute("cafeList", cafeList);
 		
 			<header class="codrops-header">
 				<h1>
-					attraction<span>관광지에 대한 정보를 추천해주는 메뉴입니다.</span>
+					DESSERT<span>관광지에 대한 정보를 추천해주는 메뉴입니다.</span>
 				</h1>
 				<nav class="codrops-demos">
 
-			</nav>
-
-		</div><!-- /container -->
+<!--  container-->
 		<script>
 			// For Demo purposes only (show hover effect on mobile devices)
 			[].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
 				el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
 			} );
 		</script>
-	</body>
 
-		</header>
 
 					<a href="tour_att.jsp">관광지</a>
 					<a href="tour_food.jsp">음식점</a>
@@ -112,51 +108,38 @@ pageContext.setAttribute("cafeList", cafeList);
 				</nav>
 			</header>
 		
-		
-		
-
 		<div class="content">
 		
 
 		
 		<h2>츄릅</h2>
-			<div class="grid">
-			
-			<c:forEach var="c" items="${cafeList}" varStatus="status">
-				
-				<figure class="effect-marley">
-				
-					<img src="images/벌레.png" alt="img11" />
-					<figcaption>
-						<h2>
-							<span><c:out value="${c.name}"/></span>
-							
-						</h2>
-						<p><c:out value="${c.address}"/></p>
-						<a href="TourInfoCon?tourNum=${c.num}">View more</a>
-						
-					</figcaption>
-				</figure>
-			</c:forEach>
+			<div class="grid">	
+			<%-- <c:set var="str" value="" />  --%>
+						<c:forEach var="c" items="${cafeList}" varStatus="statusNum">
+					<%--  <c:forEach var="i" items="${tourImgList}" varStatus="status">
+							<c:if test="${i.tour_num != str }">  --%>
+								<figure class="effect-marley">
+									<img src="${c.img }" alt="img11" width=480px" height="330px" />
+									<!-- 이미지 주소를 넣는 공간입니다^^ -->
+									<figcaption>
+										<h2><span><c:out value="${c.name}" /></span>
+										</h2>
+										<p><c:out value="${c.address}" />
+										</p>
+										<a href="TourInfoCon?tourNum=${c.num}">View more</a>
+									</figcaption>
+								</figure>
+							<%--  </c:if>
+							<c:set var="str" value="${i.tour_num}" />
+						 </c:forEach>  --%>
+					</c:forEach>
 			</div>
 		
-		
-
-			<h2>관광지 카테고리2</h2>
-			<div class="grid">
-				<figure class="effect-marley">
-					<img src="images/벌레.png" alt="img11" />
-					<figcaption>
-						<h2>
-							진짜 멋있는<span>금오름</span>
-						</h2>
-						<p>관광지의 주소가 출력되는 곳입니다.</p>
-						<a href="#">View more</a>
-					</figcaption>
-				</figure>
-			</div>
 
 		</div>
+		
+
+		
 		</div>
 		
 		
@@ -184,7 +167,6 @@ pageContext.setAttribute("cafeList", cafeList);
 		</div>
 		</div>
 
-	</div>
 	<nav class="codrops-demos">
 					<a href="tour_att.jsp">관광지</a>
 					<a href="tour_food.jsp">음식점</a>
@@ -192,7 +174,7 @@ pageContext.setAttribute("cafeList", cafeList);
 	</nav>
 	<!-- Related demos -->
 	<section class="related"></section>
-	</div>
+	
 	<!-- /container -->
 	<script>
 		// For Demo purposes only (show hover effect on mobile devices)
