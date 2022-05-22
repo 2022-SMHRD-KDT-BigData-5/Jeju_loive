@@ -90,16 +90,10 @@ public class inplanDAO {
 				sqlSession.close();
 			}
 			
-<<<<<<< HEAD
-=======
 			return cnt;
 			
 			
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 		}
 
 }
 	
-	
-
-

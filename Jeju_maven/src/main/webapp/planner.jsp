@@ -2,12 +2,14 @@
 <%@page import="com.smhrd.domain.inplanDAO"%>
 <%@page import="com.smhrd.domain.inplan"%>
 <%@page import="java.util.List"%>
+<%@page import="java.math.BigDecimal"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	inplanDAO dao = new inplanDAO();
-	String mem_id ="11";
+	String mem_id ="123";
 	List<inplan> inplanList = dao.selectAllPlan(mem_id);
 	pageContext.setAttribute("inplanList",inplanList);
 
@@ -20,7 +22,6 @@
    <meta name="description" content="Hover Effect Ideas: Inspiration for subtle hover effects" />
       <meta name="keywords" content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
       <meta name="author" content="Codrops" />
-      <link rel="shortcut icon" href="../favicon.ico">
       <link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
       <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
       <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
@@ -31,7 +32,6 @@
       <script src = "https://code.jquery.com/jquery-3.6.0.min.js"></script>
       
        	 <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -45,7 +45,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link rel="stylesheet" href="assets/css/maintest.css" />
-      
+     <link rel="shortcut icon" href="#">
       
       		<style>
 		.soohyeon{
@@ -106,9 +106,9 @@
         <figure class="effect-ming">
             <img src="images/yeonhee-VWLhifg5VMA-unsplash.jpg" alt="yeonhee-VWLhifg5VMA-unsplash"/>
             <figcaption>
-                <h2><span><c:out value="${i.inplan_num}"/></span></h2>
-                <p><c:out value="${i.tour_num}"/></p>
-                <a href="inplan.jsp">View more</a>
+                <h2><span><c:out value="${i.inplan_name}"/></span></h2>
+                <p><c:out value="${i.inplan_name}"/></p>
+                <a href="#">View more</a>
             </figcaption>
             </figure>         
 	</c:forEach>
@@ -127,7 +127,7 @@
         })
     
    
-</script> 
+</script>  
 </body>
 
 

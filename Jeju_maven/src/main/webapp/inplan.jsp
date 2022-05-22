@@ -29,7 +29,7 @@
 	
 	
 	
-	int num=0;
+	int num=0; 
 %>
 
 
@@ -371,7 +371,7 @@ figure{
                 <div class="source_box">
                     <span class="reviewDate">후기 날짜</span>
                     <span class="source">
-                        <span class = "source_inner"> 랜덤 후기 가능한가요?</span>
+                        <span class = "source_inner"> <%=tourList.get(num).getAddress() %></span>
                  </div>
                         
             </li>
