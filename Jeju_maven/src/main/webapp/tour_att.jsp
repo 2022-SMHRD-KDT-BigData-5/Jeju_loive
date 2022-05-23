@@ -27,24 +27,24 @@
 <meta name="keywords"
 	content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
 <meta name="author" content="Codrops" />
-<link rel="shortcut icon" href="../favicon.ico">
+
 <link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300'
 	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
-<link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="assets/css/dragdrop.css" />
 <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
 <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script><!-- 지도만드는녀석^^지수꼬! 건들면 나 화낸다~-^-(빠직) -->
 <script src="assets/js/dragdrop.js"></script>
 <!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<!-- Favicon -->
+ <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
 
     <!-- Google Web Fonts -->
@@ -59,6 +59,9 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link rel="stylesheet" href="assets/css/maintest.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+	
+	
 <style>
 	#flex_cont{display:flex;}
 	#tour_div{width:70%;}
@@ -112,7 +115,7 @@
     <!-- Navbar Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
-            <a href="main.jsp" class="navbar-brand ml-lg-3">
+            <a href="maintest.jsp" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-paper-plane"></i> 제주살앙</h1>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -120,8 +123,8 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
-                    <a href="maintest.jsp" class="nav-item nav-link active">Home</a>
-                    <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
+                    <a href="maintest.jsp" class="nav-item nav-link">Home</a>
+                    <a href="tour_att.jsp" class="nav-item nav-link active">투어</a>
                     <a href="planner.jsp" class="nav-item nav-link">플래너</a>
                     <a href= "diary1.jsp" class="nav-item nav-link">다이어리</a>
                     <a href= "board.jsp" class="nav-item nav-link">게시판</a>
@@ -140,11 +143,10 @@
                
                  </nav>
             </div>
-        </nav>
-    </div>
+     
     <!-- Navbar End -->
 
-	<div class="container" id="flex_cont">
+	<div class="flex-container" id="flex_cont">
 	
 	
 		<div id="tour_div">
@@ -254,6 +256,9 @@
 <div id="map" style="width:100%;height:350px;"></div>
 
 
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
 	<!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
@@ -267,13 +272,12 @@
     <script src="mail/contact.js"></script>
 
     <!-- Template Javascript -->
-    <script src="assets/js/maintest.js"></script>
-    
+        
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
-    <script src="assets/js/maintest.js"></script>
+    <script src="assets/js/main.js"></script>
 
 
 
@@ -585,5 +589,31 @@
 			
 	</script>
 
+	 <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="assets/js/maintest.js"></script>
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/maintest.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+	
 </body>
 </html>

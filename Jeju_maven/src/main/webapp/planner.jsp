@@ -1,6 +1,6 @@
 <%@page import="com.smhrd.domain.Member"%>
-<%@page import="com.smhrd.domain.inplanDAO"%>
-<%@page import="com.smhrd.domain.inplan"%>
+<%@page import="com.smhrd.domain.plannerDAO"%>
+<%@page import="com.smhrd.domain.planner"%>
 <%@page import="java.util.List"%>
 <%@page import="java.math.BigDecimal"%>
 <%@page import="java.util.Date"%>
@@ -8,10 +8,11 @@
     pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
-	inplanDAO dao = new inplanDAO();
-	String mem_id ="11";
-	List<inplan> inplanList = dao.selectAllPlan(mem_id);
-	pageContext.setAttribute("inplanList",inplanList);
+	plannerDAO dao = new plannerDAO();
+	Member loginMember = (Member)session.getAttribute("loginMember");
+	String mem_id = loginMember.getId();
+	List<planner> plannerList = dao.selectPlanner(mem_id);
+	pageContext.setAttribute("plannerList",plannerList);
 
 %>
 <!DOCTYPE html>
@@ -105,9 +106,9 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
-                    <a href="maintest.jsp" class="nav-item nav-link active">Home</a>
+                    <a href="maintest.jsp" class="nav-item nav-link">Home</a>
                     <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
-                    <a href="planner.jsp" class="nav-item nav-link">플래너</a>
+                    <a href="planner.jsp" class="nav-item nav-link active">플래너</a>
                     <a href= "diary1.jsp" class="nav-item nav-link">다이어리</a>
                     <a href= "board.jsp" class="nav-item nav-link">게시판</a>
                 </div>
@@ -136,13 +137,13 @@
    <div><h2 class="plan">Planner</h2></div>
 	
     <div class="grid">
-	<c:forEach var = "i" items="${inplanList}" varStatus="status">
+	<c:forEach var = "p" items="${plannerList}" varStatus="status">
         <figure class="effect-ming">
             <img src="images/yeonhee-VWLhifg5VMA-unsplash.jpg" alt="yeonhee-VWLhifg5VMA-unsplash"/>
             <figcaption>
-                <h2><span><c:out value="${i.inplan_name}"/></span></h2>
-                <p><c:out value="${i.plan_date}"/></p>
-                <a href="inplan.jsp?date=${i.plan_date}">View more</a>
+                <h2><span><c:out value="${p.plan_name}"/></span></h2>
+                <p><c:out value="${p.plan_date}"/></p>
+                <a href="inplan.jsp?plan_date=${p.plan_date}&mem_id=${p.mem_id}">View more</a>
             </figcaption>
             </figure>         
 	</c:forEach>
@@ -150,7 +151,7 @@
 	
 	
 	
-     <button id ="btn1">+</button>
+   <!--   <button id ="btn1">+</button>
    
    <script>
     
@@ -162,6 +163,9 @@
     
    
 </script>  
+
+ -->
+
 </body>
 
 

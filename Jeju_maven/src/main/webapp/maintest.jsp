@@ -28,17 +28,7 @@
     <link rel="stylesheet" href="assets/css/maintest.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
     
-    <script>
-    $("#slideshow > div:gt(0)").hide();
-    setInterval(function(){
-    	$("#slideshow > div.first")
-    	.fadeOut(1000)
-    	.next()
-    	.fadeIn(1000)
-    	.end()
-    	.appendTo('#slideshow');
-    }, 3000);
-    </script>
+   
     
 </head>
 
@@ -88,7 +78,7 @@
                     <a href="maintest.jsp" class="nav-item nav-link active">Home</a>
                     <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
                     <a href="planner.jsp" class="nav-item nav-link">플래너</a>
-                    <a href= "diaryMain.jsp" class="nav-item nav-link">다이어리</a>
+                    <a href= "diary1.jsp" class="nav-item nav-link">다이어리</a>
                     <a href= "board.jsp" class="nav-item nav-link">게시판</a>
                 </div>
                <nav>
@@ -310,13 +300,12 @@
     <script src="mail/contact.js"></script>
 
     <!-- Template Javascript -->
-    <script src="assets/js/maintest.js"></script>
     
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
-    <script src="assets/js/maintest.js"></script>
+    <script src="assets/js/main.js"></script>
 
 	<!-- 전화번호 하이픈(-) 자동입력  JS -->
     <script>
