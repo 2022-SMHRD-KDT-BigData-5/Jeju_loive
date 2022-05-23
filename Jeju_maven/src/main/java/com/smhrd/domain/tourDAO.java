@@ -132,6 +132,8 @@ public class tourDAO {
 		
 		//사용자의 하루 여행목록 받아오는 메서드
 		public List<tour> selectTour(inplan inplan) {
+			
+			
 			SqlSession sqlSession = sqlSessionFactory.openSession();
 			List<tour> tourList = null;
 			try {
@@ -240,28 +242,6 @@ public class tourDAO {
 			}
 			return cafeImgList;
 		}
-		
-		
-		public List<tour> inplanTourList(inplan inplan) {
-			SqlSession sqlSession = sqlSessionFactory.openSession();
-			List<tour> inplanTourList = null;
-			try {
-				inplanTourList = sqlSession.selectList("com.smhrd.domain.tourDAO.inplanTourList",inplan);
-			
-		     if (inplanTourList != null) {
-		            sqlSession.commit();
-		            System.out.println("입력 성공");
-		         } else {
-		            sqlSession.rollback();
-		            System.out.println("입력 실패");
-		         }
-		      } catch (Exception e) {
-		         e.printStackTrace();
-		      } finally {
-		         sqlSession.close();
-		      }
-		      return inplanTourList;
-		   }
 		
 		
 		

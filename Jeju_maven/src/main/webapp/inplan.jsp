@@ -15,15 +15,15 @@
 	
 	tourDAO dao = new tourDAO();
 	Member loginMember = (Member)session.getAttribute("loginMember");
-	Timestamp plan_date = Timestamp.valueOf("2022-07-25 00:00:00");
+	Timestamp plan_date = Timestamp.valueOf("2022-05-13 00:00:00");
 	String mem_id = loginMember.getId();
 	inplan inplan=new inplan(mem_id, plan_date);	
-	List<tour> inplanTourList = dao.inplanTourList(inplan);
+	List<tour> inplanTourList = dao.selectTour(inplan);
 	pageContext.setAttribute("inplanTourList",inplanTourList);
-	
+
 	System.out.println(inplanTourList.get(1).getName());
 	System.out.println(inplanTourList.get(1).getAddress());
-%>
+	%>
 
 
 <!DOCTYPE html>
