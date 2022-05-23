@@ -43,6 +43,7 @@ public class inplan {
 	public Timestamp getPlan_date() {
 		return plan_date;
 	}
+<<<<<<< HEAD
 	
 
 	
@@ -52,16 +53,22 @@ public class inplan {
 		this.plan_date = plan_date;
 	}
 	public inplan(String inplan_name, String mem_id) {
+=======
+	public inplan(String mem_id, Timestamp plan_date) {
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 		super();
-		this.inplan_name = inplan_name;
 		this.mem_id = mem_id;
-	}
-	public void setInplan_name(String inplan_name) {
-		this.inplan_name = inplan_name;
+		this.plan_date = plan_date;
 	}
 	public void setMem_id(String mem_id) {
 		this.mem_id = mem_id;
 	}
+	public void setPlan_date(Timestamp plan_date) {
+		this.plan_date = plan_date;
+	}
+	
+
+	
 	
 	
 }
