@@ -33,11 +33,11 @@
 <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
-<link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="assets/css/dragdrop.css" />
 <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
 <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script><!-- 지도만드는녀석^^지수꼬! 건들면 나 화낸다~-^-(빠직) -->
 <script src="assets/js/dragdrop.js"></script>
@@ -123,8 +123,8 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
-                    <a href="maintest.jsp" class="nav-item nav-link active">Home</a>
-                    <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
+                    <a href="maintest.jsp" class="nav-item nav-link">Home</a>
+                    <a href="tour_att.jsp" class="nav-item nav-link active">투어</a>
                     <a href="planner.jsp" class="nav-item nav-link">플래너</a>
                     <a href= "diary1.jsp" class="nav-item nav-link">다이어리</a>
                     <a href= "board.jsp" class="nav-item nav-link">게시판</a>
@@ -624,5 +624,6 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/maintest.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+	
 </body>
 </html>
