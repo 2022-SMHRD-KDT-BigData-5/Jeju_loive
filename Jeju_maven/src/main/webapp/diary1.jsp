@@ -17,10 +17,27 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
+		<link rel="stylesheet" href="assets/css/maintest.css" />
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 		 <link href="https://fonts.googleapis.com/
     		icon?family=Material+Icons|Material+Icons+Sharp|Material+Icons+Two+Tone|Material+Icons+Outlined"
     		rel="stylesheet">
+    		<!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/a\jax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="assets/css/maintest.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
     	
 		<!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -42,19 +59,54 @@
 	</style>
 	</head>
 	<body>
-	
-		<br><header id="menuBlock">
+	 <!-- Topbar Start -->
+    <div class="container-fluid bg-dark">
+        <div class="row py-2 px-lg-5">
+            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-white pl-2" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="maintest.jsp" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-paper-plane"></i> 제주살앙</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="maintest.jsp" class="nav-item nav-link active">Home</a>
+                    <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
+                    <a href="planner.jsp" class="nav-item nav-link">플래너</a>
+                    <a href= "diary1.jsp" class="nav-item nav-link">다이어리</a>
+                    <a href= "board.jsp" class="nav-item nav-link">게시판</a>
+                </div>
 		<nav>
-			<ul>
-				<li><a href="main.jsp">main</a></li>
-				<li><a href="tour_att.jsp">tour</a></li>
-				<li><a href="planner.jsp">planner</a></li>
-				<li><a href="diary1.jsp">diary</a></li>
-				<li><a href="board.jsp">board</a></li>
-				<!--<li><a href="#elements">Elements</a></li>-->
-			</ul>
-			
-		
 			<c:choose>
                   <c:when test="${empty loginMember}">
                      <a href="LoginCon" class="m"><span class="material-symbols-outlined">login</span></a>
@@ -64,16 +116,19 @@
                   </c:otherwise>
                </c:choose>
 		</nav>
-	</header>
+		</div>
+		</nav>
+		
+	</div>
 	
 		
 		
 		<div class="container">
 			<!-- Top Navigation -->
-			<div class="codrops-top clearfix">
+			<!-- <div class="codrops-top clearfix">
 				<a class="logo" href="main.jsp"><span><img src="images/logo3.png" alt="logo"></span></a>
 				
-			</div>
+			</div> -->
 			<header class="codrops-header">
 				<h1><span>너와 나의 memory..</span></h1>
 				<nav class="codrops-demos">
@@ -421,5 +476,29 @@
 				el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
 			} );
 		</script>
+		 <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="assets/js/maintest.js"></script>
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/maintest.js"></script>
 	</body>
 </html>
