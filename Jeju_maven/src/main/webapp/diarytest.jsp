@@ -1,7 +1,46 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.domain.diaryAlbum"%>
+<%@page import="java.sql.Timestamp"%>
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.domain.diaryDAO"%>
+<%@page import="com.smhrd.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
+<%
+diaryDAO dao= new diaryDAO();
+Member loginMember = (Member)session.getAttribute("loginMember");
+List<String> tripday=null;
+List<String> albumlist=null;
+List<String> testList = new ArrayList<String>();
+SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+String realday="";
+if(loginMember != null){
+	
+	String id= loginMember.getId();
+	tripday=dao.selectDiaryDay(id);
+	System.out.println(tripday.size());
+	for(int i=0;i<tripday.size();i++){
+		 String day=tripday.get(i);
+		 
+		 Timestamp timestamp = Timestamp.valueOf(day);
+		 diaryAlbum album= new diaryAlbum(timestamp,id);
+		 albumlist=dao.selectAlbum(album);
+		 
+		 System.out.println(albumlist.get(0));
+		 testList.add(albumlist.get(0));
+		 
+		 
+	}
+	
+	
+	System.out.println(testList.size());
+	System.out.println(testList.get(0));
+	System.out.println(testList.get(1));
+}
+%>
 <html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8" />
@@ -139,15 +178,9 @@
 		
 			<header class="codrops-header">
 				<h1>
-					ATTRACTION<span>관광지에 대한 정보를 추천해주는 메뉴입니다.</span>
+					Diary<span>My Diary.</span>
 				</h1>
-				<nav class="codrops-demos">
-
-					<a href="#" class="current-demo">관광지</a>
-					<a href="tour_food.jsp">음식점</a>
-					<a href="tour_cafe.jsp">카페</a>
-
-				</nav>
+				
 			</header>
 		
 		
@@ -156,31 +189,38 @@
 		
 		<!-- 관광지 정보 반복출력 -->
 
-		<h2 id="sh">가즈아</h2>
+		<h2 id="sh">내 추억들</h2>
 			<div class="grid">
-
-						<c:forEach var="t" items="${tourList}" varStatus="status">
-					
+			
+						<%
+						if(tripday!=null){
+						for(int i=0;i<tripday.size();i++){
+							String day=tripday.get(i);
+							 
+							Timestamp timestamp = Timestamp.valueOf(day);
+							realday = sdf1.format(timestamp);
+						
+						%>
 								<figure class="effect-marley">
-									<img src="${t.img}" alt="img11" width=480px" height="300px" />
+									<img src="<%=testList.get(i) %>" alt="img11" width=480px" height="300px" />
 									<!-- 이미지 주소를 넣는 공간입니다^^ -->
 									<figcaption>
 										<h2>
-											<span><c:out value="${t.name}" /></span>
+											<span>"<%=realday %></span>
 										</h2>
 										<p>
-											<c:out value="${t.address}" />
+											<%=realday %>
 										</p>
-										<a href="TourInfoCon?tourNum=${t.num}">View more</a>
+										<a href="diaryDetailCon?dia_tripday=<%=realday%>">View more</a>
 									</figcaption>
 								</figure>
-							
-					</c:forEach>
+					
+					<% }}%>
 				</div>
 			
 			</div>
 	</div>
-	
+
 	
 		<!-- ---------------------------~~지금부터 플래너 공간~~-------------------------- -->
 	
@@ -203,7 +243,9 @@
 		
 		<div class="content">
 			
-			
+			<!-- itemNum : 박스 번호 -->
+			<!-- item : input태그 내에 작성된 내용 -->
+			<!-- createItem() : tour_name,tour_num,tour_add 값 입력받아 tour_name은 출력해주고, num과 address는 저장해줌 -->
 			
 			<form action="PlanInsertCon" method="post" id = "planInsert">
 			여행일을 선택해주세요 >> <input type="date" name="plan_date"><br/><br/>
