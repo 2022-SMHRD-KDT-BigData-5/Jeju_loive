@@ -27,14 +27,17 @@
                 </div>
             </div>
             <div class = "int-area">
-                <input type = "password" name = "j_pw" id = "j_pw" autocomplete="off" required>
-                <label for ="j_pw">password</label>
+                <input type = "password" name = "j_pw" id = "j_pw" class = "pw" autocomplete="off" required>
+                <label for ="j_pw">비밀번호</label>
                 
             </div>
             <div class = "int-area">
-                <input type = "password" name = "j_pwck" id = "j_pwck" autocomplete="off" required>
+                <input type = "password" name = "j_pwck" id = "j_pwck" class = "pw" autocomplete="off" required>
                 <label for ="j_pwck">비밀번호를 다시한번 입력해주세요</label>
-                
+                <span id="alert-success" style="display: none;">비밀번호가 일치합니다.</span>
+    			<span id="alert-danger" style="display: none; color: #d92742; font-weight: bold; ">비밀번호가 일치하지 않습니다.</span>
+</div>
+  
             </div>
 
             <div class = "int-area">
@@ -99,7 +102,7 @@
 			})
 		}
 	</script>
-	<script src="assets/js/main.js"></script>
+	
 
  <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
