@@ -9756,6 +9756,15 @@ input[type="date"] {
 	color: #2879c1;
 	width: 300px;
 }
-input #addItem{
-	
+.w-btn-red-outline:hover {
+    background-color: #ff5f2e;
+    color: #e1eef6;
+}
+.w-btn-outline:hover {
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.w-btn-outline:active {
+    transform: scale(1.5);
 }
