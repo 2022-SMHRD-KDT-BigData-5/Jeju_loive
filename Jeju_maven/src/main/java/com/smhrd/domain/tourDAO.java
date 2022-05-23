@@ -109,6 +109,8 @@ public class tourDAO {
 			}
 			return tourInfo;
 		}
+		
+		
 		public tour selectTourInfo2(BigDecimal tourNum) {
 			SqlSession sqlSession = sqlSessionFactory.openSession();
 			

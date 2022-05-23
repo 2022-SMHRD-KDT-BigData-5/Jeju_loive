@@ -20,20 +20,20 @@ public class diaryCon extends HttpServlet {
 
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String text=request.getParameter("text");
+		String text=request.getParameter("content");
 		String date = request.getParameter("date");
+		String head= request.getParameter("head");
 		date=date+" "+"00:00:00.0";
 		System.out.print(date);
 		Timestamp timestamp = Timestamp.valueOf(date);
 		
-		String head= request.getParameter("head");
-		String sub=request.getParameter("sub");
-		int page=Integer.parseInt(request.getParameter("page"));
-		BigDecimal pagenum = new BigDecimal(page);
+		
+		
 		HttpSession session = request.getSession();
 		Member loginMember=(Member)session.getAttribute("loginMember");
 		String id=loginMember.getId();
-		diary diary=new diary(pagenum,head,timestamp,pagenum,timestamp,id,text,sub);
+		BigDecimal k= new BigDecimal(1);
+		diary diary=new diary(k,head,timestamp,id,text);
 		diaryDAO dao= new diaryDAO();
 		int cnt=dao.insertDiary(diary);
 		if (cnt > 0) {
@@ -42,7 +42,7 @@ public class diaryCon extends HttpServlet {
          } else {
         	 System.out.print("다이어리 실패");
          }
-		response.sendRedirect("diaryHome.jsp");
+		response.sendRedirect("diaryMain.jsp");
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.smhrd.domain;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -29,13 +30,13 @@ public class diaryDAO {
 		      return cnt;
 		   }
 			//사용자 정보로 다이어리 가져오는 메서드
-			public List<diary> selectDiary(String mem_id) {
+			public diary selectDiary(diary d) {
 				SqlSession sqlSession = sqlSessionFactory.openSession();
-				List<diary> diaryList = null;
+				diary diary = null;
 				
 				try {
-					diaryList = sqlSession.selectList("com.smhrd.domain.diaryDAO.selectDiary",mem_id);
-			     if (diaryList != null) {
+					diary = sqlSession.selectOne("com.smhrd.domain.diaryDAO.selectDiary",d);
+			     if (diary != null) {
 			            sqlSession.commit();
 			            
 			         } else {
@@ -47,8 +48,54 @@ public class diaryDAO {
 			      } finally {
 			         sqlSession.close();
 			      }
-			      return diaryList;
+			      return diary;
 			   }
+			public List<String> selectDiaryDay(String id) {
+				SqlSession sqlSession = sqlSessionFactory.openSession();
+				List<String> tripday=null;
+				
+				try {
+					tripday = sqlSession.selectList("com.smhrd.domain.diaryDAO.selectDiaryDay",id);
+			     if (tripday != null) {
+			            sqlSession.commit();
+			            
+			         } else {
+			            sqlSession.rollback();
+			            
+			         }
+			      } catch (Exception e) {
+			         e.printStackTrace();
+			      } finally {
+			         sqlSession.close();
+			      }
+			      return tripday;
+			   }
+			
+			public List<String> selectAlbum(diaryAlbum album) {
+				   SqlSession sqlSession = sqlSessionFactory.openSession();
+				   List<String> albumlist = null;
+				   try {
+					   
+					   	 albumlist = sqlSession.selectList("com.smhrd.domain.diaryDAO.selectAlbum", album);
+				         
+				         if (albumlist != null) {
+				            sqlSession.commit();
+				         } else {
+				            sqlSession.rollback();
+				         }
+				      } catch (Exception e) {
+				         e.printStackTrace();
+				      } finally {
+				         sqlSession.close();
+				      }
+				      return albumlist;
+				   }
+			
+			
+			
+			
+			
+			
 			//다이어리 내용 업데이트
 			public int updateDiary(diary diary) {
 				  SqlSession sqlSession = sqlSessionFactory.openSession();
