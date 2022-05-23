@@ -287,7 +287,9 @@
 		var getAdds =[];
 		getAdds = localStorage.getItem('tourAdd');
 		addList = getAdds.split(",");
-
+		var getNames =[];
+		getNames = localStorage.getItem('tourName');
+		nameList = getNames.split(",");
 
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		    mapOption = {
@@ -303,7 +305,7 @@
 
 		
 		
-		function addMaker(addr){
+		function addMaker(addr,namel){
 			
 			// 주소로 좌표를 검색합니다
 			geocoder.addressSearch(addr, function(result, status) {
@@ -323,7 +325,7 @@
 
 			        // 인포윈도우로 장소에 대한 설명을 표시합니다
 			        var infowindow = new kakao.maps.InfoWindow({
-			            content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+			            content: '<div style="width:150px;text-align:center;padding:6px 0;">'+namel+'</div>'
 			        });
 			        infowindow.open(map, marker);
 
@@ -569,8 +571,7 @@
 			            
 			           for(i=0; i<numList.length; i++){
 							$(document).ready(createItem(nameList[i], numList[i], addList[i]));
-						
-							addMaker(addList[i]);
+							addMaker(addList[i],nameList[i]);
 			           }
 			           
 			           
