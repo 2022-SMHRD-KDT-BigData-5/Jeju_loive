@@ -171,6 +171,7 @@
 		<!-- 관광지 정보 반복출력 -->
 
 		<h2 id="sh">가즈아</h2>
+		<div id = "page1">
 			<div class="grid">
 <%-- 			<h1><%=tourImgList.get(1).getT_add() %></h1> --%>
 				 	<%-- <c:set var="str" value="" />  --%>
@@ -198,7 +199,7 @@
 			
 			</div>
 	</div>
-	
+	</div>
 	
 		<!-- ---------------------------~~지금부터 플래너 공간~~-------------------------- -->
 	
@@ -225,8 +226,8 @@
 			<!-- item : input태그 내에 작성된 내용 -->
 			<!-- createItem() : tour_name,tour_num,tour_add 값 입력받아 tour_name은 출력해주고, num과 address는 저장해줌 -->
 			
-			<form action="PlanInsertCon" method="post" id = "planInsert">
-			여행일을 선택해주세요 >> <input type="date" name="plan_date"><br/><br/>
+			<form action="PlanInsertCon" method="post">
+			여행일을 선택해주세요 >> <input type="date" name="plan_date"  id = "planInsert"><br/><br/>
 		        <div>
 		            <div style="float:left;width:100px;">아이템 추가 :</div>
 		            <div style="clar:both;">
