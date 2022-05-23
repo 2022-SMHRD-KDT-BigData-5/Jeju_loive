@@ -501,7 +501,9 @@
 						}
 					};
 			
-			
+			         function removeInplan(){
+			             window.localStorage.clear();
+			          }
 			
 			
 	</script>
