@@ -174,7 +174,7 @@
 			<div class="grid">
 <%-- 			<h1><%=tourImgList.get(1).getT_add() %></h1> --%>
 				 	<%-- <c:set var="str" value="" />  --%>
-						<c:forEach var="t" items="${tourList}" varStatus="statusNum">
+						<c:forEach var="t" items="${tourList}" varStatus="status">
 					<%--  <c:forEach var="i" items="${tourImgList}" varStatus="status">
 							<c:if test="${i.tour_num != str }">  --%>
 								<figure class="effect-marley">
