@@ -16,10 +16,11 @@ Member loginMember = (Member)session.getAttribute("loginMember");
 String mem_id = loginMember.getId();
 System.out.print(mem_id);
 Timestamp plan_date = Timestamp.valueOf("2022-07-25 00:00:00");
-System.out.print(plan_date);
 inplan inplan= new inplan(mem_id,plan_date);
 
 List<tour> planAddList = tdao.selectTour(inplan);
+
+System.out.print(planAddList);
 pageContext.setAttribute("planAddList",planAddList);
 
 
@@ -41,7 +42,7 @@ System.out.print(planAddList.get(1).getName());
 
 <script>
 var positions = [""];
-<%-- console.log("<%=planAddList.get(0)%>") --%>
+console.log("<%=planAddList.get(0)%>")
 <% for(int i =0; i< planAddList.size(); i++){%>
 positions.push("<%=planAddList.get(i).getAddress()%>")
 

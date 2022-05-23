@@ -46,9 +46,17 @@
 	</select>
  -->
 
-   <select id="selectTour" parameterType="com.smhrd.domain.inplan" resultType="com.smhrd.domain.tour">
+   <select id="inplanTourList" parameterType="com.smhrd.domain.inplan" resultType="com.smhrd.domain.tour">
+      select * from tour
+<<<<<<< HEAD
+      where tour_num in (select tour_num from inplan where mem_id=#{mem_id} plan_date = ${plan_date})
+=======
+      where tour_num in (select tour_num from inplan where mem_id = #{mem_id} and plan_date = #{plan_date})
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
+   </select>
+
+<select id="selectTour" parameterType="com.smhrd.domain.inplan" resultType="com.smhrd.domain.tour">
       select * from tour
       where tour_num in (select tour_num from inplan where mem_id=#{mem_id} plan_date = ${plan_date})
    </select>
-
 </mapper>
