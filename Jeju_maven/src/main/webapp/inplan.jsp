@@ -60,10 +60,10 @@
         body{
     font-size: 12px;
     line-height: 16px;
-    background-image: url("./images/inplanbg.png");
    background-position: center;
+   	background-color : #F6F6F6;
 	background-size: cover;
-	background-repeat: no-repeat;
+	
    	
 }
 
@@ -277,21 +277,7 @@ figure{
 }
 
 
-.rightPage{
-	position : absolute;
-	right : -120px;
-	top : 35%;
-	border-radius: 70%;
-	background-color: rgb(255,255,255,0);
-}
 
-.leftPage{
-	position : absolute;
-	left : -120px;
-	top : 35%;
-	border-radius: 70%;
-	background-color: rgb(255,255,255,0);
-}
 
 .p-0{
 	background-color : #FFFFF0;
@@ -342,9 +328,7 @@ figure{
 	
     <div id = "main_plan">
     <div> <a class="logo" href="main.jsp"><span><img src="images/logo2.png" alt="logo"></span></a></div>
-    <img src="images/right.png" class = "rightPage"> <!--다음 플래너로 넘어 가기  -->
-    <img src="images/left.png" class = "leftPage"> <!--이전 플래너로 넘어 가기  -->
-    
+   
     
         <ul class = "list_theme">
     	<c:forEach var="t" items="${inplanTourList}" varStatus="status">
