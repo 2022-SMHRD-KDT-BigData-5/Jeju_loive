@@ -7,29 +7,21 @@
 <%@page import="com.smhrd.domain.inplanDAO"%>
 <%@page import="com.smhrd.domain.inplan"%>
 <%@page import="java.util.List"%>
+<%@page import="java.sql.Timestamp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	inplanDAO dao = new inplanDAO();
-	tourDAO dao2= new tourDAO();
-	String mem_id ="11";
-	List<tour> tourList = new ArrayList<tour>();
-	List<inplan> inplanList = dao.selectAllPlan(mem_id);
-
-	for(int i =0;i<inplanList.size();i++){
-		BigDecimal tournum = inplanList.get(i).getTour_num();
-		System.out.println(tournum);
-		tour tourInfo = dao2.selectTourInfo2(tournum);
-		System.out.println(tourInfo.getAddress());
-		tourList.add(tourInfo);
-		System.out.println(tourList.get(0).getAddress());
-	}
-	pageContext.setAttribute("tourList",tourList);
 	
+	tourDAO dao = new tourDAO();
+	String mem_id = "11";
+	Timestamp plan_date = Timestamp.valueOf("2022-07-25 00:00:00");
+	inplan inplan=new inplan(mem_id, plan_date);
+	List<tour> inplanTourList = dao.inplanTourList(inplan);
+	pageContext.setAttribute("inplanTourList",inplanTourList);
 	
-	
-	int num=0; 
+	System.out.println(inplanTourList.get(1).getName());
+	System.out.println(inplanTourList.get(1).getAddress());
 %>
 
 
@@ -312,7 +304,6 @@ figure{
   </head>
 
   <body>
-  
   <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
             <a href="main.jsp" class="navbar-brand ml-lg-3">
@@ -356,9 +347,12 @@ figure{
     <img src="images/left.png" class = "leftPage"> <!--이전 플래너로 넘어 가기  -->
     
     
-    	<c:forEach var="t" items="${tourList}" varStatus="status">
         <ul class = "list_theme">
+        <%=inplanTourList.get(1).getName() %>
+    	<c:forEach var="t" items="${inplanTourList}" varStatus="status">
+    		
             <li class = "theme_itme">
+   
                 <div class="imgBoxDiv">
                     <a href="#" class="theme_thumb">
                         <div class = "imgDiv"><img src="./images/yeonhee-VWLhifg5VMA-unsplash.jpg"></div>
@@ -366,18 +360,17 @@ figure{
                         <span class="thumb_bd"></span>
                     </a>
                 </div>
-                <strong calss = "title elss"><%=tourList.get(num).getName() %></strong>
-                <p class = "desc"><%=tourList.get(num).getAddress() %></p>
+                <strong calss = "title elss"> <c:out value ="${t.name}"/> </strong>
+                <p class = "desc"></p>
                 <div class="source_box">
                     <span class="reviewDate">후기 날짜</span>
                     <span class="source">
-                        <span class = "source_inner"> <%=tourList.get(num).getAddress() %></span>
+                        <span class = "source_inner"> <c:out value="${t.address}"/></span>
                  </div>
-                        
             </li>
-        </ul>
-        <%num++; %>
         </c:forEach>
+        
+        </ul>
 	</div>
 	
   </body>

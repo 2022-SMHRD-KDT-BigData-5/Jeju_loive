@@ -242,6 +242,29 @@ public class tourDAO {
 		}
 		
 		
+		public List<tour> inplanTourList(inplan inplan) {
+			SqlSession sqlSession = sqlSessionFactory.openSession();
+			List<tour> inplanTourList = null;
+			try {
+				inplanTourList = sqlSession.selectList("com.smhrd.domain.tourDAO.inplanTourList",inplan);
+			
+		     if (inplanTourList != null) {
+		            sqlSession.commit();
+		            System.out.println("입력 성공");
+		         } else {
+		            sqlSession.rollback();
+		            System.out.println("입력 실패");
+		         }
+		      } catch (Exception e) {
+		         e.printStackTrace();
+		      } finally {
+		         sqlSession.close();
+		      }
+		      return inplanTourList;
+		   }
+		
+		
+		
 		}
 
 

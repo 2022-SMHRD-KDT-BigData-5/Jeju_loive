@@ -46,6 +46,11 @@ public class inplan {
 	
 
 	
+	public inplan(String mem_id, Timestamp plan_date) {
+		super();
+		this.mem_id = mem_id;
+		this.plan_date = plan_date;
+	}
 	public inplan(String inplan_name, String mem_id) {
 		super();
 		this.inplan_name = inplan_name;
