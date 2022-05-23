@@ -114,17 +114,14 @@
                
                  </nav>
             </div>
-        </nav>
-    </div>
+       
+   
     <!-- Navbar End -->
 	
 
 <div class="container">
 			<!-- Top Navigation -->
-			<div class="codrops-top clearfix">
-				<a class="codrops-icon codrops-icon-prev" href="main.jsp"><span>메인으로 돌아가기</span></a>
-				<span class="right"><a class="codrops-icon codrops-icon-drop" href="maintest.jsp"><span>로그아웃</span></a></span>
-			</div>
+			
 			<header class="codrops-header">
 				<h1>BOARD <span></span><br></h1>
 				<nav class="codrops-demos">
@@ -144,7 +141,7 @@
 						<h2>다이어리<span>클릭하긔</span></h2>
 							<c:choose>
 			                  <c:when test="${empty loginMember}">
-			                     <a href="main.jsp#login">View more</a>
+			                     <a href="maintest.jsp#login">View more</a>
 			                  </c:when>
 			                  <c:otherwise>
 			                     <a href="diary1.jsp">View more</a>
@@ -167,7 +164,7 @@
 								Member loginM = null;
 								loginM=(Member)session.getAttribute("loginMember");
 								/* if(loginM != null){
-									response.sendRedirect("Join.jsp");
+									response.sendRedirect("jointest.jsp");
 								} */
 								
 							%>
@@ -184,7 +181,7 @@
 							<h2>다이어리<span>클릭하긔</span></h2>
 							<c:choose>
 			                  <c:when test="${empty loginMember}">
-			                     <a href="main.jsp#login">View more</a>
+			                     <a href="maintest.jsp#login">View more</a>
 			                  </c:when>
 			                  <c:otherwise>
 			                     <a href="diary1.jsp">View more</a>
@@ -224,7 +221,7 @@
 					location.href= "diary1.jsp";
 				}
 				else{
-					location.href= "main.jsp#login";
+					location.href= "maintest.jsp#login";
 				}
 			})
 		</script>

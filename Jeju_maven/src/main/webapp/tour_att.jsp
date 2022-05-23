@@ -569,7 +569,9 @@
 						}
 			};
 			
-			
+			         function removeInplan(){
+			             window.localStorage.clear();
+			          }
 			
 			
 			//임시플랜 제출시 localStorage 삭제
