@@ -16,7 +16,7 @@
    </insert>
    
    <insert id="insertPlanner" parameterType="com.smhrd.domain.plan">
-   		insert into plan values(pk_seq.nextval, "플래너의 이름을 작성해주세요.", #{plan_date}, #{mem_id} )
+   		insert into plan(plan_num, plan_date, mem_id) values(pk_seq.nextval, #{plan_date}, #{mem_id} )
    </insert>
    
 </mapper>
