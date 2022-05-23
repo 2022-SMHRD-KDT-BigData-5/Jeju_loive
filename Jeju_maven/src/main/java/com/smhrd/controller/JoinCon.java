@@ -37,11 +37,11 @@ public class JoinCon extends HttpServlet {
 			//회원가입한 회원의 정보중에서 email을 넘겨 페이지 이동
 			//fowarding방식으로 정보 담기
 			//response.sendRedirect("JoinSuccess.jsp");
-			RequestDispatcher rd = request.getRequestDispatcher("JoinSuccess.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("JoinSuccessTest.jsp");
 			request.setAttribute("joinId", id);
 			request.setAttribute("joinName", name);
 			rd.forward(request, response);
-			response.sendRedirect("main.jsp");
+			response.sendRedirect("maintest.jsp");
 					
 			
 		}else {  	//회원가입 실패

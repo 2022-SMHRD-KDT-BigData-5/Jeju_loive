@@ -10,6 +10,7 @@
 	pageContext.setAttribute("tourList", tourList);
 	List<tour> tourImgList = dao.selectTourImgList();
 	pageContext.setAttribute("tourImgList", tourImgList);
+	tour tourInfo = (tour)session.getAttribute("tourInfo");
 	int num=1;
 	
 
@@ -34,18 +35,33 @@
 <link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="assets/css/dragdrop.css" />
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="assets/js/dragdrop.js"></script>
 <!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+		<!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/a\jax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="assets/css/maintest.css" />
 <style>
 	#flex_cont{display:flex;}
-	#tour_div{
-		width:70%;
-	}
-	#plan_div{
-		width:20%
-		background-color:red;
-	}
+	#tour_div{width:70%;}
+	#plan_div{width:20%;}
 	.soohyeon{
 		position: fixed;
         right: 20px;
@@ -62,28 +78,70 @@
 
 <body>
 	
-	
+<!-- Topbar Start -->
+    <div class="container-fluid bg-dark">
+        <div class="row py-2 px-lg-5">
+            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-white pl-2" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
 
-	<header id="menuBlock">
-		<nav>
-			<ul>
-				<li><a href="main.jsp">main</a></li>
-				<li><a href="tour_att.jsp">tour</a></li>
-				<li><a href="planner.jsp">planner</a></li>
-				<li><a href="diary1.jsp">diary</a></li>
-				<li><a href="board.jsp">board</a></li>
-				<!--<li><a href="#elements">Elements</a></li>-->
-			</ul>
-			<c:choose>
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="main.jsp" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-paper-plane"></i> 제주살앙</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="maintest.jsp" class="nav-item nav-link active">Home</a>
+                    <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
+                    <a href="planner.jsp" class="nav-item nav-link">플래너</a>
+                    <a href= "diary1.jsp" class="nav-item nav-link">다이어리</a>
+                    <a href= "board.jsp" class="nav-item nav-link">게시판</a>
+                </div>
+               <nav>
+                <c:choose>
                   <c:when test="${empty loginMember}">
-                     <a href="Join.jsp" class="soohyeon">login</a>
+                     <a href="logintest.jsp" class="btn btn-primary py-2 px-4 d-none d-lg-block">login</a>
                   </c:when>
                   <c:otherwise>
-                     <a href="LogoutCon" class="soohyeon">logout</a>
+                     <a href="LogoutCon" class="btn btn-primary py-2 px-4 d-none d-lg-block">logout</a>
                   </c:otherwise>
                </c:choose>
-		</nav>
-	</header>
+               </nav>
+                </div>
+               
+                 </nav>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
 
 	<div class="container" id="flex_cont">
 	
@@ -137,25 +195,15 @@
 			
 			</div>
 	</div>
-		
-		
-		<nav class="codrops-demos">
-				<a href="#" class="current-demo">관광지</a>
-				<a href="tour_food.jsp">음식점</a>
-				<a href="tour_cafe.jsp">카페</a>
-
-		</nav>
-		
-		</div>
-		
-		
+	
+	
 		<!-- ---------------------------~~지금부터 플래너 공간~~-------------------------- -->
-		
-		
+	
+	
 		<div id="plan_div">
 			<header class="codrops-header">
 				<h1>
-					Plan<span>Plan에 대한 정보를 출력해주는 메뉴입니다.</span>
+					Plan<span>Plan에 대한 정보를 추천해주는 메뉴입니다.</span>
 				</h1>
 				<nav class="codrops-demos">
 
@@ -170,32 +218,56 @@
 		
 		<div class="content">
 			
-			<h2>플래너가 출력되는 공간입니다.</h2>
-			<h2>플래너가 출력되는 공간입니다.</h2>
-			<h2>플래너가 출력되는 공간입니다.</h2>
-			<h2>플래너가 출력되는 공간입니다.</h2>
-			<h2>플래너가 출력되는 공간입니다.</h2>
-			<h2>플래너가 출력되는 공간입니다.</h2>
-			<h2>플래너가 출력되는 공간입니다.</h2>
-			<h2>플래너가 출력되는 공간입니다.</h2>
-			<h2>플래너가 출력되는 공간입니다.</h2>
-			<h2>플래너가 출력되는 공간입니다.</h2>
-			<h2>플래너가 출력되는 공간입니다.</h2>
-			<h2>플래너가 출력되는 공간입니다.</h2>
-			<h2>플래너가 출력되는 공간입니다.</h2>
-			<h2>플래너가 출력되는 공간입니다.</h2>
-			<h2>플래너가 출력되는 공간입니다.</h2>
+			<!-- itemNum : 박스 번호 -->
+			<!-- item : input태그 내에 작성된 내용 -->
+			<!-- createItem() : tour_name,tour_num,tour_add 값 입력받아 tour_name은 출력해주고, num과 address는 저장해줌 -->
 			
-			
+			<form action="PlanInsertCon" method="post">
+			여행일을 선택해주세요 >> <input type="date" name="plan_date"><br/><br/>
+		        <div>
+		            <div style="float:left;width:100px;">아이템 추가 :</div>
+		            <div style="clar:both;">
+		            	
+		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}')"/>
+		                <input type="button" value="임시저장" onclick="setInPlan();"/>
+		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="getInPlan();" />
+		               
+		                
+		               
+		            </div>
+		        </div>
+		        <br />
+		        <div id="itemBoxWrap"></div>
+		    </form>
+		    
 		</div>
+		
+		
+		
+		
+		
 		</div>
-
-	</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</div> <!--  컨테이너 끝 -->
+		
+		
+		
 	
 	<!-- Related demos -->
 	<section class="related"></section>
-	</div>
-	<!-- /container -->
+
+	
+	
+	
+	
 	<script>
 		
 		let i=1;
@@ -312,5 +384,127 @@
 					});
 				});
 	</script>
+	
+<<<<<<< HEAD
+	<!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="assets/js/maintest.js"></script>
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/maintest.js"></script>
+
+	<!-- 전화번호 하이픈(-) 자동입력  JS -->
+    <script>
+    $(document).on("keyup", "#tel", function(){
+    	$(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); 
+         });
+         
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+=======
+	<!-- 드래그앤드롭 JS -->
+	<script>
+	
+	//추가 클릭시 localStorage에 값을 저장하는 함수
+	function setInPlan(){
+        //값 가져오기
+        //1) name이 item인 input태그 내의 value 가져오기
+        //2) class=tourNum, class=tourAdd인 input태그의 text값 가져오기 /
+        var tourNums=[];
+        var tourAdds=[];
+        var tourNames=[];
+        var nums=[];
+        var adds=[];
+        var names=[];
+        
+//        tourNums = document.getElementsByClassName('tourNum');
+//        tourAdds = document.getElementsByClassName('tourAdd');
+        
+        var len = $("input[name=tourNum]").length;
+        for(var i=0; i<len; i++){                          
+			tourNums[i] = $("input[name=tourNum]").eq(i).val();
+		}
+        
+        var len = $("input[name=tourAdd]").length;
+        for(var i=0; i<len; i++){                          
+			tourAdds[i] = $("input[name=tourAdd]").eq(i).val();
+		}
+        
+        
+        var len = $("input[name=item]").length;
+        for(var i=0; i<len; i++){                          
+			tourNames[i] = $("input[name=item]").eq(i).val();
+		}
+        
+        //배열에 순서대로 담기
+        for(i=0; i<tourNums.length; i++){
+        	nums.push(tourNums[i]);
+        	adds.push(tourAdds[i]);
+        	names.push(tourNames[i]);
+        }
+        
+        //확인용(콘솔창 확인)
+        console.log(nums);
+        console.log(adds);
+        console.log(names);
+        
+     	// 객체, 배열을 JSON 문자열로 변환
+        const numsString = JSON.stringify(nums);
+        const addsString = JSON.stringify(adds);
+        const namesString = JSON.stringify(names);
+		
+        //문자열로 잘 변환되었는지 확인
+        console.log(namesString);
+
+        
+		//localStorage에 배열 저장
+		window.localStorage.setItem('tourNum', nums)
+		window.localStorage.setItem('tourAdd', adds)
+		window.localStorage.setItem('tourName', names)
+		
+	}
+	
+			//페이지 이동시 localStorage의 값을 가져오는 함수(자동실행)
+			window.onload=
+					function getInPlan(){
+
+						//localStorage에서 꺼내기
+						var getNums =[];
+						var getAdds =[];
+						var getNames =[];
+					
+			         	// JSON 문자열을 객체, 배열로 변환
+			         	getNums = localStorage.getItem('tourNum');
+			         	getAdds = localStorage.getItem('tourAdd');
+			         	getNames = localStorage.getItem('tourName');
+			         	numList = getNums.split(",");
+			         	addList = getAdds.split(",");
+			         	nameList = getNames.split(",");
+			         	console.log(numList);
+			            
+			           for(i=0; i<numList.length; i++){
+							$(document).ready(createItem(nameList[i], numList[i], addList[i]));
+						}
+					};
+			
+			
+			
+			
+	</script>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 </body>
 </html>
