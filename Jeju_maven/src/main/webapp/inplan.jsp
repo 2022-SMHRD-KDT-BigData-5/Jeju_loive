@@ -19,6 +19,7 @@
 	Timestamp plan_date = Timestamp.valueOf(plan_date_Str);
 	inplan inplan=new inplan(mem_id, plan_date);	
 	List<tour> inplanTourList = dao.selectTour(inplan);
+	
 	pageContext.setAttribute("inplanTourList",inplanTourList);
 
 	%>
