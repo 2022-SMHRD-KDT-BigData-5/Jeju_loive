@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.smhrd.domain.tourDAO"%>
 <%@page import="com.smhrd.domain.Member"%>
 <%@page import="java.math.BigDecimal"%>
@@ -15,7 +16,12 @@ tourDAO tdao = new tourDAO();
 Member loginMember = (Member)session.getAttribute("loginMember");
 String mem_id = loginMember.getId();
 System.out.print(mem_id);
-Timestamp plan_date = Timestamp.valueOf("2022-07-25 00:00:00");
+
+ Timestamp plan_date = Timestamp.valueOf("2022-07-25 00:00:00");
+
+/*SimpleDateFormat sdf = new SimpleDateFormat("YY/MM/dd");
+System.out.print(sdf.format(plan_date));
+ */
 inplan inplan= new inplan(mem_id,plan_date);
 
 List<tour> planAddList = tdao.selectTour(inplan);

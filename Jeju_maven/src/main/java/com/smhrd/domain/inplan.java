@@ -11,7 +11,6 @@ public class inplan {
 	private BigDecimal tour_num;
 	private String mem_id;
 	private Timestamp plan_date;
-
 	
 	public inplan(BigDecimal inplan_num, String inplan_name, BigDecimal tour_num, String mem_id, Timestamp plan_date) {
 		super();
