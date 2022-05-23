@@ -15,9 +15,9 @@
 	
 	tourDAO dao = new tourDAO();
 	Member loginMember = (Member)session.getAttribute("loginMember");
-	String mem_id = loginMember.getId();
 	Timestamp plan_date = Timestamp.valueOf("2022-07-25 00:00:00");
-	inplan inplan=new inplan(mem_id, plan_date);
+	String mem_id = loginMember.getId();
+	inplan inplan=new inplan(mem_id, plan_date);	
 	List<tour> inplanTourList = dao.inplanTourList(inplan);
 	pageContext.setAttribute("inplanTourList",inplanTourList);
 	

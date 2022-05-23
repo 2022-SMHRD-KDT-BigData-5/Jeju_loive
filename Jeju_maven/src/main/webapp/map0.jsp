@@ -18,7 +18,7 @@ Timestamp plan_date = Timestamp.valueOf("2022-07-25 00:00:00");
 inplan inplan= new inplan(mem_id,plan_date);
 
 List<tour> planAddList = tdao.selectTour(inplan);
-System.out.print(inplan);
+System.out.print(planAddList);
 pageContext.setAttribute("planAddList",planAddList);
 
 %>
@@ -36,7 +36,7 @@ pageContext.setAttribute("planAddList",planAddList);
 
 <script>
 var positions = [""];
-<%-- console.log("<%=planAddList.get(0)%>") --%>
+console.log("<%=planAddList.get(0)%>")
 <% for(int i =0; i< planAddList.size(); i++){%>
 positions.push("<%=planAddList.get(i).getAddress()%>")
 
