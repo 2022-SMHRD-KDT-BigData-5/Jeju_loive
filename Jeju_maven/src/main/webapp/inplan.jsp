@@ -364,7 +364,7 @@ figure{
                 <p class = "desc"></p>
                 <div class="source_box">
                     <span class="reviewDate">후기 날짜</span>
-                    <span class="source">
+                    <span class="source"></span>
                         <span class = "source_inner"> <c:out value="${t.address}"/></span>
                  </div>
             </li>
@@ -372,8 +372,5 @@ figure{
         
         </ul>
 	</div>
-	
   </body>
-
-
 </html>
