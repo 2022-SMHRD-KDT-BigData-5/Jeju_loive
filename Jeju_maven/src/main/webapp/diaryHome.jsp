@@ -97,6 +97,9 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/diaryHome.css" />
+		
+		
+		
 		<style>
 			.flex_cont{display:flex;}
 			.test{
@@ -120,19 +123,19 @@
 			}
 		</style>
 	</head>
+	 
+	
 	<body class="is-preload">
-
 		<!-- Content -->
 			<div id="content">
 				<div class="inner">
-					
-					
 					<!-- Post -->
 					<c:forEach var="t" items="${diaryList}" varStatus="status">
 						
 						<article class="box post post-excerpt" id="num<%=num%>">
 						
 							<header>
+								
 								<!--
 									Note: Titles and subtitles will wrap automatically when necessary, so don't worry
 									if they get too long. You can also remove the <p> entirely if you don't
@@ -159,6 +162,9 @@
 								%>
 								</p>
 							</header>
+							
+								
+							
 							<div class="info">
 								<!--
 									Note: The date should be formatted exactly as it's shown below. In particular, the
@@ -221,6 +227,7 @@
 							
 							</form>
 							</div>
+							
 							<%}
 							else{
 								%>
@@ -323,7 +330,7 @@
 
 				</div>
 			</div>
-
+		
 	
 
 		<!-- Scripts -->
@@ -346,7 +353,7 @@
 			let i=$('.active').text();
 			let k=0;
 			
-				for(k=1;k<=5;k++){
+				for(k=1;k<=100;k++){
 					$('#num'+k).css("display" ,"none")
 				}
 				$('#num'+i).css("display" ,"inline")			
@@ -358,7 +365,7 @@
 				$('.active').eq(0).removeAttr('class');
 				
 				i=$('.active').text();
-				for(k=1;k<=5;k++){
+				for(k=1;k<=100;k++){
 					$('#num'+k).css("display" ,"none")
 				}
 				$('#num'+i).css("display" ,"inline")
@@ -370,7 +377,7 @@
 				$('.active').prev().attr('class','active');
 				$('.active').eq(1).removeAttr('class');
 				i=$('.active').text();
-				for(k=1;k<=5;k++){
+				for(k=1;k<=100;k++){
 					$('#num'+k).css("display" ,"none")
 				}
 				$('#num'+i).css("display" ,"inline")
@@ -383,7 +390,7 @@
 				$('.pages>a').removeAttr('class');
 				$('.pages>a').eq(k-1).attr('class','active');
 				i=$('.active').text();
-				for(k=1;k<=5;k++){
+				for(k=1;k<=100;k++){
 					$('#num'+k).css("display" ,"none")
 				}
 				$('#num'+i).css("display" ,"inline")
@@ -411,15 +418,15 @@
        				$('.month').text(monthchange+"월");
        				$('.day').text(daychange);
         		})
-       			$(document).on('dblclick','.firstimg',function(){
+       			$(document).on('dblclick','.test',function(){
        				$(this).before('<form method="post" enctype="multipart/form-data" action="imguChangeCon1"><input type="file" name="filename1" size=40><input type="submit" value="업로드"><br><br></form>')
        				$(this).css("display" ,"none");
         		})
-        		$(document).on('dblclick','.secondimg',function(){
+        		$(document).on('dblclick','.test2',function(){
        				$(this).before('<form method="post" enctype="multipart/form-data" action="imguChangeCon2"><input type="file" name="filename1" size=40><input type="submit" value="업로드"><br><br></form>')
        				$(this).css("display" ,"none");
         		})
-        		$(document).on('dblclick','.thirdimg',function(){
+        		$(document).on('dblclick','.test3',function(){
        				$(this).before('<form method="post" enctype="multipart/form-data" action="imguChangeCon3"><input type="file" name="filename1" size=40><input type="submit" value="업로드"><br><br></form>')
        				$(this).css("display" ,"none");
         		})

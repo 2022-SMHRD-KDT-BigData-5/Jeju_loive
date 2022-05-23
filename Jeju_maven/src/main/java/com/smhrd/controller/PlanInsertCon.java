@@ -7,6 +7,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -43,7 +44,8 @@ public class PlanInsertCon extends HttpServlet {
 		HttpSession session = request.getSession();
 		Member loginMember = (Member)session.getAttribute("loginMember");
 		inplanDAO dao = new inplanDAO();
-		
+		List<Integer> tourNumInt=new ArrayList<Integer>();
+		List<BigDecimal> tourNum = new ArrayList<BigDecimal>();
 		if(loginMember==null) {
 			//로그인 하지 않은 경우
 			System.out.println("로그인이 필요한 작업입니다.");
@@ -58,6 +60,7 @@ public class PlanInsertCon extends HttpServlet {
 			String planDateStr = request.getParameter("plan_date");
 			System.out.println(planDateStr);
 			Date planDate = Date.valueOf(planDateStr);
+			Timestamp timestamp = Timestamp.valueOf(planDateStr+" "+"00:00:00");
 			//사용자가 저장한 tour_num목록들
 			String[] tourNumStr = request.getParameterValues("tourNum");
 			String[] tourAdd = request.getParameterValues("tourAdd");
@@ -66,18 +69,19 @@ public class PlanInsertCon extends HttpServlet {
 			for(int i=0; i<tourNumStr.length; i++) {System.out.print(tourNumStr[i]);}
 			
 			//tourNum을 BigDecimal로 바꾸기
-			List<Integer> tourNumInt=null;
+			
 			for(int i=0; i<tourNumStr.length; i++) {
 				tourNumInt.add(Integer.parseInt(tourNumStr[i]));
 			}
-			List<BigDecimal> tourNum = null;
+			
 			for(int i=0; i<tourNumInt.size(); i++) {
 				tourNum.add(new BigDecimal(tourNumInt.get(i)));
+				System.out.println(tourNum.get(i));
 			}
 			
 			
 			for(int i=0; i<tourNum.size(); i++) {
-				inplan inplan = new inplan(items[i], tourNum.get(i), mem_id, planDate);
+				inplan inplan = new inplan(items[i], tourNum.get(i), mem_id, timestamp);
 				int cnt = dao.insertInplan(inplan);
 					if(cnt>0) {
 						System.out.println(i+"번째 inplan 입력 성공");
