@@ -15,4 +15,8 @@
    		insert into inplan values(pk_seq.nextval, #{inplan_name}, #{tour_num}, #{mem_id}, #{plan_date})
    </insert>
    
+   <insert id="insertPlanner" parameterType="com.smhrd.domain.plan">
+   		insert into plan values(pk_seq.nextval, "플래너의 이름을 작성해주세요.", #{plan_date}, #{mem_id} )
+   </insert>
+   
 </mapper>
