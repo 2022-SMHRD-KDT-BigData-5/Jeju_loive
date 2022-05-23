@@ -117,7 +117,7 @@
 					<%--  <c:forEach var="i" items="${tourImgList}" varStatus="status">
 							<c:if test="${i.tour_num != str }">  --%>
 								<figure class="effect-marley">
-									<img src="${t.img }" alt="img11" width=480px" height="300px" />
+									<img src="${t.img}" alt="img11" width=480px" height="300px" />
 									<!-- 이미지 주소를 넣는 공간입니다^^ -->
 									<figcaption>
 										<h2>

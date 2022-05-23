@@ -7,6 +7,9 @@
    <select id="selectAllPlan" parameterType="String" resultType="com.smhrd.domain.inplan">
       select * from inplan where mem_id=#{mem_id} 
    </select>
+  
+   
+   
    
    <insert id="insertInplan" parameterType="com.smhrd.domain.inplan">
    		insert into inplan values(pk_seq.nextval, #{inplan_name}, #{tour_num}, #{mem_id}, #{plan_date})

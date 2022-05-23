@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	inplanDAO dao = new inplanDAO();
-	String mem_id ="123";
+	String mem_id ="11";
 	List<inplan> inplanList = dao.selectAllPlan(mem_id);
 	pageContext.setAttribute("inplanList",inplanList);
 

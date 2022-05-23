@@ -1,6 +1,7 @@
 package com.smhrd.domain;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -240,5 +241,7 @@ public class tourDAO {
 			return cafeImgList;
 		}
 		
+		
+		}
 
-}
+
