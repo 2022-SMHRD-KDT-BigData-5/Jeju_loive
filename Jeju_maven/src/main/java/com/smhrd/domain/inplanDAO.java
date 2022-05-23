@@ -94,6 +94,20 @@ public class inplanDAO {
 			
 			
 		}
+		
+		public int insertPlanner(plan plan) {
+			int cnt=0;
+			
+			
+			
+			
+			
+			
+			
+			return cnt;
+			
+			
+		}
 
 }
 	
