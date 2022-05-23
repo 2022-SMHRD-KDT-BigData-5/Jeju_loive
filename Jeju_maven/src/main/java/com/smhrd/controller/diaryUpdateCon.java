@@ -33,19 +33,9 @@ public class diaryUpdateCon extends HttpServlet {
 		HttpSession session = request.getSession();
 		Member loginMember=(Member)session.getAttribute("loginMember");
 		String id=loginMember.getId();
-		diary diary=new diary(pagenum,head,timestamp,pagenum,timestamp,id,text,sub);
-		diaryDAO dao= new diaryDAO();
-		int cnt=dao.updateDiary(diary);
 		
-		if (cnt > 0) {
-            System.out.print("다이어리 업데이트 성공");
-            
-         } else {
-        	 System.out.print("다이어리 업데이트 실패");
-         }
-		session.removeAttribute("pagenum");
-		session.removeAttribute("updateimg");
-		response.sendRedirect("diaryHome.jsp");
+		diaryDAO dao= new diaryDAO();
+		
 	}
 
 }
