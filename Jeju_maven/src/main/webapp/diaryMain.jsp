@@ -1,3 +1,4 @@
+<%@page import="java.sql.Timestamp"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.smhrd.domain.diaryAlbum"%>
 <%@page import="com.smhrd.domain.diaryDAO"%>
@@ -11,188 +12,279 @@
 <!DOCTYPE html>
 <%
 diaryDAO dao = new diaryDAO();
-List<diary> diaryList =null;
 List<diaryAlbum> dimgList=null;
+diary diary2 =null;
 int num=0;
 SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
 Member loginMember = (Member)session.getAttribute("loginMember");
+
+
 if(loginMember != null){
 	pageContext.setAttribute("loginMember",loginMember);
 	String mem_id=loginMember.getId();
-	dimgList = dao.selectDimgAll(mem_id);
-	pageContext.setAttribute("dimgList",dimgList);
 	
+	dimgList = dao.selectDimgAll(mem_id);
+	Timestamp timestamp = Timestamp.valueOf("2022-05-23 00:00:00");
+	diary diary= new diary(mem_id,timestamp);
+	diary2 = dao.selectDiary(diary);
+	pageContext.setAttribute("dimgList",dimgList);
 	
 } 
 %>
-<html>
-	<head>
-		<title>Strata by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets2/css/main.css" />
-		<style>
-			input{
-				border: white;
-				color: black;
-			}
-			.diary{
-				width:370px;
-				height:217px;
-			}
-			.imgup{
-				
-				width:370px;
-				height:217px;
-			
-			}
-			.pic>img{
-				width:740px;
-				height:434px;
-			}
-			
-			h4{
-				color:black;
-			}
-		</style>
-	</head>
-	<body class="is-preload">
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hover Effect Ideas | Set 1</title>
+<meta name="description"
+   content="Hover Effect Ideas: Inspiration for subtle hover effects" />
+<meta name="keywords"
+   content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
+<meta name="author" content="Codrops" />
+<link rel="shortcut icon" href="../favicon.ico">
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300'
+   rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
+<link rel="stylesheet" href="assets/css/dragdrop.css" />
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="assets/js/dragdrop.js"></script>
 
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
-					<h1><strong>I am Strata</strong>, a super simple<br />
-					responsive site template freebie<br />
-					crafted by <a href="http://html5up.net">HTML5 UP</a>.</h1>
-				</div>
-			</header>
+<!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+<style>
+   #flex_cont{display:flex;}
+   #tour_div{width:70%;}
+   #plan_div{width:20%;}
+   .soohyeon{
+      position: fixed;
+        right: 20px;
+          top: 10px;
+          color:white
+   }
+   .img2{
+   		position:relative;
+        left: 300px;
+        bottom : 150px;
+   }
+   .img3{
+   		position:relative;
+        left: 600px;
+        bottom : 300px;
+   }
+   .imgup{
+   		width : 300px; 
+   		height : 200px;
+   	
+   }
+</style>
+   
+</head>
 
-		<!-- Main -->
-			<div id="main">
 
-				<!-- One -->
-					<section id="one">
-						<header class="major">
-							<h2>Ipsum lorem dolor aliquam ante commodo<br />
-							magna sed accumsan arcu neque.</h2>
-						</header>
-						<p>Accumsan orci faucibus id eu lorem semper. Eu ac iaculis ac nunc nisi lorem vulputate lorem neque cubilia ac in adipiscing in curae lobortis tortor primis integer massa adipiscing id nisi accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque cubilia.</p>
-						<ul class="actions">
-							<li><a href="#" class="button">Learn More</a></li>
-						</ul>
-					</section>
+<body>
+   
+   
 
-				<!-- Two -->
-					<section id="two">
-						<h2>Recent Work</h2>
-						<div class="row">
-							<%if (dimgList.size()<1){
-								%>
-								<div class="imgup"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">
-								<input type="date" name="date">
-								<input type="file" name="filename1" size=40 >
-								<input type="submit" value="업로드">
-								</form></div>
-								
-								<% 
-							}%>
-				            <c:forEach var="t" items="${dimgList}" varStatus="status">
-							<article class="col-6 col-12-xsmall work-item">
-								<% if (dimgList.get(num).getD_tripday()==null){
-									%><input type="date" name="date1"><% 
-								}
-								else{String date=sdf1.format(dimgList.get(num).getD_tripday());
-									%><h4><%=date%></h4> <%
-								}
-								%>
-								
-								<% if (dimgList.get(num).getP_loc()==null){
-									%><div class="imgup"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">
-										<input type="date" name="date">
-										<input type="file" name="filename1" size=40 >
-										<input type="submit" value="업로드">
-										</form></div><% 
-								}
-								else{
-									%><a href="<%=dimgList.get(num).getP_loc() %>" class="image fit thumb"><img src="<%=dimgList.get(num).getP_loc() %>" alt="" class="diary" /></a>
-									<% 
-								}
-								%>
-								<h3><pre class="none"><%=dimgList.get(num).getD_content() %></pre></h3>
-								<h2>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</h2>
-							</article>
-							<%num++; %>
-							</c:forEach>
-				           
-							
-						</div>
-						<ul class="actions">
-							<li><a href="#" class="button" id="add">add Portfolio</a></li>
-						</ul>
-					</section>
-					
-				
-				
+   <header id="menuBlock">
+      <nav>
+         <ul>
+            <li><a href="main.jsp">main</a></li>
+            <li><a href="tour_att.jsp">tour</a></li>
+            <li><a href="planner.jsp">planner</a></li>
+            <li><a href="diary1.jsp">diary</a></li>
+            <li><a href="board.jsp">board</a></li>
+            <!--<li><a href="#elements">Elements</a></li>-->
+         </ul>
+         <c:choose>
+                  <c:when test="${empty loginMember}">
+                     <a href="Join.jsp" class="soohyeon">login</a>
+                  </c:when>
+                  <c:otherwise>
+                     <a href="LogoutCon" class="soohyeon">logout</a>
+                  </c:otherwise>
+               </c:choose>
+      </nav>
+   </header>
 
-			</div>
+          
+          
+          
+          
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<ul class="icons">
-						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-						<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</footer>
+   <div class="container" id="flex_cont">
+   
+      
+      <!-- -------------------------관광지메뉴 영역 시작--------------------------------- -->
+      <div id="tour_div">
+      
+         <header class="codrops-header">
+            <h1>
+               
+            </h1>
+         </header>
+      
+      
+      
+      <div class="content">
+      
+      <!-- 관광지 정보 출력 영역 -->
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/diaryMain.js"></script>
-			<script>
-				$('.none').css('display','none');
-				
-				let img="";
-				
-				
-				$(document).on('dblclick','.caption',function(){
-       				$(this).text("");
-       				$(this).append('<textarea class="change" rows="15"></textarea>');
-       				$(this).append('<button class="save">더블클릭 저장</button>')
-        		})
-        		
-				$(document).on('dblclick','.save',function(){
-					let change= $('.change').val();
-        			console.log(change);
-        			console.log(img);
-        			let cot = confirm('저장?');
-        			if(cot==true){
-        				$(location).attr('href', 'diaryAlbumCon?change='+change+'&img='+img);
-        			}
-        		})
-        		$('a').click(function(){
-					img= $(this).find('img').attr('src');
-					console.log(img);
-				})
-				$(document).on('click','#add',function(){
-					$('.row').append('<article class="col-6 col-12-xsmall work-item" id="addform"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">'+
-							'<input type="date" name="date">'+
-							'<input type="file" name="filename1" size=40 >'+
-							'<input type="submit" value="업로드">'+
-							'</form></article>');
-        		})
-				
-			</script>
 
-	</body>
+         <h2>무엇을 적으면 좋을까요</h2>
+      
+         <div class="content">
+         
+         
+             </div>
+          
+         <br>
+          <%if (dimgList.size()<1){
+                        %>
+                        <div class="imgup"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">
+                        <input type="date" name="date">
+                        <input type="file" name="filename1" size=40 >
+                        <input type="submit" value="업로드">
+                        </form></div>
+                        
+                        <% 
+         }
+         %>
+         <div>
+         
+         
+         
+         <c:forEach var="i" items="${dimgList}" varStatus="status">
+               <img src="<%=dimgList.get(num).getP_loc() %>" alt="실패"  width="300px" height="200px"/>
+               
+               <%num++; %>
+            </c:forEach>
+            <%num=0; %>
+         
+           
+               <%if(diary2!=null){
+            	   %><h2>
+                     <span class="head"><%=diary2.getDia_name() %>
+                  </h2>
+                  <pre class="context"><%=diary2.getDia_content() %></pre>
+                  <button class="changeupdate">수정</button>
+                  <% 
+               }else{
+               
+               %>
+                  <h2>
+                     <span class="head">제목</span>
+                  </h2>
+                  
+                  <h2 ><span class="context">내용</span></h2>
+                  <button class="change">수정</button>
+                  <%} %>
+                  
+         
+                  
+         </div>
+         
+         
+
+      </div>
+      
+      
+      
+      </div>
+      
+      
+      <!-- ---------------------------~~지금부터 플래너 공간~~-------------------------- -->
+      
+            
+      <div id="plan_div">
+         <header class="codrops-header">
+            <h1>
+               Plan<span>Plan에 대한 정보를 추천해주는 메뉴입니다.</span>
+            </h1>
+            <nav class="codrops-demos">
+
+               <a href="#" class="current-demo">관광지</a>
+               <a href="#">음식점</a>
+               <a href="#">카페</a>
+
+            </nav>
+         </header>
+      
+      
+      
+      <div class="content">
+         
+         <!-- itemNum : 박스 번호 -->
+         <!-- item : input태그 내에 작성된 내용 -->
+         <!-- createItem() : tour_name,tour_num,tour_add 값 입력받아 tour_name은 출력해주고, num과 address는 저장해줌 -->
+         
+         <form action="PlanInsertCon" method="post">
+         여행일을 선택해주세요 >> <input type="date" name="plan_date"><br/><br/>
+              <div>
+                  <div style="float:left;width:100px;">아이템 추가 :</div>
+                  <div style="clar:both;">
+                     
+                      <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');"/>
+                      <input type="button" value="임시저장" onclick="setInPlan();"/>
+                      <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" />
+                     
+                      
+                     
+                  </div>
+              </div>
+              <br />
+              <div id="itemBoxWrap"></div>
+          </form>
+          
+      </div>
+      
+   </div>
+   </div>
+   
+   <!-- Related demos -->
+   <section class="related"></section>
+  
+   <!-- /container -->
+   <script>
+      // For Demo purposes only (show hover effect on mobile devices)
+      [].slice.call(document.querySelectorAll('a[href="#"')).forEach(
+            function(el) {
+               el.addEventListener('click', function(ev) {
+                  ev.preventDefault();
+               });
+            });
+      
+      
+      
+   </script>
+   <script type="text/javascript">
+   let date="2022-05-23"
+   $(document).on('click','.change',function(){
+		
+		$('.head').remove();
+		$('.context').remove();
+		$(this).remove();
+		$('img').after('<textarea name="content" class="textcontent3" cols="70" rows="1"></textarea>'+
+						'<textarea name="content" class="textcontent4" cols="100" rows="8"></textarea>'+
+						'<button class="change2">수정완료</button>');
+   });
+   $(document).on('click','.change2',function(){
+		let changeHead=$('.textcontent3').val()
+		let changeContent=$('.textcontent4').val()
+	   $(location).attr('href', 'diaryCon?head='+changeHead+'&content='+changeContent +'&date='+date);
+		
+  });
+   
+   </script>
+  
+   
+   
+ 
+</body>
 </html>
