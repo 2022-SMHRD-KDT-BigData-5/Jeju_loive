@@ -51,7 +51,7 @@
                   <nav>
                      <ul>
                         <li><a href="planner.jsp">planner</a></li>
-                        <li><a href="diary1.jsp">diary</a></li>
+                        <li><a href="diaryHome.jsp">diary</a></li>
                         <li><a href="tour_att.jsp">tour</a></li>
                         <li><a href="board.jsp">board</a></li>
 
@@ -373,7 +373,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
       <!-- BG -->
          <div id="bg"></div>
-lo
+
       <!-- Scripts -->
          <script src="assets/js/jquery.min.js"></script>
          <script src="assets/js/browser.min.js"></script>
