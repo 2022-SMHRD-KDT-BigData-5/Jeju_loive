@@ -29,13 +29,13 @@ public class diaryDAO {
 		      return cnt;
 		   }
 			//사용자 정보로 다이어리 가져오는 메서드
-			public List<diary> selectDiary(String mem_id) {
+			public diary selectDiary(diary d) {
 				SqlSession sqlSession = sqlSessionFactory.openSession();
-				List<diary> diaryList = null;
+				diary diary = null;
 				
 				try {
-					diaryList = sqlSession.selectList("com.smhrd.domain.diaryDAO.selectDiary",mem_id);
-			     if (diaryList != null) {
+					diary = sqlSession.selectOne("com.smhrd.domain.diaryDAO.selectDiary",d);
+			     if (diary != null) {
 			            sqlSession.commit();
 			            
 			         } else {
@@ -47,7 +47,7 @@ public class diaryDAO {
 			      } finally {
 			         sqlSession.close();
 			      }
-			      return diaryList;
+			      return diary;
 			   }
 			//다이어리 내용 업데이트
 			public int updateDiary(diary diary) {

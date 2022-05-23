@@ -26,15 +26,10 @@ public class diaryUpdateCon2 extends HttpServlet {
 		HttpSession session= request.getSession();
 		Member loginMember = (Member)session.getAttribute("loginMember");
 		String id= loginMember.getId();
-		diary diary =new diary(pagenum,id);
-		int cnt = dao.insertDiary2(diary);
 		
-		 if(cnt>0) {
-			 System.out.println("추가 성공");
-	     }else {
-	    	 System.out.println("추가 실패");
-	     }
-		 response.sendRedirect("diaryHome.jsp");
+		
+		
+		 
 	}
 
 }

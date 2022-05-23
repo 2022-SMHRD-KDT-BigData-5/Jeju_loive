@@ -4,10 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.domain.diaryDAO">
 	<insert id="insertDiary" parameterType="com.smhrd.domain.diary">
-		insert into diary values(#{dia_num}, #{dia_name}, #{dia_tripday}, #{dia_share}, #{dia_date}, #{mem_id},#{dia_content},#{sub})
+		insert into diary (dia_num,dia_name, dia_tripday,dia_date,mem_id,dia_content) values(#{dia_num},#{dia_name},#{dia_tripday},sysdate, #{mem_id}, #{dia_content})
 	</insert>
-	<select id="selectDiary" parameterType="String" resultType="com.smhrd.domain.diary">
-		select * from diary where mem_id=#{mem_id} 
+	<select id="selectDiary" parameterType="com.smhrd.domain.diary" resultType="com.smhrd.domain.diary">
+		select * from diary where mem_id=#{mem_id} and dia_tripday=#{dia_tripday}
 	</select>
 	
 	<insert id="insertImg" parameterType="com.smhrd.domain.diaryImg">
@@ -53,7 +53,7 @@
 	</update>
 	
 	<insert id="insertAlbum" parameterType="com.smhrd.domain.diaryAlbum">
-		insert into diaryAlbum (d_tripday,p_loc,p_memid) values(#{d_tripday}, #{p_loc}, #{p_memid})
+		insert into diaryAlbum values(#{d_tripday}, #{p_loc}, #{p_memid})
 	</insert>
 	
 	<update id="updateAlbum" parameterType="com.smhrd.domain.diaryAlbum">
