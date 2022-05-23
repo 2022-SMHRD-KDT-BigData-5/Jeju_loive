@@ -150,7 +150,7 @@
 		            	
 		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}')"/>
 		                <input type="button" value="임시저장" onclick="setInPlan();"/>
-		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="getInPlan();" />
+		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" />
 		               
 		                
 		               
@@ -277,7 +277,11 @@
 					};
 			
 			
-			
+					//임시플랜 제출시 localStorage 삭제
+			         function removeInplan(){
+			            window.localStorage.clear();
+			         }
+
 			
 	</script>
 	</body>

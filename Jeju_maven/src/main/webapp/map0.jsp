@@ -13,8 +13,8 @@ inplanDAO dao = new inplanDAO();
 tourDAO tdao = new tourDAO();
 Member loginMember = (Member)session.getAttribute("loginMember");
 String mem_id = loginMember.getId();
-String inplan_name = "ㅇㅇ";
-inplan inplan= new inplan(inplan_name,mem_id);
+Timestamp plan_date = ;
+inplan inplan= new inplan(mem_id,plan_date);
 
 List<tour> planAddList = tdao.selectTour(inplan);
 System.out.print(inplan);
