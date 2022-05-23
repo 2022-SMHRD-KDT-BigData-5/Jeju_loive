@@ -22,7 +22,7 @@
 	
 	pageContext.setAttribute("inplanTourList",inplanTourList);
 
-	%>
+   %>
 
 
 <!DOCTYPE html>
