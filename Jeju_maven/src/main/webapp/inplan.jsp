@@ -8,13 +8,14 @@
 <%@page import="com.smhrd.domain.inplan"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.Timestamp"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	
 	tourDAO dao = new tourDAO();
-	String mem_id = "11";
+	Member loginMember = (Member)session.getAttribute("loginMember");
+	String mem_id = loginMember.getId();
 	Timestamp plan_date = Timestamp.valueOf("2022-07-25 00:00:00");
 	inplan inplan=new inplan(mem_id, plan_date);
 	List<tour> inplanTourList = dao.inplanTourList(inplan);
@@ -355,7 +356,7 @@ figure{
    
                 <div class="imgBoxDiv">
                     <a href="#" class="theme_thumb">
-                        <div class = "imgDiv"><img src="./images/yeonhee-VWLhifg5VMA-unsplash.jpg"></div>
+                        <div class = "imgDiv"><img src="${t.img}"></div>
                         <div class = "imgDescDiv">별점 들어가라</div>
                         <span class="thumb_bd"></span>
                     </a>
