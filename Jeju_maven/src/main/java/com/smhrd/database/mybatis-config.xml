@@ -21,6 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	<mapper resource="com/smhrd/database/inplanmapper.xml"/>
     	<mapper resource="com/smhrd/database/diaryMapper.xml"/>
     	<mapper resource="com/smhrd/database/reviewMapper.xml"/>
-
+    	<mapper resource="com/smhrd/database/plannerMapper.xml"/>
+			
     </mappers>
 </configuration>

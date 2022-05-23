@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.domain.inplan"%>
+<%@page import="java.sql.Timestamp"%>
 <%@page import="java.math.BigDecimal"%>
 <%@page import="com.smhrd.domain.review"%>
 <%@page import="com.smhrd.domain.reviewDAO"%>
@@ -9,20 +11,23 @@
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <% 
-	reviewDAO dao = new reviewDAO();
-	BigDecimal tour_num = new BigDecimal(610);
-	List<review> ReviewList = dao.selectReview(tour_num);
-	pageContext.setAttribute("ReviewList", ReviewList);
-	tour tourInfo = (tour)session.getAttribute("tourInfo");
+tourDAO dao = new tourDAO();
+Member loginMember = (Member)session.getAttribute("loginMember");
+Timestamp plan_date = Timestamp.valueOf("2022-05-13 00:00:00");
+String mem_id = loginMember.getId();
+inplan inplan = new inplan(mem_id, plan_date);	
+List<tour> inplanTourList = dao.selectTour(inplan);
+pageContext.setAttribute("inplanTourList",inplanTourList);
+pageContext.setAttribute("loginMember", loginMember);
 
 %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
+
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hover Effect Ideas | Set 1</title>
 <meta name="description"
 	content="Hover Effect Ideas: Inspiration for subtle hover effects" />
 <meta name="keywords"
@@ -42,14 +47,16 @@
 <script src="assets/js/dragdrop.js"></script>
 
 
-<!--[if IE]>
-  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
 <style>
 	#flex_cont{display:flex;}
 	#tour_div{width:70%;}
 	#plan_div{width:20%;}
-	.soohyeon{position: fixed; right:20px; top:10px; color:white;}
+	.soohyeon{
+		position: fixed;
+        right: 20px;
+       	top: 10px;
+       	color:white
+	}
 </style>
 	
 </head>
@@ -57,8 +64,6 @@
 
 <body>
 	
-	
-
 	<header id="menuBlock">
 		<nav>
 			<ul>
@@ -91,41 +96,7 @@
 		<!-- -------------------------관광지메뉴 영역 시작--------------------------------- -->
 		<div id="tour_div">
 		
-			<header class="codrops-header">
-				<h1>
-					tour 상세메뉴<span>${tourInfo.getName()}</span>
-				</h1>
-			</header>
-		
-		
-		
-		<div class="content">
-		
-		<!-- 관광지 정보 출력 영역 -->
-
-
-			<h2>무엇을 적으면 좋을까요</h2>
-		
-			<br>
 			
-			<div>
-					<img src="images/벌레.png" alt="img11" />
-				
-			<c:forEach var="r" items="${ReviewList}" varStatus="status">
-				
-					
-						<h2>
-							<span>${r.tour_num}</span>
-						</h2>
-						<p>${r.rev_content}</p>
-						
-			</c:forEach>
-						
-			</div>
-			
-			
-
-		</div>
 		
 		
 		
@@ -134,55 +105,42 @@
 		
 		<!-- ---------------------------~~지금부터 플래너 공간~~-------------------------- -->
 		
-		
+				
 		<div id="plan_div">
-			<header class="codrops-header">
-				<h1>
-					Plan<span>Plan에 대한 정보를 추천해주는 메뉴입니다.</span>
-				</h1>
-				<nav class="codrops-demos">
 
-					<a href="#" class="current-demo">관광지</a>
-					<a href="#">음식점</a>
-					<a href="#">카페</a>
-
-				</nav>
-			</header>
+	    <div id = "main_plan">
+    <div> <a class="logo" href="main.jsp"><span><img src="images/logo2.png" alt="logo"></span></a></div>
+    <img src="images/right.png" class = "rightPage"> <!--다음 플래너로 넘어 가기  -->
+    <img src="images/left.png" class = "leftPage"> <!--이전 플래너로 넘어 가기  -->
+    
+    
+        <ul class = "list_theme">
+        <%=inplanTourList.get(1).getName() %>
+    	<c:forEach var="t" items="${inplanTourList}" varStatus="status">
+    		
+            <li class = "theme_itme">
+   
+                <div class="imgBoxDiv">
+                    <a href="#" class="theme_thumb">
+                        <div class = "imgDiv"><img src="${t.img}"></div>
+                        <div class = "imgDescDiv">별점 들어가라</div>
+                        <span class="thumb_bd"></span>
+                    </a>
+                </div>
+                <strong calss = "title elss"> <c:out value ="${t.name}"/> </strong>
+                <p class = "desc"></p>
+                <div class="source_box">
+                    <span class="reviewDate">후기 날짜</span>
+                    <span class="source"></span>
+                        <span class = "source_inner"> <c:out value="${t.address}"/></span>
+                 </div>
+            </li>
+        </c:forEach>
+        
+        </ul>
+	</div>
 		
-		
-		
-		<div class="content">
-			
-			<!-- itemNum : 박스 번호 -->
-			<!-- item : input태그 내에 작성된 내용 -->
-			<!-- createItem() : tour_name,tour_num,tour_add 값 입력받아 tour_name은 출력해주고, num과 address는 저장해줌 -->
-			
-			<form action="PlanInsertCon" method="post">
-			여행일을 선택해주세요 >> <input type="date" name="plan_date"><br/><br/>
-		        <div>
-		            <div style="float:left;width:100px;">아이템 추가 :</div>
-		            <div style="clar:both;">
-		            	
-		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}'); getInPlan();"/>
-		                <input type="button" value="임시저장" onclick="setInPlan();"/>
-		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" />
-		               
-		                
-		               
-		            </div>
-		        </div>
-		        <br />
-		        <div id="itemBoxWrap"></div>
-		    </form>
-		    
-		</div>
-		
-		
-		
-		
-		
-		</div> <!-- ----------------plan 영역 끝----------------- -->
-
+	</div>
 	</div>
 	
 	<!-- Related demos -->
@@ -284,6 +242,11 @@
 						}
 					};
 			
+					//임시플랜 제출시 localStorage 삭제
+			         function removeInplan(){
+			            window.localStorage.clear();
+			         }
+
 			
 			
 			
