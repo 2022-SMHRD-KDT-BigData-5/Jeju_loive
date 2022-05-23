@@ -9745,5 +9745,26 @@ p,
     #header nav a[href="#menu"]:last-child:before, #header nav a[href="#menu"]:last-child:after {
       right: 2em;
     }
-    
 
+#planInsert{
+	font-weight : 800;
+	color : black;
+	height : 15px;
+}
+
+input[type="date"] {
+	color: #2879c1;
+	width: 300px;
+}
+.w-btn-red-outline:hover {
+    background-color: #ff5f2e;
+    color: #e1eef6;
+}
+.w-btn-outline:hover {
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.w-btn-outline:active {
+    transform: scale(1.5);
+}

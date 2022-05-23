@@ -174,7 +174,7 @@
 			<div class="grid">
 <%-- 			<h1><%=tourImgList.get(1).getT_add() %></h1> --%>
 				 	<%-- <c:set var="str" value="" />  --%>
-						<c:forEach var="t" items="${tourList}" varStatus="statusNum">
+						<c:forEach var="t" items="${tourList}" varStatus="status">
 					<%--  <c:forEach var="i" items="${tourImgList}" varStatus="status">
 							<c:if test="${i.tour_num != str }">  --%>
 								<figure class="effect-marley">
@@ -225,15 +225,15 @@
 			<!-- item : input태그 내에 작성된 내용 -->
 			<!-- createItem() : tour_name,tour_num,tour_add 값 입력받아 tour_name은 출력해주고, num과 address는 저장해줌 -->
 			
-			<form action="PlanInsertCon" method="post">
+			<form action="PlanInsertCon" method="post" id = "planInsert">
 			여행일을 선택해주세요 >> <input type="date" name="plan_date"><br/><br/>
 		        <div>
 		            <div style="float:left;width:100px;">아이템 추가 :</div>
 		            <div style="clar:both;">
 		            	
-		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');"/>
-		                <input type="button" value="임시저장" onclick="setInPlan();"/>
-		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" />
+		                <input type="button" class = "w-btn-red w-btn-red-outline" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');" style="margin-left:20px" />
+		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan();" style="margin-left:50px" />
+		                <input type="submit" class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" style="margin : 10px 0px 0px 120px" />
 		               
 		                
 		               
@@ -287,7 +287,9 @@
 		var getAdds =[];
 		getAdds = localStorage.getItem('tourAdd');
 		addList = getAdds.split(",");
-
+		var getNames =[];
+		getNames = localStorage.getItem('tourName');
+		nameList = getNames.split(",");
 
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		    mapOption = {
@@ -303,7 +305,7 @@
 
 		
 		
-		function addMaker(addr){
+		function addMaker(addr,namel){
 			
 			// 주소로 좌표를 검색합니다
 			geocoder.addressSearch(addr, function(result, status) {
@@ -323,7 +325,7 @@
 
 			        // 인포윈도우로 장소에 대한 설명을 표시합니다
 			        var infowindow = new kakao.maps.InfoWindow({
-			            content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+			            content: '<div style="width:150px;text-align:center;padding:6px 0;">'+namel+'</div>'
 			        });
 			        infowindow.open(map, marker);
 
@@ -463,16 +465,6 @@
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		// For Demo purposes only (show hover effect on mobile devices)
 		[].slice.call(document.querySelectorAll('a[href="#"')).forEach(
 				function(el) {
@@ -579,8 +571,7 @@
 			            
 			           for(i=0; i<numList.length; i++){
 							$(document).ready(createItem(nameList[i], numList[i], addList[i]));
-						
-							addMaker(addList[i]);
+							addMaker(addList[i],nameList[i]);
 			           }
 			           
 			           

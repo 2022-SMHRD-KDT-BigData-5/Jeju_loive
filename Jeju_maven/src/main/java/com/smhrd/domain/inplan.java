@@ -12,6 +12,7 @@ public class inplan {
 	private String mem_id;
 	private Timestamp plan_date;
 	
+	
 	public inplan(BigDecimal inplan_num, String inplan_name, BigDecimal tour_num, String mem_id, Timestamp plan_date) {
 		super();
 		this.inplan_num = inplan_num;
@@ -27,6 +28,22 @@ public class inplan {
 		this.mem_id = mem_id;
 		this.plan_date = planDate;
 	}
+	
+	public inplan(String mem_id, Timestamp plan_date) {
+		super();
+		this.mem_id = mem_id;
+		this.plan_date = plan_date;
+	}
+	
+	public inplan(BigDecimal tour_num, String mem_id) {
+		super();
+		this.tour_num = tour_num;
+		this.mem_id = mem_id;
+	}
+	
+	
+	
+	
 	public BigDecimal getInplan_num() {
 		return inplan_num;
 	}
@@ -43,11 +60,7 @@ public class inplan {
 		return plan_date;
 	}
 
-	public inplan(String mem_id, Timestamp plan_date) {
-		super();
-		this.mem_id = mem_id;
-		this.plan_date = plan_date;
-	}
+	
 	public void setMem_id(String mem_id) {
 		this.mem_id = mem_id;
 	}

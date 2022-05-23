@@ -10,17 +10,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<% 
-tourDAO dao = new tourDAO();
-Member loginMember = (Member)session.getAttribute("loginMember");
-Timestamp plan_date = Timestamp.valueOf("2022-05-13 00:00:00");
-String mem_id = loginMember.getId();
-inplan inplan = new inplan(mem_id, plan_date);	
-List<tour> inplanTourList = dao.selectTour(inplan);
-pageContext.setAttribute("inplanTourList",inplanTourList);
-pageContext.setAttribute("loginMember", loginMember);
+<%	
+	//데이터 가져오기, 선언부
+	Member loginMember = (Member)session.getAttribute("loginMember");
+	String dia_tripday_str = (String)session.getAttribute("dia_tripday");
+	Timestamp dia_tripday = Timestamp.valueOf(dia_tripday_str); //타임스탬프로 형변환!!(에러나면 여기보자^__^)
+	String mem_id = loginMember.getId();
+	tourDAO dao = new tourDAO();
+	
+	//플랜상세 가져오기
+	inplan inplan=new inplan(mem_id, dia_tripday);	
+	
+	//사용자의 하루 plan목록
+	List<tour> inplanTourList = dao.selectTour(inplan);
+	pageContext.setAttribute("inplanTourList",inplanTourList);
 
-%>
+	%>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -45,8 +50,6 @@ pageContext.setAttribute("loginMember", loginMember);
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="assets/js/dragdrop.js"></script>
-
-
 <style>
 	#flex_cont{display:flex;}
 	#tour_div{width:70%;}
@@ -58,7 +61,6 @@ pageContext.setAttribute("loginMember", loginMember);
        	color:white
 	}
 </style>
-	
 </head>
 
 
@@ -96,19 +98,21 @@ pageContext.setAttribute("loginMember", loginMember);
 		<!-- -------------------------관광지메뉴 영역 시작--------------------------------- -->
 		<div id="tour_div">
 		
-			
+			<h2>이거본사람 바보</h2>
 		
 		
 		
 		</div>
 		
 		
-		<!-- ---------------------------~~지금부터 플래너 공간~~-------------------------- -->
+		<!-- ---------------------------~~지금부터 리뷰적는 공간~~-------------------------- -->
 		
 				
 		<div id="plan_div">
 
 	    <div id = "main_plan">
+	    
+	    
     <div> <a class="logo" href="main.jsp"><span><img src="images/logo2.png" alt="logo"></span></a></div>
     <img src="images/right.png" class = "rightPage"> <!--다음 플래너로 넘어 가기  -->
     <img src="images/left.png" class = "leftPage"> <!--이전 플래너로 넘어 가기  -->
@@ -134,6 +138,7 @@ pageContext.setAttribute("loginMember", loginMember);
                     <span class="source"></span>
                         <span class = "source_inner"> <c:out value="${t.address}"/></span>
                  </div>
+                 <div><a href="review?tour_num=${t.num}">리뷰작성</a></div>
             </li>
         </c:forEach>
         
