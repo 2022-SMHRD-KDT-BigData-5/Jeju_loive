@@ -12,7 +12,6 @@
 	String mem_id ="11";
 	List<inplan> inplanList = dao.selectAllPlan(mem_id);
 	pageContext.setAttribute("inplanList",inplanList);
-
 %>
 <!DOCTYPE html>
 <html>
