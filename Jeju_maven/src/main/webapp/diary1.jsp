@@ -109,10 +109,10 @@
 		<nav>
 			<c:choose>
                   <c:when test="${empty loginMember}">
-                     <a href="LoginCon" class="m"><span class="material-symbols-outlined">login</span></a>
+                     <a href="LoginCon" class="m"><span class="btn btn-primary py-2 px-4 d-none d-lg-block">login</span></a>
                   </c:when>
                   <c:otherwise>
-                     <a href="LogoutCon" class="m"><span class="material-symbols-outlined">logout</span></a>
+                     <a href="LogoutCon" class="m"><span class="btn btn-primary py-2 px-4 d-none d-lg-block">logout</span></a>
                   </c:otherwise>
                </c:choose>
 		</nav>
