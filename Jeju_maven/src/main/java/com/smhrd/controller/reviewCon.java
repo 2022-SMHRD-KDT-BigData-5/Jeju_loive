@@ -46,7 +46,7 @@ public class reviewCon extends HttpServlet {
 		}
 		
 		//리뷰저장후 다시 다이어리 상세로 보내기
-		response.sendRedirect("diary_info");
+		response.sendRedirect("diary_info.jsp");
 		
 		
 		

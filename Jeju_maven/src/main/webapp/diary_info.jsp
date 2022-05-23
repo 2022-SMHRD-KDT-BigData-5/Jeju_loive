@@ -76,14 +76,14 @@
 				<li><a href="board.jsp">board</a></li>
 				<!--<li><a href="#elements">Elements</a></li>-->
 			</ul>
-			<c:choose>
+			<!--<c:choose>
                   <c:when test="${empty loginMember}">
                      <a href="Join.jsp" class="soohyeon">login</a>
                   </c:when>
                   <c:otherwise>
                      <a href="LogoutCon" class="soohyeon">logout</a>
                   </c:otherwise>
-               </c:choose>
+               </c:choose> --!>
 		</nav>
 	</header>
 
@@ -162,99 +162,7 @@
 				});
 	</script>
 	
-	<!-- 드래그앤드롭 JS -->
-	<script>
-	
-	//추가 클릭시 localStorage에 값을 저장하는 함수
-	function setInPlan(){
-        //값 가져오기
-        //1) name이 item인 input태그 내의 value 가져오기
-        //2) class=tourNum, class=tourAdd인 input태그의 text값 가져오기 /
-        var tourNums=[];
-        var tourAdds=[];
-        var tourNames=[];
-        var nums=[];
-        var adds=[];
-        var names=[];
-        
-//        tourNums = document.getElementsByClassName('tourNum');
-//        tourAdds = document.getElementsByClassName('tourAdd');
-        
-        var len = $("input[name=tourNum]").length;
-        for(var i=0; i<len; i++){                          
-			tourNums[i] = $("input[name=tourNum]").eq(i).val();
-		}
-        
-        var len = $("input[name=tourAdd]").length;
-        for(var i=0; i<len; i++){                          
-			tourAdds[i] = $("input[name=tourAdd]").eq(i).val();
-		}
-        
-        
-        var len = $("input[name=item]").length;
-        for(var i=0; i<len; i++){                          
-			tourNames[i] = $("input[name=item]").eq(i).val();
-		}
-        
-        //배열에 순서대로 담기
-        for(i=0; i<tourNums.length; i++){
-        	nums.push(tourNums[i]);
-        	adds.push(tourAdds[i]);
-        	names.push(tourNames[i]);
-        }
-        
-        //확인용(콘솔창 확인)
-        console.log(nums);
-        console.log(adds);
-        console.log(names);
-        
-     	// 객체, 배열을 JSON 문자열로 변환
-        const numsString = JSON.stringify(nums);
-        const addsString = JSON.stringify(adds);
-        const namesString = JSON.stringify(names);
-		
-        //문자열로 잘 변환되었는지 확인
-        console.log(namesString);
 
-        
-		//localStorage에 배열 저장
-		window.localStorage.setItem('tourNum', nums)
-		window.localStorage.setItem('tourAdd', adds)
-		window.localStorage.setItem('tourName', names)
-		
-	}
-	
-			//페이지 이동시 localStorage의 값을 가져오는 함수(자동실행)
-			window.onload=
-					function getInPlan(){
 
-						//localStorage에서 꺼내기
-						var getNums =[];
-						var getAdds =[];
-						var getNames =[];
-					
-			         	// JSON 문자열을 객체, 배열로 변환
-			         	getNums = localStorage.getItem('tourNum');
-			         	getAdds = localStorage.getItem('tourAdd');
-			         	getNames = localStorage.getItem('tourName');
-			         	numList = getNums.split(",");
-			         	addList = getAdds.split(",");
-			         	nameList = getNames.split(",");
-			         	console.log(numList);
-			            
-			           for(i=0; i<numList.length; i++){
-							$(document).ready(createItem(nameList[i], numList[i], addList[i]));
-						}
-					};
-			
-					//임시플랜 제출시 localStorage 삭제
-			         function removeInplan(){
-			            window.localStorage.clear();
-			         }
-
-			
-			
-			
-	</script>
 </body>
 </html>
