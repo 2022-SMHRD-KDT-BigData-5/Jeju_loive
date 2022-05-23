@@ -232,7 +232,7 @@
 		            <div style="clar:both;">
 		            	
 		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');"/>
-		                <input type="button" value="임시저장" onclick="setInPlan();"/>
+		                <input type="button" value="임시저장" onclick="setInPlan(); updatePage();"/>
 		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" />
 		               
 		                
@@ -331,7 +331,6 @@
 
 			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 			        map.setCenter(coords); 
-			        
 			        
 			    } 
 			});   
@@ -573,7 +572,8 @@
 							$(document).ready(createItem(nameList[i], numList[i], addList[i]));
 							addMaker(addList[i],nameList[i]);
 			           }
-			           
+
+			           location.reload(true);
 			           
 					};
 			
@@ -587,6 +587,12 @@
 	            window.localStorage.clear();
 	         }
 				
+			
+			function updatePage(){
+				$( "#map" ).load(window.location.href + " #map" );
+			}
+			
+			
 			
 	</script>
 
