@@ -34,10 +34,10 @@
             <div class = "int-area">
                 <input type = "password" name = "j_pwck" id = "j_pwck" class = "pw" autocomplete="off" required>
                 <label for ="j_pwck">비밀번호를 다시한번 입력해주세요</label>
-                
+                <span id="alert-success" style="display: none;">비밀번호가 일치합니다.</span>
+    			<span id="alert-danger" style="display: none; color: #d92742; font-weight: bold; ">비밀번호가 일치하지 않습니다.</span>
 </div>
   
-
             </div>
 
             <div class = "int-area">
@@ -124,6 +124,12 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+
+
+
+
+
+
 
 </body>
 </html>

@@ -20,6 +20,7 @@ import javax.servlet.http.HttpSession;
 import com.smhrd.domain.Member;
 import com.smhrd.domain.inplan;
 import com.smhrd.domain.inplanDAO;
+import com.smhrd.domain.plan;
 import com.smhrd.domain.tour;
 
 
@@ -59,8 +60,7 @@ public class PlanInsertCon extends HttpServlet {
 			//plan_num에 저장할 plan_date
 			String planDateStr = request.getParameter("plan_date");
 			System.out.println(planDateStr);
-			Date planDate = Date.valueOf(planDateStr);
-			Timestamp timestamp = Timestamp.valueOf(planDateStr+" "+"00:00:00");
+			Timestamp planDate = Timestamp.valueOf(planDateStr+" "+"00:00:00");
 			//사용자가 저장한 tour_num목록들
 			String[] tourNumStr = request.getParameterValues("tourNum");
 			String[] tourAdd = request.getParameterValues("tourAdd");
@@ -80,15 +80,26 @@ public class PlanInsertCon extends HttpServlet {
 			}
 			
 			
+			//db에 반복하여 저장(inplan 저장)
 			for(int i=0; i<tourNum.size(); i++) {
-				inplan inplan = new inplan(items[i], tourNum.get(i), mem_id, timestamp);
-				int cnt = dao.insertInplan(inplan);
-					if(cnt>0) {
+				inplan inplan = new inplan(items[i], tourNum.get(i), mem_id, planDate);
+				int cnt_i = dao.insertInplan(inplan);
+					if(cnt_i>0) {
 						System.out.println(i+"번째 inplan 입력 성공");
 					}else {
 						System.out.println(i+"번째 inplan 입력 실패");
 					}
 			}
+			
+			//(planner저장)
+			plan plan = new plan(planDate, mem_id);
+			int cnt_p = dao.insertPlanner(plan);
+			if(cnt_p>0) {
+				System.out.println("Planner테이블에 입력 성공");
+			}else {
+				System.out.println("Planner테이블에 입력 실패ㅜㅜ");
+			}
+			
 			
 			
 			
