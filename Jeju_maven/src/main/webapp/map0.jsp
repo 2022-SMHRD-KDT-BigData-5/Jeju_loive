@@ -5,6 +5,7 @@
 <%@page import="com.smhrd.domain.inplan"%>
 <%@page import="com.smhrd.domain.tour"%>
 <%@page import="java.util.List"%>
+<%@page import="java.sql.Timestamp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>    
@@ -13,7 +14,7 @@ inplanDAO dao = new inplanDAO();
 tourDAO tdao = new tourDAO();
 Member loginMember = (Member)session.getAttribute("loginMember");
 String mem_id = loginMember.getId();
-Timestamp plan_date = ;
+Timestamp plan_date = Timestamp.valueOf("2022-07-25 00:00:00");
 inplan inplan= new inplan(mem_id,plan_date);
 
 List<tour> planAddList = tdao.selectTour(inplan);
