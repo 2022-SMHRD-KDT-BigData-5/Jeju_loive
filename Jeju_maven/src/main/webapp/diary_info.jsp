@@ -10,17 +10,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<% 
-tourDAO dao = new tourDAO();
-Member loginMember = (Member)session.getAttribute("loginMember");
-Timestamp plan_date = Timestamp.valueOf("2022-05-13 00:00:00");
-String mem_id = loginMember.getId();
-inplan inplan = new inplan(mem_id, plan_date);	
-List<tour> inplanTourList = dao.selectTour(inplan);
-pageContext.setAttribute("inplanTourList",inplanTourList);
-pageContext.setAttribute("loginMember", loginMember);
+<%	
+	//데이터 가져오기, 선언부
+	Member loginMember = (Member)session.getAttribute("loginMember");
+	String mem_id = loginMember.getId();
+	String plan_date_Str = request.getParameter("dia_tripday");
+	tourDAO dao = new tourDAO();
+	Timestamp plan_date = Timestamp.valueOf(plan_date_Str);
+	
+	//플랜상세 가져오기
+	inplan inplan=new inplan(mem_id, plan_date);	
+	List<tour> inplanTourList = dao.selectTour(inplan);
+	pageContext.setAttribute("inplanTourList",inplanTourList);
 
-%>
+	%>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -45,8 +48,6 @@ pageContext.setAttribute("loginMember", loginMember);
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="assets/js/dragdrop.js"></script>
-
-
 <style>
 	#flex_cont{display:flex;}
 	#tour_div{width:70%;}
@@ -58,7 +59,6 @@ pageContext.setAttribute("loginMember", loginMember);
        	color:white
 	}
 </style>
-	
 </head>
 
 
@@ -103,7 +103,7 @@ pageContext.setAttribute("loginMember", loginMember);
 		</div>
 		
 		
-		<!-- ---------------------------~~지금부터 플래너 공간~~-------------------------- -->
+		<!-- ---------------------------~~지금부터 리뷰적는 공간~~-------------------------- -->
 		
 				
 		<div id="plan_div">
