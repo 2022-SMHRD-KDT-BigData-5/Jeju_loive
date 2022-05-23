@@ -247,11 +247,11 @@
                     <div class="col-md-6 mb-5">
                         <h3 class="text-primary mb-4">Quick Links</h3>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>투어</a>
-                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>플래너</a>
-                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>다이어리</a>
-                            <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>게시판</a>
+                            <a class="text-white mb-2" href="maintest.jsp"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                            <a class="text-white mb-2" href="tour_att.jsp"><i class="fa fa-angle-right mr-2"></i>투어</a>
+                            <a class="text-white mb-2" href="planner.jsp"><i class="fa fa-angle-right mr-2"></i>플래너</a>
+                            <a class="text-white mb-2" href="diary1.jsp"><i class="fa fa-angle-right mr-2"></i>다이어리</a>
+                            <a class="text-white" href="board.jsp"><i class="fa fa-angle-right mr-2"></i>게시판</a>
                         </div>
                     </div>
                 </div>
@@ -284,7 +284,7 @@
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa-angle-double-up"></i></a>
 
 
     <!-- JavaScript Libraries -->
@@ -314,7 +314,7 @@
          });
          
     </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
