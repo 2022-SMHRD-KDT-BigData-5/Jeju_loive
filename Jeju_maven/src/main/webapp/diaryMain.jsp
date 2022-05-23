@@ -41,10 +41,16 @@ if(loginMember != null){
 				height:217px;
 			}
 			.imgup{
+				
 				width:370px;
 				height:217px;
-				background-image: url("images/bg.jpg")
+			
 			}
+			.pic>img{
+				width:740px;
+				height:434px;
+			}
+			
 			h4{
 				color:black;
 			}
@@ -81,7 +87,16 @@ if(loginMember != null){
 					<section id="two">
 						<h2>Recent Work</h2>
 						<div class="row">
-							
+							<%if (dimgList.size()<1){
+								%>
+								<div class="imgup"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">
+								<input type="date" name="date">
+								<input type="file" name="filename1" size=40 >
+								<input type="submit" value="업로드">
+								</form></div>
+								
+								<% 
+							}%>
 				            <c:forEach var="t" items="${dimgList}" varStatus="status">
 							<article class="col-6 col-12-xsmall work-item">
 								<% if (dimgList.get(num).getD_tripday()==null){
@@ -107,12 +122,13 @@ if(loginMember != null){
 								<h3><pre class="none"><%=dimgList.get(num).getD_content() %></pre></h3>
 								<h2>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</h2>
 							</article>
+							<%num++; %>
 							</c:forEach>
 				           
 							
 						</div>
 						<ul class="actions">
-							<li><a href="#" class="button">Full Portfolio</a></li>
+							<li><a href="#" class="button" id="add">add Portfolio</a></li>
 						</ul>
 					</section>
 					
@@ -145,17 +161,10 @@ if(loginMember != null){
 			<script src="assets/js/diaryMain.js"></script>
 			<script>
 				$('.none').css('display','none');
-				let page=<%=dimgList.size()%>;
+				
 				let img="";
 				
-				if(page<1){
-					$('.row').append('<div class="imgup"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">'+
-							'<input type="date" name="date">'+
-							'<input type="file" name="filename1" size=40 >'+
-							'<input type="submit" value="업로드">'+
-							'</form></div>');
-					
-				}
+				
 				$(document).on('dblclick','.caption',function(){
        				$(this).text("");
        				$(this).append('<textarea class="change" rows="15"></textarea>');
@@ -165,17 +174,24 @@ if(loginMember != null){
 				$(document).on('dblclick','.save',function(){
 					let change= $('.change').val();
         			console.log(change);
-        			let img=$(this).parent().prev('img').attr('src');
         			console.log(img);
         			let cot = confirm('저장?');
         			if(cot==true){
-        				$(location).attr('href', 'diaryCon?change='+change+'img='+img);
+        				$(location).attr('href', 'diaryAlbumCon?change='+change+'&img='+img);
         			}
         		})
         		$('a').click(function(){
 					img= $(this).find('img').attr('src');
 					console.log(img);
 				})
+				$(document).on('click','#add',function(){
+					$('.row').append('<article class="col-6 col-12-xsmall work-item" id="addform"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">'+
+							'<input type="date" name="date">'+
+							'<input type="file" name="filename1" size=40 >'+
+							'<input type="submit" value="업로드">'+
+							'</form></article>');
+        		})
+				
 			</script>
 
 	</body>

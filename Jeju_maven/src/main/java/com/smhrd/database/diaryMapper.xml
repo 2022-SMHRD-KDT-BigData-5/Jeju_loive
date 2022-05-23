@@ -53,8 +53,12 @@
 	</update>
 	
 	<insert id="insertAlbum" parameterType="com.smhrd.domain.diaryAlbum">
-		insert into diaryAlbum values(#{d_tripday},#{p_loc},#{p_memid})
+		insert into diaryAlbum (d_tripday,p_loc,p_memid) values(#{d_tripday}, #{p_loc}, #{p_memid})
 	</insert>
+	
+	<update id="updateAlbum" parameterType="com.smhrd.domain.diaryAlbum">
+		update diaryAlbum set d_content=#{d_content} where p_memid=#{p_memid} and p_loc=#{p_loc}
+	</update>
 	
 	
 	

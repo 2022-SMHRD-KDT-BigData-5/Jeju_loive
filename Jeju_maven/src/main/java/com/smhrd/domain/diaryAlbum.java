@@ -23,6 +23,9 @@ public class diaryAlbum {
 		this.d_content = d_content;
 	}
 
+	
+
+
 
 	public String getD_content() {
 		return d_content;

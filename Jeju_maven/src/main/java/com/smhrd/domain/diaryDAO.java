@@ -331,6 +331,26 @@ public class diaryDAO {
 			      return cnt;
 			   }
 			
+			public int updateAlbum(diaryAlbum album) {
+				  SqlSession sqlSession = sqlSessionFactory.openSession();
+			      int cnt = 0;
+			      try {
+			         
+			         cnt = sqlSession.update("com.smhrd.domain.diaryDAO.updateAlbum", album);
+			         
+			         if(cnt>0) {
+			            sqlSession.commit();
+			         }else {
+			            sqlSession.rollback();
+			         }
+			      }catch(Exception e) {
+			         e.printStackTrace();
+			      }finally{
+			         sqlSession.close();
+			      }
+			      return cnt;
+			   }
+			
 			
 			
 }

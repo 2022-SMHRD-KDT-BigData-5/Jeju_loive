@@ -2776,7 +2776,7 @@ input, select, textarea {
 		border-radius: 0.35em;
 		box-shadow: 0 0.1em 0.15em 0 rgba(0, 0, 0, 0.15);
 		overflow: hidden;
-		padding-bottom: 30em;
+		padding-bottom: 10em;
 	}
 
 		.poptrox-popup .loader {
@@ -2794,7 +2794,7 @@ input, select, textarea {
 			top: 50%;
 			width: 1em;
 		}
-
+	
 			.poptrox-popup .loader:before {
 				-moz-osx-font-smoothing: grayscale;
 				-webkit-font-smoothing: antialiased;
@@ -2817,7 +2817,7 @@ input, select, textarea {
 			bottom: 0;
 			cursor: default;
 			font-size: 0.9em;
-			height: 35em;
+			height: 13em;
 			left: 0;
 			line-height: 2.8em;
 			position: absolute;

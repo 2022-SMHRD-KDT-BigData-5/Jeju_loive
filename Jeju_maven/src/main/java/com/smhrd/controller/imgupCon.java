@@ -52,6 +52,9 @@ public class imgupCon extends HttpServlet {
 		 date=date+" "+"00:00:00";
 		 Timestamp timestamp = Timestamp.valueOf(date);
 		 diaryAlbum album=new diaryAlbum(timestamp, fullpath, id);
+		 System.out.println(album.getP_memid());
+		 System.out.println(album.getP_loc());
+		 System.out.println(album.getD_tripday());
 		 diaryDAO dao = new diaryDAO();
 		 
 		 int cnt = dao.insertAlbum(album);
