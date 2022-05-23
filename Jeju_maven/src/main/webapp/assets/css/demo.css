@@ -75,7 +75,7 @@ section {
 .codrops-header h1 span {
 	display: block;
 	padding: 0 0 0.6em 0.1em;
-	color: #74777b;
+	color: #ff4800;
 	font-weight: 300;
 	font-size: 45%;
 }
@@ -102,7 +102,7 @@ section {
 .codrops-demos a:hover,
 .codrops-demos a:focus,
 .codrops-demos a.current-demo {
-	background: #3c414a;
+	background: #ff4800;
 	color: #fff;
 }
 
