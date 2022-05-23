@@ -34,6 +34,7 @@
 <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
+<link rel="stylesheet" href="assets/css/maintest.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="assets/css/dragdrop.css" />
 <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
@@ -140,11 +141,10 @@
                
                  </nav>
             </div>
-        </nav>
-    </div>
+     
     <!-- Navbar End -->
 
-	<div class="container" id="flex_cont">
+	<div class="flex-container" id="flex_cont">
 	
 	
 		<div id="tour_div">

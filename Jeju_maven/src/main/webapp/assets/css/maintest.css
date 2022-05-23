@@ -9746,3 +9746,12 @@ p,
       right: 2em;
     }
     
+ .flex-container {
+ 	display: flex;
+ }
+ .flex-item{
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: darksalmon;
+        }

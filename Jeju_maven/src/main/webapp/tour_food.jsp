@@ -27,6 +27,7 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
 		<link rel="stylesheet" href="assets/css/dragdrop.css" />
+		<link rel="stylesheet" href="assets/css/maintest.css" />
 <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -49,32 +50,72 @@
 	<body>
 	
 	
-	
-	<header id="menuBlock">
-		<nav>
-			<ul>
-				<li><a href="main.jsp">main</a></li>
-				<li><a href="tour_att.jsp">tour</a></li>
-				<li><a href="planner.jsp">planner</a></li>
-				<li><a href="diary1.jsp">diary</a></li>
-				<li><a href="board.jsp">board</a></li>
-				<!--<li><a href="#elements">Elements</a></li>-->
-			</ul>
+	<!-- Topbar Start -->
+    <div class="container-fluid bg-dark">
+        <div class="row py-2 px-lg-5">
+            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-white pl-2" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="main.jsp" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-paper-plane"></i> 제주살앙</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="maintest.jsp" class="nav-item nav-link active">Home</a>
+                    <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
+                    <a href="planner.jsp" class="nav-item nav-link">플래너</a>
+                    <a href= "diary1.jsp" class="nav-item nav-link">다이어리</a>
+                    <a href= "board.jsp" class="nav-item nav-link">게시판</a>
+                </div>
+            <nav>
 			<c:choose>
                   <c:when test="${empty loginMember}">
-                     <a href="Join.jsp" class="soohyeon">login</a>
+                     <a href="jointest.jsp" class="btn btn-primary py-2 px-4 d-none d-lg-block">LOGIN</a>
                   </c:when>
                   <c:otherwise>
-                     <a href="LogoutCon" class="soohyeon">logout</a>
+                     <a href="LogoutCon" class="btn btn-primary py-2 px-4 d-none d-lg-block">LOGOUT</a>
                   </c:otherwise>
                </c:choose>
 		</nav>
-	</header>
+     </div>
+               
+       </nav>
+       </div>
 
 	
 	
 	
-		<div class="container" id="flex_cont">
+		<div class="flex-container" id="flex_cont">
 		<div id="tour_div">
 			<!-- Top Navigation -->
 			<!-- <div class="codrops-top clearfix">

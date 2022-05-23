@@ -28,17 +28,7 @@
     <link rel="stylesheet" href="assets/css/maintest.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
     
-    <script>
-    $("#slideshow > div:gt(0)").hide();
-    setInterval(function(){
-    	$("#slideshow > div.first")
-    	.fadeOut(1000)
-    	.next()
-    	.fadeIn(1000)
-    	.end()
-    	.appendTo('#slideshow');
-    }, 3000);
-    </script>
+   
     
 </head>
 
