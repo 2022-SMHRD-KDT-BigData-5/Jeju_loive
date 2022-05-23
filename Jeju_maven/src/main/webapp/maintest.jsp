@@ -27,9 +27,23 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link rel="stylesheet" href="assets/css/maintest.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    
+    <script>
+    $("#slideshow > div:gt(0)").hide();
+    setInterval(function(){
+    	$("#slideshow > div.first")
+    	.fadeOut(1000)
+    	.next()
+    	.fadeIn(1000)
+    	.end()
+    	.appendTo('#slideshow');
+    }, 3000);
+    </script>
+    
 </head>
 
 <body>
+
     <!-- Topbar Start -->
     <div class="container-fluid bg-dark">
         <div class="row py-2 px-lg-5">
@@ -74,7 +88,7 @@
                     <a href="maintest.jsp" class="nav-item nav-link active">Home</a>
                     <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
                     <a href="planner.jsp" class="nav-item nav-link">플래너</a>
-                    <a href= "diary1.jsp" class="nav-item nav-link">다이어리</a>
+                    <a href= "diaryMain.jsp" class="nav-item nav-link">다이어리</a>
                     <a href= "board.jsp" class="nav-item nav-link">게시판</a>
                 </div>
                <nav>
@@ -96,10 +110,12 @@
 
     <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid mb-5">
+   	
         <div class="container text-center py-5">
             <h1 class="text-primary mb-4">나만의 제주 여행 플래너</h1>
             <h1 class="text-white display-3 mb-5">쉽고 빠르게 여행을 계획하세요</h1>
             <div class="mx-auto" style="width: 100%; max-width: 600px;">
+            
                 <div class="input-group">
                     <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="가고싶은 제주">
                     <div class="input-group-append">
@@ -109,6 +125,7 @@
             </div>
         </div>
     </div>
+    
     <!-- Header End -->
 
 
