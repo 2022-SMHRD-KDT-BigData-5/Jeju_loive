@@ -328,7 +328,7 @@ figure{
 	
 	
     <div id = "main_plan">
-    <div> <a class="logo" href="main.jsp"><span><img src="images/logo2.png" alt="logo"></span></a></div>
+    <div> <a class="logo" href="planner.jsp"><span><img src="images/logo2.png" alt="logo"></span></a></div>
    
     
         <ul class = "list_theme">
@@ -352,8 +352,114 @@ figure{
                  </div>
             </li>
         </c:forEach>
-        
         </ul>
+        <!--========================================지도 ============================== -->
+        <div id="map" style="width:100%;height:350px;"></div>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script>
+        
 	</div>
+	
+	<script>
+var positions = [""];
+console.log("<%=inplanTourList.get(0)%>")
+<% for(int i =0; i< inplanTourList.size(); i++){%>
+positions.push("<%=inplanTourList.get(i).getAddress()%>")
+
+<%}%>
+/* let list1 = document.getElementsByClassName('inplanTourList');
+
+for(var i = 0; i< list1.length; i++){
+	
+}
+ */
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+mapOption = { 
+    center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+    level: 9 // 지도의 확대 레벨
+};
+
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+/* var positions = [
+    {
+		address:"제주특별자치도 서귀포시 성산읍 일출로 284-12",
+        text: '문광사서점'
+    }
+]; */
+
+
+
+for (var i = 0; i < positions.length; i ++) {
+	// 주소-좌표 변환 객체를 생성합니다
+	var geocoder = new kakao.maps.services.Geocoder();
+	// 주소로 좌표를 검색합니다
+	geocoder.addressSearch(positions[i], function(result, status) {
+		// 정상적으로 검색이 완료됐으면 
+		 if (status === kakao.maps.services.Status.OK) {
+			var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+			// 결과값으로 받은 위치를 마커로 표시합니다
+			var marker = new kakao.maps.Marker({
+				map: map,
+				position: coords
+			});
+			
+			<% for(int j =0; j< inplanTourList.size(); j++){
+				System.out.print(inplanTourList.get(j).getName());
+			%>
+			console.log(document.getElementsByClassName('name<%=j%>')[0].innerHTML);
+			var iwContent = '<div style="padding:6px;">'+inplanTourList. +'</div>', //인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+		    iwPosition = new kakao.maps.LatLng(result[0].y, result[0].x), //인포윈도우 표시 위치입니다
+		    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+			<%}%>
+		// 인포윈도우를 생성하고 지도에 표시합니다
+		var infowindow = new kakao.maps.InfoWindow({
+		    map: map, // 인포윈도우가 표시될 지도
+		    position : iwPosition, 
+		    content : iwContent,
+		    removable : iwRemoveable
+		});
+			
+			 
+			// 마커에 표시할 인포윈도우를 생성합니다 
+			/* var infowindow = new kakao.maps.InfoWindow({
+				//content: positions[i].content // 인포윈도우에 표시할 내용
+				content: '<div style="width:150px;text-align:center;padding:6px 0;">'+positions[i].text+'</div>' // 인포윈도우에 표시할 내용
+			});  */
+			//infowindow.open(map, marker);
+			/* kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+			kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow)); */
+			// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+			//map.setCenter(coords);
+		} 
+
+	}); 
+	
+}
+
+
+
+</script>
+	
+	<!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+        
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+	
   </body>
 </html>
