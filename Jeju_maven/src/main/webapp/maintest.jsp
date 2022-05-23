@@ -300,13 +300,12 @@
     <script src="mail/contact.js"></script>
 
     <!-- Template Javascript -->
-    <script src="assets/js/maintest.js"></script>
     
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
-    <script src="assets/js/maintest.js"></script>
+    <script src="assets/js/main.js"></script>
 
 	<!-- 전화번호 하이픈(-) 자동입력  JS -->
     <script>
