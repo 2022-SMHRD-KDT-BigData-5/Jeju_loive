@@ -9745,5 +9745,14 @@ p,
     #header nav a[href="#menu"]:last-child:before, #header nav a[href="#menu"]:last-child:after {
       right: 2em;
     }
-    
 
+#planInsert{
+	font-weight : 800;
+	color : black;
+	height : 15px;
+}
+
+input[type="date"] {
+	color: #2879c1;
+	width: 300px;
+}
