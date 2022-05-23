@@ -15,7 +15,7 @@
 	
 	tourDAO dao = new tourDAO();
 	Member loginMember = (Member)session.getAttribute("loginMember");
-	Timestamp plan_date = Timestamp.valueOf("2022-05-13 00:00:00");
+	Timestamp plan_date = Timestamp.valueOf("2022-05-11 00:00:00");
 	String mem_id = loginMember.getId();
 	inplan inplan=new inplan(mem_id, plan_date);	
 	List<tour> inplanTourList = dao.selectTour(inplan);
@@ -349,7 +349,6 @@ figure{
     
     
         <ul class = "list_theme">
-        <%=inplanTourList.get(1).getName() %>
     	<c:forEach var="t" items="${inplanTourList}" varStatus="status">
     		
             <li class = "theme_itme">
