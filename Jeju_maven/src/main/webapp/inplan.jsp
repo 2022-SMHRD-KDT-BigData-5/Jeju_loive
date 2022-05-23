@@ -12,18 +12,17 @@
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
-	
-	tourDAO dao = new tourDAO();
-	Member loginMember = (Member)session.getAttribute("loginMember");
-	Timestamp plan_date = Timestamp.valueOf("2022-05-11 00:00:00");
-	String mem_id = loginMember.getId();
-	inplan inplan=new inplan(mem_id, plan_date);	
-	List<tour> inplanTourList = dao.selectTour(inplan);
-	pageContext.setAttribute("inplanTourList",inplanTourList);
+   String plan_date_Str = request.getParameter("plan_date");
+   String mem_id = request.getParameter("mem_id");
+   tourDAO dao = new tourDAO();
+   Member loginMember = (Member)session.getAttribute("loginMember");
+   Timestamp plan_date = Timestamp.valueOf(plan_date_Str);
+   inplan inplan=new inplan(mem_id, plan_date);   
+   List<tour> inplanTourList = dao.selectTour(inplan);
+   
+   pageContext.setAttribute("inplanTourList",inplanTourList);
 
-	System.out.println(inplanTourList.get(1).getName());
-	System.out.println(inplanTourList.get(1).getAddress());
-	%>
+   %>
 
 
 <!DOCTYPE html>
@@ -109,7 +108,7 @@ h1{
 
 #main_plan li{
     display: list-item;
-    margin-bottom:  80px;
+    margin-bottom:  120px;
     border-top: 1px solid orange;
    
     

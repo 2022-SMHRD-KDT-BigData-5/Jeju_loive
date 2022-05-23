@@ -143,7 +143,7 @@
             <figcaption>
                 <h2><span><c:out value="${p.plan_name}"/></span></h2>
                 <p><c:out value="${p.plan_date}"/></p>
-                <a href="#">View more</a>
+                <a href="inplan.jsp?plan_date=${p.plan_date}&mem_id=${p.mem_id}">View more</a>
             </figcaption>
             </figure>         
 	</c:forEach>

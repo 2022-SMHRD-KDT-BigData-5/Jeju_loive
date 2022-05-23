@@ -9,8 +9,6 @@
    </select>
   
    
-   
-   
    <insert id="insertInplan" parameterType="com.smhrd.domain.inplan">
    		insert into inplan values(pk_seq.nextval, #{inplan_name}, #{tour_num}, #{mem_id}, #{plan_date})
    </insert>
