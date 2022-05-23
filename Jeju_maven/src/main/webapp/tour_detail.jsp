@@ -284,10 +284,6 @@
 						}
 					};
 			
-			//임시플랜 제출시 localStorage 삭제
-			function removeInplan(){
-				window.localStorage.clear();
-			}
 			
 			
 			
