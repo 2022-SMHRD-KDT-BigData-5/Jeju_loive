@@ -254,6 +254,26 @@
 <div id="map" style="width:100%;height:350px;"></div>
 
 
+	<!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="assets/js/maintest.js"></script>
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/maintest.js"></script>
 
 
 
@@ -263,7 +283,6 @@
 		var getAdds =[];
 		getAdds = localStorage.getItem('tourAdd');
 		addList = getAdds.split(",");
-		console.log()
 
 
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -278,30 +297,40 @@
 		// 주소-좌표 변환 객체를 생성합니다
 		var geocoder = new kakao.maps.services.Geocoder();
 
-		// 주소로 좌표를 검색합니다
-		geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
+		
+		
+		function addMaker(addr){
+			
+			// 주소로 좌표를 검색합니다
+			geocoder.addressSearch(addr, function(result, status) {
 
-		    // 정상적으로 검색이 완료됐으면 
-		     if (status === kakao.maps.services.Status.OK) {
+			    // 정상적으로 검색이 완료됐으면 
+			     if (status === kakao.maps.services.Status.OK) {
 
-		        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
-		        /* // 결과값으로 받은 위치를 마커로 표시합니다
-		        var marker = new kakao.maps.Marker({
-		            map: map,
-		            position: coords
-		        });
+			        // 결과값으로 받은 위치를 마커로 표시합니다
+			        var marker = new kakao.maps.Marker({
+			            map: map,
+			            position: coords
+			        });
+			        
+			        //marker.setMap(map);
 
-		        // 인포윈도우로 장소에 대한 설명을 표시합니다
-		        var infowindow = new kakao.maps.InfoWindow({
-		            content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
-		        });
-		        infowindow.open(map, marker);
+			        // 인포윈도우로 장소에 대한 설명을 표시합니다
+			        var infowindow = new kakao.maps.InfoWindow({
+			            content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+			        });
+			        infowindow.open(map, marker);
 
-		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-		        map.setCenter(coords); */
-		    } 
-		});    
+			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+			        map.setCenter(coords); 
+			        
+			        
+			    } 
+			});   
+			
+		}
 		
 		
 	
@@ -449,27 +478,6 @@
 				});
 	</script>
 	
-<<<<<<< HEAD
-	<!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="assets/js/maintest.js"></script>
-    
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/maintest.js"></script>
 
 	<!-- 전화번호 하이픈(-) 자동입력  JS -->
     <script>
@@ -479,7 +487,7 @@
          
     </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-=======
+
 	<!-- 드래그앤드롭 JS -->
 	<script>
 	
@@ -540,6 +548,7 @@
 		window.localStorage.setItem('tourAdd', adds)
 		window.localStorage.setItem('tourName', names)
 		
+				
 	}
 	
 			//페이지 이동시 localStorage의 값을 가져오는 함수(자동실행)
@@ -566,8 +575,12 @@
 			            
 			           for(i=0; i<numList.length; i++){
 							$(document).ready(createItem(nameList[i], numList[i], addList[i]));
-						}
-			};
+						
+							addMaker(addList[i]);
+			           }
+			           
+			           
+					};
 			
 			         function removeInplan(){
 			             window.localStorage.clear();
@@ -581,12 +594,6 @@
 				
 			
 	</script>
-<<<<<<< HEAD
-	
-		
-			
-=======
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
+
 </body>
 </html>
