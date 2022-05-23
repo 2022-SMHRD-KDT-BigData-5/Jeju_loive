@@ -101,22 +101,26 @@
 		
 		
 		<style>
-			.flex_cont{display:flex;}
+			
 			.test{
 				width:350px;
 				height:250px;
-				margin-right: 10px;
+				position:relative;
+            	left: 30px;
+				
 			}
 			.test2{
 				width:350px;
 				height:250px;
-				margin-right: 10px;
+				position:relative;
+            	left: 100px;
 			}
 			
 			.test3{
 				width:350px;
 				height:250px;
-				
+				position:relative;
+            	left: 30px;
 			}
 			.textc{
 				margin-top: 30px;
@@ -182,7 +186,6 @@
 									}
 									else{
 										month = sdf2.format(diaryList.get(num-1).getDia_date());
-
 										
 										%><%=month %> <%
 									}
@@ -213,7 +216,7 @@
 									<li class="share"><a href="#" class="fas fa-user">share</a></li>
 								</ul>
 							</div>
-							<div class="flex_cont">
+							<div>
 							<%
 							
 							
@@ -285,7 +288,7 @@
 									<%
 								}
 								else{
-									%><p class="textc"><%= diaryList.get(num-1).getDia_content() %></p><% 
+									%><pre class="textc"><%= diaryList.get(num-1).getDia_content() %></pre><% 
 								}
 								
 								%>
@@ -433,7 +436,8 @@
         		
         		$(document).on('click','.btn3',function(){
        				let changecontent=$('.textcontent').val();
-       				$(this).before('<p class="textc">'+changecontent+'</p>');
+       				console.log(changecontent);
+       				$(this).before('<pre class="textc">'+changecontent+'</pre>');
        				$('.textcontent').remove();
            			$(this).remove();
            			
@@ -502,7 +506,7 @@
            			
         		})
         		
-        		$(document).on('click','. fas fa-calendar-plus fa-2x',function(){
+        		$(document).on('click','.fas fa-calendar-plus fa-2x',function(){
         			yearchange = prompt('Year를 입력해주세요 >> 2017');
        				monthchange = prompt('Month를 입력해주세요 >> 7');
        				daychange = prompt('Day를 입력해주세요 >>05');

@@ -246,6 +246,27 @@ public class diaryDAO {
 				      }
 				      return dimg;
 				   }
+			
+			//저장한 이미지 가져오기
+			public List<diaryAlbum> selectDimgAll(String id) {
+				   SqlSession sqlSession = sqlSessionFactory.openSession();
+				   List<diaryAlbum> dimg = null;
+				   try {
+					   
+					   	 dimg = sqlSession.selectList("com.smhrd.domain.diaryDAO.selectDimgAll", id);
+				         
+				         if (dimg != null) {
+				            sqlSession.commit();
+				         } else {
+				            sqlSession.rollback();
+				         }
+				      } catch (Exception e) {
+				         e.printStackTrace();
+				      } finally {
+				         sqlSession.close();
+				      }
+				      return dimg;
+				   }
 			//이미지 수정
 			public int updateDimg(diaryImg dimg) {
 				  SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -289,4 +310,27 @@ public class diaryDAO {
 				}
 				return check;
 			}
+			
+			//여기서부터
+			//이미지 저장
+			public int insertAlbum(diaryAlbum album) {
+				  SqlSession sqlSession = sqlSessionFactory.openSession();
+			      int cnt = 0;
+			      try {
+			         cnt = sqlSession.insert("com.smhrd.domain.diaryDAO.insertAlbum", album);
+			         if (cnt > 0) {
+			            sqlSession.commit();
+			         } else {
+			            sqlSession.rollback();
+			         }
+			      } catch (Exception e) {
+			         e.printStackTrace();
+			      } finally {
+			         sqlSession.close();
+			      }
+			      return cnt;
+			   }
+			
+			
+			
 }

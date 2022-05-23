@@ -37,7 +37,9 @@
 	<select id="selectDimg3" parameterType="String" resultType="com.smhrd.domain.diaryImg">
 		select * from diary_img3 where p_memid=#{p_memid} and p_oname='세번째'
 	</select>
-	
+	<select id="selectDimgAll" parameterType="String" resultType="com.smhrd.domain.diaryAlbum">
+		select * from diaryAlbum where p_memid=#{id}
+	</select>
 	<update id="updateDimg3" parameterType="com.smhrd.domain.diaryImg">
 		update diary_img3 set p_loc=#{p_loc} where d_num=#{d_num} and p_oname=#{p_oname} and p_memid=#{p_memid}
 	</update>
@@ -49,4 +51,15 @@
 	<update id="updateDiary" parameterType="com.smhrd.domain.diary">
 		update diary set dia_name = #{dia_name}, dia_tripday = #{dia_tripday}, dia_share = #{dia_share}, dia_date = #{dia_date}, dia_content = #{dia_content},dia_subname = #{sub} where dia_num=#{dia_num} and mem_id=#{mem_id}
 	</update>
+	
+	<insert id="insertAlbum" parameterType="com.smhrd.domain.diaryAlbum">
+		insert into diaryAlbum values(#{d_tripday},#{p_loc},#{p_memid})
+	</insert>
+	
+	
+	
+	
+	
+	
+	
 </mapper>
