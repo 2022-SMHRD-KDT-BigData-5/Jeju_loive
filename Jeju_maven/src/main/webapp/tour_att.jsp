@@ -39,6 +39,7 @@
 <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script><!-- 지도만드는녀석^^지수꼬! 건들면 나 화낸다~-^-(빠직) -->
 <script src="assets/js/dragdrop.js"></script>
 <!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -171,9 +172,9 @@
 		            <div style="float:left;width:100px;">아이템 추가 :</div>
 		            <div style="clar:both;">
 		            	
-		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}')"/>
+		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');"/>
 		                <input type="button" value="임시저장" onclick="setInPlan();"/>
-		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="getInPlan();" />
+		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" />
 		               
 		                
 		               
@@ -183,10 +184,73 @@
 		        <div id="itemBoxWrap"></div>
 		    </form>
 		    
-		</div>
+		</div><br><br>
+		
+<!-- 여기부터 지도공간~~~~~~~~~~~~^^지수꼬!건들지마삼 ㄱ-;;(빠직) -->		
+		<p style="margin-top:-12px">
+    <em class="link">
+        <!-- <a href="javascript:void(0);" onclick="window.open('http://fiy.daum.net/fiy/map/CsGeneral.daum', '_blank', 'width=981, height=650')">
+            혹시 주소 결과가 잘못 나오는 경우에는 여기에 제보해주세요.
+        </a> -->
+    </em>
+</p>
+<div id="map" style="width:100%;height:350px;"></div>
+
+
+
+
+
+<script>
+	
+	
+		var getAdds =[];
+		getAdds = localStorage.getItem('tourAdd');
+		addList = getAdds.split(",");
+		console.log()
+
+
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		    mapOption = {
+		        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+		        level:10 // 지도의 확대 레벨
+		    };  
+
+		// 지도를 생성합니다    
+		var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+		// 주소-좌표 변환 객체를 생성합니다
+		var geocoder = new kakao.maps.services.Geocoder();
+
+		// 주소로 좌표를 검색합니다
+		geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
+
+		    // 정상적으로 검색이 완료됐으면 
+		     if (status === kakao.maps.services.Status.OK) {
+
+		        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+		        /* // 결과값으로 받은 위치를 마커로 표시합니다
+		        var marker = new kakao.maps.Marker({
+		            map: map,
+		            position: coords
+		        });
+
+		        // 인포윈도우로 장소에 대한 설명을 표시합니다
+		        var infowindow = new kakao.maps.InfoWindow({
+		            content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+		        });
+		        infowindow.open(map, marker);
+
+		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+		        map.setCenter(coords); */
+		    } 
+		});    
 		
 		
-		
+	
+
+</script>
+
 		
 		
 		</div>
@@ -391,7 +455,11 @@
 	}
 	
 			//페이지 이동시 localStorage의 값을 가져오는 함수(자동실행)
-			window.onload=
+			
+			
+			window.onload=getInPlan();
+				
+				
 					function getInPlan(){
 
 						//localStorage에서 꺼내기
@@ -411,11 +479,20 @@
 			           for(i=0; i<numList.length; i++){
 							$(document).ready(createItem(nameList[i], numList[i], addList[i]));
 						}
-					};
+			};
 			
 			
 			
+			
+			//임시플랜 제출시 localStorage 삭제
+	         function removeInplan(){
+	            window.localStorage.clear();
+	         }
+				
 			
 	</script>
+	
+		
+			
 </body>
 </html>
