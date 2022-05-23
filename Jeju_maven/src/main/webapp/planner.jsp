@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	inplanDAO dao = new inplanDAO();
-	String mem_id ="123";
+	String mem_id ="11";
 	List<inplan> inplanList = dao.selectAllPlan(mem_id);
 	pageContext.setAttribute("inplanList",inplanList);
 
@@ -141,8 +141,8 @@
             <img src="images/yeonhee-VWLhifg5VMA-unsplash.jpg" alt="yeonhee-VWLhifg5VMA-unsplash"/>
             <figcaption>
                 <h2><span><c:out value="${i.inplan_name}"/></span></h2>
-                <p><c:out value="${i.inplan_name}"/></p>
-                <a href="#">View more</a>
+                <p><c:out value="${i.plan_date}"/></p>
+                <a href="inplan.jsp?date=${i.plan_date}">View more</a>
             </figcaption>
             </figure>         
 	</c:forEach>

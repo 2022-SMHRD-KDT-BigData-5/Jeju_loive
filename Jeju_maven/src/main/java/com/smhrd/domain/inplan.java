@@ -21,12 +21,12 @@ public class inplan {
 		this.mem_id = mem_id;
 		this.plan_date = plan_date;
 	}
-	public inplan(String inplan_name, BigDecimal tour_num, String mem_id, Timestamp plan_date) {
+	public inplan(String inplan_name, BigDecimal tour_num, String mem_id, Timestamp planDate) {
 		super();
 		this.inplan_name = inplan_name;
 		this.tour_num = tour_num;
 		this.mem_id = mem_id;
-		this.plan_date = plan_date;
+		this.plan_date = planDate;
 	}
 	public BigDecimal getInplan_num() {
 		return inplan_num;
@@ -43,6 +43,7 @@ public class inplan {
 	public Timestamp getPlan_date() {
 		return plan_date;
 	}
+
 	public inplan(String mem_id, Timestamp plan_date) {
 		super();
 		this.mem_id = mem_id;
