@@ -1,21 +1,46 @@
-<%@page import="com.smhrd.domain.tour"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.domain.diaryAlbum"%>
+<%@page import="java.sql.Timestamp"%>
 <%@page import="java.util.List"%>
-<%@page import="com.smhrd.domain.tourDAO"%>
+<%@page import="com.smhrd.domain.diaryDAO"%>
+<%@page import="com.smhrd.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" isELIgnored="false"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<% 
-	tourDAO dao = new tourDAO();
-	List<tour> tourList = dao.selectTourList();
-	pageContext.setAttribute("tourList", tourList);
-	List<tour> tourImgList = dao.selectTourImgList();
-	pageContext.setAttribute("tourImgList", tourImgList);
-	tour tourInfo = (tour)session.getAttribute("tourInfo");
-	int num=1;
-	
-
-%>
 <!DOCTYPE html>
+<%
+diaryDAO dao= new diaryDAO();
+Member loginMember = (Member)session.getAttribute("loginMember");
+List<String> tripday=null;
+List<String> albumlist=null;
+List<String> testList = new ArrayList<String>();
+SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+String realday="";
+if(loginMember != null){
+	
+	String id= loginMember.getId();
+	tripday=dao.selectDiaryDay(id);
+	System.out.println(tripday.size());
+	for(int i=0;i<tripday.size();i++){
+		 String day=tripday.get(i);
+		 
+		 Timestamp timestamp = Timestamp.valueOf(day);
+		 diaryAlbum album= new diaryAlbum(timestamp,id);
+		 albumlist=dao.selectAlbum(album);
+		 
+		 System.out.println(albumlist.get(0));
+		 testList.add(albumlist.get(0));
+		 
+		 
+	}
+	
+	
+	System.out.println(testList.size());
+	System.out.println(testList.get(0));
+	System.out.println(testList.get(1));
+}
+%>
 <html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8" />
@@ -153,15 +178,9 @@
 		
 			<header class="codrops-header">
 				<h1>
-					ATTRACTION<span>관광지에 대한 정보를 추천해주는 메뉴입니다.</span>
+					Diary<span>My Diary.</span>
 				</h1>
-				<nav class="codrops-demos">
-
-					<a href="#" class="current-demo">관광지</a>
-					<a href="tour_food.jsp">음식점</a>
-					<a href="tour_cafe.jsp">카페</a>
-
-				</nav>
+				
 			</header>
 		
 		
@@ -170,36 +189,38 @@
 		
 		<!-- 관광지 정보 반복출력 -->
 
-		<h2 id="sh">가즈아</h2>
-		
+		<h2 id="sh">내 추억들</h2>
 			<div class="grid">
-<%-- 			<h1><%=tourImgList.get(1).getT_add() %></h1> --%>
-				 	<%-- <c:set var="str" value="" />  --%>
-						<c:forEach var="t" items="${tourList}" varStatus="status">
-					<%--  <c:forEach var="i" items="${tourImgList}" varStatus="status">
-							<c:if test="${i.tour_num != str }">  --%>
+			
+						<%
+						if(tripday!=null){
+						for(int i=0;i<tripday.size();i++){
+							String day=tripday.get(i);
+							 
+							Timestamp timestamp = Timestamp.valueOf(day);
+							realday = sdf1.format(timestamp);
+						
+						%>
 								<figure class="effect-marley">
-									<img src="${t.img}" alt="img11" width=480px" height="300px" />
+									<img src="<%=testList.get(i) %>" alt="img11" width=480px" height="300px" />
 									<!-- 이미지 주소를 넣는 공간입니다^^ -->
 									<figcaption>
 										<h2>
-											<span><c:out value="${t.name}" /></span>
+											<span>"<%=realday %></span>
 										</h2>
 										<p>
-											<c:out value="${t.address}" />
+											<%=realday %>
 										</p>
-										<a href="TourInfoCon?tourNum=${t.num}">View more</a>
+										<a href="diaryDetailCon?dia_tripday=<%=realday%>">View more</a>
 									</figcaption>
 								</figure>
-							<%--  </c:if>
-							<c:set var="str" value="${i.tour_num}" />
-						 </c:forEach>  --%>
-					</c:forEach>
+					
+					<% }}%>
 				</div>
 			
 			</div>
 	</div>
-	
+
 	
 		<!-- ---------------------------~~지금부터 플래너 공간~~-------------------------- -->
 	
@@ -226,21 +247,15 @@
 			<!-- item : input태그 내에 작성된 내용 -->
 			<!-- createItem() : tour_name,tour_num,tour_add 값 입력받아 tour_name은 출력해주고, num과 address는 저장해줌 -->
 			
-			<form action="PlanInsertCon" method="post">
-			여행일을 선택해주세요 >> <input type="date" name="plan_date"  id = "planInsert"><br/><br/>
+			<form action="PlanInsertCon" method="post" id = "planInsert">
+			여행일을 선택해주세요 >> <input type="date" name="plan_date"><br/><br/>
 		        <div>
 		            <div style="float:left;width:100px;">아이템 추가 :</div>
 		            <div style="clar:both;">
 		            	
-<<<<<<< HEAD
-		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');"/>
-		                <input type="button" value="임시저장" onclick="setInPlan(); updatePage();"/>
-		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" />
-=======
 		                <input type="button" class = "w-btn-red w-btn-red-outline" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');" style="margin-left:20px" />
 		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan();" style="margin-left:50px" />
 		                <input type="submit" class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" style="margin : 10px 0px 0px 120px" />
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 		               
 		                
 		               
@@ -338,6 +353,7 @@
 
 			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 			        map.setCenter(coords); 
+			        
 			        
 			    } 
 			});   
@@ -579,8 +595,7 @@
 							$(document).ready(createItem(nameList[i], numList[i], addList[i]));
 							addMaker(addList[i],nameList[i]);
 			           }
-
-			           location.reload(true);
+			           
 			           
 					};
 			
@@ -594,12 +609,6 @@
 	            window.localStorage.clear();
 	         }
 				
-			
-			function updatePage(){
-				$( "#map" ).load(window.location.href + " #map" );
-			}
-			
-			
 			
 	</script>
 

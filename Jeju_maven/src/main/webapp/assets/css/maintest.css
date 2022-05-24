@@ -9749,12 +9749,13 @@ p,
 #planInsert{
 	font-weight : 800;
 	color : black;
-	height : 15px;
+	height : 30px;
 }
 
 input[type="date"] {
 	color: #2879c1;
-	width: 300px;
+	width: 100%;
+	height : 20%;
 }
 .w-btn-red-outline:hover {
     background-color: #ff5f2e;
