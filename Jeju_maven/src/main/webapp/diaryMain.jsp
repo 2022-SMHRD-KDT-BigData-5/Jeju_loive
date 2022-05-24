@@ -33,6 +33,7 @@ if(loginMember != null){
 	pageContext.setAttribute("loginMember",loginMember);
 	String mem_id=loginMember.getId();
 	date = request.getParameter("dia_tripday");
+	
 	datetest=date;
 	System.out.println("Maindate"+date);
 	String date2=date+" "+"00:00:00";
@@ -558,8 +559,8 @@ figure{
 		$('.head').remove();
 		$('.context').remove();
 		$(this).remove();
-		$('.contextarea').append('<textarea name="content" class="textcontent3" cols="100" rows="1" placeholder="제목"></textarea>'+
-						'<textarea name="content" class="textcontent4" cols="100" rows="8" placeholder="내용"></textarea><br>'+
+		$('.dd').after('<textarea name="content" class="textcontent3" cols="80" rows="1" placeholder="제목"></textarea>'+
+						'<textarea name="content" class="textcontent4" cols="80" rows="8" placeholder="내용"></textarea><br>'+
 						'<button class="change2">수정완료</button>');
    });
    $(document).on('click','.change2',function(){
@@ -570,7 +571,7 @@ figure{
   });
    $(document).on('click','.addimg',function(){
 	   $('.imgarea').prepend('<div class="imgup"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">'+
-			   '<input type="date" class="dateadd" value="'+date+'">'+
+			   '<input type="date" name="date" value="'+date+'">'+
 			   '<input type="file" name="filename1" size=40 >'+
                '<input type="submit" value="업로드">'+
                '</form></div>');

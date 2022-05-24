@@ -42,6 +42,9 @@ if(loginMember != null){
 	
 	}
 	}
+System.out.print(tripday.get(0));
+System.out.print(tripday.get(1));
+	System.out.print(testList.get(0));
 	System.out.print(testList.size());
 %>
 <html lang="en" class="no-js">
