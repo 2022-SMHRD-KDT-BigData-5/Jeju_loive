@@ -14,19 +14,19 @@
 }
 
 #myform label:hover{
-    text-shadow: 0 0 0 #a00; /* 마우스 호버 */
+    text-shadow: 0 0 0 #ffe100; /* 마우스 호버 */
 }
 #myform label:hover ~ label{
-    text-shadow: 0 0 0 #a00; /* 마우스 호버 뒤에오는 이모지들 */
+    text-shadow: 0 0 0 #ffe100; /* 마우스 호버 뒤에오는 이모지들 */
 }
 #myform fieldset{
     display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
-    direction: rtl; /* 이모지 순서 반전 */
+    direction: rtl; /* 이모지 순서 ss반전 */
     border: 0; /* 필드셋 테두리 제거 */
 }
 #myform fieldset legend{
     text-align: left;
 }
 #myform input[type=radio]:checked ~ label{
-    text-shadow: 0 0 0 #a00; /* 마우스 클릭 체크 */
+    text-shadow: 0 0 0 #ffe100; /* 마우스 클릭 체크 */
 }

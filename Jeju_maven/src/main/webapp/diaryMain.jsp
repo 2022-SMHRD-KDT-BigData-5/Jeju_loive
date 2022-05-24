@@ -279,7 +279,7 @@ strong{
    
     z-index: 1;
     -webkit-transition: all .5s ease;
-    bottom: -6px;
+    bottom: 0px;
     overflow: hidden;
 
 }
@@ -340,9 +340,10 @@ figure{
    
 .imgc{
  width:100%;
-    height:100%;
-    object-fit:cover;
-    }
+ height:100%;
+ object-fit:cover;
+  
+  }
    
 </style>
    
@@ -587,6 +588,24 @@ figure{
    
    </script>
   
+   
+   
+   
+  
+
+<script>
+
+</script>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
    
    
  
