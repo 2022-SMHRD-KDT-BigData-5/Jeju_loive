@@ -12,11 +12,10 @@
 	.score-wrapper >.score{
 		position: relative;
 		display: inline-flex;
-		
 		border: 1px solid ridge;
 	}
 	.score-wrapper >.score >.foreground{
-		width:15%;
+		width:0%;
 		overflow: hidden;
 		
 	}

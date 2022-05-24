@@ -20,13 +20,13 @@
 			<div class="background">☆☆☆☆☆</div>
 		</div>
 		<span class="display">
-			3.6
+			2
 		</span>
 	</div>
 	
 	<script>
 		$(function(){
-			const rate=3.6;
+			const rate=4.7;
 			const max=5;
 			const percent = rate/max*100;
 		
