@@ -171,6 +171,7 @@
 		<!-- 관광지 정보 반복출력 -->
 
 		<h2 id="sh">가즈아</h2>
+		
 			<div class="grid">
 <%-- 			<h1><%=tourImgList.get(1).getT_add() %></h1> --%>
 				 	<%-- <c:set var="str" value="" />  --%>
@@ -225,15 +226,21 @@
 			<!-- item : input태그 내에 작성된 내용 -->
 			<!-- createItem() : tour_name,tour_num,tour_add 값 입력받아 tour_name은 출력해주고, num과 address는 저장해줌 -->
 			
-			<form action="PlanInsertCon" method="post" id = "planInsert">
-			여행일을 선택해주세요 >> <input type="date" name="plan_date"><br/><br/>
+			<form action="PlanInsertCon" method="post">
+			여행일을 선택해주세요 >> <input type="date" name="plan_date"  id = "planInsert"><br/><br/>
 		        <div>
 		            <div style="float:left;width:100px;">아이템 추가 :</div>
 		            <div style="clar:both;">
 		            	
+<<<<<<< HEAD
+		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');"/>
+		                <input type="button" value="임시저장" onclick="setInPlan(); updatePage();"/>
+		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" />
+=======
 		                <input type="button" class = "w-btn-red w-btn-red-outline" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');" style="margin-left:20px" />
 		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan();" style="margin-left:50px" />
 		                <input type="submit" class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" style="margin : 10px 0px 0px 120px" />
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 		               
 		                
 		               
@@ -331,7 +338,6 @@
 
 			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 			        map.setCenter(coords); 
-			        
 			        
 			    } 
 			});   
@@ -573,7 +579,7 @@
 							$(document).ready(createItem(nameList[i], numList[i], addList[i]));
 							addMaker(addList[i],nameList[i]);
 			           }
-			           
+
 			           
 					};
 			
@@ -587,6 +593,12 @@
 	            window.localStorage.clear();
 	         }
 				
+			
+			/* function updatePage(){
+				$( "#map" ).load(window.location.href + " #map" );
+			} */
+			
+			
 			
 	</script>
 

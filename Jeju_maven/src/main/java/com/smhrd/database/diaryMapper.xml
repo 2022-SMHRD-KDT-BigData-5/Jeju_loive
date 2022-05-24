@@ -4,11 +4,22 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.domain.diaryDAO">
 	<insert id="insertDiary" parameterType="com.smhrd.domain.diary">
-		insert into diary values(#{dia_num}, #{dia_name}, #{dia_tripday}, #{dia_share}, #{dia_date}, #{mem_id},#{dia_content},#{sub})
+		insert into diary (dia_num,dia_name, dia_tripday,dia_date,mem_id,dia_content) values(#{dia_num},#{dia_name},#{dia_tripday},sysdate, #{mem_id}, #{dia_content})
 	</insert>
-	<select id="selectDiary" parameterType="String" resultType="com.smhrd.domain.diary">
-		select * from diary where mem_id=#{mem_id} 
+	<select id="selectDiary" parameterType="com.smhrd.domain.diary" resultType="com.smhrd.domain.diary">
+		select * from diary where mem_id=#{mem_id} and dia_tripday=#{dia_tripday}
 	</select>
+	
+	<select id="selectDiaryDay" parameterType="String" resultType="String">
+		select dia_tripday from diary where mem_id=#{mem_id} 
+	</select>
+	
+	<select id="selectAlbum" parameterType="com.smhrd.domain.diaryAlbum" resultType="String">
+		select p_loc from diaryAlbum where p_memid=#{p_memid} and d_tripday=#{d_tripday}
+	</select>
+	
+	
+	
 	
 	<insert id="insertImg" parameterType="com.smhrd.domain.diaryImg">
 		insert into diary_img values(diary_imgnum.nextval, #{d_num}, #{d_tripday}, #{p_oname}, #{p_loc}, #{p_memid})
@@ -53,7 +64,7 @@
 	</update>
 	
 	<insert id="insertAlbum" parameterType="com.smhrd.domain.diaryAlbum">
-		insert into diaryAlbum (d_tripday,p_loc,p_memid) values(#{d_tripday}, #{p_loc}, #{p_memid})
+		insert into diaryAlbum values(#{d_tripday}, #{p_loc}, #{p_memid})
 	</insert>
 	
 	<update id="updateAlbum" parameterType="com.smhrd.domain.diaryAlbum">
