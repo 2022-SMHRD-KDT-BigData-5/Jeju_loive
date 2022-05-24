@@ -19,7 +19,7 @@
 diaryDAO dao = new diaryDAO();
 tourDAO tdao = new tourDAO();
 inplanDAO dao1 = new inplanDAO();
-List<diaryAlbum> dimgList=null;
+List<String> albumlist = null;
 diary diary2 =null;
 int num=0;
 String datetest="";
@@ -32,15 +32,17 @@ String date="";
 if(loginMember != null){
 	pageContext.setAttribute("loginMember",loginMember);
 	String mem_id=loginMember.getId();
-	date = (String)session.getAttribute("dia_tripday");
+	date = request.getParameter("dia_tripday");
 	datetest=date;
 	System.out.println("Maindate"+date);
 	String date2=date+" "+"00:00:00";
-	dimgList = dao.selectDimgAll(mem_id);
 	Timestamp timestamp = Timestamp.valueOf(date2);
+	diaryAlbum album= new diaryAlbum(timestamp,mem_id);
+	albumlist=dao.selectAlbum(album);
+	
 	diary diary= new diary(mem_id,timestamp);
 	diary2 = dao.selectDiary(diary);
-	pageContext.setAttribute("dimgList",dimgList);
+	pageContext.setAttribute("dimgList",albumlist);
 	
 inplan inplan=new inplan(mem_id, timestamp);  
 List<tour> inplanTourList = tdao.selectTour(inplan);
@@ -102,6 +104,11 @@ pageContext.setAttribute("inplanTourList",inplanTourList);
    		width : 300px; 
    		height : 200px;
    		float:left;
+   }
+   .imgup2{
+   		width : 300px; 
+   		height : 200px;
+   		
    }
    
  
@@ -375,9 +382,9 @@ figure{
              </div>
           
          <br>
-          <%if (dimgList.size()<1){
+          <%if (albumlist.size()<1){
                         %>
-                        <div class="imgup"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">
+                        <div class="imgup2"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">
                         <input type="date" name="date" value="<%=date%>">
                         <input type="file" name="filename1" size=40 >
                         <input type="submit" value="업로드">
@@ -391,7 +398,7 @@ figure{
          
          
          <c:forEach var="i" items="${dimgList}" varStatus="status">
-               <img src="<%=dimgList.get(num).getP_loc() %>" alt="실패"  width="300px" height="200px"/>
+               <img src="<%=albumlist.get(num) %>" alt="실패"  width="300px" height="200px"/>
                
                <%num++; %>
             </c:forEach>

@@ -14,7 +14,7 @@
    </insert>
    
    <insert id="insertPlanner" parameterType="com.smhrd.domain.plan">
-   		insert into plan(plan_num, plan_date, mem_id) values(pk_seq.nextval, #{plan_date}, #{mem_id} )
+   		insert into planner(plan_num, plan_date, mem_id) values(pk_seq.nextval, #{plan_date}, #{mem_id} )
    </insert>
    
 </mapper>
