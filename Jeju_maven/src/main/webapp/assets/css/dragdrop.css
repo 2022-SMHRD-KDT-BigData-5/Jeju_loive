@@ -2,10 +2,11 @@
         /*리스트에 포함될 아이템 스타일*/
         .itemBox {
             border: solid 1px black;
-            width: 400px;
+            width: 380px;
             height: 50px;
             padding: 10px;
             margin-bottom: 10px;
+                border-radius: 10px 10px 10px 10px;
         }
 
         /*아이템 드래거하여 놓은 자리 알려주는 스타일*/

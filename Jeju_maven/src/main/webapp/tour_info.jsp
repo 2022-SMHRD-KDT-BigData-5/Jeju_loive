@@ -58,7 +58,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/a\jax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -73,7 +73,7 @@
 <style>
 	#flex_cont{display:flex;}
 	#tour_div{width:70%;}
-	#plan_div{width:25%;}
+	#plan_div{width:20%;}
 	.soohyeon{
 		position: fixed;
         right: 20px;
@@ -97,20 +97,20 @@
             </div>
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
-                    <a class="text-white px-2" href="">
-                        <i class="fab fa-facebook-f"></i>
+                     <a class="text-white px-2" href="">
+                        <i class="fa fa-globe"></i>
                     </a>
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-twitter"></i>
+                        <i class="fa fa-minus"></i>
                     </a>
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-linkedin-in"></i>
+                        <i class="fa fa-minus"></i>
                     </a>
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-instagram"></i>
+                        <i class="fa fa-minus"></i>
                     </a>
                     <a class="text-white pl-2" href="">
-                        <i class="fab fa-youtube"></i>
+                        <i class="fa fa-plane"></i>
                     </a>
                 </div>
             </div>
@@ -241,12 +241,12 @@
 			<form action="PlanInsertCon" method="post">
 			여행일을 선택해주세요 >> <input type="date" id = "planInsert" name="plan_date"><br/><br/>
 		        <div>
-		            <div style="float:left;width:100px;">아이템 추가 :</div>
+		           
 		            <div style="clar:both;">
 		            	
 		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');"/>
-		                <input type="button" value="임시저장" onclick="setInPlan(); updatePage();"/>
-		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" />
+		                <input type="button" value="임시저장" onclick="setInPlan(); updatePage();"style="margin-left:20px"/>
+		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" style="margin-left:20px"/>
 		               
 		                
 		               
@@ -268,7 +268,7 @@
         </a> -->
     </em>
 </p>
-<div id="map" style="width:100%;height:350px;"></div>
+<div id="map" style="width:110%;height:350px;"></div>
 
 
 	<!-- JavaScript Libraries -->

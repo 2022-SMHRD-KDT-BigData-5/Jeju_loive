@@ -17,6 +17,7 @@ public class diaryDetailCon extends HttpServlet {
 		HttpSession session = request.getSession();
 		Member loginMember = (Member)session.getAttribute("loginMember");
 		String dia_tripday=request.getParameter("dia_tripday");
+		System.out.println("세션만들기"+dia_tripday);
 		session.setAttribute("dia_tripday", dia_tripday);
 		response.sendRedirect("diaryMain.jsp");
 	}

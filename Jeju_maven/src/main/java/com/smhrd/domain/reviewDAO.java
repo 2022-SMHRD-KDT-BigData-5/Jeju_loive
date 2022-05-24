@@ -95,4 +95,33 @@ public class reviewDAO {
 		return ReviewList;
 	
 	}
+	
+	
+	//리뷰 별점 평균 가져오기
+	public BigDecimal selectStarAvg(BigDecimal tour_num) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		BigDecimal star_avg = null;
+		
+		try {
+			star_avg = sqlSession.selectOne("com.smhrd.domain.reviewDAO.selectStarAvg",tour_num);
+			if(star_avg!=null) {
+				sqlSession.commit();
+				System.out.println("리뷰평균 가져오기 성공");
+			}else {
+				sqlSession.rollback();
+				System.out.println("리뷰평균 가져오기 실패");
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		
+		return star_avg;
+	}
+	
+	
+	
+	
+	
 }

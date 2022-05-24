@@ -8,6 +8,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%
+int num=1;
 tourDAO dao = new tourDAO();
 List<tour> cafeList = dao.selectCafeList();
 pageContext.setAttribute("cafeList", cafeList);
@@ -36,7 +37,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script>
-<script src="assets/js/dragdrop.js"></script>
+<script type="text/javascript" src="assets/js/dragdrop.js"></script>
 <link rel="stylesheet" href="assets/css/maintest.css" />
 <!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -50,6 +51,10 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
         right: 20px;
        	top: 10px;
        	color:white
+	}.active{
+		 background-color: #F29661;
+	}
+	.contents{text-align: center;
 	}
 </style>
 	
@@ -68,19 +73,19 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-facebook-f"></i>
+                        <i class="fa fa-globe"></i>
                     </a>
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-twitter"></i>
+                        <i class="fa fa-minus"></i>
                     </a>
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-linkedin-in"></i>
+                        <i class="fa fa-minus"></i>
                     </a>
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-instagram"></i>
+                        <i class="fa fa-minus"></i>
                     </a>
                     <a class="text-white pl-2" href="">
-                        <i class="fab fa-youtube"></i>
+                        <i class="fa fa-plane"></i>
                     </a>
                 </div>
             </div>
@@ -95,13 +100,13 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
             <a href="main.jsp" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-paper-plane"></i> 제주살앙</h1>
             </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <!-- <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> -->
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
                     <a href="maintest.jsp" class="nav-item nav-link">Home</a>
-                    <a href="tour_att.jsp" class="nav-item nav-link active">투어</a>
+                    <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
                     <a href="planner.jsp" class="nav-item nav-link">플래너</a>
                     <a href= "diarytest.jsp" class="nav-item nav-link">다이어리</a>
                     <a href= "board.jsp" class="nav-item nav-link">게시판</a>
@@ -136,6 +141,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 
 <!--  container-->
 		<script>
+		
 			// For Demo purposes only (show hover effect on mobile devices)
 			[].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
 				el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
@@ -150,17 +156,17 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 				</nav>
 			</header>
 		
-		<div class="content">
+		<div class="contents"><br>
 		
 
 		
-		<h2>츄릅</h2>
-			<div class="grid">	
+		
+			<div class="grid"><br>
 			<%-- <c:set var="str" value="" />  --%>
 						<c:forEach var="c" items="${cafeList}" varStatus="statusNum">
 					<%--  <c:forEach var="i" items="${tourImgList}" varStatus="status">
 							<c:if test="${i.tour_num != str }">  --%>
-								<figure class="effect-marley">
+								<figure class="effect-marley" id="num<%=num%>"><%num++; %>
 									<img src="${c.img }" alt="img11" width=480px" height="330px" />
 									<!-- 이미지 주소를 넣는 공간입니다^^ -->
 									<figcaption>
@@ -211,16 +217,13 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 			<form action="PlanInsertCon" method="post">
 			여행일을 선택해주세요 >> <input type="date" name="plan_date" id = "planInsert"><br/><br/>
 		        <div>
-		            <div style="float:left;width:100px;">아이템 추가 :</div>
+		            
 		            <div style="clar:both;">
 		            	
-		                <input type="button" class = "w-btn-red w-btn-red-outline" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}')" style="margin-left:20px"/>
-		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan();  updatePage();" style="margin-left:50px"/>
-		                <input type="submit" class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" style="margin : 10px 0px 0px 120px"/>
-		               
-		                
-		               
-		            </div>
+		                <input type="button" class = "w-btn-red w-btn-red-outline" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}')"/>
+		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan();  updatePage();" style="margin-left:20px"/>
+		                <input type="submit" class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();"  style="margin-left:20px"/>
+		             </div>
 		        </div>
 		        <br />
 		        <div id="itemBoxWrap"></div>
@@ -238,7 +241,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
         </a> -->
     </em>
 </p>
-<div id="map" style="width:100%;height:350px;"></div>
+<div id="map" style="width:110%;height:350px;"></div>
 
 
 	<!-- JavaScript Libraries -->
@@ -316,37 +319,111 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 			        map.setCenter(coords); 
 			        
-			        
 			    } 
 			});   
 			
 		}
 		
 		
-	
-
 </script>
 		
 	</div>
-		</div>
-
-	<nav class="codrops-demos">
+	
+		</div><br>
+		<div style="float:right;height:10%; width:42%;"><input type="button" value="맨위로" onClick="javascript:window.scrollTo(0,0)" />
+</div>
+	<!-- <nav class="codrops-demos">
 					<a href="tour_att.jsp">관광지</a>
 					<a href="tour_food.jsp">음식점</a>
 					<a href="#" class="current-demo">카페</a>
-	</nav>
+	</nav> -->
 	<!-- Related demos -->
 	<section class="related"></section>
 	
-	<!-- /container -->
+	
 	<script>
-		// For Demo purposes only (show hover effect on mobile devices)
-		[].slice.call(document.querySelectorAll('a[href="#"')).forEach(
-				function(el) {
-					el.addEventListener('click', function(ev) {
-						ev.preventDefault();
-					});
-				});
+	
+	let i=1;
+	let s =document.getElementsByClassName('effect-marley').length;
+	let k = document.getElementsByClassName('effect-marley').length/20;
+	for(i=1;i<=k;i++){
+		$('.grid').before('<button>'+i+'</button>'+' ');
+	}
+	$('button').eq(0).attr('class','active');
+	let i2=$('.active').text();
+	console.log(i2);
+	let h=1;
+	for(h=1;h<=s;h++){
+		$('#num'+h).css("display" ,"none")
+	}
+	if(i2==1){
+		for(h=1;h<=20;h++){
+			$('#num'+h).css("display" ,"inline")
+		}
+	}
+	
+	$(document).on('click','button',function(){
+			$('button').removeAttr('class');
+		$(this).attr('class','active');
+		i2=$('.active').text();
+		console.log(i2);
+		let h=1;
+		for(h=1;h<=s;h++){
+			$('#num'+h).css("display" ,"none")
+		}
+		if(i2==1){
+			for(h=1;h<=20;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		}
+		else if(i2==2){
+			for(h=21;h<=40;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		}
+		else if(i2==3){
+			for(h=41;h<=60;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		}
+		else if(i2==4){
+			for(h=61;h<=80;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		}
+		else if(i2==5){
+			for(h=81;h<=100;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		}
+		else if(i2==6){
+			for(h=101;h<=120;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		} 
+		else if(i2==7){
+			for(h=121;h<=140;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		} 
+		else if(i2==8){
+			for(h=141;h<=160;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		} 
+		else if(i2==9){
+			for(h=161;h<=180;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		} 
+		else if(i2==10){
+			for(h=181;h<=200;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		} 
+		
+	});
+		
 	</script>
 	
 	<!-- 드래그앤드롭 JS -->
@@ -443,7 +520,14 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 			         function updatePage(){
 			        	 location.reload();
 						}
+			         /* function goTop(){
+			        		$('html').scrollTop(0);
+			        	
+			        	} */
 			
 	</script>
+	
+	
 </body>
+
 </html>

@@ -199,3 +199,10 @@ section {
 		text-align: center;
 	}
 }
+button#add {
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 4px 6px -1px #bb7559, 0 2px 4px -1px rgb(0 0 0 / 6%);
+    cursor: pointer;
+    transition: 0.5s;
+    margin-left: 10px;
+}

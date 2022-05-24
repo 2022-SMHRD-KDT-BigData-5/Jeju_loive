@@ -8,7 +8,7 @@
    </insert>
    
    <select id="selectReview" parameterType="BigDecimal" resultType="com.smhrd.domain.review">
-      select * from review where tour_num=#{tour_num}
+      select * from review where tour_num=#{tour_num} order by rev_time
    </select>
    
 	<update id="updateReview" parameterType="com.smhrd.domain.review">
@@ -19,7 +19,9 @@
 		delete from review where rev_user=#{user}
 	</delete>
 
-
+	<select id="selectStarAvg" parameterType="com.smhrd.domain.review" resultType="BigDecimal">
+		select round(AVG(rev_star),1) from review having tour_num = #{tour_num} group by tour_num;
+	</select>
    
 
 
