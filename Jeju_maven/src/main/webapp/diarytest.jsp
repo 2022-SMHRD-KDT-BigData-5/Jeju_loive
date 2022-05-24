@@ -56,8 +56,7 @@ if(loginMember != null){
 	content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
 <meta name="author" content="Codrops" />
 
-<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300'
-	rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300'	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
@@ -78,7 +77,7 @@ if(loginMember != null){
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+	<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/a\jax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
@@ -110,7 +109,7 @@ if(loginMember != null){
 
 <body>
 	
-<!-- Topbar Start -->
+   <!-- Topbar Start -->
     <div class="container-fluid bg-dark">
         <div class="row py-2 px-lg-5">
             <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
@@ -152,9 +151,9 @@ if(loginMember != null){
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
                     <a href="maintest.jsp" class="nav-item nav-link">Home</a>
-                    <a href="tour_att.jsp" class="nav-item nav-link active">투어</a>
+                    <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
                     <a href="planner.jsp" class="nav-item nav-link">플래너</a>
-                    <a href= "diary1.jsp" class="nav-item nav-link">다이어리</a>
+                    <a href= "diarytest.jsp" class="nav-item nav-link active">다이어리</a>
                     <a href= "board.jsp" class="nav-item nav-link">게시판</a>
                 </div>
                <nav>
@@ -171,7 +170,7 @@ if(loginMember != null){
                
                  </nav>
             </div>
-     
+ 
     <!-- Navbar End -->
 
 	<div class="flex-container" id="flex_cont">
