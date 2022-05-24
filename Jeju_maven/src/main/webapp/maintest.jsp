@@ -44,7 +44,7 @@
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
                     <a class="text-white px-2" href="">
-                        <i class="fa fa-minus"></i>
+                        <i class="fa fa-globe"></i>
                     </a>
                     <a class="text-white px-2" href="">
                         <i class="fa fa-minus"></i>
