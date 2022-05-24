@@ -15,6 +15,7 @@ diaryDAO dao = new diaryDAO();
 List<diaryAlbum> dimgList=null;
 diary diary2 =null;
 int num=0;
+String date="";
 SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
 Member loginMember = (Member)session.getAttribute("loginMember");
 
@@ -22,9 +23,10 @@ Member loginMember = (Member)session.getAttribute("loginMember");
 if(loginMember != null){
 	pageContext.setAttribute("loginMember",loginMember);
 	String mem_id=loginMember.getId();
-	
+	date = (String)session.getAttribute("dia_tripday");
+	String date2=date+" "+"00:00:00";
 	dimgList = dao.selectDimgAll(mem_id);
-	Timestamp timestamp = Timestamp.valueOf("2022-05-23 00:00:00");
+	Timestamp timestamp = Timestamp.valueOf(date2);
 	diary diary= new diary(mem_id,timestamp);
 	diary2 = dao.selectDiary(diary);
 	pageContext.setAttribute("dimgList",dimgList);
@@ -148,7 +150,7 @@ if(loginMember != null){
           <%if (dimgList.size()<1){
                         %>
                         <div class="imgup"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">
-                        <input type="date" name="date">
+                        <input type="date" name="date" value="<%=date%>">
                         <input type="file" name="filename1" size=40 >
                         <input type="submit" value="업로드">
                         </form></div>
@@ -168,7 +170,7 @@ if(loginMember != null){
             <%num=0; %>
          
            
-               <%if(diary2!=null){
+               <%if(diary2!=null||diary2.getDia_name()!=null){
             	   %><h2>
                      <span class="head"><%=diary2.getDia_name() %>
                   </h2>
@@ -264,7 +266,7 @@ if(loginMember != null){
       
    </script>
    <script type="text/javascript">
-   let date="2022-05-23"
+   let date=<%=date%>
    $(document).on('click','.change',function(){
 		
 		$('.head').remove();
