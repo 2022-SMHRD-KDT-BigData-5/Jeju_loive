@@ -75,6 +75,9 @@
 		update diaryAlbum set d_content=#{d_content} where p_memid=#{p_memid} and p_loc=#{p_loc}
 	</update>
 	
+	<delete id="deleteAlbum" parameterType="com.smhrd.domain.diaryAlbum">
+		delete diaryAlbum where p_memid=#{p_memid} and p_loc=#{p_loc} and d_tripday=#{d_tripday}
+	</delete>
 	
 	
 	

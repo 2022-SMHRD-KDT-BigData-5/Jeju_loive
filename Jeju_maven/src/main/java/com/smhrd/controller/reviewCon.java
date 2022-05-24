@@ -25,6 +25,8 @@ public class reviewCon extends HttpServlet {
 		//값 받아오기
 		String rev_user = request.getParameter("mem_id");
 		String rev_content = request.getParameter("content");
+		String dia_tripday = request.getParameter("dia_tripday");
+		System.out.println(dia_tripday);
 		BigDecimal tour_num = new BigDecimal(request.getParameter("tour_num"));
 		BigDecimal rev_star = new BigDecimal(request.getParameter("rating"));
 		
@@ -45,7 +47,7 @@ public class reviewCon extends HttpServlet {
 		}
 		
 		//리뷰저장후 다시 다이어리 상세로 보내기
-		response.sendRedirect("diaryMain.jsp");
+		response.sendRedirect("diaryMain.jsp?dia_tripday="+dia_tripday);
 		
 		
 		

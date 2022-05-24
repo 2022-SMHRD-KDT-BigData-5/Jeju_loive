@@ -133,7 +133,7 @@ pageContext.setAttribute("inplanTourList",inplanTourList);
    }
    .deletebutton{
    		position: relative;
-   		bottom : 180px;
+   		bottom : 80px;
    		display : none;
    }
  	
@@ -520,7 +520,7 @@ figure{
                 <div class="source_box">
                     <span class="reviewDate"></span>
                     <span class="source"></span>
-                        <span class = "source_inner"><a href="review.jsp?tour_num=${t.num}">리뷰작성</a></span>
+                        <span class = "source_inner"><a href="review.jsp?tour_num=${t.num}&dia_tripday=<%=date%>">리뷰작성</a></span>
                  </div>
             </li>
         </c:forEach>
@@ -572,7 +572,7 @@ figure{
   });
    $(document).on('click','.addimg',function(){
 	   $('.imgarea').prepend('<div class="imgup"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">'+
-			   '<input type="date" name="date" value="'+date+'">'+
+			   '<input type="date" name="date" value="'+date+'" readonly>'+
 			   '<input type="file" name="filename1" size=40 >'+
                '<input type="submit" value="업로드">'+
                '</form></div>');
@@ -581,9 +581,9 @@ figure{
 	   $('.deletebutton').css("display" ,"inline");
  });
    $(document).on('click','.deletebutton',function(){
-	  let location = $(this).prev().attr('src');
-	  console.log(location);
-	  $(location).attr('href', 'deleteCon?loc='+location+'&date='+date);
+	  let loc = $(this).prev().attr('src');
+	  console.log(loc);
+	  $(location).attr('href','deleteCon?loc='+loc+'&date='+date);
  });
    
    </script>
