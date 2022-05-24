@@ -228,23 +228,8 @@ int num=1;
 								 </span>
 
 									<span class="display"> ${r.rev_star} </span>
-								</div> <script>
-									$(function() {
-										const rate = $
-										{
-											r.rev_star
-										}
-										;
-										const max = 5;
-										const percent = rate / max * 100;
+								</div>  </span>
 
-										$(".score-wrapper").find(".foreground")
-												.css("width", percent + "%");
-										$(".scope-wrapper").find(".display")
-												.text(rate);
-									});
-								</script> </span>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 						</h2>
 						<c:out value="${r.rev_time}" />
 						<p>
@@ -252,10 +237,40 @@ int num=1;
 						</p>
 					<%num++; %>
 					</c:forEach>
-					<script>		
-					
-									
-									
+					<script>
+								let k = $('#te1').text();
+								let k2 = $('#te2').text();
+								console.log(k);
+								if(k==1){
+									$('#test1').width('20%');
+								}
+								else if(k==2){
+									$('#test1').width('40%');
+								}
+								else if(k==3){
+									$('#test1').width('60%');
+								}
+								else if(k==4){
+									$('#test1').width('80%');
+								}
+								else if(k==5){
+									$('#test1').width('100%');
+								}
+								if(k2==1){
+									$('#test2').width('20%');
+								}
+								else if(k2==2){
+									$('#test2').width('40%');
+								}
+								else if(k2==3){
+									$('#test2').width('60%');
+								}
+								else if(k2==4){
+									$('#test2').width('80%');
+								}
+								else if(k2==5){
+									$('#test2').width('100%');
+								}
 								</script>
 				</div>
 
