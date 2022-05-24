@@ -156,7 +156,7 @@ strong{
     z-index: 1;
     -webkit-transition: all .5s ease;
     bottom: -6px;
-    overflow: hidden;
+    overflow: cover;
 
 }
 
@@ -228,3 +228,12 @@ figure{
     height:100%;
     object-fit:cover;
     }
+    
+.title.elss {
+    color: black;
+    font-size: 30px;
+    margin-top: 30px;
+}
+.source_box {
+    font-size: 20px;
+}
