@@ -175,6 +175,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 							<c:set var="str" value="${i.tour_num}" />
 						 </c:forEach>  --%>
 					</c:forEach>
+					<div class = "empty"></div>
 			</div>
 		
 
@@ -336,6 +337,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 					<a href="#" class="current-demo">카페</a>
 	</nav>
 	<!-- Related demos -->
+<<<<<<< HEAD
 	<section class="related"></section>
 	
 	<!-- /container -->
@@ -347,6 +349,94 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 						ev.preventDefault();
 					});
 				});
+=======
+	<section class="related"></section>
+	
+	
+	<script>
+	
+	let i=1;
+	let s =document.getElementsByClassName('effect-marley').length;
+	let k = document.getElementsByClassName('effect-marley').length/20;
+	for(i=1;i<=k;i++){
+		$('.empty').before('<button>'+i+'</button>'+' ');
+	}
+	$('button').eq(0).attr('class','active');
+	let i2=$('.active').text();
+	console.log(i2);
+	let h=1;
+	for(h=1;h<=s;h++){
+		$('#num'+h).css("display" ,"none")
+	}
+	if(i2==1){
+		for(h=1;h<=20;h++){
+			$('#num'+h).css("display" ,"inline")
+		}
+	}
+	
+	$(document).on('click','button',function(){
+			$('button').removeAttr('class');
+		$(this).attr('class','active');
+		i2=$('.active').text();
+		console.log(i2);
+		let h=1;
+		for(h=1;h<=s;h++){
+			$('#num'+h).css("display" ,"none")
+		}
+		if(i2==1){
+			for(h=1;h<=20;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		}
+		else if(i2==2){
+			for(h=21;h<=40;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		}
+		else if(i2==3){
+			for(h=41;h<=60;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		}
+		else if(i2==4){
+			for(h=61;h<=80;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		}
+		else if(i2==5){
+			for(h=81;h<=100;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		}
+		else if(i2==6){
+			for(h=101;h<=120;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		} 
+		else if(i2==7){
+			for(h=121;h<=140;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		} 
+		else if(i2==8){
+			for(h=141;h<=160;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		} 
+		else if(i2==9){
+			for(h=161;h<=180;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		} 
+		else if(i2==10){
+			for(h=181;h<=200;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		} 
+		
+	});
+		
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 	</script>
 	
 	<!-- 드래그앤드롭 JS -->
