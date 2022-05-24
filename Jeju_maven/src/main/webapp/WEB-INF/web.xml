@@ -73,64 +73,64 @@
      <servlet-class>com.smhrd.controller.PlanInsertCon</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>SetInPlanCon</servlet-name>
-  	<display-name>SetInPlanCon</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.SetInPlanCon</servlet-class>
+     <servlet-name>SetInPlanCon</servlet-name>
+     <display-name>SetInPlanCon</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.SetInPlanCon</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>imguChangeCon1</servlet-name>
-  	<display-name>imguChangeCon1</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.imguChangeCon1</servlet-class>
+     <servlet-name>imguChangeCon1</servlet-name>
+     <display-name>imguChangeCon1</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.imguChangeCon1</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>diaryUpdateCon</servlet-name>
-  	<display-name>diaryUpdateCon</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.diaryUpdateCon</servlet-class>
+     <servlet-name>diaryUpdateCon</servlet-name>
+     <display-name>diaryUpdateCon</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.diaryUpdateCon</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>imguChangeCon2</servlet-name>
-  	<display-name>imguChangeCon2</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.imguChangeCon2</servlet-class>
+     <servlet-name>imguChangeCon2</servlet-name>
+     <display-name>imguChangeCon2</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.imguChangeCon2</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>imgupCon3</servlet-name>
-  	<display-name>imgupCon3</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.imgupCon3</servlet-class>
+     <servlet-name>imgupCon3</servlet-name>
+     <display-name>imgupCon3</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.imgupCon3</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>imguChangeCon3</servlet-name>
-  	<display-name>imguChangeCon3</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.imguChangeCon3</servlet-class>
+     <servlet-name>imguChangeCon3</servlet-name>
+     <display-name>imguChangeCon3</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.imguChangeCon3</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>diaryUpdateCon2</servlet-name>
-  	<display-name>diaryUpdateCon2</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.diaryUpdateCon2</servlet-class>
+     <servlet-name>diaryUpdateCon2</servlet-name>
+     <display-name>diaryUpdateCon2</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.diaryUpdateCon2</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>imgupCon</servlet-name>
-  	<display-name>imgupCon</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.imgupCon</servlet-class>
+     <servlet-name>imgupCon</servlet-name>
+     <display-name>imgupCon</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.imgupCon</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>diaryAlbumCon</servlet-name>
-  	<display-name>diaryAlbumCon</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.diaryAlbumCon</servlet-class>
+     <servlet-name>diaryAlbumCon</servlet-name>
+     <display-name>diaryAlbumCon</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.diaryAlbumCon</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>diaryAddCon</servlet-name>
-  	<display-name>diaryAddCon</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.diaryAddCon</servlet-class>
+     <servlet-name>diaryAddCon</servlet-name>
+     <display-name>diaryAddCon</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.diaryAddCon</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>diaryDetailCon</servlet-name>
@@ -143,6 +143,12 @@
   	<display-name>reviewCon</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.reviewCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>deleteCon</servlet-name>
+  	<display-name>deleteCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.deleteCon</servlet-class>
   </servlet>
   <servlet-mapping>
      <servlet-name>LoginCon</servlet-name>
@@ -190,44 +196,44 @@
      <url-pattern>/PlanInsertCon</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>SetInPlanCon</servlet-name>
-  	<url-pattern>/SetInPlanCon</url-pattern>
+     <servlet-name>SetInPlanCon</servlet-name>
+     <url-pattern>/SetInPlanCon</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-	<servlet-name>imguChangeCon1</servlet-name>
-  	<url-pattern>/imguChangeCon1</url-pattern>
+   <servlet-name>imguChangeCon1</servlet-name>
+     <url-pattern>/imguChangeCon1</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>diaryUpdateCon</servlet-name>
-  	<url-pattern>/diaryUpdateCon</url-pattern>
+     <servlet-name>diaryUpdateCon</servlet-name>
+     <url-pattern>/diaryUpdateCon</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>imguChangeCon2</servlet-name>
-  	<url-pattern>/imguChangeCon2</url-pattern>
+     <servlet-name>imguChangeCon2</servlet-name>
+     <url-pattern>/imguChangeCon2</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>imgupCon3</servlet-name>
-  	<url-pattern>/imgupCon3</url-pattern>
+     <servlet-name>imgupCon3</servlet-name>
+     <url-pattern>/imgupCon3</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>imguChangeCon3</servlet-name>
-  	<url-pattern>/imguChangeCon3</url-pattern>
+     <servlet-name>imguChangeCon3</servlet-name>
+     <url-pattern>/imguChangeCon3</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>diaryUpdateCon2</servlet-name>
-  	<url-pattern>/diaryUpdateCon2</url-pattern>
+     <servlet-name>diaryUpdateCon2</servlet-name>
+     <url-pattern>/diaryUpdateCon2</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>imgupCon</servlet-name>
-  	<url-pattern>/imgupCon</url-pattern>
+     <servlet-name>imgupCon</servlet-name>
+     <url-pattern>/imgupCon</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>diaryAlbumCon</servlet-name>
-  	<url-pattern>/diaryAlbumCon</url-pattern>
+     <servlet-name>diaryAlbumCon</servlet-name>
+     <url-pattern>/diaryAlbumCon</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>diaryAddCon</servlet-name>
-  	<url-pattern>/diaryAddCon</url-pattern>
+     <servlet-name>diaryAddCon</servlet-name>
+     <url-pattern>/diaryAddCon</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>diaryDetailCon</servlet-name>
@@ -236,5 +242,9 @@
   <servlet-mapping>
   	<servlet-name>reviewCon</servlet-name>
   	<url-pattern>/reviewCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>deleteCon</servlet-name>
+  	<url-pattern>/deleteCon</url-pattern>
   </servlet-mapping>
 </web-app>
