@@ -5,7 +5,7 @@
    pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <% 
-<<<<<<< HEAD
+
 	tourDAO dao = new tourDAO();
 	List<tour> tourList = dao.selectTourList();
 	pageContext.setAttribute("tourList", tourList);
@@ -15,7 +15,7 @@
 	int num=1;
 	
 
-=======
+
    tourDAO dao = new tourDAO();
    List<tour> tourList = dao.selectTourList();
    pageContext.setAttribute("tourList", tourList);
@@ -24,7 +24,7 @@
    tour tourInfo = (tour)session.getAttribute("tourInfo");
    int num=1;
    
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
+
 %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -181,7 +181,7 @@
       
       <!-- 관광지 정보 반복출력 -->
 
-<<<<<<< HEAD
+
 		<h2 id="sh">가즈아</h2>
 		
 			<div class="grid">
@@ -242,16 +242,16 @@
 			여행일을 선택해주세요 >> <input type="date" name="plan_date"  id = "planInsert"><br/><br/>
 		        <div>
 
-<<<<<<< HEAD
+
 		            <div style="clar:both;">
 		            	
 
 		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');"/>
 
 		            <div style="clar:both;">
-=======
+
 		            <div style="clear:both;">
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
+
 
 		               <%--  <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');"/>
 >>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
@@ -268,13 +268,13 @@
 
 		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan(); updatePage();" style="margin-left:20px" />
 
-<<<<<<< HEAD
+
 
 		                <input type="submit" class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" style="margin : 10px 0px 0px 120px" />
 
-=======
+
 		                <input type="submit" class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" style="margin-left:20px" />
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
+
 		               
 		                
 		            </div>
@@ -287,7 +287,7 @@
 		
 <!-- 여기부터 지도공간~~~~~~~~~~~~^^지수꼬!건들지마삼 ㄱ-;;(빠직) -->		
 		<p style="margin-top:-12px">
-=======
+
       <h2 id="sh">가즈아</h2>
       
          <div class="grid">
@@ -370,7 +370,7 @@
       
 <!-- 여기부터 지도공간~~~~~~~~~~~~^^지수꼬!건들지마삼 ㄱ-;;(빠직) -->      
       <p style="margin-top:-12px">
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
+
     <em class="link">
         <!-- <a href="javascript:void(0);" onclick="window.open('http://fiy.daum.net/fiy/map/CsGeneral.daum', '_blank', 'width=981, height=650')">
             혹시 주소 결과가 잘못 나오는 경우에는 여기에 제보해주세요.
@@ -382,12 +382,12 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
-<<<<<<< HEAD
+
 
 	<!-- JavaScript Libraries -->
-=======
+
    <!-- JavaScript Libraries -->
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
@@ -410,7 +410,7 @@
 
 
 <script>
-<<<<<<< HEAD
+
 	
 	
 		var getAdds =[];
@@ -469,7 +469,7 @@
 		
 	
 
-=======
+
    
    
       var getAdds =[];
@@ -518,9 +518,9 @@
       
       
    
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
+
 </script>
-<<<<<<< HEAD
+
 
 		
 		
@@ -655,8 +655,7 @@
 	
 
 	<!-- 전화번호 하이픈(-) 자동입력  JS -->
-=======
-      
+
       
       </div>
       
@@ -787,7 +786,6 @@
    </script>
    
    <!-- 전화번호 하이픈(-) 자동입력  JS -->
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
     <script>
     $(document).on("keyup", "#tel", function(){
        $(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); 
@@ -795,20 +793,20 @@
          
     </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-<<<<<<< HEAD
+
 
 	<!-- 드래그앤드롭 JS -->
 	<script>
 	
 	//추가 클릭시 localStorage에 값을 저장하는 함수
 	function setInPlan(){
-=======
+
    <!-- 드래그앤드롭 JS -->
    <script>
    
    //추가 클릭시 localStorage에 값을 저장하는 함수
    function setInPlan(){
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
+
         //값 가져오기
         //1) name이 item인 input태그 내의 value 가져오기
         //2) class=tourNum, class=tourAdd인 input태그의 text값 가져오기 /
@@ -859,7 +857,7 @@
         console.log(namesString);
 
         
-<<<<<<< HEAD
+
 		//localStorage에 배열 저장
 		window.localStorage.setItem('tourNum', nums)
 		window.localStorage.setItem('tourAdd', adds)
@@ -894,7 +892,7 @@
 							$(document).ready(createItem(nameList[i], numList[i], addList[i]));
 							addMaker(addList[i],nameList[i]);
 			           }
-=======
+
       //localStorage에 배열 저장
       window.localStorage.setItem('tourNum', nums)
       window.localStorage.setItem('tourAdd', adds)
@@ -928,10 +926,7 @@
                      $(document).ready(createItem(nameList[i], numList[i], addList[i]));
                      addMaker(addList[i],nameList[i]);
                     }
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
-
-<<<<<<< HEAD
-			           
+          
 					};
 
 			
@@ -961,7 +956,7 @@
 	</script>
 
 	 <!-- Back to Top -->
-=======
+
                     
                };
 
@@ -985,7 +980,7 @@
          
    </script>
     <!-- Back to Top -->
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
+
     <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
@@ -1009,12 +1004,12 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/maintest.js"></script>
-<<<<<<< HEAD
+
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 	
-=======
+
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
    
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
+
 </body>
 </html>
