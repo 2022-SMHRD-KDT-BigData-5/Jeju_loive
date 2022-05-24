@@ -245,7 +245,7 @@
 		            <div style="clar:both;">
 		            	
 		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');"/>
-		                <input type="button" value="임시저장" onclick="setInPlan();"/>
+		                <input type="button" value="임시저장" onclick="setInPlan(); updatePage();"/>
 		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" />
 		               
 		                
@@ -464,6 +464,9 @@
 			         function removeInplan(){
 			            window.localStorage.clear();
 			         }
+			         function updatePage(){
+			        	 location.reload();
+						}
 			
 	</script>
 	
