@@ -5,42 +5,44 @@
 <%@page import="com.smhrd.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
-<% 
-	String tour_num_str = request.getParameter("tour_num"); 
-	Member loginMember = (Member)session.getAttribute("loginMember");
-	inplan inplan = (inplan)session.getAttribute("review_inplan");
-	
-	//변환
-	BigDecimal tour_num = new BigDecimal(tour_num_str);
-	
-	//tour정보 불러오기
+<%	
+	BigDecimal tour_num = new BigDecimal(request.getParameter("tour_num"));
+	//BigDecimal tour_num = new BigDecimal(601);
 	tourDAO t_dao = new tourDAO();
-	tour tourInfo = t_dao.selectTourInfo2(tour_num);
-	String tourImg = tourInfo.getImg();
-	String tourName = tourInfo.getName();
-	%>
+	tour tourInfo = (tour)t_dao.selectTourInfo2(tour_num);
+	pageContext.setAttribute("tourInfo",tourInfo);
+	Member loginMember = (Member)session.getAttribute("loginMember");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/star.css" />
 </head>
 <body>
-	${tourImg}
-	${tourName}
-	<form action="reviewCon" method="post">
-		여행지번호<input type="text" name="tour_num" value=tour_num readonly/><br>
-		작성자<input type="text" name="mem_id" value="${loginMember.getId()}" readonly/><br>
-		
-		1<input type="radio" name="rev_star" value="1"/>
-		2<input type="radio" name="rev_star" value="2"/>
-		3<input type="radio" name="rev_star" value="3"/>
-		4<input type="radio" name="rev_star" value="4"/>
-		5<input type="radio" name="rev_star" value="5"/><br>
-		
-		<textarea cols="40" rows="10" name="rev_content"></textarea><br>
-		<input type="submit">
-		<input type="reset">
-	</form>
+
+		<form name="myform" id="myform" method="post" action="reviewCon"><br/>
+		작성자ID <input type="text" name="mem_id" value="${loginMember.getId()}" readonly/><br/>
+		여행지ID <input type="text" id="tour_num" name="tour_num" value="${tourInfo.getNum()}" readonly/><br/><br/>
+    	<fieldset>
+        <legend>${tourInfo.getName()} 후기 작성</legend>
+        <input type="radio" name="rating" value="5" id="rate1"><label for="rate1">⭐</label>
+        <input type="radio" name="rating" value="4" id="rate2"><label for="rate2">⭐</label>
+        <input type="radio" name="rating" value="3" id="rate3"><label for="rate3">⭐</label>
+        <input type="radio" name="rating" value="2" id="rate4"><label for="rate4">⭐</label>
+        <input type="radio" name="rating" value="1" id="rate5"><label for="rate5">⭐</label>
+    	</fieldset><br>
+    	<textarea rows="10" cols="50" name="content"></textarea><br/>
+    	<input type="submit" value="후기 등록">
+		</form>
+
+<script>
+window. onload=function(){ 
+	$(document).find('input[name=tour_num]').hide();
+}
+</script>
 </body>
 </html>

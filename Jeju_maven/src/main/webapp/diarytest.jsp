@@ -22,6 +22,7 @@ if(loginMember != null){
 	String id= loginMember.getId();
 	tripday=dao.selectDiaryDay(id);
 	System.out.println(tripday.size());
+	if(tripday!=null){
 	for(int i=0;i<tripday.size();i++){
 		 String day=tripday.get(i);
 		 
@@ -29,17 +30,15 @@ if(loginMember != null){
 		 diaryAlbum album= new diaryAlbum(timestamp,id);
 		 albumlist=dao.selectAlbum(album);
 		 
+		 if(albumlist.size()!=0){
 		 System.out.println(albumlist.get(0));
 		 testList.add(albumlist.get(0));
+		 }
 		 
-		 
+		}
+	
 	}
-	
-	
-	System.out.println(testList.size());
-	System.out.println(testList.get(0));
-	System.out.println(testList.get(1));
-}
+	}
 %>
 <html lang="en" class="no-js">
 <head>
@@ -178,7 +177,7 @@ if(loginMember != null){
 		
 			<header class="codrops-header">
 				<h1>
-					Diary<span>My Diary.</span>
+					Diary<span>My Diary</span>
 				</h1>
 				
 			</header>
@@ -190,10 +189,11 @@ if(loginMember != null){
 		<!-- 관광지 정보 반복출력 -->
 
 		<h2 id="sh">내 추억들</h2>
+			<button id="add">add</button>
 			<div class="grid">
 			
 						<%
-						if(tripday!=null){
+						if(tripday!=null ){
 						for(int i=0;i<tripday.size();i++){
 							String day=tripday.get(i);
 							 
@@ -202,11 +202,15 @@ if(loginMember != null){
 						
 						%>
 								<figure class="effect-marley">
+									<%if (albumlist.size()!=0){ %>
 									<img src="<%=testList.get(i) %>" alt="img11" width=480px" height="300px" />
+									<%}else{ %>
+									<img src="images/click.png" alt="img11" width=480px" height="300px" />
+									<%} %>
 									<!-- 이미지 주소를 넣는 공간입니다^^ -->
 									<figcaption>
 										<h2>
-											<span>"<%=realday %></span>
+											<span><%=realday %></span>
 										</h2>
 										<p>
 											<%=realday %>
@@ -216,9 +220,11 @@ if(loginMember != null){
 								</figure>
 					
 					<% }}%>
+					
 				</div>
 			
 			</div>
+			
 	</div>
 
 	
@@ -391,99 +397,7 @@ if(loginMember != null){
 	
 	<script>
 		
-		let i=1;
-		let s =document.getElementsByClassName('effect-marley').length;
-		let k = document.getElementsByClassName('effect-marley').length/30;
-		for(i=1;i<=k;i++){
-			$('.grid').before('<button>'+i+'</button>');
-		}
-		$('button').eq(0).attr('class','active');
-		let i2=$('.active').text();
-		console.log(i2);
-		let h=1;
-		for(h=1;h<=s;h++){
-			$('#num'+h).css("display" ,"none")
-		}
-		if(i2==1){
-			for(h=1;h<=30;h++){
-				$('#num'+h).css("display" ,"inline")
-			}
-		}
-		
-	
-		
-		
-		
-		
-		$(document).on('click','button',function(){
-			  
-   			
-			$('button').removeAttr('class');
-			$(this).attr('class','active');
-			i2=$('.active').text();
-			console.log(i2);
-			let h=1;
-			for(h=1;h<=s;h++){
-				$('#num'+h).css("display" ,"none")
-			}
-			
-			
-			
-			
-			if(i2==1){
-				for(h=1;h<=30;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			}
-			else if(i2==2){
-				for(h=31;h<=60;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			}
-			else if(i2==3){
-				for(h=61;h<=90;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			}
-			else if(i2==4){
-				for(h=91;h<=120;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			}
-			else if(i2==5){
-				for(h=121;h<=150;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			}
-			else if(i2==6){
-				for(h=151;h<=180;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			} 
-			else if(i2==7){
-				for(h=181;h<=210;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			} 
-			else if(i2==8){
-				for(h=211;h<=240;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			} 
-			else if(i2==9){
-				for(h=241;h<=270;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			} 
-			else if(i2==10){
-				for(h=271;h<=300;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			} 
-			
-		
-		});
-		
+
 		
 		
 		
@@ -497,120 +411,7 @@ if(loginMember != null){
 	</script>
 	
 
-	<!-- 전화번호 하이픈(-) 자동입력  JS -->
-    <script>
-    $(document).on("keyup", "#tel", function(){
-    	$(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); 
-         });
-         
-    </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
-	<!-- 드래그앤드롭 JS -->
-	<script>
-	
-	//추가 클릭시 localStorage에 값을 저장하는 함수
-	function setInPlan(){
-        //값 가져오기
-        //1) name이 item인 input태그 내의 value 가져오기
-        //2) class=tourNum, class=tourAdd인 input태그의 text값 가져오기 /
-        var tourNums=[];
-        var tourAdds=[];
-        var tourNames=[];
-        var nums=[];
-        var adds=[];
-        var names=[];
-        
-//        tourNums = document.getElementsByClassName('tourNum');
-//        tourAdds = document.getElementsByClassName('tourAdd');
-        
-        var len = $("input[name=tourNum]").length;
-        for(var i=0; i<len; i++){                          
-			tourNums[i] = $("input[name=tourNum]").eq(i).val();
-		}
-        
-        var len = $("input[name=tourAdd]").length;
-        for(var i=0; i<len; i++){                          
-			tourAdds[i] = $("input[name=tourAdd]").eq(i).val();
-		}
-        
-        
-        var len = $("input[name=item]").length;
-        for(var i=0; i<len; i++){                          
-			tourNames[i] = $("input[name=item]").eq(i).val();
-		}
-        
-        //배열에 순서대로 담기
-        for(i=0; i<tourNums.length; i++){
-        	nums.push(tourNums[i]);
-        	adds.push(tourAdds[i]);
-        	names.push(tourNames[i]);
-        }
-        
-        //확인용(콘솔창 확인)
-        console.log(nums);
-        console.log(adds);
-        console.log(names);
-        
-     	// 객체, 배열을 JSON 문자열로 변환
-        const numsString = JSON.stringify(nums);
-        const addsString = JSON.stringify(adds);
-        const namesString = JSON.stringify(names);
-		
-        //문자열로 잘 변환되었는지 확인
-        console.log(namesString);
-
-        
-		//localStorage에 배열 저장
-		window.localStorage.setItem('tourNum', nums)
-		window.localStorage.setItem('tourAdd', adds)
-		window.localStorage.setItem('tourName', names)
-		
-				
-	}
-	
-			//페이지 이동시 localStorage의 값을 가져오는 함수(자동실행)
-			
-			
-			window.onload=getInPlan();
-				
-				
-					function getInPlan(){
-
-						//localStorage에서 꺼내기
-						var getNums =[];
-						var getAdds =[];
-						var getNames =[];
-					
-			         	// JSON 문자열을 객체, 배열로 변환
-			         	getNums = localStorage.getItem('tourNum');
-			         	getAdds = localStorage.getItem('tourAdd');
-			         	getNames = localStorage.getItem('tourName');
-			         	numList = getNums.split(",");
-			         	addList = getAdds.split(",");
-			         	nameList = getNames.split(",");
-			         	console.log(numList);
-			            
-			           for(i=0; i<numList.length; i++){
-							$(document).ready(createItem(nameList[i], numList[i], addList[i]));
-							addMaker(addList[i],nameList[i]);
-			           }
-			           
-			           
-					};
-			
-			         function removeInplan(){
-			             window.localStorage.clear();
-			          }
-			
-			
-			//임시플랜 제출시 localStorage 삭제
-	         function removeInplan(){
-	            window.localStorage.clear();
-	         }
-				
-			
-	</script>
 
 	 <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
@@ -637,6 +438,20 @@ if(loginMember != null){
     <script src="assets/js/util.js"></script>
     <script src="assets/js/maintest.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-	
+	<script type="text/javascript">
+	$(document).on('click','#add',function(){
+		$('.grid').append(
+				'<figure class="effect-marley">'+
+				'<input type="date" class="dateadd">'+
+				'<img src="images/plus.png" alt="img11" width=480px" height="300px" class="adddiary"/>'+
+				'</figure>')
+			
+	})
+	$(document).on('click','.adddiary',function(){
+		let dateadd=$('.dateadd').val();
+		$(location).attr('href', 'diaryAddCon?date='+dateadd);
+		
+	})
+	</script>
 </body>
 </html>

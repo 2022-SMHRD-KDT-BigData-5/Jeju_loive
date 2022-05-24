@@ -1,3 +1,7 @@
+<%@page import="com.smhrd.domain.tour"%>
+<%@page import="com.smhrd.domain.inplan"%>
+<%@page import="com.smhrd.domain.inplanDAO"%>
+<%@page import="com.smhrd.domain.tourDAO"%>
 <%@page import="java.sql.Timestamp"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.smhrd.domain.diaryAlbum"%>
@@ -12,24 +16,37 @@
 <!DOCTYPE html>
 <%
 diaryDAO dao = new diaryDAO();
+tourDAO tdao = new tourDAO();
+inplanDAO dao1 = new inplanDAO();
 List<diaryAlbum> dimgList=null;
 diary diary2 =null;
 int num=0;
+String date="";
 SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
 Member loginMember = (Member)session.getAttribute("loginMember");
+
+
 
 
 if(loginMember != null){
 	pageContext.setAttribute("loginMember",loginMember);
 	String mem_id=loginMember.getId();
-	
+	date = (String)session.getAttribute("dia_tripday");
+	String date2=date+" "+"00:00:00";
 	dimgList = dao.selectDimgAll(mem_id);
-	Timestamp timestamp = Timestamp.valueOf("2022-05-23 00:00:00");
+	Timestamp timestamp = Timestamp.valueOf(date2);
 	diary diary= new diary(mem_id,timestamp);
 	diary2 = dao.selectDiary(diary);
 	pageContext.setAttribute("dimgList",dimgList);
 	
+inplan inplan=new inplan(mem_id, timestamp);  
+List<tour> inplanTourList = tdao.selectTour(inplan);
+pageContext.setAttribute("inplanTourList",inplanTourList);
 } 
+
+
+
+
 %>
 <html lang="en" class="no-js">
 <head>
@@ -60,8 +77,8 @@ if(loginMember != null){
       <![endif]-->
 <style>
    #flex_cont{display:flex;}
-   #tour_div{width:70%;}
-   #plan_div{width:20%;}
+   #tour_div{width:60%;}
+   #plan_div{width:30%;}
    .soohyeon{
       position: fixed;
         right: 20px;
@@ -83,6 +100,216 @@ if(loginMember != null){
    		height : 200px;
    	
    }
+   
+ 
+   
+   
+
+.hover1{
+    width: auto;
+    height: auto;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.hiddentext{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    color: #FFFFFF;
+    background: #f2cbf2;
+    position: absolute;
+    bottom: 0px;
+}
+
+#main_plan{
+   position : relative;
+    width: 480px;
+    height: 1200px;
+    
+    padding: 20px 30px;
+    margin: 0 auto;
+    margin-bottom : 30px;
+    z-index: 2;
+    background-color :    #FFFFF0;
+}
+
+#main_plan li{
+    display: list-item;
+    margin-bottom:  50px;
+    border-top: 1px solid orange;
+   
+    
+}
+
+
+
+
+
+.list_theme.theme_item{
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    
+    
+}
+
+
+
+
+
+.list_theme.theme_thumb{
+    width: 170px;
+    height: 114px;
+    overflow: hidden;
+    float: left;
+    display: block;
+    position: relative;
+    margin-right: 21px;
+}
+
+
+.list_theme.title.elss{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    height: auto;
+    margin-top: 2px;
+}
+
+strong{
+    font-weight: bold;
+        font-size : 30px;
+    
+}
+
+
+.list_theme.title{
+    max-height: 40px;
+    line-height: 20px;
+    -webkit-line-clamp : 2;
+    -webkit-box-orient: vertical;
+    font-size: 100px;
+}
+
+.list_theme .desc{
+    display: -webkit-box;
+    overflow: hidden;
+    max-height: 40px;
+    line-height: 20px;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin-top: 2px;
+    font-size: 13px;
+}
+
+.list_theme.source_box{
+    display: inline-block;
+    overflow: hidden;
+    max-width: 100%;
+    margin-top: 2px;
+    line-height: 20px;
+    vertical-align: top;
+    position: absolute;
+    z-index: 1;
+    -webkit-transition: all .5s ease;
+    bottom: 0px;
+    
+}
+
+.list_theme.reviewDate{
+    float: right;
+}
+
+.imgBoxDiv{
+    width: 90px;
+    height: 90px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 2px 2px 8px 0px #000;
+    float: left;
+    margin-right: 30px;
+}
+
+
+.imgDiv{
+    float: left;
+    width:100%;
+    height: 100%px;
+    position: absolute;
+   
+    z-index: 1;
+    -webkit-transition: all .5s ease;
+    bottom: -6px;
+    overflow: hidden;
+
+}
+
+
+
+.theme-itme.h3{
+    opacity: 0;
+    transition: 0s;
+    margin-top: 86%;
+}
+
+h3{
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+figure{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+}
+
+.dayPlan{
+   margin-top: 50px;
+   font-size
+   
+   
+
+}
+
+#menuBlock{
+   margin-bottom : 30px;
+}
+
+.logo{
+   
+   position: absolute;
+   left : 80%;
+   top : -140px;
+   z-index: 1;
+}
+
+
+
+
+.p-0{
+   background-color : #FFFFF0;
+   color : #FFFFF0;
+}
+   
+.imgc{
+ width:100%;
+    height:100%;
+    object-fit:cover;
+    }
+   
 </style>
    
 </head>
@@ -148,7 +375,7 @@ if(loginMember != null){
           <%if (dimgList.size()<1){
                         %>
                         <div class="imgup"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">
-                        <input type="date" name="date">
+                        <input type="date" name="date" value="<%=date%>">
                         <input type="file" name="filename1" size=40 >
                         <input type="submit" value="업로드">
                         </form></div>
@@ -168,7 +395,7 @@ if(loginMember != null){
             <%num=0; %>
          
            
-               <%if(diary2!=null){
+               <%if(diary2!=null||diary2.getDia_name()!=null){
             	   %><h2>
                      <span class="head"><%=diary2.getDia_name() %>
                   </h2>
@@ -205,45 +432,41 @@ if(loginMember != null){
       <div id="plan_div">
          <header class="codrops-header">
             <h1>
-               Plan<span>Plan에 대한 정보를 추천해주는 메뉴입니다.</span>
+               Plan
             </h1>
-            <nav class="codrops-demos">
-
-               <a href="#" class="current-demo">관광지</a>
-               <a href="#">음식점</a>
-               <a href="#">카페</a>
-
-            </nav>
-         </header>
-      
-      
-      
-      <div class="content">
-         
-         <!-- itemNum : 박스 번호 -->
-         <!-- item : input태그 내에 작성된 내용 -->
-         <!-- createItem() : tour_name,tour_num,tour_add 값 입력받아 tour_name은 출력해주고, num과 address는 저장해줌 -->
-         
-         <form action="PlanInsertCon" method="post">
-         여행일을 선택해주세요 >> <input type="date" name="plan_date"><br/><br/>
-              <div>
-                  <div style="float:left;width:100px;">아이템 추가 :</div>
-                  <div style="clar:both;">
-                     
-                      <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');"/>
-                      <input type="button" value="임시저장" onclick="setInPlan();"/>
-                      <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" />
-                     
-                      
-                     
-                  </div>
-              </div>
-              <br />
-              <div id="itemBoxWrap"></div>
-          </form>
+            
+          <div  class = "dayPlan"><h1> 1일차 플랜</h1></div>
+    <div id = "main_plan">
+    
+        <ul class = "list_theme">
+       <c:forEach var="t" items="${inplanTourList}" varStatus="status">
           
-      </div>
-      
+            <li class = "theme_itme">
+   
+                <div class="imgBoxDiv">
+                    <a href="#" class="theme_thumb">
+                        <div class = "imgDiv"><img src="${t.img}" class = "imgc"></div>
+                        <span class="thumb_bd"></span>
+                    </a>
+                </div>
+                <strong class = "title elss"> <c:out value ="${t.name}"/> </strong>
+                <p class = "desc"></p>
+                <div class="source_box">
+                    <span class="reviewDate"></span>
+                    <span class="source"></span>
+                        <span class = "source_inner"><a href="review?tour_num=${t.num}">리뷰작성</a></span>
+                 </div>
+            </li>
+        </c:forEach>
+        
+        
+        </ul><br><br>
+        <div id="map" style="width:60%;height:350px;position: absolute;
+        left: 50%; transform: translateX(-50%);"></div>
+          
+            
+            
+            
    </div>
    </div>
    
@@ -264,7 +487,7 @@ if(loginMember != null){
       
    </script>
    <script type="text/javascript">
-   let date="2022-05-23"
+   let date=<%=date%>
    $(document).on('click','.change',function(){
 		
 		$('.head').remove();

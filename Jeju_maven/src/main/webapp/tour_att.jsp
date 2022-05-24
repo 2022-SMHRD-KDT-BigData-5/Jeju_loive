@@ -227,10 +227,25 @@
 			여행일을 선택해주세요 >> <input type="date" name="plan_date"  id = "planInsert"><br/><br/>
 		        <div>
 		            <div style="float:left;width:100px;">아이템 추가 :</div>
+<<<<<<< HEAD
 		            <div style="clar:both;">
+=======
+		            <div style="clar:both;">
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
+<<<<<<< HEAD
+=======
+		               <%--  <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');"/>
+		                <input type="button" value="임시저장" onclick="setInPlan(); updatePage();"/>
+		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" /> --%>
+
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 		                <input type="button" class = "w-btn-red w-btn-red-outline" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');" style="margin-left:20px" />
+<<<<<<< HEAD
 		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan();" style="margin-left:40px" />
+=======
+		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan(); updatePage();" style="margin-left:50px" />
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 		                <input type="submit" class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" style="margin : 10px 0px 0px 120px" />
 		               
 		                
@@ -545,12 +560,10 @@
 							$(document).ready(createItem(nameList[i], numList[i], addList[i]));
 							addMaker(addList[i],nameList[i]);
 			           }
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 			           
 					};
+
 			
 			         function removeInplan(){
 			             window.localStorage.clear();
@@ -563,9 +576,9 @@
 	         }
 				
 			
-			function updatePage(){
-				$( "#map" ).load(window.location.href + " #map" );
-			}
+	         function updatePage(){
+	        	 location.reload();
+				}
 			
 			
 			
