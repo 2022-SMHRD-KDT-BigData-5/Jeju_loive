@@ -126,7 +126,7 @@
                     <a href="maintest.jsp" class="nav-item nav-link">Home</a>
                     <a href="tour_att.jsp" class="nav-item nav-link active">투어</a>
                     <a href="planner.jsp" class="nav-item nav-link">플래너</a>
-                    <a href= "diary1.jsp" class="nav-item nav-link">다이어리</a>
+                    <a href= "diarytest.jsp" class="nav-item nav-link">다이어리</a>
                     <a href= "board.jsp" class="nav-item nav-link">게시판</a>
                 </div>
                <nav>
@@ -231,7 +231,11 @@
 		        <div>
 		            <div style="float:left;width:100px;">아이템 추가 :</div>
 		            <div style="clar:both;">
-		            	
+
+		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');"/>
+		                <input type="button" value="임시저장" onclick="setInPlan(); updatePage();"/>
+		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" />
+
 		                <input type="button" class = "w-btn-red w-btn-red-outline" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');" style="margin-left:20px" />
 		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan();" style="margin-left:50px" />
 		                <input type="submit" class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" style="margin : 10px 0px 0px 120px" />
@@ -332,7 +336,6 @@
 
 			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 			        map.setCenter(coords); 
-			        
 			        
 			    } 
 			});   
@@ -574,7 +577,7 @@
 							$(document).ready(createItem(nameList[i], numList[i], addList[i]));
 							addMaker(addList[i],nameList[i]);
 			           }
-			           
+
 			           
 					};
 			
@@ -588,6 +591,12 @@
 	            window.localStorage.clear();
 	         }
 				
+			
+			function updatePage(){
+				$( "#map" ).load(window.location.href + " #map" );
+			}
+			
+			
 			
 	</script>
 
