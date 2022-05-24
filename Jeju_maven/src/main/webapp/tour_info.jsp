@@ -93,34 +93,7 @@
 	
 	
 
-	 <!-- Topbar Start -->
-    <div class="container-fluid bg-dark">
-        <div class="row py-2 px-lg-5">
-            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
-                
-            </div>
-            <div class="col-lg-6 text-center text-lg-right">
-                <div class="d-inline-flex align-items-center">
-                     <a class="text-white px-2" href="">
-                        <i class="fa fa-globe"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fa fa-minus"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fa fa-minus"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fa fa-minus"></i>
-                    </a>
-                    <a class="text-white pl-2" href="">
-                        <i class="fa fa-plane"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
+	
 
 
     <!-- Navbar Start -->
