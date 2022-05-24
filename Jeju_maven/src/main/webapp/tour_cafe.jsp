@@ -216,7 +216,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 		            <div style="clar:both;">
 		            	
 		                <input type="button" class = "w-btn-red w-btn-red-outline" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}')" style="margin-left:20px"/>
-		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan();" style="margin-left:50px"/>
+		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan();  updatePage();" style="margin-left:50px"/>
 		                <input type="submit" class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" style="margin : 10px 0px 0px 120px"/>
 		               
 		                
@@ -441,7 +441,9 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 			         function removeInplan(){
 			            window.localStorage.clear();
 			         }
-
+			         function updatePage(){
+			        	 location.reload();
+						}
 			
 	</script>
 </body>

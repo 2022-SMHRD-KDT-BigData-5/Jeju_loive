@@ -35,7 +35,7 @@ public class diaryCon extends HttpServlet {
 		BigDecimal k= new BigDecimal(1);
 		diary diary=new diary(k,head,timestamp,id,text);
 		diaryDAO dao= new diaryDAO();
-		int cnt=dao.insertDiary(diary);
+		int cnt=dao.updateDiary(diary);
 		if (cnt > 0) {
             System.out.print("다이어리 성공");
             

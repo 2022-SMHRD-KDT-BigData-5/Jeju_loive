@@ -229,8 +229,12 @@
 		            <div style="float:left;width:100px;">아이템 추가 :</div>
 		            <div style="clar:both;">
 
+		               <%--  <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');"/>
+		                <input type="button" value="임시저장" onclick="setInPlan(); updatePage();"/>
+		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" /> --%>
+
 		                <input type="button" class = "w-btn-red w-btn-red-outline" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');" style="margin-left:20px" />
-		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan();" style="margin-left:50px" />
+		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan(); updatePage();" style="margin-left:50px" />
 		                <input type="submit" class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" style="margin : 10px 0px 0px 120px" />
 		               
 		                
@@ -549,6 +553,7 @@
 
 			           
 					};
+
 			
 			         function removeInplan(){
 			             window.localStorage.clear();
@@ -561,9 +566,9 @@
 	         }
 				
 			
-			function updatePage(){
-				$( "#map" ).load(window.location.href + " #map" );
-			}
+	         function updatePage(){
+	        	 location.reload();
+				}
 			
 			
 			
