@@ -1,4 +1,36 @@
-
+let k = $('#te1').text();
+									let k2 = $('#te2').text();
+									console.log(k);
+									if(k==1){
+										$('#test1').width('20%');
+									}
+									else if(k==2){
+										$('#test1').width('40%');
+									}
+									else if(k==3){
+										$('#test1').width('60%');
+									}
+									else if(k==4){
+										$('#test1').width('80%');
+									}
+									else if(k==5){
+										$('#test1').width('100%');
+									}
+									if(k2==1){
+										$('#test2').width('20%');
+									}
+									else if(k2==2){
+										$('#test2').width('40%');
+									}
+									else if(k2==3){
+										$('#test2').width('60%');
+									}
+									else if(k2==4){
+										$('#test2').width('80%');
+									}
+									else if(k2==5){
+										$('#test2').width('100%');
+									}
 //id가 itemBoxWrap인 태그를 리스트로 만드는 함수 
 $(function () {
     $("#itemBoxWrap").sortable({
