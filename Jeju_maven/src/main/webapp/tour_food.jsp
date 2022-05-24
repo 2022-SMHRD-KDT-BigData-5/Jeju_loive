@@ -104,7 +104,7 @@
             <span class="right"><a class="codrops-icon codrops-icon-drop" href="planner.jsp"><span>플래너 생성하기</span></a></span>
          </div> -->
          <header class="codrops-header">
-            <h1>RESTAURANT<span>관광지에 대한 정보를 추천해주는 메뉴입니다.</span></h1>
+            <h1>RESTAURANT<span>당신만의 여행을 찾아보세요.</span></h1>
             <nav class="codrops-demos">
    
                <a  href="tour_att.jsp">관광지</a>
@@ -145,7 +145,7 @@
       <div id="plan_div">
          <header class="codrops-header">
             <h1>
-               Plan<span>Plan에 대한 정보를 추천해주는 메뉴입니다.</span>
+               Plan<span>추가 후 임시저장을 눌러주세요.</span>
             </h1>
          
          </header>
