@@ -69,6 +69,7 @@
         right: 20px;
        	top: 10px;
        	color:white;
+	}.contents{text-align: center;
 	}
 	.active{
 		 background-color: #F29661;
@@ -168,17 +169,17 @@
 		
 		
 		
-		<div class="content" >
+		<div class="contents" >
 		
 		<!-- 관광지 정보 반복출력 -->
-<br><br>
+<br>
       
       
       <div class="content">
       
       <!-- 관광지 정보 반복출력 -->
 		
-			<div class="grid" >
+			<div class="grid" ><br>
 <%-- 			<h1><%=tourImgList.get(1).getT_add() %></h1> --%>
 				 	<%-- <c:set var="str" value="" />  --%>
 						<c:forEach var="t" items="${tourList}" varStatus="status">
@@ -342,7 +343,9 @@
 		</div>
 		
 		</div> <!--  컨테이너 끝 -->
-		
+		</div><br>
+		<div style="float:right;height:10%; width:35%;"><input type="button" value="맨위로" onClick="javascript:window.scrollTo(0,0)" />
+</div>
 		
 			<!-- Related demos -->
 	<section class="related" ></section>

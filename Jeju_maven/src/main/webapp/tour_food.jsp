@@ -43,7 +43,7 @@
 		<style>
 		.active{
 		 background-color: #F29661;
-	}
+	}.contents{text-align: center;}
 	#flex_cont{display:flex;}
 	#tour_div{width:70%;}
 	#plan_div{width:20%;}
@@ -140,11 +140,11 @@
 					
 				</nav>
 			</header>
-			<div class="content"><br><br>
+			<div class="contents"><br>
 
 			<div class="grid">
 <%-- <c:set var="str" value="" />  --%>
-						<c:forEach var="f" items="${foodList}" varStatus="statusNum">
+						<br><c:forEach var="f" items="${foodList}" varStatus="statusNum">
 					<%--  <c:forEach var="i" items="${tourImgList}" varStatus="status">
 							<c:if test="${i.tour_num != str }">  --%>
 								<figure class="effect-marley" id="num<%=num%>"><%num++; %>
@@ -213,7 +213,7 @@
 		    
 		</div>
 		
-		<br><br>
+		<br>
 		
 <!-- 여기부터 지도공간~~~~~~~~~~~~^^지수꼬!건들지마삼 ㄱ-;;(빠직) -->		
 		<p style="margin-top:-12px">
@@ -308,7 +308,9 @@
 	</div>
 			
 			</div> <!-- 컨테이너 끝 -->
-			
+			</div><br>
+		<div style="float:right;height:10%; width:35%;"><input type="button" value="맨위로" onClick="javascript:window.scrollTo(0,0)" />
+</div>
 			
 		<!-- <nav class="codrops-demos">
 					<a  href="tour_att.jsp">관광지</a>

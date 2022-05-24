@@ -54,6 +54,8 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 	}.active{
 		 background-color: #F29661;
 	}
+	.contents{text-align: center;
+	}
 </style>
 	
 </head>
@@ -139,6 +141,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 
 <!--  container-->
 		<script>
+		
 			// For Demo purposes only (show hover effect on mobile devices)
 			[].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
 				el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
@@ -153,12 +156,12 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 				</nav>
 			</header>
 		
-		<div class="content">
+		<div class="contents"><br>
 		
 
 		
 		
-			<div class="grid">	
+			<div class="grid"><br>
 			<%-- <c:set var="str" value="" />  --%>
 						<c:forEach var="c" items="${cafeList}" varStatus="statusNum">
 					<%--  <c:forEach var="i" items="${tourImgList}" varStatus="status">
@@ -220,10 +223,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 		                <input type="button" class = "w-btn-red w-btn-red-outline" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}')"/>
 		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan();  updatePage();" style="margin-left:20px"/>
 		                <input type="submit" class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();"  style="margin-left:20px"/>
-		               
-		                
-		               
-		            </div>
+		             </div>
 		        </div>
 		        <br />
 		        <div id="itemBoxWrap"></div>
@@ -319,20 +319,19 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 			        map.setCenter(coords); 
 			        
-			        
 			    } 
 			});   
 			
 		}
 		
 		
-	
-
 </script>
 		
 	</div>
-		</div>
-
+	
+		</div><br>
+		<div style="float:right;height:10%; width:35%;"><input type="button" value="맨위로" onClick="javascript:window.scrollTo(0,0)" />
+</div>
 	<!-- <nav class="codrops-demos">
 					<a href="tour_att.jsp">관광지</a>
 					<a href="tour_food.jsp">음식점</a>
@@ -340,6 +339,8 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 	</nav> -->
 	<!-- Related demos -->
 	<section class="related"></section>
+	
+	
 	<script>
 	
 	let i=1;
@@ -519,7 +520,14 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 			         function updatePage(){
 			        	 location.reload();
 						}
+			         /* function goTop(){
+			        		$('html').scrollTop(0);
+			        	
+			        	} */
 			
 	</script>
+	
+	
 </body>
+
 </html>
