@@ -79,12 +79,16 @@
             <h1 class="text-white display-3 mb-5">쉽고 빠르게 여행을 계획하세요</h1>
             <div class="mx-auto" style="width: 100%; max-width: 600px;">
             
+                
+                <form action="https://www.google.com/search">
                 <div class="input-group">
-                    <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="여행지를 입력하세요">
+                    <input type="text" class="form-control border-light" name = "query" value="" style="padding: 30px;" placeholder="여행지를 입력하세요">
                     <div class="input-group-append">
-                        <button class="btn btn-primary px-3">검색</button>
+                        <button type="submit" class="btn btn-primary px-3">검색</button>
                     </div>
+                    
                 </div>
+                </form>
             </div>
         </div>
     </div>

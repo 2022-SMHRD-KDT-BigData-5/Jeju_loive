@@ -224,8 +224,8 @@
 				<nav class="codrops-demos">
 
 					<a href="#" class="current-demo">관광지</a>
-					<a href="#">음식점</a>
-					<a href="#">카페</a>
+					<a href="tour_food.jsp">음식점</a>
+					<a href="tour_cafe.jsp">카페</a>
 
 				</nav>
 			</header>
@@ -268,7 +268,7 @@
         </a> -->
     </em>
 </p>
-<div id="map" style="width:100%;height:350px;"></div>
+<div id="map" style="width:110%;height:350px;"></div>
 
 
 	<!-- JavaScript Libraries -->

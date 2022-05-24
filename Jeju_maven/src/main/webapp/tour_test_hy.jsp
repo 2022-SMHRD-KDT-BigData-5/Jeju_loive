@@ -4,11 +4,11 @@
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.domain.tourDAO"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<% 
-	tourDAO dao = new tourDAO();
-	List<tour> foodList = dao.selectFoodList();
-	pageContext.setAttribute("foodList", foodList);
-	tour tourInfo = (tour)session.getAttribute("tourInfo");
+<%
+tourDAO dao = new tourDAO();
+List<tour> foodList = dao.selectFoodList();
+pageContext.setAttribute("foodList", foodList);
+tour tourInfo = (tour) session.getAttribute("tourInfo");
 %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -34,17 +34,24 @@
 <link rel="stylesheet" href="assets/css/maintest.css" />
 <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
 	rel="stylesheet" type="text/css" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com"
+	type="text/css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin
+	type="text/css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="assets/css/reviewStar.css" />
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript"
 	src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script>
-<script src="assets/js/dragdrop.js"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com" type="text/css">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin type="text/css">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="assets/css/reviewStar.css"/>
+<script type="text/javascript" src="assets/js/dragdrop.js"></script>
+
+
 <!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -275,71 +282,67 @@
 
 
 			<script>
-	
-	
-		var getAdds =[];
-		getAdds = localStorage.getItem('tourAdd');
-		addList = getAdds.split(",");
-		var getNames =[];
-		getNames = localStorage.getItem('tourName');
-		nameList = getNames.split(",");
+				var getAdds = [];
+				getAdds = localStorage.getItem('tourAdd');
+				addList = getAdds.split(",");
+				var getNames = [];
+				getNames = localStorage.getItem('tourName');
+				nameList = getNames.split(",");
 
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-		    mapOption = {
-		        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-		        level:10 // 지도의 확대 레벨
-		    };  
+				var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+				mapOption = {
+					center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+					level : 10
+				// 지도의 확대 레벨
+				};
 
-		// 지도를 생성합니다    
-		var map = new kakao.maps.Map(mapContainer, mapOption); 
+				// 지도를 생성합니다    
+				var map = new kakao.maps.Map(mapContainer, mapOption);
 
-		// 주소-좌표 변환 객체를 생성합니다
-		var geocoder = new kakao.maps.services.Geocoder();
+				// 주소-좌표 변환 객체를 생성합니다
+				var geocoder = new kakao.maps.services.Geocoder();
 
-		
-		
-		function addMaker(addr,namel){
-			
-			// 주소로 좌표를 검색합니다
-			geocoder.addressSearch(addr, function(result, status) {
+				function addMaker(addr, namel) {
 
-			    // 정상적으로 검색이 완료됐으면 
-			     if (status === kakao.maps.services.Status.OK) {
+					// 주소로 좌표를 검색합니다
+					geocoder
+							.addressSearch(
+									addr,
+									function(result, status) {
 
-			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+										// 정상적으로 검색이 완료됐으면 
+										if (status === kakao.maps.services.Status.OK) {
 
-			        // 결과값으로 받은 위치를 마커로 표시합니다
-			        var marker = new kakao.maps.Marker({
-			            map: map,
-			            position: coords
-			        });
-			        
-			        //marker.setMap(map);
+											var coords = new kakao.maps.LatLng(
+													result[0].y, result[0].x);
 
-			        // 인포윈도우로 장소에 대한 설명을 표시합니다
-			        var infowindow = new kakao.maps.InfoWindow({
-			            content: '<div style="width:150px;text-align:center;padding:6px 0;">'+namel+'</div>'
-			        });
-			        infowindow.open(map, marker);
+											// 결과값으로 받은 위치를 마커로 표시합니다
+											var marker = new kakao.maps.Marker(
+													{
+														map : map,
+														position : coords
+													});
 
-			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-			        map.setCenter(coords); 
-			        
-			        
-			    } 
-			});   
-			
-		}
-		
-		
-	
+											//marker.setMap(map);
 
-</script>
+											// 인포윈도우로 장소에 대한 설명을 표시합니다
+											var infowindow = new kakao.maps.InfoWindow(
+													{
+														content : '<div style="width:150px;text-align:center;padding:6px 0;">'
+																+ namel
+																+ '</div>'
+													});
+											infowindow.open(map, marker);
+
+											// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+											map.setCenter(coords);
+
+										}
+									});
+				}
+			</script>
 
 		</div>
-
-
-
 
 	</div>
 	<!-- 컨테이너 끝 -->
@@ -355,109 +358,106 @@
 	</div>
 	<!-- /container -->
 	<script>
-			// For Demo purposes only (show hover effect on mobile devices)
-			[].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
-				el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
-			} );
-		</script>
+		// For Demo purposes only (show hover effect on mobile devices)
+		[].slice.call(document.querySelectorAll('a[href="#"')).forEach(
+				function(el) {
+					el.addEventListener('click', function(ev) {
+						ev.preventDefault();
+					});
+				});
+	</script>
 
 	<!-- 드래그앤드롭 JS -->
 	<script>
-	
-	//추가 클릭시 localStorage에 값을 저장하는 함수
-	function setInPlan(){
-        //값 가져오기
-        //1) name이 item인 input태그 내의 value 가져오기
-        //2) class=tourNum, class=tourAdd인 input태그의 text값 가져오기 /
-        var tourNums=[];
-        var tourAdds=[];
-        var tourNames=[];
-        var nums=[];
-        var adds=[];
-        var names=[];
-        
-//        tourNums = document.getElementsByClassName('tourNum');
-//        tourAdds = document.getElementsByClassName('tourAdd');
-        
-        var len = $("input[name=tourNum]").length;
-        for(var i=0; i<len; i++){                          
-			tourNums[i] = $("input[name=tourNum]").eq(i).val();
-		}
-        
-        var len = $("input[name=tourAdd]").length;
-        for(var i=0; i<len; i++){                          
-			tourAdds[i] = $("input[name=tourAdd]").eq(i).val();
-		}
-        
-        
-        var len = $("input[name=item]").length;
-        for(var i=0; i<len; i++){                          
-			tourNames[i] = $("input[name=item]").eq(i).val();
-		}
-        
-        //배열에 순서대로 담기
-        for(i=0; i<tourNums.length; i++){
-        	nums.push(tourNums[i]);
-        	adds.push(tourAdds[i]);
-        	names.push(tourNames[i]);
-        }
-        
-        //확인용(콘솔창 확인)
-        console.log(nums);
-        console.log(adds);
-        console.log(names);
-        
-     	// 객체, 배열을 JSON 문자열로 변환
-        const numsString = JSON.stringify(nums);
-        const addsString = JSON.stringify(adds);
-        const namesString = JSON.stringify(names);
-		
-        //문자열로 잘 변환되었는지 확인
-        console.log(namesString);
+		//추가 클릭시 localStorage에 값을 저장하는 함수
+		function setInPlan() {
+			//값 가져오기
+			//1) name이 item인 input태그 내의 value 가져오기
+			//2) class=tourNum, class=tourAdd인 input태그의 text값 가져오기 /
+			var tourNums = [];
+			var tourAdds = [];
+			var tourNames = [];
+			var nums = [];
+			var adds = [];
+			var names = [];
 
-        
-		//localStorage에 배열 저장
-		window.localStorage.setItem('tourNum', nums)
-		window.localStorage.setItem('tourAdd', adds)
-		window.localStorage.setItem('tourName', names)
-		
-	}
-	
-			//페이지 이동시 localStorage의 값을 가져오는 함수(자동실행)
-			window.onload=
-					function getInPlan(){
+			//        tourNums = document.getElementsByClassName('tourNum');
+			//        tourAdds = document.getElementsByClassName('tourAdd');
 
-						//localStorage에서 꺼내기
-						var getNums =[];
-						var getAdds =[];
-						var getNames =[];
-					
-			         	// JSON 문자열을 객체, 배열로 변환
-			         	getNums = localStorage.getItem('tourNum');
-			         	getAdds = localStorage.getItem('tourAdd');
-			         	getNames = localStorage.getItem('tourName');
-			         	numList = getNums.split(",");
-			         	addList = getAdds.split(",");
-			         	nameList = getNames.split(",");
-			         	console.log(numList);
-			            
-			           for(i=0; i<numList.length; i++){
-							$(document).ready(createItem(nameList[i], numList[i], addList[i]));
-							addMaker(addList[i],nameList[i]);
-			           }
-					};
-			
-			
-					//임시플랜 제출시 localStorage 삭제
-			         function removeInplan(){
-			            window.localStorage.clear();
-			         }
-					
-			         function updatePage(){
-			        	 location.reload();
-						}
+			var len = $("input[name=tourNum]").length;
+			for (var i = 0; i < len; i++) {
+				tourNums[i] = $("input[name=tourNum]").eq(i).val();
+			}
 
-			
+			var len = $("input[name=tourAdd]").length;
+			for (var i = 0; i < len; i++) {
+				tourAdds[i] = $("input[name=tourAdd]").eq(i).val();
+			}
+
+			var len = $("input[name=item]").length;
+			for (var i = 0; i < len; i++) {
+				tourNames[i] = $("input[name=item]").eq(i).val();
+			}
+
+			//배열에 순서대로 담기
+			for (i = 0; i < tourNums.length; i++) {
+				nums.push(tourNums[i]);
+				adds.push(tourAdds[i]);
+				names.push(tourNames[i]);
+			}
+
+			//확인용(콘솔창 확인)
+			console.log(nums);
+			console.log(adds);
+			console.log(names);
+
+			// 객체, 배열을 JSON 문자열로 변환
+			const numsString = JSON.stringify(nums);
+			const addsString = JSON.stringify(adds);
+			const namesString = JSON.stringify(names);
+
+			//문자열로 잘 변환되었는지 확인
+			console.log(namesString);
+
+			//localStorage에 배열 저장
+			window.localStorage.setItem('tourNum', nums)
+			window.localStorage.setItem('tourAdd', adds)
+			window.localStorage.setItem('tourName', names)
+
+		}
+
+		//페이지 이동시 localStorage의 값을 가져오는 함수(자동실행)
+		window.onload = function getInPlan() {
+
+			//localStorage에서 꺼내기
+			var getNums = [];
+			var getAdds = [];
+			var getNames = [];
+
+			// JSON 문자열을 객체, 배열로 변환
+			getNums = localStorage.getItem('tourNum');
+			getAdds = localStorage.getItem('tourAdd');
+			getNames = localStorage.getItem('tourName');
+			numList = getNums.split(",");
+			addList = getAdds.split(",");
+			nameList = getNames.split(",");
+			console.log(numList);
+
+			for (i = 0; i < numList.length; i++) {
+				$(document).ready(
+						createItem(nameList[i], numList[i], addList[i]));
+				addMaker(addList[i], nameList[i]);
+			}
+		};
+
+		//임시플랜 제출시 localStorage 삭제
+		function removeInplan() {
+			window.localStorage.clear();
+		}
+
+		function updatePage() {
+			location.reload();
+		}
 	</script>
 </body>
 </html>
