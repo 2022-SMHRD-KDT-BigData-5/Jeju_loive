@@ -445,7 +445,7 @@ h6, .h6 {
 }
 
 .display-3 {
-  font-size: 4.5rem;
+  font-size: 3rem;
   font-weight: 300;
   line-height: 1.2;
 }
@@ -9545,11 +9545,14 @@ p,
 }
 
 .jumbotron {
-  background: linear-gradient(rgb(251 251 251 / 80%), rgb(6 6 6 / 80%)), url(images/header.jpg);
+  background: linear-gradient(rgb(0 0 0 / 8%), rgb(0 0 0 / 52%)), url(images/jeju2.jpg);
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
+  
 }
+
+.jumbotron.jumbotron-fluid.mb-5 {}
 
 .btn-play {
   position: relative;
