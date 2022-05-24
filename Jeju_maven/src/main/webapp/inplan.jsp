@@ -9,7 +9,7 @@
 <%@page import="java.util.List"%>
 <%@page import="java.sql.Timestamp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" isELIgnored="false"%>
+   pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
    String plan_date_Str = request.getParameter("plan_date");
@@ -30,13 +30,13 @@
 <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-		 <link href="https://fonts.googleapis.com/
-    		icon?family=Material+Icons|Material+Icons+Sharp|Material+Icons+Two+Tone|Material+Icons+Outlined"
-    		rel="stylesheet">
-    	
-    	 <!-- Favicon -->
+      <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+       <link href="https://fonts.googleapis.com/
+          icon?family=Material+Icons|Material+Icons+Sharp|Material+Icons+Two+Tone|Material+Icons+Outlined"
+          rel="stylesheet">
+       
+        <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
 
     <!-- Google Web Fonts -->
@@ -52,8 +52,8 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link rel="stylesheet" href="assets/css/maintest.css" />
 </head>
-    	
-    	
+       
+       
 <style>
 
 
@@ -61,11 +61,10 @@
         body{
     font-size: 12px;
     line-height: 16px;
-    background-image: url("./images/inplanbg.png");
    background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-   	
+   background-color : #F6F6F6;
+   background-size: cover;
+      
 }
 
 
@@ -95,7 +94,7 @@ h1{
 }
 
 #main_plan{
-	position : relative;
+   position : relative;
     width: 1000px;
     height: 1200px;
     
@@ -103,7 +102,7 @@ h1{
     margin: 0 auto;
     margin-bottom : 30px;
     z-index: 2;
-    background-color : 	#FFFFF0;
+    background-color :    #FFFFF0;
 }
 
 #main_plan li{
@@ -258,49 +257,35 @@ figure{
 }
 
 .dayPlan{
-	margin-top: 50px;
-	font-size
-	
-	
+   margin-top: 50px;
+   font-size
+   
+   
 
 }
 
 #menuBlock{
-	margin-bottom : 30px;
+   margin-bottom : 30px;
 }
 
 .logo{
-	
-	position: absolute;
-	left : 80%;
-	top : -140px;
-	z-index: 1;
+   
+   position: absolute;
+   left : 80%;
+   top : -140px;
+   z-index: 1;
 }
 
 
-.rightPage{
-	position : absolute;
-	right : -120px;
-	top : 35%;
-	border-radius: 70%;
-	background-color: rgb(255,255,255,0);
-}
 
-.leftPage{
-	position : absolute;
-	left : -120px;
-	top : 35%;
-	border-radius: 70%;
-	background-color: rgb(255,255,255,0);
-}
 
 .p-0{
-	background-color : #FFFFF0;
-	color : #FFFFF0;
+   background-color : #FFFFF0;
+   color : #FFFFF0;
 }
 
     </style>
-	
+   
   </head>
 
   <body>
@@ -337,19 +322,18 @@ figure{
         
   
     <div  class = "dayPlan"><h1> 1일차 플랜</h1></div>
-	
-	
-	
-	
+   
+   
+   
+   
     <div id = "main_plan">
     <div> <a class="logo" href="main.jsp"><span><img src="images/logo2.png" alt="logo"></span></a></div>
-    <img src="images/right.png" class = "rightPage"> <!--다음 플래너로 넘어 가기  -->
-    <img src="images/left.png" class = "leftPage"> <!--이전 플래너로 넘어 가기  -->
+   
     
     
         <ul class = "list_theme">
-    	<c:forEach var="t" items="${inplanTourList}" varStatus="status">
-    		
+       <c:forEach var="t" items="${inplanTourList}" varStatus="status">
+          
             <li class = "theme_itme">
    
                 <div class="imgBoxDiv">
@@ -372,21 +356,30 @@ figure{
         
         </ul><br><br>
         <div id="map" style="width:60%;height:350px;position: absolute;
- 		 left: 50%; transform: translateX(-50%);"></div>
+<<<<<<< HEAD
+        left: 50%; transform: translateX(-50%);"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script>
 
 <script>
 var positions = [""];
-console.log("<%=inplanTourList.get(0)%>")
+var names = [""];
 <% for(int i =0; i< inplanTourList.size(); i++){%>
 positions.push("<%=inplanTourList.get(i).getAddress()%>")
-
 <%}%>
+console.log("<%=inplanTourList.get(0).getAddress()%>")
+<% for(int i =0; i< inplanTourList.size(); i++){%>
+names.push("<%=inplanTourList.get(i).getName()%>")
+<%}%>
+console.log("<%=inplanTourList.get(0).getName()%>")
+
+
+
+
 /* let list1 = document.getElementsByClassName('planAddList');
 
 for(var i = 0; i< list1.length; i++){
-	
+   
 }
  */
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
@@ -397,59 +390,106 @@ mapOption = {
 
 var map = new kakao.maps.Map(mapContainer, mapOption); 
 
+var geocoder = new kakao.maps.services.Geocoder();
+
+for(i=0; i<names.length; i++){
+	 addMaker(positions[i],names[i]);
+}
+
+
 /* var positions = [
     {
-		address:"제주특별자치도 서귀포시 성산읍 일출로 284-12",
+      address:"제주특별자치도 서귀포시 성산읍 일출로 284-12",
         text: '문광사서점'
     }
 ]; */
-for (var i = 0; i < positions.length; i ++) {
-	// 주소-좌표 변환 객체를 생성합니다
-	var geocoder = new kakao.maps.services.Geocoder();
-	// 주소로 좌표를 검색합니다
-	geocoder.addressSearch(positions[i], function(result, status) {
-		// 정상적으로 검색이 완료됐으면 
-		 if (status === kakao.maps.services.Status.OK) {
-			var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+    <%-- 
+       	 for (var i = 0; i < positions.length; i ++) {
+   // 주소-좌표 변환 객체를 생성합니다
+   var geocoder = new kakao.maps.services.Geocoder();
+   // 주소로 좌표를 검색합니다
+   geocoder.addressSearch(positions[i], function(result, status) {
+      // 정상적으로 검색이 완료됐으면 
+       if (status === kakao.maps.services.Status.OK) {
+         var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
-			// 결과값으로 받은 위치를 마커로 표시합니다
-			var marker = new kakao.maps.Marker({
-				map: map,
-				position: coords
-			});
-			
-			<% for(int j =0; j< inplanTourList.size(); j++){
-				System.out.print(inplanTourList.get(j).getName());
-			%>
-			<%-- console.log(document.getElementsByClassName('name<%=j%>')[0].innerHTML); --%>
-			var iwContent = '<div style="padding:6px;">'+ '<%=inplanTourList.get(j).getName()%>' +'</div>', //인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-		    iwPosition = new kakao.maps.LatLng(result[0].y, result[0].x), //인포윈도우 표시 위치입니다
-		    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-			<%}%>
-		// 인포윈도우를 생성하고 지도에 표시합니다
-		var infowindow = new kakao.maps.InfoWindow({
-		    map: map, // 인포윈도우가 표시될 지도
-		    position : iwPosition, 
-		    content : iwContent,
-		    removable : iwRemoveable
-		});	 
-			// 마커에 표시할 인포윈도우를 생성합니다 
-			/* var infowindow = new kakao.maps.InfoWindow({
-				//content: positions[i].content // 인포윈도우에 표시할 내용
-				content: '<div style="width:150px;text-align:center;padding:6px 0;">'+positions[i].text+'</div>' // 인포윈도우에 표시할 내용
-			});  */
-			//infowindow.open(map, marker);
-			/* kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-			kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow)); */
-			// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-			//map.setCenter(coords);
-		} 
+         // 결과값으로 받은 위치를 마커로 표시합니다
+         var marker = new kakao.maps.Marker({
+            map: map,
+            position: coords
+         });
+         
+         console.log(document.getElementsByClassName('name<%=j%>')[0].innerHTML);
+         var iwContent = '<div style="padding:6px;">'+content1[i]+'</div>',  //인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+          iwPosition = new kakao.maps.LatLng(result[0].y, result[0].x), //인포윈도우 표시 위치입니다
+         iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+         
+         var infowindow = new kakao.maps.InfoWindow({
+             map: map, // 인포윈도우가 표시될 지도
+             position : iwPosition, 
+             content : iwContent,
+             removable : iwRemoveable
+         });  --%>
+         
+         
+         function addMaker(addr,names){
+ 			
+ 			// 주소로 좌표를 검색합니다
+ 			geocoder.addressSearch(addr, function(result, status) {
 
-	}); 
-	
-}
+ 			    // 정상적으로 검색이 완료됐으면 
+ 			     if (status === kakao.maps.services.Status.OK) {
+
+ 			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+ 			        // 결과값으로 받은 위치를 마커로 표시합니다
+ 			        var marker = new kakao.maps.Marker({
+ 			            map: map,
+ 			            position: coords
+ 			        });
+ 			        
+ 			        //marker.setMap(map);
+ 			        // 인포윈도우로 장소에 대한 설명을 표시합니다
+ 			        var infowindow = new kakao.maps.InfoWindow({
+ 			            content: '<div style="width:150px;text-align:center;padding:6px 0;">'+names+'</div>',
+ 			            removable : true
+ 			            
+ 			        });
+					
+ 			        infowindow.open(map, marker);
+					
+ 			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+ 			        map.setCenter(coords); 
+ 			        
+ 			        
+ 			    } 
+ 			});   
+ 			
+ 		}
+         
+      
+      // 인포윈도우를 생성하고 지도에 표시합니다
+     
+      
+      
+         // 마커에 표시할 인포윈도우를 생성합니다 
+         /* var infowindow = new kakao.maps.InfoWindow({
+            //content: positions[i].content // 인포윈도우에 표시할 내용
+            content: '<div style="width:150px;text-align:center;padding:6px 0;">'+positions[i].text+'</div>' // 인포윈도우에 표시할 내용
+         });  */
+         //infowindow.open(map, marker);
+         /* kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+         kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow)); */
+         // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+         //map.setCenter(coords);
+  /*     } 
+
+   }); 
+   
+} */
 
 </script>      
-	</div>
+  
+	
   </body>
 </html>
