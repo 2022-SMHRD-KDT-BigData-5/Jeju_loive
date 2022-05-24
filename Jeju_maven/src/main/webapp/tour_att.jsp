@@ -72,7 +72,7 @@
        	color:white;
 	}
 	.active{
-		 background-color: pink;
+		 background-color: #F29661;
 	}
 </style>
 	
@@ -168,8 +168,7 @@
 		<div class="content" >
 		
 		<!-- 관광지 정보 반복출력 -->
-
-		<h2 id="sh" ></h2>
+<br><br>
 		
 			<div class="grid" >
 <%-- 			<h1><%=tourImgList.get(1).getT_add() %></h1> --%>
@@ -348,7 +347,7 @@
 		let s =document.getElementsByClassName('effect-marley').length;
 		let k = document.getElementsByClassName('effect-marley').length/20;
 		for(i=1;i<=k;i++){
-			$('.grid').before('<button>'+i+'</button>');
+			$('.grid').before('<button>'+i+'</button>'+' ');
 		}
 		$('button').eq(0).attr('class','active');
 		let i2=$('.active').text();

@@ -9,6 +9,7 @@
 	List<tour> foodList = dao.selectFoodList();
 	pageContext.setAttribute("foodList", foodList);
 	tour tourInfo = (tour)session.getAttribute("tourInfo");
+	int num=1;
 %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -28,6 +29,9 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
 		<link rel="stylesheet" href="assets/css/dragdrop.css" />
 		<link rel="stylesheet" href="assets/css/maintest.css" />
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300'
+	rel='stylesheet' type='text/css'>
 <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -37,6 +41,9 @@
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<style>
+		.active{
+		 background-color: #F29661;
+	}
 	#flex_cont{display:flex;}
 	#tour_div{width:70%;}
 	#plan_div{width:20%;}
@@ -87,13 +94,13 @@
             <a href="main.jsp" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-paper-plane"></i> 제주살앙</h1>
             </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <!-- <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> -->
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
                     <a href="maintest.jsp" class="nav-item nav-link">Home</a>
-                    <a href="tour_att.jsp" class="nav-item nav-link active">투어</a>
+                    <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
                     <a href="planner.jsp" class="nav-item nav-link">플래너</a>
                     <a href= "diary1.jsp" class="nav-item nav-link">다이어리</a>
                     <a href= "board.jsp" class="nav-item nav-link">게시판</a>
@@ -133,15 +140,14 @@
 					
 				</nav>
 			</header>
-			<div class="content">
+			<div class="content"><br><br>
 
-			<h2>냠냠</h2>
 			<div class="grid">
 <%-- <c:set var="str" value="" />  --%>
 						<c:forEach var="f" items="${foodList}" varStatus="statusNum">
 					<%--  <c:forEach var="i" items="${tourImgList}" varStatus="status">
 							<c:if test="${i.tour_num != str }">  --%>
-								<figure class="effect-marley">
+								<figure class="effect-marley" id="num<%=num%>"><%num++; %>
 									<img src="${f.img }" alt="img11" width=480px" height="300px" />
 									<!-- 이미지 주소를 넣는 공간입니다^^ -->
 									<figcaption>
@@ -189,16 +195,9 @@
 		        <div>
 		            <div style="float:left;width:100px;">아이템 추가 :</div>
 		            <div style="clar:both;">
-<<<<<<< HEAD
-		            	
-=======
-		            	
-
-		                <%-- <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}')"/>
+            <%-- <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}')"/>
 		                <input type="button" value="임시저장" onclick="setInPlan(); updatePage(); "/>
 		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" /> --%>
-
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 		                <input type="button"  class = "w-btn-red w-btn-red-outline" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}')" style="margin-left:20px"/>
 		                <input type="button"  class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan(); updatePage();" style="margin-left:50px" />
 		                <input type="submit"  class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" style="margin : 10px 0px 0px 120px"/>
@@ -297,41 +296,162 @@
 
 			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 			        map.setCenter(coords); 
-			        
-			        
 			    } 
 			});   
 			
 		}
-		
-		
-	
-
 </script>
 		
 	</div>
 			
-			
-			
-			
 			</div> <!-- 컨테이너 끝 -->
 			
 			
-		<nav class="codrops-demos">
+		<!-- <nav class="codrops-demos">
 					<a  href="tour_att.jsp">관광지</a>
 					<a class="current-demo" href="tour_food.jsp">음식점</a>
 					<a href="tour_cafe.jsp">카페</a>
-			</nav>
+			</nav> -->
 			
 			<!-- Related demos -->
 			<section class="related">
-				
-				
-				
-				
 			</section>
-		</div><!-- /container -->
 		<script>
+		
+		let i=1;
+		let s =document.getElementsByClassName('effect-marley').length;
+		let k = document.getElementsByClassName('effect-marley').length/20;
+		for(i=1;i<=k;i++){
+			$('.grid').before('<button>'+i+'</button>'+' ');
+		}
+		$('button').eq(0).attr('class','active');
+		let i2=$('.active').text();
+		console.log(i2);
+		let h=1;
+		for(h=1;h<=s;h++){
+			$('#num'+h).css("display" ,"none")
+		}
+		if(i2==1){
+			for(h=1;h<=20;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		}
+		
+		
+		$(document).on('click','button',function(){
+			  
+   			
+			$('button').removeAttr('class');
+			$(this).attr('class','active');
+			i2=$('.active').text();
+			console.log(i2);
+			let h=1;
+			for(h=1;h<=s;h++){
+				$('#num'+h).css("display" ,"none")
+			}
+			if(i2==1){
+				for(h=1;h<=20;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			}
+			else if(i2==2){
+				for(h=21;h<=40;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			}
+			else if(i2==3){
+				for(h=41;h<=60;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			}
+			else if(i2==4){
+				for(h=61;h<=80;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			}
+			else if(i2==5){
+				for(h=81;h<=100;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			}
+			else if(i2==6){
+				for(h=101;h<=120;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==7){
+				for(h=121;h<=140;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==8){
+				for(h=141;h<=160;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==9){
+				for(h=161;h<=180;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==10){
+				for(h=181;h<=200;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==11){
+				for(h=201;h<=220;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==12){
+				for(h=221;h<=240;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==13){
+				for(h=241;h<=260;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==14){
+				for(h=261;h<=280;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==15){
+				for(h=281;h<=300;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==16){
+				for(h=301;h<=320;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==17){
+				for(h=321;h<=340;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==18){
+				for(h=341;h<=360;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==19){
+				for(h=361;h<=380;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==20){
+				for(h=381;h<=400;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			
+		});
+		
 			// For Demo purposes only (show hover effect on mobile devices)
 			[].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
 				el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );

@@ -8,6 +8,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%
+int num=1;
 tourDAO dao = new tourDAO();
 List<tour> cafeList = dao.selectCafeList();
 pageContext.setAttribute("cafeList", cafeList);
@@ -50,6 +51,8 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
         right: 20px;
        	top: 10px;
        	color:white
+	}.active{
+		 background-color: #F29661;
 	}
 </style>
 	
@@ -95,13 +98,13 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
             <a href="main.jsp" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-paper-plane"></i> 제주살앙</h1>
             </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <!-- <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> -->
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
                     <a href="maintest.jsp" class="nav-item nav-link">Home</a>
-                    <a href="tour_att.jsp" class="nav-item nav-link active">투어</a>
+                    <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
                     <a href="planner.jsp" class="nav-item nav-link">플래너</a>
                     <a href= "diarytest.jsp" class="nav-item nav-link">다이어리</a>
                     <a href= "board.jsp" class="nav-item nav-link">게시판</a>
@@ -154,13 +157,13 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 		
 
 		
-		<h2>츄릅</h2>
+		
 			<div class="grid">	
 			<%-- <c:set var="str" value="" />  --%>
 						<c:forEach var="c" items="${cafeList}" varStatus="statusNum">
 					<%--  <c:forEach var="i" items="${tourImgList}" varStatus="status">
 							<c:if test="${i.tour_num != str }">  --%>
-								<figure class="effect-marley">
+								<figure class="effect-marley" id="num<%=num%>"><%num++; %>
 									<img src="${c.img }" alt="img11" width=480px" height="330px" />
 									<!-- 이미지 주소를 넣는 공간입니다^^ -->
 									<figcaption>
@@ -330,23 +333,96 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 	</div>
 		</div>
 
-	<nav class="codrops-demos">
+	<!-- <nav class="codrops-demos">
 					<a href="tour_att.jsp">관광지</a>
 					<a href="tour_food.jsp">음식점</a>
 					<a href="#" class="current-demo">카페</a>
-	</nav>
+	</nav> -->
 	<!-- Related demos -->
 	<section class="related"></section>
-	
-	<!-- /container -->
 	<script>
-		// For Demo purposes only (show hover effect on mobile devices)
-		[].slice.call(document.querySelectorAll('a[href="#"')).forEach(
-				function(el) {
-					el.addEventListener('click', function(ev) {
-						ev.preventDefault();
-					});
-				});
+	
+	let i=1;
+	let s =document.getElementsByClassName('effect-marley').length;
+	let k = document.getElementsByClassName('effect-marley').length/20;
+	for(i=1;i<=k;i++){
+		$('.grid').before('<button>'+i+'</button>'+' ');
+	}
+	$('button').eq(0).attr('class','active');
+	let i2=$('.active').text();
+	console.log(i2);
+	let h=1;
+	for(h=1;h<=s;h++){
+		$('#num'+h).css("display" ,"none")
+	}
+	if(i2==1){
+		for(h=1;h<=20;h++){
+			$('#num'+h).css("display" ,"inline")
+		}
+	}
+	
+	$(document).on('click','button',function(){
+			$('button').removeAttr('class');
+		$(this).attr('class','active');
+		i2=$('.active').text();
+		console.log(i2);
+		let h=1;
+		for(h=1;h<=s;h++){
+			$('#num'+h).css("display" ,"none")
+		}
+		if(i2==1){
+			for(h=1;h<=20;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		}
+		else if(i2==2){
+			for(h=21;h<=40;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		}
+		else if(i2==3){
+			for(h=41;h<=60;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		}
+		else if(i2==4){
+			for(h=61;h<=80;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		}
+		else if(i2==5){
+			for(h=81;h<=100;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		}
+		else if(i2==6){
+			for(h=101;h<=120;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		} 
+		else if(i2==7){
+			for(h=121;h<=140;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		} 
+		else if(i2==8){
+			for(h=141;h<=160;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		} 
+		else if(i2==9){
+			for(h=161;h<=180;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		} 
+		else if(i2==10){
+			for(h=181;h<=200;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		} 
+		
+	});
+		
 	</script>
 	
 	<!-- 드래그앤드롭 JS -->
