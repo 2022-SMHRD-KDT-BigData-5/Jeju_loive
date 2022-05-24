@@ -26,9 +26,9 @@ public class diaryAlbumCon extends HttpServlet {
 		Member loginMember = (Member)session.getAttribute("loginMember");
 		String id= loginMember.getId();
 		Timestamp timestamp = Timestamp.valueOf("2017-05-21 00:00:00");
-		diaryAlbum album=new diaryAlbum(timestamp,img,id,change);
+		diaryAlbum album=new diaryAlbum(timestamp,img,id);
 		System.out.println(album.getP_memid());
-		System.out.println(album.getD_content());
+		
 		System.out.println(album.getP_loc());
 		System.out.println(album.getD_tripday());
 		

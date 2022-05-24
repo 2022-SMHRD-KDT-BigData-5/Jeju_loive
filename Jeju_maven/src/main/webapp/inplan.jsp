@@ -356,6 +356,7 @@ figure{
         
         </ul><br><br>
         <div id="map" style="width:60%;height:350px;position: absolute;
+<<<<<<< HEAD
         left: 50%; transform: translateX(-50%);"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script>
@@ -488,6 +489,7 @@ for(i=0; i<names.length; i++){
 } */
 
 </script>      
-   </div>
+  
+	
   </body>
 </html>

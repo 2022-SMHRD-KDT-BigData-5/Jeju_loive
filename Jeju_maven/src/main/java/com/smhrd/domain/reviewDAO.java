@@ -12,12 +12,12 @@ public class reviewDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
 	//리뷰쓰기
-	public int insertReview(review rv) {
+	public int insertReview(review review) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		int writeReview= 0;
 		
 		try {
-			writeReview = sqlSession.insert("com.smhrd.domain.reviewDAO.insertReview", rv);
+			writeReview = sqlSession.insert("com.smhrd.domain.reviewDAO.insertReview", review);
 			if(writeReview >0) {
 				sqlSession.commit();
 			}else {
