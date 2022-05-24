@@ -41,6 +41,7 @@
 <link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
 <link rel="stylesheet" href="assets/css/dragdrop.css" />
 <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="assets/css/reviewStar.css?after"/>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="assets/js/dragdrop.js"></script>
@@ -79,6 +80,9 @@
         right: 20px;
        	top: 10px;
        	color:white
+	}
+	.sh{
+	float:left
 	}
 </style>
 	
@@ -192,18 +196,37 @@
 					<img src="${i}" alt="img11" width="300px" height="200px"/>
 				</c:forEach>
 			<c:forEach var="r" items="${ReviewList}" varStatus="status">
-				
-					
+						
+						
 						<h2>
-							<span><c:out value="${r.rev_star}"/></span>
+							<span class="sh"><c:out value="${r.rev_star}"/></span>
+							<div class="score-wrapper">
+						<div class="score">
+							<div class="foreground">★★★★★</div>
+							<div class="background">☆☆☆☆☆</div>
+						</div>
+						<span class="display">
+			
+						</span>
 						</h2>
 						<c:out value="${r.rev_time}"/>
 						<p><c:out value="${r.rev_content}"/></p>
 						
+	
 			</c:forEach>
-						
+					</div>	
 			</div>
-			
+			<script>
+				$(function(){
+					const rate=1;
+					const max=5;
+					const percent = rate/max*100;
+				
+					
+					$(".score-wrapper").find(".foreground").css("width",percent+"%");
+					$(".scope-wrapper").find(".display").text(rate);
+				});
+	</script>
 			
 
 		</div>
