@@ -5,7 +5,7 @@
    pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <% 
-<<<<<<< HEAD
+
 
 	tourDAO dao = new tourDAO();
 	List<tour> tourList = dao.selectTourList();
@@ -15,13 +15,7 @@
 	tour tourInfo = (tour)session.getAttribute("tourInfo");
 	int num=1;
 	
-=======
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
    tourDAO dao = new tourDAO();
    List<tour> tourList = dao.selectTourList();
    pageContext.setAttribute("tourList", tourList);
@@ -29,12 +23,7 @@
    pageContext.setAttribute("tourImgList", tourImgList);
    tour tourInfo = (tour)session.getAttribute("tourInfo");
    int num=1;
-<<<<<<< HEAD
-   
 
-=======
-   
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -211,13 +200,7 @@
       
       <!-- 관광지 정보 반복출력 -->
 
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 		<h2 id="sh">가즈아</h2>
 		
 			<div class="grid">
@@ -277,15 +260,7 @@
 			<form action="PlanInsertCon" method="post">
 			여행일을 선택해주세요 >> <input type="date" name="plan_date"  id = "planInsert"><br/><br/>
 		        <div>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 		            <div style="clar:both;">
 		            	
 
@@ -330,12 +305,7 @@
 		
 <!-- 여기부터 지도공간~~~~~~~~~~~~^^지수꼬!건들지마삼 ㄱ-;;(빠직) -->		
 		<p style="margin-top:-12px">
-<<<<<<< HEAD
 
-=======
-=======
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
       <h2 id="sh">가즈아</h2>
       
          <div class="grid">
@@ -1031,8 +1001,6 @@
 
     <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-<<<<<<< HEAD
-=======
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -1060,11 +1028,6 @@
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
    
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 </body>
 </html>
