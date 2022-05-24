@@ -104,13 +104,18 @@ pageContext.setAttribute("inplanTourList",inplanTourList);
    		width : 300px; 
    		height : 200px;
    		float:left;
+   		margin-right: 6px
    }
    .imgup2{
    		width : 300px; 
    		height : 200px;
    		
    }
-   
+   .deletebutton{
+   		position: relative;
+   		bottom : 180px;
+   		display : none;
+   }
  
    
    
@@ -379,6 +384,7 @@ figure{
          <div class="content">
          <p class="sh"><%=date %></p>
          <button class="addimg">사진추가</button>
+         <button class="deleteimg">사진삭제</button>
              </div>
           
          <br>
@@ -393,22 +399,22 @@ figure{
                         <% 
          }
          %>
+         <div>
+         
+         
          <div class="imgarea">
-         
-         
-         
          <c:forEach var="i" items="${dimgList}" varStatus="status">
                <img src="<%=albumlist.get(num) %>" alt="실패"  width="300px" height="200px"/>
-               
+               <button class="deletebutton">x</button>
                <%num++; %>
             </c:forEach>
             <%num=0; %>
-         
+         </div>
            
                <%if(diary2!=null&&diary2.getDia_name()!=null){
             	   %><h2>
-                     <span class="head"><%=diary2.getDia_name() %>
-                  </h2>
+                     <span class="head"><%=diary2.getDia_name() %></span></h2>
+                  
                   <pre class="context"><%=diary2.getDia_content() %></pre>
                   <button class="change">수정</button>
                   <% 
@@ -419,7 +425,7 @@ figure{
                      <span class="head">제목</span>
                   </h2>
                   
-                  <h2 ><span class="context">내용</span></h2>
+                  <h2><span class="context">내용</span></h2>
                   <button class="change">수정</button>
                   <%} %>
                   
@@ -446,6 +452,7 @@ figure{
             </h1>
             
           <div  class = "dayPlan"><h1> 1일차 플랜</h1></div>
+          
     <div id = "main_plan">
     
         <ul class = "list_theme">
@@ -479,7 +486,7 @@ figure{
             
    </div>
    </div>
-   
+   </div>
    <!-- Related demos -->
    <section class="related"></section>
   
@@ -515,10 +522,18 @@ figure{
 		
   });
    $(document).on('click','.addimg',function(){
-	   $('.imgarea').before('<div class="imgup"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">'+
+	   $('.imgarea').prepend('<div class="imgup"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">'+
                '<input type="file" name="filename1" size=40 >'+
                '<input type="submit" value="업로드">'+
                '</form></div>');
+ });
+   $(document).on('click','.deleteimg',function(){
+	   $('.deletebutton').css("display" ,"inline");
+ });
+   $(document).on('click','.deletebutton',function(){
+	  let location = $(this).prev().attr('src');
+	  console.log(location);
+	  $(location).attr('href', 'deleteCon?loc='+location+'&date='+date);
  });
    
    </script>
