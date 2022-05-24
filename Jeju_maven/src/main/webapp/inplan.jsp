@@ -102,7 +102,7 @@ h1{
     margin: 0 auto;
     margin-bottom : 30px;
     z-index: 2;
-    background-color :    #FFFFF0;
+    background-color : #FFFFF0;
 }
 
 #main_plan li{
@@ -210,7 +210,6 @@ strong{
     width:100%;
     height: 100%px;
     position: absolute;
-   
     z-index: 1;
     -webkit-transition: all .5s ease;
     bottom: -6px;
@@ -291,7 +290,7 @@ figure{
  width:100%;
     height:100%;
     object-fit:cover;
-    }
+ }
     </style>
    
   </head>
