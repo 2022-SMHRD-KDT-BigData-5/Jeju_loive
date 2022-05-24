@@ -21,7 +21,7 @@ if(loginMember != null){
 	
 	String id= loginMember.getId();
 	tripday=dao.selectDiaryDay(id);
-	System.out.println(tripday.size());
+	
 	if(tripday!=null){
 	for(int i=0;i<tripday.size();i++){
 		 String day=tripday.get(i);
@@ -31,7 +31,7 @@ if(loginMember != null){
 		 albumlist=dao.selectAlbum(album);
 		 
 		 if(albumlist.size()!=0){
-		 System.out.println(albumlist.get(0));
+		 
 		 testList.add(albumlist.get(0));
 		 }
 		 
