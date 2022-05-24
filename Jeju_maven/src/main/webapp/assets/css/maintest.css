@@ -9753,7 +9753,7 @@ p,
 }
 
 input[type="date"] {
-	color: #2879c1;
+	color: #FF3467;
 	width: 100%;
 	height : 20%;
 }
@@ -9769,3 +9769,5 @@ input[type="date"] {
 .w-btn-outline:active {
     transform: scale(1.5);
 }
+
+
