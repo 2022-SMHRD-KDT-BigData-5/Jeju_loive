@@ -26,7 +26,7 @@
 	
 	<script>
 		$(function(){
-			const rate=1;
+			const rate=2;
 			const max=5;
 			const percent = rate/max*100;
 		

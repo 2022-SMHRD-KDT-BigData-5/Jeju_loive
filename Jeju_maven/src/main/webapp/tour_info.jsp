@@ -19,6 +19,7 @@
 	List<tour> ImgList = tdao.selectImgList(tourNum);
 	pageContext.setAttribute("ImgList", ImgList);
 	tour tourInfo = (tour)session.getAttribute("tourInfo");
+	int num=1;
 %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -199,10 +200,10 @@
 						
 						
 						<h2>
-							<span class="sh"><c:out value="${r.rev_star}"/></span>
+							<span class="sh<%=num%>"><c:out value="${r.rev_star}"/></span>
 							<div class="score-wrapper">
 						<div class="score">
-							<div class="foreground">★★★★★</div>
+							<div class="foreground" id="test<%=num%>" >★★★★★</div>
 							<div class="background">☆☆☆☆☆</div>
 						</div>
 						<span class="display">
@@ -212,25 +213,25 @@
 						<c:out value="${r.rev_time}"/>
 						<p><c:out value="${r.rev_content}"/></p>
 						
-	
+						<%num++; %>
 			</c:forEach>
 					</div>	
 			</div>
-			<script>
-				$(function(){
-					const rate=1;
-					const max=5;
-					const percent = rate/max*100;
-				
-					
-					$(".score-wrapper").find(".foreground").css("width",percent+"%");
-					$(".scope-wrapper").find(".display").text(rate);
-				});
-	</script>
+			
 			
 
 		</div>
-		
+		<script>
+								$(function(){
+									const rate=4.7;
+									const max=5;
+									const percent = rate/max*100;
+								
+									
+									$(".score-wrapper").find(".foreground").css("width",percent+"%");
+									$(".scope-wrapper").find(".display").text(rate);
+								});
+						</script>
 		
 		
 		</div>
