@@ -595,9 +595,9 @@
 	         }
 				
 			
-			function updatePage(){
+			/* function updatePage(){
 				$( "#map" ).load(window.location.href + " #map" );
-			}
+			} */
 			
 			
 			
