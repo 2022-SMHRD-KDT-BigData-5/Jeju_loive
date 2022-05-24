@@ -302,7 +302,7 @@ int num=1;
 							<input type="button" id="addItem" value="추가"
 								onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');" />
 							<input type="button" value="임시저장"
-								onclick="setInPlan(); updatePage();" style="margin-left: 20px" />
+								onclick="setInPlan() updatePage();" style="margin-left: 20px" />
 							<input type="submit" id="submitItem" value="내 Planner에 저장하기"
 								onclick="removeInplan();" style="margin-left: 20px" />
 

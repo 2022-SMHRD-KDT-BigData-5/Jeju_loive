@@ -49,7 +49,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 <link rel="icon" type="image/png" sizes="192x192"
 	href="/android-icon-192x192.png">
-
+<link rel="stylesheet" type="text/css" href="assets/css/reviewStar.css"/>
 
 
 <!-- Libraries Stylesheet -->
@@ -377,7 +377,21 @@ figure{
 							<div class="imgDiv">
 								<img src="${t.img}" class="imgc">
 							</div>
-							<div class="imgDescDiv">별점들어가라</div> <span class="thumb_bd"></span>
+							<div class="imgDescDiv">
+
+								<div class="score-wrapper">
+							<div class="score">
+						<div class="foreground">★★★★★</div>
+							<div class="background">☆☆☆☆☆</div>
+					</div>
+					<span class="display">
+			
+						</span>
+						</div>
+	
+							
+
+						</div> <span class="thumb_bd"></span>
 						</a>
 					</div> 
 					<div class = "strongDiv"><strong class="title elss"> <c:out value="${t.name}" />

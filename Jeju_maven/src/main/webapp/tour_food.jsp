@@ -452,7 +452,7 @@
          } 
          else if(i2==20){
             for(h=381;h<=400;h++){
-               $('#num'+h).css("display" ,"inline")
+                $('#num'+h).css("display" ,"inline")
             }
          } 
          $('html').scrollTop(0);

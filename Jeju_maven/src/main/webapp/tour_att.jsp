@@ -195,7 +195,7 @@
                               <p>
                                  <c:out value="${t.address}" />
                               </p>
-                              <a href="TourInfoCon?tourNum=${t.num}">View more</a>
+                              <a href="tour_text_hy.jsp?tourNum=${t.num}">View more</a>
                            </figcaption>
                         </figure>
                      <%--  </c:if>
