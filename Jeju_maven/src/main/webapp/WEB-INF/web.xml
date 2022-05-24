@@ -144,6 +144,12 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.reviewCon</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>deleteCon</servlet-name>
+  	<display-name>deleteCon</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.deleteCon</servlet-class>
+  </servlet>
   <servlet-mapping>
      <servlet-name>LoginCon</servlet-name>
      <url-pattern>/LoginCon</url-pattern>
@@ -236,5 +242,9 @@
   <servlet-mapping>
   	<servlet-name>reviewCon</servlet-name>
   	<url-pattern>/reviewCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>deleteCon</servlet-name>
+  	<url-pattern>/deleteCon</url-pattern>
   </servlet-mapping>
 </web-app>

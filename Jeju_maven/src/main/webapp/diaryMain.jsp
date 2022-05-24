@@ -80,6 +80,25 @@ pageContext.setAttribute("inplanTourList",inplanTourList);
 <!--[if IE]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
       <![endif]-->
+      
+      <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/a\jax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="assets/css/maintest.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+      
 <style>
    #flex_cont{display:flex;}
    #tour_div{width:60%;}
@@ -104,13 +123,18 @@ pageContext.setAttribute("inplanTourList",inplanTourList);
    		width : 300px; 
    		height : 200px;
    		float:left;
+   		margin-right: 6px
    }
    .imgup2{
    		width : 300px; 
    		height : 200px;
    		
    }
-   
+   .deletebutton{
+   		position: relative;
+   		bottom : 180px;
+   		display : none;
+   }
  
    
    
@@ -329,27 +353,70 @@ figure{
    
    
 
-   <header id="menuBlock">
-      <nav>
-         <ul>
-            <li><a href="main.jsp">main</a></li>
-            <li><a href="tour_att.jsp">tour</a></li>
-            <li><a href="planner.jsp">planner</a></li>
-            <li><a href="diary1.jsp">diary</a></li>
-            <li><a href="board.jsp">board</a></li>
-            <!--<li><a href="#elements">Elements</a></li>-->
-         </ul>
-         <c:choose>
+  
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark">
+        <div class="row py-2 px-lg-5">
+            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-white px-2" href="">
+                        <i class="fa fa-globe"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                    <a class="text-white pl-2" href="">
+                        <i class="fa fa-plane"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="maintest.jsp" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-paper-plane"></i> 제주살앙</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="maintest.jsp" class="nav-item nav-link active">Home</a>
+                    <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
+                    <a href="planner.jsp" class="nav-item nav-link">플래너</a>
+                    <a href= "diarytest.jsp" class="nav-item nav-link">다이어리</a>
+                    <a href= "board.jsp" class="nav-item nav-link">게시판</a>
+                </div>
+               <nav>
+                <c:choose>
                   <c:when test="${empty loginMember}">
-                     <a href="Join.jsp" class="soohyeon">login</a>
+                     <a href="jointest.jsp" class="btn btn-primary py-2 px-4 d-none d-lg-block">login</a>
                   </c:when>
                   <c:otherwise>
-                     <a href="LogoutCon" class="soohyeon">logout</a>
+                     <a href="LogoutCon" class="btn btn-primary py-2 px-4 d-none d-lg-block">logout</a>
                   </c:otherwise>
                </c:choose>
-      </nav>
-   </header>
-
+               </nav>
+                </div>
+               
+                 </nav>
+            </div>
+ 
+    <!-- Navbar End -->
           
           
           
@@ -379,6 +446,7 @@ figure{
          <div class="content">
          <p class="sh"><%=date %></p>
          <button class="addimg">사진추가</button>
+         <button class="deleteimg">사진삭제</button>
              </div>
           
          <br>
@@ -393,22 +461,22 @@ figure{
                         <% 
          }
          %>
+         <div>
+         
+         
          <div class="imgarea">
-         
-         
-         
          <c:forEach var="i" items="${dimgList}" varStatus="status">
                <img src="<%=albumlist.get(num) %>" alt="실패"  width="300px" height="200px"/>
-               
+               <button class="deletebutton">x</button>
                <%num++; %>
             </c:forEach>
             <%num=0; %>
-         
+         </div>
            
                <%if(diary2!=null&&diary2.getDia_name()!=null){
             	   %><h2>
-                     <span class="head"><%=diary2.getDia_name() %>
-                  </h2>
+                     <span class="head"><%=diary2.getDia_name() %></span></h2>
+                  
                   <pre class="context"><%=diary2.getDia_content() %></pre>
                   <button class="change">수정</button>
                   <% 
@@ -419,7 +487,7 @@ figure{
                      <span class="head">제목</span>
                   </h2>
                   
-                  <h2 ><span class="context">내용</span></h2>
+                  <h2><span class="context">내용</span></h2>
                   <button class="change">수정</button>
                   <%} %>
                   
@@ -446,6 +514,7 @@ figure{
             </h1>
             
           <div  class = "dayPlan"><h1> 1일차 플랜</h1></div>
+          
     <div id = "main_plan">
     
         <ul class = "list_theme">
@@ -479,7 +548,7 @@ figure{
             
    </div>
    </div>
-   
+   </div>
    <!-- Related demos -->
    <section class="related"></section>
   
@@ -515,10 +584,18 @@ figure{
 		
   });
    $(document).on('click','.addimg',function(){
-	   $('.imgarea').before('<div class="imgup"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">'+
+	   $('.imgarea').prepend('<div class="imgup"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">'+
                '<input type="file" name="filename1" size=40 >'+
                '<input type="submit" value="업로드">'+
                '</form></div>');
+ });
+   $(document).on('click','.deleteimg',function(){
+	   $('.deletebutton').css("display" ,"inline");
+ });
+   $(document).on('click','.deletebutton',function(){
+	  let location = $(this).prev().attr('src');
+	  console.log(location);
+	  $(location).attr('href', 'deleteCon?loc='+location+'&date='+date);
  });
    
    </script>
