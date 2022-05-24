@@ -64,40 +64,12 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 <body>
 
 
-   <!-- Topbar Start -->
-    <div class="container-fluid bg-dark">
-        <div class="row py-2 px-lg-5">
-            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
-                
-            </div>
-            <div class="col-lg-6 text-center text-lg-right">
-                <div class="d-inline-flex align-items-center">
-                    <a class="text-white px-2" href="">
-                        <i class="fa fa-globe"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fa fa-minus"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fa fa-minus"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fa fa-minus"></i>
-                    </a>
-                    <a class="text-white pl-2" href="">
-                        <i class="fa fa-plane"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
 
 
     <!-- Navbar Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
-            <a href="main.jsp" class="navbar-brand ml-lg-3">
+            <a href="maintest.jsp" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-paper-plane"></i> 제주살앙</h1>
             </a>
             <!-- <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -198,13 +170,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
             <h1>
                Plan<span>Plan에 대한 정보를 추천해주는 메뉴입니다.</span>
             </h1>
-            <nav class="codrops-demos">
-
-               <a href="#" class="current-demo">관광지</a>
-               <a href="#">음식점</a>
-               <a href="#">카페</a>
-
-            </nav>
+          
          </header>
       
       
