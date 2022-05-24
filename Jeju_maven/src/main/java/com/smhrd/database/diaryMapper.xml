@@ -6,6 +6,10 @@
 	<insert id="insertDiary" parameterType="com.smhrd.domain.diary">
 		insert into diary (dia_num,dia_name, dia_tripday,dia_date,mem_id,dia_content) values(#{dia_num},#{dia_name},#{dia_tripday},sysdate, #{mem_id}, #{dia_content})
 	</insert>
+	<insert id="insertDiaryAdd" parameterType="com.smhrd.domain.diary">
+		insert into diary (dia_tripday,mem_id) values(#{dia_tripday}, #{mem_id})
+	</insert>
+	
 	<select id="selectDiary" parameterType="com.smhrd.domain.diary" resultType="com.smhrd.domain.diary">
 		select * from diary where mem_id=#{mem_id} and dia_tripday=#{dia_tripday}
 	</select>
@@ -60,7 +64,7 @@
 	
 	
 	<update id="updateDiary" parameterType="com.smhrd.domain.diary">
-		update diary set dia_name = #{dia_name}, dia_tripday = #{dia_tripday}, dia_share = #{dia_share}, dia_date = #{dia_date}, dia_content = #{dia_content},dia_subname = #{sub} where dia_num=#{dia_num} and mem_id=#{mem_id}
+		update diary set dia_num=#{dia_num} dia_name = #{dia_name}, dia_tripday = #{dia_tripday}, dia_content = #{dia_content} where dia_tripday=#{dia_tripday} and mem_id=#{mem_id} 
 	</update>
 	
 	<insert id="insertAlbum" parameterType="com.smhrd.domain.diaryAlbum">

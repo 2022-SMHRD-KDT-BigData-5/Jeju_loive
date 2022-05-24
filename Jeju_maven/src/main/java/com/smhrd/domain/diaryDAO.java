@@ -29,6 +29,24 @@ public class diaryDAO {
 		      }
 		      return cnt;
 		   }
+		
+		public int insertDiaryAdd(diary diary) {
+			  SqlSession sqlSession = sqlSessionFactory.openSession();
+		      int cnt = 0;
+		      try {
+		         cnt = sqlSession.insert("com.smhrd.domain.diaryDAO.insertDiaryAdd", diary);
+		         if (cnt > 0) {
+		            sqlSession.commit();
+		         } else {
+		            sqlSession.rollback();
+		         }
+		      } catch (Exception e) {
+		         e.printStackTrace();
+		      } finally {
+		         sqlSession.close();
+		      }
+		      return cnt;
+		   }
 			//사용자 정보로 다이어리 가져오는 메서드
 			public diary selectDiary(diary d) {
 				SqlSession sqlSession = sqlSessionFactory.openSession();
