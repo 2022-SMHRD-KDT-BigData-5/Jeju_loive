@@ -23,7 +23,7 @@ public class reviewCon extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		//값 받아오기
-		String mem_id = request.getParameter("mem_id");
+		String rev_user = request.getParameter("mem_id");
 		String rev_content = request.getParameter("content");
 		BigDecimal tour_num = new BigDecimal(request.getParameter("tour_num"));
 		BigDecimal rev_star = new BigDecimal(request.getParameter("rating"));
@@ -32,7 +32,7 @@ public class reviewCon extends HttpServlet {
 		
 		
 		//값 담기
-		review review = new review(tour_num, mem_id, rev_star, rev_content);
+		review review = new review(tour_num, rev_user, rev_star, rev_content);
 		
 		reviewDAO r_dao = new reviewDAO();
 
