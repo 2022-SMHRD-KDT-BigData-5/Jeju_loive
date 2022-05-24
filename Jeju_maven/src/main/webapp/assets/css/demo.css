@@ -1,7 +1,7 @@
 @font-face {
 	font-weight: normal;
 	font-style: normal;
-	font-family: 'codropsicons';
+	font-family: 'Do Hyeon', sans-serif;
 	src:url('../fonts/codropsicons/codropsicons.eot');
 	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
 		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
@@ -22,7 +22,7 @@ body {
 
 	font-weight: 500;
 	font-size: 1em;
-	font-family: 'Raleway', Arial, sans-serif;
+	font-family: ''Do Hyeon', sans-serif;
 }
 
 a {
@@ -96,7 +96,7 @@ section {
 	margin: 0 5px;
 	padding: 1em 1.5em;
 	text-transform: uppercase;
-	font-weight: bold;
+	font-size: 120%
 }
 
 .codrops-demos a:hover,
@@ -137,7 +137,7 @@ section {
 	font-weight: normal;
 	font-style: normal;
 	font-variant: normal;
-	font-family: 'codropsicons';
+	font-family: 'Do Hyeon';
 	line-height: 1;
 	speak: none;
 	-webkit-font-smoothing: antialiased;
