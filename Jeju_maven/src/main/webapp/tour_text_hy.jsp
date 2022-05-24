@@ -19,7 +19,7 @@ int tourNum = Integer.parseInt(str_num);
 List<tour> ImgList = tdao.selectImgList(tourNum);
 pageContext.setAttribute("ImgList", ImgList);
 tour tourInfo = (tour) session.getAttribute("tourInfo");
-int num=1;
+int num = 1;
 %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -41,28 +41,39 @@ int num=1;
 <link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
 <link rel="stylesheet" href="assets/css/dragdrop.css" />
-<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+	rel="stylesheet" type="text/css" />
 <!-- Favicon -->
 <link rel="icon" type="image/png" sizes="192x192"
 	href="/android-icon-192x192.png">
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+	rel="stylesheet">
 <!-- Font Awesome -->
-<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-<-- Libraries Stylesheet -->
-<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+	rel="stylesheet">
+<link href="lib/owlcarousel/assets/owl.carousel.min.css"
+	rel="stylesheet">
 <!-- Customized Bootstrap Stylesheet -->
 <link rel="stylesheet" href="assets/css/maintest.css" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-<link rel="preconnect" href="https://fonts.googleapis.com" type="text/css">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigintype="text/css">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"
+	type="text/css">
+<link rel="preconnect" href="https://fonts.gstatic.com"
+	crossorigintype="text/css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap"
+	rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="assets/css/reviewStar.css" />
-<!-- JavaScript Libraries -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script>
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 <script src="lib/easing/easing.min.js"></script>
 <script src="lib/waypoints/waypoints.min.js"></script>
 <script src="lib/counterup/counterup.min.js"></script>
@@ -77,10 +88,11 @@ int num=1;
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/maintest.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript"
+	src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="assets/js/dragdrop.js"></script>
-
 
 
 
@@ -207,75 +219,59 @@ int num=1;
 				<br>
 
 				<div>
-					<%-- 
-			<%=ImgList.get(0)%> --%>
 					<c:forEach var="i" items="${ImgList}" varStatus="status">
 						<img src="${i}" alt="img11" width="300px" height="200px" />
 					</c:forEach>
 					<c:forEach var="r" items="${ReviewList}" varStatus="status">
 
 
-						<h2>
-							<span><div class="score-wrapper">
-									<div class="score">
-										<div class="foreground" id="test<%=num%>">★★★★★</div>
-										<div class="background">☆☆☆☆☆</div>
-									</div>
 
-									<span class="display" id="te<%=num%>"> ${r.rev_star} </span>
-								</div> 
-								
-								 </span>
+						<span><div class="score-wrapper">
+								<div class="score">
+									<div class="foreground" id="test<%=num%>">★★★★★</div>
+									<div class="background">☆☆☆☆☆</div>
+								</div>
 
-									<span class="display"> ${r.rev_star} </span>
-								</div>  </span>
-
-						</h2>
-						<c:out value="${r.rev_time}" />
-						<p>
-							<c:out value="${r.rev_content}" />
-						</p>
-					<%num++; %>
-					</c:forEach>
-					<script>
-								let k = $('#te1').text();
-								let k2 = $('#te2').text();
-								console.log(k);
-								if(k==1){
-									$('#test1').width('20%');
-								}
-								else if(k==2){
-									$('#test1').width('40%');
-								}
-								else if(k==3){
-									$('#test1').width('60%');
-								}
-								else if(k==4){
-									$('#test1').width('80%');
-								}
-								else if(k==5){
-									$('#test1').width('100%');
-								}
-								if(k2==1){
-									$('#test2').width('20%');
-								}
-								else if(k2==2){
-									$('#test2').width('40%');
-								}
-								else if(k2==3){
-									$('#test2').width('60%');
-								}
-								else if(k2==4){
-									$('#test2').width('80%');
-								}
-								else if(k2==5){
-									$('#test2').width('100%');
-								}
-								</script>
+								<span class="display" id="te<%=num%>"> ${r.rev_star} </span>
+							</div> </span>
+						<span class="display"> ${r.rev_star} </span>
 				</div>
 
-
-
+				<c:out value="${r.rev_time}" />
+				<p>
+					<c:out value="${r.rev_content}" />
+				</p>
+				<%
+				num++;
+				%>
+				</c:forEach>
+				<script>
+					let k = $('#te1').text();
+					let k2 = $('#te2').text();
+					console.log(k);
+					if (k == 1) {
+						$('#test1').width('20%');
+					} else if (k == 2) {
+						$('#test1').width('40%');
+					} else if (k == 3) {
+						$('#test1').width('60%');
+					} else if (k == 4) {
+						$('#test1').width('80%');
+					} else if (k == 5) {
+						$('#test1').width('100%');
+					}
+					if (k2 == 1) {
+						$('#test2').width('20%');
+					} else if (k2 == 2) {
+						$('#test2').width('40%');
+					} else if (k2 == 3) {
+						$('#test2').width('60%');
+					} else if (k2 == 4) {
+						$('#test2').width('80%');
+					} else if (k2 == 5) {
+						$('#test2').width('100%');
+					}
+				</script>
 			</div>
 
 
@@ -343,76 +339,14 @@ int num=1;
 			<div id="map" style="width: 100%; height: 350px;"></div>
 
 
+		</div><!-- ----------------------------여기까지 plan_div----------------------------- -->
 
-			<script>
-				var getAdds = [];
-				getAdds = localStorage.getItem('tourAdd');
-				addList = getAdds.split(",");
-				var getNames = [];
-				getNames = localStorage.getItem('tourName');
-				nameList = getNames.split(",");
-
-				var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-				mapOption = {
-					center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-					level : 10
-				// 지도의 확대 레벨
-				};
-
-				// 지도를 생성합니다    
-				var map = new kakao.maps.Map(mapContainer, mapOption);
-
-				// 주소-좌표 변환 객체를 생성합니다
-				var geocoder = new kakao.maps.services.Geocoder();
-
-				function addMaker(addr, namel) {
-
-					// 주소로 좌표를 검색합니다
-					geocoder
-							.addressSearch(
-									addr,
-									function(result, status) {
-
-										// 정상적으로 검색이 완료됐으면 
-										if (status === kakao.maps.services.Status.OK) {
-
-											var coords = new kakao.maps.LatLng(
-													result[0].y, result[0].x);
-
-											// 결과값으로 받은 위치를 마커로 표시합니다
-											var marker = new kakao.maps.Marker(
-													{
-														map : map,
-														position : coords
-													});
-
-											//marker.setMap(map);
-
-											// 인포윈도우로 장소에 대한 설명을 표시합니다
-											var infowindow = new kakao.maps.InfoWindow(
-													{
-														content : '<div style="width:150px;text-align:center;padding:6px 0;">'
-																+ namel
-																+ '</div>'
-													});
-											infowindow.open(map, marker);
-
-											// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-											map.setCenter(coords);
-
-										}
-									});
-
-				}
-			</script>
-
-
-		</div>
 	</div>
+
 
 	<!-- Related demos -->
 	<section class="related"></section>
-	</div>
+
 	<!-- /container -->
 	<script>
 		// For Demo purposes only (show hover effect on mobile devices)
@@ -424,7 +358,7 @@ int num=1;
 				});
 	</script>
 
-	<!-- 드래그앤드롭 JS -->
+	<!--------------------------------------- 드래그앤드롭 JS -------------------------------------->
 	<script>
 		//추가 클릭시 localStorage에 값을 저장하는 함수
 		function setInPlan() {
