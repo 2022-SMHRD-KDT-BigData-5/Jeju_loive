@@ -241,7 +241,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
         </a> -->
     </em>
 </p>
-<div id="map" style="width:100%;height:350px;"></div>
+<div id="map" style="width:110%;height:350px;"></div>
 
 
 	<!-- JavaScript Libraries -->
