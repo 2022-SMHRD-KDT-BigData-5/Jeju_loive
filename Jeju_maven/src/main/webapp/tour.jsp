@@ -118,7 +118,7 @@
 		
 		<!-- 관광지 정보 반복출력 -->
 
-		<h2 id="sh">가즈아</h2>
+		<h2 id="sh"></h2>
 			<div class="grid">
 			<h1><%=tourImgList.get(1).getT_add() %></h1>
 			<c:forEach var="t" items="${tourList}" varStatus="status">

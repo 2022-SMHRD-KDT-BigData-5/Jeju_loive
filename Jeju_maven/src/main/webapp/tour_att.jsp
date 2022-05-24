@@ -10,8 +10,8 @@
 	pageContext.setAttribute("tourList", tourList);
 	List<tour> tourImgList = dao.selectTourImgList();
 	pageContext.setAttribute("tourImgList", tourImgList);
-	tour tourInfo = (tour)session.getAttribute("tourInfo");
 	int num=1;
+	tour tourInfo = (tour)session.getAttribute("tourInfo");
 	
 %>
 <!DOCTYPE html>
@@ -32,12 +32,12 @@
 <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
-
+<link rel="shortcut icon" href="../favicon.ico">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="assets/css/dragdrop.css" />
-<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script><!-- 지도만드는녀석^^지수꼬! 건들면 나 화낸다~-^-(빠직) -->
 <script src="assets/js/dragdrop.js"></script>
 <!--[if IE]>
@@ -117,13 +117,13 @@
             <a href="maintest.jsp" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-paper-plane"></i> 제주살앙</h1>
             </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <!-- <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> -->
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
                     <a href="maintest.jsp" class="nav-item nav-link">Home</a>
-                    <a href="tour_att.jsp" class="nav-item nav-link active">투어</a>
+                    <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
                     <a href="planner.jsp" class="nav-item nav-link">플래너</a>
                     <a href= "diarytest.jsp" class="nav-item nav-link">다이어리</a>
                     <a href= "board.jsp" class="nav-item nav-link">게시판</a>
@@ -165,19 +165,19 @@
 		
 		
 		
-		<div class="content">
+		<div class="content" >
 		
 		<!-- 관광지 정보 반복출력 -->
 
-		<h2 id="sh">가즈아</h2>
+		<h2 id="sh" ></h2>
 		
-			<div class="grid">
+			<div class="grid" >
 <%-- 			<h1><%=tourImgList.get(1).getT_add() %></h1> --%>
 				 	<%-- <c:set var="str" value="" />  --%>
 						<c:forEach var="t" items="${tourList}" varStatus="status">
 					<%--  <c:forEach var="i" items="${tourImgList}" varStatus="status">
 							<c:if test="${i.tour_num != str }">  --%>
-								<figure class="effect-marley">
+								<figure class="effect-marley" id="num<%=num%>"><%num++; %>
 									<img src="${t.img}" alt="img11" width=480px" height="300px" />
 									<!-- 이미지 주소를 넣는 공간입니다^^ -->
 									<figcaption>
@@ -197,7 +197,15 @@
 				</div>
 			
 			</div>
+			<!-- 
+			<nav class="codrops-demos">
+				<a href="#" class="current-demo">관광지</a>
+				<a href="tour_food.jsp">음식점</a>
+				<a href="tour_cafe.jsp">카페</a>
+
+		</nav> -->
 	</div>
+	
 	
 	
 		<!-- ---------------------------~~지금부터 플래너 공간~~-------------------------- -->
@@ -320,37 +328,21 @@
 			
 		}
 		
-		
 	
 </script>
 		
-		
 		</div>
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		</div> <!--  컨테이너 끝 -->
 		
 		
-		
-	
-	<!-- Related demos -->
-	<section class="related"></section>
-	
-	
-	
-	
+			<!-- Related demos -->
+	<section class="related" ></section>
 	<script>
 		
 		let i=1;
 		let s =document.getElementsByClassName('effect-marley').length;
-		let k = document.getElementsByClassName('effect-marley').length/30;
+		let k = document.getElementsByClassName('effect-marley').length/20;
 		for(i=1;i<=k;i++){
 			$('.grid').before('<button>'+i+'</button>');
 		}
@@ -362,14 +354,10 @@
 			$('#num'+h).css("display" ,"none")
 		}
 		if(i2==1){
-			for(h=1;h<=30;h++){
+			for(h=1;h<=20;h++){
 				$('#num'+h).css("display" ,"inline")
 			}
 		}
-		
-	
-		
-		
 		
 		
 		$(document).on('click','button',function(){
@@ -383,65 +371,83 @@
 			for(h=1;h<=s;h++){
 				$('#num'+h).css("display" ,"none")
 			}
-			
-			
-			
-			
 			if(i2==1){
-				for(h=1;h<=30;h++){
+				for(h=1;h<=20;h++){
 					$('#num'+h).css("display" ,"inline")
 				}
 			}
 			else if(i2==2){
-				for(h=31;h<=60;h++){
+				for(h=21;h<=40;h++){
 					$('#num'+h).css("display" ,"inline")
 				}
 			}
 			else if(i2==3){
-				for(h=61;h<=90;h++){
+				for(h=41;h<=60;h++){
 					$('#num'+h).css("display" ,"inline")
 				}
 			}
 			else if(i2==4){
-				for(h=91;h<=120;h++){
+				for(h=61;h<=80;h++){
 					$('#num'+h).css("display" ,"inline")
 				}
 			}
 			else if(i2==5){
-				for(h=121;h<=150;h++){
+				for(h=81;h<=100;h++){
 					$('#num'+h).css("display" ,"inline")
 				}
 			}
 			else if(i2==6){
-				for(h=151;h<=180;h++){
+				for(h=101;h<=120;h++){
 					$('#num'+h).css("display" ,"inline")
 				}
 			} 
 			else if(i2==7){
-				for(h=181;h<=210;h++){
+				for(h=121;h<=140;h++){
 					$('#num'+h).css("display" ,"inline")
 				}
 			} 
 			else if(i2==8){
-				for(h=211;h<=240;h++){
+				for(h=141;h<=160;h++){
 					$('#num'+h).css("display" ,"inline")
 				}
 			} 
 			else if(i2==9){
-				for(h=241;h<=270;h++){
+				for(h=161;h<=180;h++){
 					$('#num'+h).css("display" ,"inline")
 				}
 			} 
 			else if(i2==10){
-				for(h=271;h<=300;h++){
+				for(h=181;h<=200;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==11){
+				for(h=201;h<=220;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==12){
+				for(h=221;h<=240;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==13){
+				for(h=241;h<=260;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==14){
+				for(h=261;h<=280;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==15){
+				for(h=281;h<=300;h++){
 					$('#num'+h).css("display" ,"inline")
 				}
 			} 
 			
-		
 		});
-		
-		
 		
 		
 		// For Demo purposes only (show hover effect on mobile devices)
@@ -452,6 +458,8 @@
 					});
 				});
 	</script>
+	
+
 	
 	<!-- 전화번호 하이픈(-) 자동입력  JS -->
     <script>
@@ -565,30 +573,11 @@
 	        	 location.reload();
 				}
 			
+	         
 			
 			
 	</script>
-	 <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
-    <!-- Template Javascript -->
-    <script src="assets/js/maintest.js"></script>
-    
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/maintest.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-	
+
 </body>
 </html>
