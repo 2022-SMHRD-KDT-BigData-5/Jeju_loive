@@ -64,7 +64,7 @@
 	
 	
 	<update id="updateDiary" parameterType="com.smhrd.domain.diary">
-		update diary set dia_num=#{dia_num} dia_name = #{dia_name}, dia_tripday = #{dia_tripday}, dia_content = #{dia_content} where dia_tripday=#{dia_tripday} and mem_id=#{mem_id} 
+		update diary set dia_num=#{dia_num}, dia_name = #{dia_name}, dia_tripday = #{dia_tripday}, dia_content = #{dia_content} where dia_tripday=#{dia_tripday} and mem_id=#{mem_id} 
 	</update>
 	
 	<insert id="insertAlbum" parameterType="com.smhrd.domain.diaryAlbum">
