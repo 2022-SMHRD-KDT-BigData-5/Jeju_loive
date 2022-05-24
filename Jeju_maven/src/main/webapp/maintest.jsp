@@ -15,8 +15,9 @@
     <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
 
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/a\jax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -27,7 +28,7 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link rel="stylesheet" href="assets/css/maintest.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-    
+     
    
     
 </head>
@@ -43,19 +44,19 @@
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-facebook-f"></i>
+                        <i class="fa fa-minus"></i>
                     </a>
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-twitter"></i>
+                        <i class="fa fa-minus"></i>
                     </a>
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-linkedin-in"></i>
+                        <i class="fa fa-minus"></i>
                     </a>
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-instagram"></i>
+                        <i class="fa fa-minus"></i>
                     </a>
                     <a class="text-white pl-2" href="">
-                        <i class="fab fa-youtube"></i>
+                        <i class="fa fa-plane"></i>
                     </a>
                 </div>
             </div>
@@ -107,7 +108,7 @@
             <div class="mx-auto" style="width: 100%; max-width: 600px;">
             
                 <div class="input-group">
-                    <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="가고싶은 제주">
+                    <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="여행지를 입력하세요">
                     <div class="input-group-append">
                         <button class="btn btn-primary px-3">검색</button>
                     </div>

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.domain.reviewDAO">
    <insert id="insertReview" parameterType="com.smhrd.domain.review">
-      insert into review values(pk_seq.nextval, #{tour_num},#{mem_id}, #{rev_star}, #{rev_content}, sysdate)
+      insert into review values(pk_seq.nextval, #{tour_num},#{rev_user}, #{rev_star}, #{rev_content}, sysdate)
    </insert>
    
    <select id="selectReview" parameterType="BigDecimal" resultType="com.smhrd.domain.review">

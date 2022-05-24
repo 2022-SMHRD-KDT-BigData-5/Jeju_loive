@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
 
 *{margin : 0; padding:0; box-sizing: border-box;}
 body {
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Do Hyeon', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,9 +20,11 @@ body::before {
 }
 .login-form {position: relative; z-index: 2;}
 .login-form h1 {
-    font-size: 32px; color: #d96014;
+    font-size: 250%;
+    color: #d96014;
     text-align: center;
     margin-top: 30px;
+    letter-spacing: 8px;
 }
 .join-form {position: relative; z-index: 2;}
 .join-form h1 {
