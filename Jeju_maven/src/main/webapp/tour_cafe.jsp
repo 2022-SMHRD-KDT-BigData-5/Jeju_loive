@@ -331,8 +331,6 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 	</div>
 	
 		</div><br>
-		<div style="float:right;height:10%; width:42%;"><input type="button" value="맨위로" onClick="javascript:window.scrollTo(0,0)" />
-</div>
 	<!-- <nav class="codrops-demos">
 					<a href="tour_att.jsp">관광지</a>
 					<a href="tour_food.jsp">음식점</a>
@@ -369,6 +367,8 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 		i2=$('.active').text();
 		console.log(i2);
 		let h=1;
+		
+		
 		for(h=1;h<=s;h++){
 			$('#num'+h).css("display" ,"none")
 		}
@@ -423,6 +423,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 			}
 		} 
 		
+		$('html').scrollTop(0);
 	});
 		
 	</script>
