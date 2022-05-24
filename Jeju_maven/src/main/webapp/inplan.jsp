@@ -283,7 +283,11 @@ figure{
    background-color : #FFFFF0;
    color : #FFFFF0;
 }
-
+.imgc{
+ width:100%;
+    height:100%;
+    object-fit:cover;
+    }
     </style>
    
   </head>
@@ -322,10 +326,6 @@ figure{
         
   
     <div  class = "dayPlan"><h1> 1일차 플랜</h1></div>
-   
-   
-   
-   
     <div id = "main_plan">
     <div> <a class="logo" href="planner.jsp"><span><img src="images/logo2.png" alt="logo"></span></a></div>
    
@@ -338,7 +338,7 @@ figure{
    
                 <div class="imgBoxDiv">
                     <a href="#" class="theme_thumb">
-                        <div class = "imgDiv"><img src="${t.img}"></div>
+                        <div class = "imgDiv"><img src="${t.img}" class="imgc"></div>
                         <div class = "imgDescDiv">별점 들어가라</div>
                         <span class="thumb_bd"></span>
                     </a>
