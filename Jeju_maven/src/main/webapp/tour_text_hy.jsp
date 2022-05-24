@@ -41,33 +41,16 @@ tour tourInfo = (tour) session.getAttribute("tourInfo");
 <link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
 <link rel="stylesheet" href="assets/css/dragdrop.css" />
 <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-
-<script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script>
-
-<!--[if IE]>
-  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-
 <!-- Favicon -->
 <link rel="icon" type="image/png" sizes="192x192"
 	href="/android-icon-192x192.png">
-
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link
-	href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-	rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <!-- Font Awesome -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
-	rel="stylesheet">
-
-<!-- Libraries Stylesheet -->
-<link href="lib/owlcarousel/assets/owl.carousel.min.css"
-	rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+<-- Libraries Stylesheet -->
+<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 <!-- Customized Bootstrap Stylesheet -->
 <link rel="stylesheet" href="assets/css/maintest.css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
@@ -76,6 +59,7 @@ tour tourInfo = (tour) session.getAttribute("tourInfo");
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="assets/css/reviewStar.css" />
 <!-- JavaScript Libraries -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 <script src="lib/easing/easing.min.js"></script>
