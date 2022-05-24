@@ -77,10 +77,37 @@ tour tourInfo = (tour) session.getAttribute("tourInfo");
 <link rel="stylesheet" href="assets/css/maintest.css" />
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-<link rel="preconnect" href="https://fonts.googleapis.com" type="text/css">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin type="text/css">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="assets/css/reviewStar.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"
+	type="text/css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin
+	type="text/css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="assets/css/reviewStar.css" />
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/counterup/counterup.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Contact Javascript File -->
+<script src="mail/jqBootstrapValidation.min.js"></script>
+<script src="mail/contact.js"></script>
+
+<!-- Template Javascript -->
+<script src="assets/js/maintest.js"></script>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/maintest.js"></script>
+
 
 
 
@@ -222,10 +249,13 @@ tour tourInfo = (tour) session.getAttribute("tourInfo");
 										<div class="background">☆☆☆☆☆</div>
 									</div>
 									<span class="display"> ${r.rev_star} </span>
-								</div> 
-								<script>
+								</div> <script>
 									$(function() {
-										const rate = 4;
+										const rate = $
+										{
+											r.rev_star
+										}
+										;
 										const max = 5;
 										const percent = rate / max * 100;
 
@@ -234,8 +264,7 @@ tour tourInfo = (tour) session.getAttribute("tourInfo");
 										$(".scope-wrapper").find(".display")
 												.text(rate);
 									});
-								</script>
-								 </span>
+								</script> </span>
 						</h2>
 						<c:out value="${r.rev_time}" />
 						<p>
@@ -313,29 +342,6 @@ tour tourInfo = (tour) session.getAttribute("tourInfo");
 				</em>
 			</p>
 			<div id="map" style="width: 100%; height: 350px;"></div>
-
-
-			<!-- JavaScript Libraries -->
-			<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-			<script
-				src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-			<script src="lib/easing/easing.min.js"></script>
-			<script src="lib/waypoints/waypoints.min.js"></script>
-			<script src="lib/counterup/counterup.min.js"></script>
-			<script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-			<!-- Contact Javascript File -->
-			<script src="mail/jqBootstrapValidation.min.js"></script>
-			<script src="mail/contact.js"></script>
-
-			<!-- Template Javascript -->
-			<script src="assets/js/maintest.js"></script>
-
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/maintest.js"></script>
 
 
 
@@ -516,26 +522,7 @@ tour tourInfo = (tour) session.getAttribute("tourInfo");
 		class="fa-angle-double-up"></i></a>
 
 
-	<!-- JavaScript Libraries -->
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-	<script src="lib/easing/easing.min.js"></script>
-	<script src="lib/waypoints/waypoints.min.js"></script>
-	<script src="lib/counterup/counterup.min.js"></script>
-	<script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-	<!-- Contact Javascript File -->
-	<script src="mail/jqBootstrapValidation.min.js"></script>
-	<script src="mail/contact.js"></script>
-
-	<!-- Template Javascript -->
-
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
 
 </body>
 </html>
