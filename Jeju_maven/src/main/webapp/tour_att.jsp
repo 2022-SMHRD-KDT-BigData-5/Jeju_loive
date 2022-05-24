@@ -191,6 +191,8 @@
       <!-- 관광지 정보 반복출력 -->
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 		<h2 id="sh">가즈아</h2>
 		
 			<div class="grid">
@@ -250,7 +252,10 @@
 			<form action="PlanInsertCon" method="post">
 			여행일을 선택해주세요 >> <input type="date" name="plan_date"  id = "planInsert"><br/><br/>
 		        <div>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 		            <div style="clar:both;">
 		            	
@@ -297,6 +302,7 @@
 <!-- 여기부터 지도공간~~~~~~~~~~~~^^지수꼬!건들지마삼 ㄱ-;;(빠직) -->		
 		<p style="margin-top:-12px">
 =======
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
       <h2 id="sh">가즈아</h2>
       
          <div class="grid">
