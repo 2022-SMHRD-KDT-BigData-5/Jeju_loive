@@ -12,6 +12,7 @@
 	tour tourInfo = (tour)t_dao.selectTourInfo2(tour_num);
 	pageContext.setAttribute("tourInfo",tourInfo);
 	Member loginMember = (Member)session.getAttribute("loginMember");
+	String dia_tripday = request.getParameter("dia_tripday");
 %>
 
 <!DOCTYPE html>
@@ -105,6 +106,7 @@ form h1 {
 		<div class = "inputDiv">작성자ID <input type="text" name="mem_id" value="${loginMember.getId()}" readonly/></div>
 		<div class = "inputDiv">여행지ID <input type="text" id="tour_num" name="tour_num" value="${tourInfo.getNum()}" readonly/></div><br/><br/>
     	<fieldset>
+    	<input type="date" name="dia_tripday" value="<%=dia_tripday %>" readonly>
         <input type="radio" name="rating" value="5" id="rate1"><label for="rate1">⭐</label>
         <input type="radio" name="rating" value="4" id="rate2"><label for="rate2">⭐</label>
         <input type="radio" name="rating" value="3" id="rate3"><label for="rate3">⭐</label>
