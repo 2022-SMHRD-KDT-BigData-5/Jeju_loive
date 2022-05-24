@@ -90,19 +90,19 @@
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-facebook-f"></i>
+                        <i class="fa fa-globe"></i>
                     </a>
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-twitter"></i>
+                        <i class="fa fa-minus"></i>
                     </a>
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-linkedin-in"></i>
+                        <i class="fa fa-minus"></i>
                     </a>
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-instagram"></i>
+                        <i class="fa fa-minus"></i>
                     </a>
                     <a class="text-white pl-2" href="">
-                        <i class="fab fa-youtube"></i>
+                        <i class="fa fa-plane"></i>
                     </a>
                 </div>
             </div>
@@ -226,19 +226,18 @@
 			<form action="PlanInsertCon" method="post">
 			여행일을 선택해주세요 >> <input type="date" name="plan_date"  id = "planInsert"><br/><br/>
 		        <div>
-		            <div style="float:left;width:100px;">아이템 추가 :</div>
 
-		            <div style="clar:both;">
+		            <div style="clear:both;">
 
 		               <%--  <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');"/>
 		                <input type="button" value="임시저장" onclick="setInPlan(); updatePage();"/>
 		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" /> --%>
 						
-						<input type="button" class = "w-btn-red w-btn-red-outline" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');" style="margin-left:20px" />
+						<input type="button" class = "w-btn-red w-btn-red-outline" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');" />
 
-		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan(); updatePage();" style="margin-left:50px" />
+		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan(); updatePage();" style="margin-left:20px" />
 
-		                <input type="submit" class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" style="margin : 10px 0px 0px 120px" />
+		                <input type="submit" class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" style="margin-left:20px" />
 		               
 		                
 		            </div>

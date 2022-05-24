@@ -76,15 +76,21 @@ body {
 			<div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0"></div>
 			<div class="col-lg-6 text-center text-lg-right">
 				<div class="d-inline-flex align-items-center">
-					<a class="text-white px-2" href=""> <i
-						class="fab fa-facebook-f"></i>
-					</a> <a class="text-white px-2" href=""> <i class="fab fa-twitter"></i>
-					</a> <a class="text-white px-2" href=""> <i
-						class="fab fa-linkedin-in"></i>
-					</a> <a class="text-white px-2" href=""> <i
-						class="fab fa-instagram"></i>
-					</a> <a class="text-white pl-2" href=""> <i class="fab fa-youtube"></i>
-					</a>
+					 <a class="text-white px-2" href="">
+                        <i class="fa fa-globe"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fa fa-plane"></i>
+                   </a>
 				</div>
 			</div>
 		</div>
