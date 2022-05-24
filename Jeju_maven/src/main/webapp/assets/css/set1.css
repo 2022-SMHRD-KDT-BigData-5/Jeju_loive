@@ -81,6 +81,9 @@
 
 .grid figure h2 span {
 	font-weight: 800;
+    text-shadow: -1px 0 #000000, 0 3px #000, 3px 0 #000, 0 3px #000;
+    font-size: 80%;
+    color: white;
 }
 
 .grid figure h2,
@@ -89,9 +92,11 @@
 }
 
 .grid figure p {
-	letter-spacing: 1px;
-	font-size: 68.5%;
+    letter-spacing: 1px;
+    font-size: 80%;
+    text-shadow: -1px 0 #000000, 0 2px #000, 2px 0 #000, 0 2px #000;
 }
+
 
 /* Individual effects */
 

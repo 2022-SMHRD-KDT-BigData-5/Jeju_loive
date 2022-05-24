@@ -21,7 +21,7 @@
 		<meta name="keywords" content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
 		<meta name="author" content="Codrops" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
@@ -189,18 +189,20 @@
 		        <div>
 		            <div style="float:left;width:100px;">아이템 추가 :</div>
 		            <div style="clar:both;">
+<<<<<<< HEAD
+		            	
+=======
 		            	
 
-		                <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}')"/>
-		                <input type="button" value="임시저장" onclick="setInPlan();updatePage(); "/>
-		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" />
+		                <%-- <input type="button" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}')"/>
+		                <input type="button" value="임시저장" onclick="setInPlan(); updatePage(); "/>
+		                <input type="submit" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" /> --%>
 
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 		                <input type="button"  class = "w-btn-red w-btn-red-outline" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}')" style="margin-left:20px"/>
-		                <input type="button"  class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan();updatePage();" style="margin-left:50px" />
+		                <input type="button"  class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan(); updatePage();" style="margin-left:50px" />
 		                <input type="submit"  class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" style="margin : 10px 0px 0px 120px"/>
 	               
-		                
-		               
 		            </div>
 		        </div>
 		        <br />
@@ -429,7 +431,7 @@
 			         }
 					
 			         function updatePage(){
-							$( "#map" ).load(window.location.href + " #map" );
+			        	 location.reload();
 						}
 
 			

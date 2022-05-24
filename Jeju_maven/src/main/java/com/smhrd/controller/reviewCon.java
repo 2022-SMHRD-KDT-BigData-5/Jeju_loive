@@ -23,17 +23,16 @@ public class reviewCon extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		//값 받아오기
-		String tour_num_str = request.getParameter("tour_num");
-		String mem_id = request.getParameter("mem_id");
-		String rev_star_str = request.getParameter("rev_star");
-		String rev_content = request.getParameter("rev_content");
+		String rev_user = request.getParameter("mem_id");
+		String rev_content = request.getParameter("content");
+		BigDecimal tour_num = new BigDecimal(request.getParameter("tour_num"));
+		BigDecimal rev_star = new BigDecimal(request.getParameter("rating"));
 		
 		//값 변환
-		BigDecimal tour_num = new BigDecimal(tour_num_str);
-		BigDecimal rev_star = new BigDecimal(rev_star_str);
+		
 		
 		//값 담기
-		review review = new review(tour_num, mem_id, rev_star, rev_content);
+		review review = new review(tour_num, rev_user, rev_star, rev_content);
 		
 		reviewDAO r_dao = new reviewDAO();
 
@@ -46,7 +45,7 @@ public class reviewCon extends HttpServlet {
 		}
 		
 		//리뷰저장후 다시 다이어리 상세로 보내기
-		response.sendRedirect("diary_info.jsp");
+		response.sendRedirect("diaryMain.jsp");
 		
 		
 		

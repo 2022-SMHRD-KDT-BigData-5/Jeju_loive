@@ -26,8 +26,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 	content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
 <meta name="author" content="Codrops" />
 <link rel="shortcut icon" href="../favicon.ico">
-<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300'
-	rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
@@ -216,7 +215,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 		            <div style="clar:both;">
 		            	
 		                <input type="button" class = "w-btn-red w-btn-red-outline" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}')" style="margin-left:20px"/>
-		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan();" style="margin-left:50px"/>
+		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan();  updatePage();" style="margin-left:50px"/>
 		                <input type="submit" class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" style="margin : 10px 0px 0px 120px"/>
 		               
 		                
@@ -441,7 +440,9 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 			         function removeInplan(){
 			            window.localStorage.clear();
 			         }
-
+			         function updatePage(){
+			        	 location.reload();
+						}
 			
 	</script>
 </body>
