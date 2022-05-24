@@ -358,6 +358,7 @@ figure{
         
         
         </ul><br><br>
+        </div>
         <div id="map" style="width:60%;height:350px;position: absolute;
         left: 50%; transform: translateX(-50%);"></div>
 
