@@ -223,7 +223,7 @@ if(loginMember != null){
 										<p>
 											<%=realday %>
 										</p>
-										<a href="diaryDetailCon?dia_tripday=<%=realday%>">View more</a>
+										<a href="diaryMain.jsp?dia_tripday=<%=realday%>">View more</a>
 									</figcaption>
 								</figure>
 					
@@ -253,7 +253,7 @@ if(loginMember != null){
 										<p>
 											<%=realday %>
 										</p>
-										<a href="diaryDetailCon?dia_tripday=<%=realday%>">View more</a>
+										<a href="diaryMain.jsp?dia_tripday=<%=realday%>">View more</a>
 									</figcaption>
 								</figure>
 							
