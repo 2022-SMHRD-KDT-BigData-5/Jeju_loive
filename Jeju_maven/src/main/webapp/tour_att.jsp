@@ -548,7 +548,6 @@
 							$(document).ready(createItem(nameList[i], numList[i], addList[i]));
 							addMaker(addList[i],nameList[i]);
 			           }
-
 			
 			         function removeInplan(){
 			             window.localStorage.clear();
