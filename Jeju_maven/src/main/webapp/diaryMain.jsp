@@ -170,7 +170,7 @@ if(loginMember != null){
             <%num=0; %>
          
            
-               <%if(diary2!=null||diary2.getDia_name()!=null){
+               <%if(diary2!=null&&diary2.getDia_name()!=null){
             	   %><h2>
                      <span class="head"><%=diary2.getDia_name() %>
                   </h2>
@@ -272,8 +272,8 @@ if(loginMember != null){
 		$('.head').remove();
 		$('.context').remove();
 		$(this).remove();
-		$('img').after('<textarea name="content" class="textcontent3" cols="70" rows="1"></textarea>'+
-						'<textarea name="content" class="textcontent4" cols="100" rows="8"></textarea>'+
+		$('img').after('<textarea name="content" class="textcontent3" cols="100" rows="1" placeholder="제목"></textarea>'+
+						'<textarea name="content" class="textcontent4" cols="100" rows="8" placeholder="내용"></textarea><br>'+
 						'<button class="change2">수정완료</button>');
    });
    $(document).on('click','.change2',function(){
