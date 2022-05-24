@@ -6,8 +6,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
 <%	
-	BigDecimal tour_num = new BigDecimal(request.getParameter("tour_num"));
-	//BigDecimal tour_num = new BigDecimal(601);
+	// BigDecimal tour_num = new BigDecimal(request.getParameter("tour_num"));
+	BigDecimal tour_num = new BigDecimal(601);
 	tourDAO t_dao = new tourDAO();
 	tour tourInfo = (tour)t_dao.selectTourInfo2(tour_num);
 	pageContext.setAttribute("tourInfo",tourInfo);
