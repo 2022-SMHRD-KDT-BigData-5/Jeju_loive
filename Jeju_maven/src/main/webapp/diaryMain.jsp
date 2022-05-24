@@ -454,7 +454,7 @@ figure{
                 <div class="source_box">
                     <span class="reviewDate"></span>
                     <span class="source"></span>
-                        <span class = "source_inner"><a href="review?tour_num=${t.num}">리뷰작성</a></span>
+                        <span class = "source_inner"><a href="review.jsp?tour_num=${t.num}">리뷰작성</a></span>
                  </div>
             </li>
         </c:forEach>
