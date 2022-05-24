@@ -28,7 +28,7 @@ public class imgupCon extends HttpServlet {
 		Member loginMember = (Member)session.getAttribute("loginMember");
 		String id= loginMember.getId();
 		
-		
+		String date2="";
 		 String date="";
 		 String realFolder = "";
 		 String filename1 = "";
@@ -49,8 +49,9 @@ public class imgupCon extends HttpServlet {
 			  e.printStackTrace();
 			 }
 		 String fullpath = "./img/" + filename1;
-		 date=date+" "+"00:00:00";
-		 Timestamp timestamp = Timestamp.valueOf(date);
+		 date2=date+" "+"00:00:00";
+		 System.out.println(date);
+		 Timestamp timestamp = Timestamp.valueOf(date2);
 		 diaryAlbum album=new diaryAlbum(timestamp, fullpath, id);
 		 System.out.println(album.getP_memid());
 		 System.out.println(album.getP_loc());
@@ -64,7 +65,7 @@ public class imgupCon extends HttpServlet {
 		 else {
 			 System.out.println("이미지 저장 실패!");
 		 }
-		 response.sendRedirect("diaryMain.jsp");
+		 response.sendRedirect("diaryMain.jsp?dia_tripday="+date);
 	}	
 	
 

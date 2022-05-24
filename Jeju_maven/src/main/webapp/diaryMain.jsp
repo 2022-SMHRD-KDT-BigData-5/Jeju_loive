@@ -33,6 +33,7 @@ if(loginMember != null){
 	pageContext.setAttribute("loginMember",loginMember);
 	String mem_id=loginMember.getId();
 	date = request.getParameter("dia_tripday");
+	
 	datetest=date;
 	System.out.println("Maindate"+date);
 	String date2=date+" "+"00:00:00";
@@ -135,8 +136,7 @@ pageContext.setAttribute("inplanTourList",inplanTourList);
    		bottom : 180px;
    		display : none;
    }
- 
-   
+ 	
    
 
 .hover1{
@@ -450,18 +450,8 @@ figure{
              </div>
           
          <br>
-          <%if (albumlist.size()<1){
-                        %>
-                        <div class="imgup2"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">
-                        <input type="date" name="date" value="<%=date%>">
-                        <input type="file" name="filename1" size=40 >
-                        <input type="submit" value="업로드">
-                        </form></div>
-                        
-                        <% 
-         }
-         %>
-         <div>
+          
+         <div class="dd">
          
          
          <div class="imgarea">
@@ -473,30 +463,26 @@ figure{
             <%num=0; %>
          </div>
            
-               <%if(diary2!=null&&diary2.getDia_name()!=null){
-            	   %><h2>
-                     <span class="head"><%=diary2.getDia_name() %></span></h2>
+         
                   
+         </div>
+         
+          <%if(diary2!=null&&diary2.getDia_name()!=null){
+                  %><h2>
+                     <span class="head"><%=diary2.getDia_name() %>
+                  </h2>
                   <pre class="context"><%=diary2.getDia_content() %></pre>
                   <button class="change">수정</button>
                   <% 
                }else{
                
                %>
-                  <h2>
-                     <span class="head">제목</span>
-                  </h2>
-                  
+                  <h2><span class="head">제목</span></h2>
                   <h2><span class="context">내용</span></h2>
                   <button class="change">수정</button>
                   <%} %>
-                  
          
-                  
-         </div>
-         
-         
-
+			
       </div>
       
       
@@ -573,8 +559,8 @@ figure{
 		$('.head').remove();
 		$('.context').remove();
 		$(this).remove();
-		$('img').after('<textarea name="content" class="textcontent3" cols="100" rows="1" placeholder="제목"></textarea>'+
-						'<textarea name="content" class="textcontent4" cols="100" rows="8" placeholder="내용"></textarea><br>'+
+		$('.dd').after('<textarea name="content" class="textcontent3" cols="80" rows="1" placeholder="제목"></textarea>'+
+						'<textarea name="content" class="textcontent4" cols="80" rows="8" placeholder="내용"></textarea><br>'+
 						'<button class="change2">수정완료</button>');
    });
    $(document).on('click','.change2',function(){
@@ -585,7 +571,8 @@ figure{
   });
    $(document).on('click','.addimg',function(){
 	   $('.imgarea').prepend('<div class="imgup"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">'+
-               '<input type="file" name="filename1" size=40 >'+
+			   '<input type="date" name="date" value="'+date+'">'+
+			   '<input type="file" name="filename1" size=40 >'+
                '<input type="submit" value="업로드">'+
                '</form></div>');
  });

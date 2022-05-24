@@ -35,35 +35,7 @@
 
 <body>
 
-    <!-- Topbar Start -->
-    <div class="container-fluid bg-dark">
-        <div class="row py-2 px-lg-5">
-            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
-                
-            </div>
-            <div class="col-lg-6 text-center text-lg-right">
-                <div class="d-inline-flex align-items-center">
-                    <a class="text-white px-2" href="">
-                        <i class="fa fa-globe"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fa fa-minus"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fa fa-minus"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fa fa-minus"></i>
-                    </a>
-                    <a class="text-white pl-2" href="">
-                        <i class="fa fa-plane"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
-
+  
 
     <!-- Navbar Start -->
     <div class="container-fluid p-0">
@@ -127,7 +99,8 @@
                 <div class="col-lg-5 pb-4 pb-lg-0">
                     <img class="img-fluid w-100" src="images/about.jpg" alt="">
                     <div class="bg-primary text-dark text-center p-4">
-                        <h3 class="m-0">제주여행 계획 세우기</h3>
+                    	
+                     	<h3 class="m-0">제주여행 계획 세우기</h3>
                     </div>
                 </div>
                 <div class="col-lg-7">

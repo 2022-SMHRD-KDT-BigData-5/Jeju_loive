@@ -23,9 +23,10 @@ public class diaryCon extends HttpServlet {
 		String text=request.getParameter("content");
 		String date = request.getParameter("date");
 		String head= request.getParameter("head");
-		date=date+" "+"00:00:00.0";
+		String date2="";
+		date2=date+" "+"00:00:00.0";
 		System.out.print(date);
-		Timestamp timestamp = Timestamp.valueOf(date);
+		Timestamp timestamp = Timestamp.valueOf(date2);
 		
 		
 		
@@ -42,7 +43,7 @@ public class diaryCon extends HttpServlet {
          } else {
         	 System.out.print("다이어리 실패");
          }
-		response.sendRedirect("diaryMain.jsp");
+		response.sendRedirect("diaryMain.jsp?dia_tripday="+date);
 	}
 
 }
