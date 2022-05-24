@@ -152,8 +152,8 @@ h1{
 
 strong{
     font-weight: bold;
+    font-size : 30px;
 }
-
 
 .list_theme.title{
     max-height: 40px;
@@ -264,6 +264,10 @@ figure{
 
 }
 
+.strongDiv{
+	margin-top : 18px;
+	}
+
 #menuBlock{
    margin-bottom : 30px;
 }
@@ -343,7 +347,7 @@ figure{
                         <span class="thumb_bd"></span>
                     </a>
                 </div>
-                <strong class = "title elss"> <c:out value ="${t.name}"/> </strong>
+                <div class = "strongDiv"><strong class = "title elss"> <c:out value ="${t.name}"/> </strong></div>
                 <p class = "desc"></p>
                 <div class="source_box">
                     <span class="reviewDate">후기 날짜</span>
