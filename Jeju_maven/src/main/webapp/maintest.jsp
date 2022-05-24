@@ -44,19 +44,19 @@
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-facebook-f"></i>
+                        <i class="fa fa-minus"></i>
                     </a>
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-twitter"></i>
+                        <i class="fa fa-minus"></i>
                     </a>
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-linkedin-in"></i>
+                        <i class="fa fa-minus"></i>
                     </a>
                     <a class="text-white px-2" href="">
-                        <i class="fab fa-instagram"></i>
+                        <i class="fa fa-minus"></i>
                     </a>
                     <a class="text-white pl-2" href="">
-                        <i class="fab fa-youtube"></i>
+                        <i class="fa fa-plane"></i>
                     </a>
                 </div>
             </div>
@@ -108,7 +108,7 @@
             <div class="mx-auto" style="width: 100%; max-width: 600px;">
             
                 <div class="input-group">
-                    <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="가고싶은 제주">
+                    <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="여행지를 입력하세요">
                     <div class="input-group-append">
                         <button class="btn btn-primary px-3">검색</button>
                     </div>

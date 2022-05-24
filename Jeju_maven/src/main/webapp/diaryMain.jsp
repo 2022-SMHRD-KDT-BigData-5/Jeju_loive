@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.domain.tour"%>
 <%@page import="com.smhrd.domain.inplan"%>
 <%@page import="com.smhrd.domain.inplanDAO"%>
@@ -21,10 +22,10 @@ inplanDAO dao1 = new inplanDAO();
 List<diaryAlbum> dimgList=null;
 diary diary2 =null;
 int num=0;
-String date="";
+String datetest="";
 SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
 Member loginMember = (Member)session.getAttribute("loginMember");
-
+String date="";
 
 
 
@@ -32,6 +33,8 @@ if(loginMember != null){
 	pageContext.setAttribute("loginMember",loginMember);
 	String mem_id=loginMember.getId();
 	date = (String)session.getAttribute("dia_tripday");
+	datetest=date;
+	System.out.println("Maindate"+date);
 	String date2=date+" "+"00:00:00";
 	dimgList = dao.selectDimgAll(mem_id);
 	Timestamp timestamp = Timestamp.valueOf(date2);
@@ -98,7 +101,7 @@ pageContext.setAttribute("inplanTourList",inplanTourList);
    .imgup{
    		width : 300px; 
    		height : 200px;
-   	
+   		float:left;
    }
    
  
@@ -364,11 +367,11 @@ figure{
       <!-- 관광지 정보 출력 영역 -->
 
 
-         <h2>무엇을 적으면 좋을까요</h2>
+         <h2>My DIARY</h2>
       
          <div class="content">
-         
-         
+         <p class="sh"><%=date %></p>
+         <button class="addimg">사진추가</button>
              </div>
           
          <br>
@@ -383,7 +386,7 @@ figure{
                         <% 
          }
          %>
-         <div>
+         <div class="imgarea">
          
          
          
@@ -395,12 +398,12 @@ figure{
             <%num=0; %>
          
            
-               <%if(diary2!=null||diary2.getDia_name()!=null){
+               <%if(diary2!=null&&diary2.getDia_name()!=null){
             	   %><h2>
                      <span class="head"><%=diary2.getDia_name() %>
                   </h2>
                   <pre class="context"><%=diary2.getDia_content() %></pre>
-                  <button class="changeupdate">수정</button>
+                  <button class="change">수정</button>
                   <% 
                }else{
                
@@ -487,22 +490,29 @@ figure{
       
    </script>
    <script type="text/javascript">
-   let date=<%=date%>
+   let date=$('.sh').text();
+   console.log(date);
    $(document).on('click','.change',function(){
 		
 		$('.head').remove();
 		$('.context').remove();
 		$(this).remove();
-		$('img').after('<textarea name="content" class="textcontent3" cols="70" rows="1"></textarea>'+
-						'<textarea name="content" class="textcontent4" cols="100" rows="8"></textarea>'+
+		$('img').after('<textarea name="content" class="textcontent3" cols="100" rows="1" placeholder="제목"></textarea>'+
+						'<textarea name="content" class="textcontent4" cols="100" rows="8" placeholder="내용"></textarea><br>'+
 						'<button class="change2">수정완료</button>');
    });
    $(document).on('click','.change2',function(){
-		let changeHead=$('.textcontent3').val()
-		let changeContent=$('.textcontent4').val()
+		let changeHead=$('.textcontent3').val();
+		let changeContent=$('.textcontent4').val();
 	   $(location).attr('href', 'diaryCon?head='+changeHead+'&content='+changeContent +'&date='+date);
 		
   });
+   $(document).on('click','.addimg',function(){
+	   $('.imgarea').before('<div class="imgup"><br><br><form align="center" method="post" enctype="multipart/form-data" action="imgupCon">'+
+               '<input type="file" name="filename1" size=40 >'+
+               '<input type="submit" value="업로드">'+
+               '</form></div>');
+ });
    
    </script>
   
