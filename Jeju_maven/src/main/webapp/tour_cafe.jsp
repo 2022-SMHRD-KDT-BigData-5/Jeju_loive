@@ -422,6 +422,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
             $('#num'+h).css("display" ,"inline")
          }
       } 
+      $('html').scrollTop(0);
       
    });
       

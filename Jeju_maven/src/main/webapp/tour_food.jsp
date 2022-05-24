@@ -455,6 +455,7 @@
                $('#num'+h).css("display" ,"inline")
             }
          } 
+         $('html').scrollTop(0);
          
       });
       
