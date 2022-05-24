@@ -224,8 +224,8 @@
 				<nav class="codrops-demos">
 
 					<a href="#" class="current-demo">관광지</a>
-					<a href="#">음식점</a>
-					<a href="#">카페</a>
+					<a href="tour_food.jsp">음식점</a>
+					<a href="tour_cafe.jsp">카페</a>
 
 				</nav>
 			</header>
