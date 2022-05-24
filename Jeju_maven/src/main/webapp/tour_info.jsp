@@ -19,7 +19,6 @@
 	List<tour> ImgList = tdao.selectImgList(tourNum);
 	pageContext.setAttribute("ImgList", ImgList);
 	tour tourInfo = (tour)session.getAttribute("tourInfo");
-	int num=1;
 %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -94,7 +93,34 @@
 	
 	
 
-	
+	 <!-- Topbar Start -->
+    <div class="container-fluid bg-dark">
+        <div class="row py-2 px-lg-5">
+            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                     <a class="text-white px-2" href="">
+                        <i class="fa fa-globe"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                    <a class="text-white pl-2" href="">
+                        <i class="fa fa-plane"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
 
 
     <!-- Navbar Start -->
@@ -173,10 +199,10 @@
 						
 						
 						<h2>
-							<span class="sh<%=num%>"><c:out value="${r.rev_star}"/></span>
+							<span class="sh"><c:out value="${r.rev_star}"/></span>
 							<div class="score-wrapper">
 						<div class="score">
-							<div class="foreground" id="test<%=num%>" >★★★★★</div>
+							<div class="foreground">★★★★★</div>
 							<div class="background">☆☆☆☆☆</div>
 						</div>
 						<span class="display">
@@ -186,25 +212,25 @@
 						<c:out value="${r.rev_time}"/>
 						<p><c:out value="${r.rev_content}"/></p>
 						
-						<%num++; %>
+	
 			</c:forEach>
 					</div>	
 			</div>
-			
+			<script>
+				$(function(){
+					const rate=1;
+					const max=5;
+					const percent = rate/max*100;
+				
+					
+					$(".score-wrapper").find(".foreground").css("width",percent+"%");
+					$(".scope-wrapper").find(".display").text(rate);
+				});
+	</script>
 			
 
 		</div>
-		<script>
-								$(function(){
-									const rate=4.7;
-									const max=5;
-									const percent = rate/max*100;
-								
-									
-									$(".score-wrapper").find(".foreground").css("width",percent+"%");
-									$(".scope-wrapper").find(".display").text(rate);
-								});
-						</script>
+		
 		
 		
 		</div>
