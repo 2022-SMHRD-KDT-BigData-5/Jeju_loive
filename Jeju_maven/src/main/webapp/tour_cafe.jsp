@@ -26,8 +26,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 	content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
 <meta name="author" content="Codrops" />
 <link rel="shortcut icon" href="../favicon.ico">
-<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300'
-	rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
