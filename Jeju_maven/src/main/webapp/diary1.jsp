@@ -1,28 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<title>Hover Effect Ideas | Set 1</title>
-		<meta name="description" content="Hover Effect Ideas: Inspiration for subtle hover effects" />
-		<meta name="keywords" content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
-		<meta name="author" content="Codrops" />
-		<link rel="shortcut icon" href="../favicon.ico">
-		<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
-		<link rel="stylesheet" type="text/css" href="assets/css/menuBlock.css" />
-		<link rel="stylesheet" href="assets/css/maintest.css" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-		 <link href="https://fonts.googleapis.com/
-    		icon?family=Material+Icons|Material+Icons+Sharp|Material+Icons+Two+Tone|Material+Icons+Outlined"
-    		rel="stylesheet">
-    		<!-- Favicon -->
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hover Effect Ideas | Set 1</title>
+<meta name="description"
+	content="Hover Effect Ideas: Inspiration for subtle hover effects" />
+<meta name="keywords"
+	content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
+<meta name="author" content="Codrops" />
+
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300'
+	rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="assets/css/dragdrop.css" />
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script><!-- 지도만드는녀석^^지수꼬! 건들면 나 화낸다~-^-(빠직) -->
+<script src="assets/js/dragdrop.js"></script>
+<!--[if IE]>
+  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+ <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
 
     <!-- Google Web Fonts -->
@@ -38,28 +46,29 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link rel="stylesheet" href="assets/css/maintest.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-    	
-		<!--[if IE]>
-  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<style>
-		.material-symbols-outlined {
+	
+	
+<style>
+	#flex_cont{display:flex;}
+	#tour_div{width:70%;}
+	#plan_div{width:20%;}
+	.soohyeon{
 		position: fixed;
         right: 20px;
-       	top: 20px;
-       	color:black;
-		}
-		
-		.logo{
-		position: relative;
-        left: 5px;
-       	top: -100px;
-		}
+       	top: 10px;
+       	color:white;
+	}
+	.active{
+		 background-color: pink;
+	}
+</style>
 	
-	</style>
-	</head>
-	<body>
-	 <!-- Topbar Start -->
+</head>
+
+
+<body>
+	
+<!-- Topbar Start -->
     <div class="container-fluid bg-dark">
         <div class="row py-2 px-lg-5">
             <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
@@ -101,382 +110,467 @@
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
                     <a href="maintest.jsp" class="nav-item nav-link">Home</a>
-                    <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
+                    <a href="tour_att.jsp" class="nav-item nav-link active">투어</a>
                     <a href="planner.jsp" class="nav-item nav-link">플래너</a>
-                    <a href= "diary1.jsp" class="nav-item nav-link active">다이어리</a>
+                    <a href= "diary1.jsp" class="nav-item nav-link">다이어리</a>
                     <a href= "board.jsp" class="nav-item nav-link">게시판</a>
                 </div>
-		<nav>
-			<c:choose>
+               <nav>
+                <c:choose>
                   <c:when test="${empty loginMember}">
-                     <a href="LoginCon" class="m"><span class="btn btn-primary py-2 px-4 d-none d-lg-block">login</span></a>
+                     <a href="logintest.jsp" class="btn btn-primary py-2 px-4 d-none d-lg-block">login</a>
                   </c:when>
                   <c:otherwise>
-                     <a href="LogoutCon" class="m"><span class="btn btn-primary py-2 px-4 d-none d-lg-block">logout</span></a>
+                     <a href="LogoutCon" class="btn btn-primary py-2 px-4 d-none d-lg-block">logout</a>
                   </c:otherwise>
                </c:choose>
-		</nav>
-		</div>
-		</nav>
+               </nav>
+                </div>
+               
+                 </nav>
+            </div>
+     
+    <!-- Navbar End -->
+
+	<div class="flex-container" id="flex_cont">
+	
+	
+		<div id="tour_div">
 		
+			<header class="codrops-header">
+				<h1>
+					ATTRACTION<span>관광지에 대한 정보를 추천해주는 메뉴입니다.</span>
+				</h1>
+				<nav class="codrops-demos">
+
+					<a href="#" class="current-demo">관광지</a>
+					<a href="tour_food.jsp">음식점</a>
+					<a href="tour_cafe.jsp">카페</a>
+
+				</nav>
+			</header>
+		
+		
+		
+		<div class="content">
+		
+		<!-- 관광지 정보 반복출력 -->
+
+		<h2 id="sh">가즈아</h2>
+			<div class="grid">
+
+						<c:forEach var="t" items="${tourList}" varStatus="status">
+					
+								<figure class="effect-marley">
+									<img src="${t.img}" alt="img11" width=480px" height="300px" />
+									<!-- 이미지 주소를 넣는 공간입니다^^ -->
+									<figcaption>
+										<h2>
+											<span><c:out value="${t.name}" /></span>
+										</h2>
+										<p>
+											<c:out value="${t.address}" />
+										</p>
+										<a href="TourInfoCon?tourNum=${t.num}">View more</a>
+									</figcaption>
+								</figure>
+							
+					</c:forEach>
+				</div>
+			
+			</div>
 	</div>
+	
+	
+		<!-- ---------------------------~~지금부터 플래너 공간~~-------------------------- -->
+	
+	
+		<div id="plan_div">
+			<header class="codrops-header">
+				<h1>
+					Plan<span>Plan에 대한 정보를 추천해주는 메뉴입니다.</span>
+				</h1>
+				<nav class="codrops-demos">
+
+					<a href="#" class="current-demo">관광지</a>
+					<a href="#">음식점</a>
+					<a href="#">카페</a>
+
+				</nav>
+			</header>
+		
+		
+		
+		<div class="content">
+			
+			
+			
+			<form action="PlanInsertCon" method="post" id = "planInsert">
+			여행일을 선택해주세요 >> <input type="date" name="plan_date"><br/><br/>
+		        <div>
+		            <div style="float:left;width:100px;">아이템 추가 :</div>
+		            <div style="clar:both;">
+		            	
+		                <input type="button" class = "w-btn-red w-btn-red-outline" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}');" style="margin-left:20px" />
+		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan();" style="margin-left:50px" />
+		                <input type="submit" class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();" style="margin : 10px 0px 0px 120px" />
+		               
+		                
+		               
+		            </div>
+		        </div>
+		        <br />
+		        <div id="itemBoxWrap"></div>
+		    </form>
+		    
+		</div><br><br>
+		
+<!-- 여기부터 지도공간~~~~~~~~~~~~^^지수꼬!건들지마삼 ㄱ-;;(빠직) -->		
+		<p style="margin-top:-12px">
+    <em class="link">
+        <!-- <a href="javascript:void(0);" onclick="window.open('http://fiy.daum.net/fiy/map/CsGeneral.daum', '_blank', 'width=981, height=650')">
+            혹시 주소 결과가 잘못 나오는 경우에는 여기에 제보해주세요.
+        </a> -->
+    </em>
+</p>
+<div id="map" style="width:100%;height:350px;"></div>
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+	<!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+        
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+
+<script>
+	
+	
+		var getAdds =[];
+		getAdds = localStorage.getItem('tourAdd');
+		addList = getAdds.split(",");
+		var getNames =[];
+		getNames = localStorage.getItem('tourName');
+		nameList = getNames.split(",");
+
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		    mapOption = {
+		        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+		        level:10 // 지도의 확대 레벨
+		    };  
+
+		// 지도를 생성합니다    
+		var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+		// 주소-좌표 변환 객체를 생성합니다
+		var geocoder = new kakao.maps.services.Geocoder();
+
+		
+		
+		function addMaker(addr,namel){
+			
+			// 주소로 좌표를 검색합니다
+			geocoder.addressSearch(addr, function(result, status) {
+
+			    // 정상적으로 검색이 완료됐으면 
+			     if (status === kakao.maps.services.Status.OK) {
+
+			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+			        // 결과값으로 받은 위치를 마커로 표시합니다
+			        var marker = new kakao.maps.Marker({
+			            map: map,
+			            position: coords
+			        });
+			        
+			        //marker.setMap(map);
+
+			        // 인포윈도우로 장소에 대한 설명을 표시합니다
+			        var infowindow = new kakao.maps.InfoWindow({
+			            content: '<div style="width:150px;text-align:center;padding:6px 0;">'+namel+'</div>'
+			        });
+			        infowindow.open(map, marker);
+
+			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+			        map.setCenter(coords); 
+			        
+			        
+			    } 
+			});   
+			
+		}
+		
+		
+	
+
+</script>
+
+		
+		
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</div> <!--  컨테이너 끝 -->
+		
+		
+		
+	
+	<!-- Related demos -->
+	<section class="related"></section>
+
+	
+	
+	
+	
+	<script>
+		
+		let i=1;
+		let s =document.getElementsByClassName('effect-marley').length;
+		let k = document.getElementsByClassName('effect-marley').length/30;
+		for(i=1;i<=k;i++){
+			$('.grid').before('<button>'+i+'</button>');
+		}
+		$('button').eq(0).attr('class','active');
+		let i2=$('.active').text();
+		console.log(i2);
+		let h=1;
+		for(h=1;h<=s;h++){
+			$('#num'+h).css("display" ,"none")
+		}
+		if(i2==1){
+			for(h=1;h<=30;h++){
+				$('#num'+h).css("display" ,"inline")
+			}
+		}
+		
 	
 		
 		
-		<div class="container">
-			<!-- Top Navigation -->
-			<!-- <div class="codrops-top clearfix">
-				<a class="logo" href="main.jsp"><span><img src="images/logo3.png" alt="logo"></span></a>
+		
+		
+		$(document).on('click','button',function(){
+			  
+   			
+			$('button').removeAttr('class');
+			$(this).attr('class','active');
+			i2=$('.active').text();
+			console.log(i2);
+			let h=1;
+			for(h=1;h<=s;h++){
+				$('#num'+h).css("display" ,"none")
+			}
+			
+			
+			
+			
+			if(i2==1){
+				for(h=1;h<=30;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			}
+			else if(i2==2){
+				for(h=31;h<=60;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			}
+			else if(i2==3){
+				for(h=61;h<=90;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			}
+			else if(i2==4){
+				for(h=91;h<=120;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			}
+			else if(i2==5){
+				for(h=121;h<=150;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			}
+			else if(i2==6){
+				for(h=151;h<=180;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==7){
+				for(h=181;h<=210;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==8){
+				for(h=211;h<=240;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==9){
+				for(h=241;h<=270;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			else if(i2==10){
+				for(h=271;h<=300;h++){
+					$('#num'+h).css("display" ,"inline")
+				}
+			} 
+			
+		
+		});
+		
+		
+		
+		
+		// For Demo purposes only (show hover effect on mobile devices)
+		[].slice.call(document.querySelectorAll('a[href="#"')).forEach(
+				function(el) {
+					el.addEventListener('click', function(ev) {
+						ev.preventDefault();
+					});
+				});
+	</script>
+	
+
+	<!-- 전화번호 하이픈(-) 자동입력  JS -->
+    <script>
+    $(document).on("keyup", "#tel", function(){
+    	$(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); 
+         });
+         
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+	<!-- 드래그앤드롭 JS -->
+	<script>
+	
+	//추가 클릭시 localStorage에 값을 저장하는 함수
+	function setInPlan(){
+        //값 가져오기
+        //1) name이 item인 input태그 내의 value 가져오기
+        //2) class=tourNum, class=tourAdd인 input태그의 text값 가져오기 /
+        var tourNums=[];
+        var tourAdds=[];
+        var tourNames=[];
+        var nums=[];
+        var adds=[];
+        var names=[];
+        
+//        tourNums = document.getElementsByClassName('tourNum');
+//        tourAdds = document.getElementsByClassName('tourAdd');
+        
+        var len = $("input[name=tourNum]").length;
+        for(var i=0; i<len; i++){                          
+			tourNums[i] = $("input[name=tourNum]").eq(i).val();
+		}
+        
+        var len = $("input[name=tourAdd]").length;
+        for(var i=0; i<len; i++){                          
+			tourAdds[i] = $("input[name=tourAdd]").eq(i).val();
+		}
+        
+        
+        var len = $("input[name=item]").length;
+        for(var i=0; i<len; i++){                          
+			tourNames[i] = $("input[name=item]").eq(i).val();
+		}
+        
+        //배열에 순서대로 담기
+        for(i=0; i<tourNums.length; i++){
+        	nums.push(tourNums[i]);
+        	adds.push(tourAdds[i]);
+        	names.push(tourNames[i]);
+        }
+        
+        //확인용(콘솔창 확인)
+        console.log(nums);
+        console.log(adds);
+        console.log(names);
+        
+     	// 객체, 배열을 JSON 문자열로 변환
+        const numsString = JSON.stringify(nums);
+        const addsString = JSON.stringify(adds);
+        const namesString = JSON.stringify(names);
+		
+        //문자열로 잘 변환되었는지 확인
+        console.log(namesString);
+
+        
+		//localStorage에 배열 저장
+		window.localStorage.setItem('tourNum', nums)
+		window.localStorage.setItem('tourAdd', adds)
+		window.localStorage.setItem('tourName', names)
+		
 				
-			</div> -->
-			<header class="codrops-header">
-				<h1><span>너와 나의 memory..</span></h1>
-				<nav class="codrops-demos">
-					<a class="current-demo" href="diary1.jsp">Set 1</a>
-					<a href="diary2.jsp">Set 2</a>
-				</nav>
-			</header>
-			<div class="content">
-				<h2>Lily</h2>
-				<div class="grid">
-					<figure class="effect-lily">
-						
-						<img src="images/1.jpg" alt="img12"/>
-						
-						<figcaption>
-							<div>
-								<h2>1일차 <span>추억</span></h2>
-								<p>Lily likes to play with crayons and pencils</p>
-							</div>
-							<a href="diaryHome.jsp">View more</a>
-						</figcaption>			
-					</figure>
-					<figure class="effect-lily">
-						<img src="images/1.jpg" alt="img1"/>
-						
-						<figcaption>
-							<div>
-								<h2>Nice <span>Lily</span></h2>
-								<p>Lily likes to play with crayons and pencils</p>
-							</div>
-							<a href="#">View more</a>
-							
-						</figcaption>			
-					</figure>
-				</div>
-				<h2>Sadie</h2>
-				<div class="grid">
-					<figure class="effect-sadie">
-						<img src="images/1.jpg" alt="img02"/>
-						<figcaption>
-							<h2>Holy <span>Sadie</span></h2>
-							<p>Sadie never took her eyes off me. <br>She had a dark soul.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-					<figure class="effect-sadie">
-						<img src="images/1.jpg" alt="img14"/>
-						<figcaption>
-							<h2>Holy <span>Sadie</span></h2>
-							<p>Sadie never took her eyes off me. <br>She had a dark soul.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-				</div>
-				<h2>Honey</h2>
-				<div class="grid">
-					<figure class="effect-honey">
-						<img src="images/1.jpg" alt="img04"/>
-						<figcaption>
-							<h2>Dreamy <span>Honey</span> <i>Now</i></h2>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-					<figure class="effect-honey">
-						<img src="images/1.jpg" alt="img05"/>
-						<figcaption>
-							<h2>Dreamy <span>Honey</span> <i>Now</i></h2>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-				</div>
-				<h2>Layla</h2>
-				<div class="grid">
-					<figure class="effect-layla">
-						<img src="images/1.jpg" alt="img06"/>
-						<figcaption>
-							<h2>Crazy <span>Layla</span></h2>
-							<p>When Layla appears, she brings an eternal summer along.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-					<figure class="effect-layla">
-						<img src="images/1.jpg" alt="img03"/>
-						<figcaption>
-							<h2>Crazy <span>Layla</span></h2>
-							<p>When Layla appears, she brings an eternal summer along.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-				</div>
-				<h2>Zoe</h2>
-				<div class="grid">
-					<figure class="effect-zoe">
-						<img src="images/1.jpg" alt="img25"/>
-						<figcaption>
-							<h2>Creative <span>Zoe</span></h2>
-							<p class="icon-links">
-								<a href="#"><span class="icon-heart"></span></a>
-								<a href="#"><span class="icon-eye"></span></a>
-								<a href="#"><span class="icon-paper-clip"></span></a>
-							</p>
-							<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-						</figcaption>			
-					</figure>
-					<figure class="effect-zoe">
-						<img src="images/1.jpg" alt="img26"/>
-						<figcaption>
-							<h2>Creative <span>Zoe</span></h2>
-							<p class="icon-links">
-								<a href="#"><span class="icon-heart"></span></a>
-								<a href="#"><span class="icon-eye"></span></a>
-								<a href="#"><span class="icon-paper-clip"></span></a>
-							</p>
-							<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-						</figcaption>			
-					</figure>
-				</div>
-				<h2>Oscar</h2>
-				<div class="grid">
-					<figure class="effect-oscar">
-						<img src="images/1.jpg" alt="img09"/>
-						<figcaption>
-							<h2>Warm <span>Oscar</span></h2>
-							<p>Oscar is a decent man. He used to clean porches with pleasure.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-					<figure class="effect-oscar">
-						<img src="images/1.jpg" alt="img10"/>
-						<figcaption>
-							<h2>Warm <span>Oscar</span></h2>
-							<p>Oscar is a decent man. He used to clean porches with pleasure.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-				</div>
-				<h2>Marley</h2>
-				<div class="grid">
-					<figure class="effect-marley">
-						<img src="images/1.jpg" alt="img11"/>
-						<figcaption>
-							<h2>Sweet <span>Marley</span></h2>
-							<p>Marley tried to convince her but she was not interested.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-					<figure class="effect-marley">
-						<img src="images/1.jpg" alt="img12"/>
-						<figcaption>
-							<h2>Sweet <span>Marley</span></h2>
-							<p>Marley tried to convince her but she was not interested.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-				</div>
-				<h2>Ruby</h2>
-				<div class="grid">
-					<figure class="effect-ruby">
-						<img src="images/1.jpg" alt="img13"/>
-						<figcaption>
-							<h2>Glowing <span>Ruby</span></h2>
-							<p>Ruby did not need any help. Everybody knew that.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-					<figure class="effect-ruby">
-						<img src="images/1.jpg" alt="img14"/>
-						<figcaption>
-							<h2>Glowing <span>Ruby</span></h2>
-							<p>Ruby did not need any help. Everybody knew that.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-				</div>
-				<h2>Roxy</h2>
-				<div class="grid">
-					<figure class="effect-roxy">
-						<img src="images/1.jpg" alt="img15"/>
-						<figcaption>
-							<h2>Charming <span>Roxy</span></h2>
-							<p>Roxy was my best friend. She'd cross any border for me.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-					<figure class="effect-roxy">
-						<img src="images/1.jpg" alt="img01"/>
-						<figcaption>
-							<h2>Charming <span>Roxy</span></h2>
-							<p>Roxy was my best friend. She'd cross any border for me.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-				</div>
-				<h2>Bubba</h2>
-				<div class="grid">
-					<figure class="effect-bubba">
-						<img src="images/1.jpg" alt="img02"/>
-						<figcaption>
-							<h2>Fresh <span>Bubba</span></h2>
-							<p>Bubba likes to appear out of thin air.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-					<figure class="effect-bubba">
-						<img src="images/1.jpg" alt="img16"/>
-						<figcaption>
-							<h2>Fresh <span>Bubba</span></h2>
-							<p>Bubba likes to appear out of thin air.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-				</div>
-				<h2>Romeo</h2>
-				<div class="grid">
-					<figure class="effect-romeo">
-						<img src="images/1.jpg" alt="img17"/>
-						<figcaption>
-							<h2>Wild <span>Romeo</span></h2>
-							<p>Romeo never knows what he wants. He seemed to be very cross about something.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-					<figure class="effect-romeo">
-						<img src="images/1.jpg" alt="img18"/>
-						<figcaption>
-							<h2>Wild <span>Romeo</span></h2>
-							<p>Romeo never knows what he wants. He seemed to be very cross about something.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-				</div>
-				<h2>Dexter</h2>
-				<div class="grid">
-					<figure class="effect-dexter">
-						<img src="images/1.jpg" alt="img19"/>
-						<figcaption>
-							<h2>Strange <span>Dexter</span></h2>
-							<p>Dexter had his own strange way. You could watch him training ants.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-					<figure class="effect-dexter">
-						<img src="images/1.jpg" alt="img12"/>
-						<figcaption>
-							<h2>Strange <span>Dexter</span></h2>
-							<p>Dexter had his own strange way. You could watch him training ants.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-				</div>
-				<h2>Sarah</h2>
-				<div class="grid">
-					<figure class="effect-sarah">
-						<img src="images/1.jpg" alt="img13"/>
-						<figcaption>
-							<h2>Free <span>Sarah</span></h2>
-							<p>Sarah likes to watch clouds. She's quite depressed.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-					<figure class="effect-sarah">
-						<img src="images/1.jpg" alt="img20"/>
-						<figcaption>
-							<h2>Free <span>Sarah</span></h2>
-							<p>Sarah likes to watch clouds. She's quite depressed.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-				</div>
-				<h2>Chico</h2>
-				<div class="grid">
-					<figure class="effect-chico">
-						<img src="images/1.jpg" alt="img15"/>
-						<figcaption>
-							<h2>Silly <span>Chico</span></h2>
-							<p>Chico's main fear was missing the morning bus.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-					<figure class="effect-chico">
-						<img src="images/1.jpg" alt="img04"/>
-						<figcaption>
-							<h2>Silly <span>Chico</span></h2>
-							<p>Chico's main fear was missing the morning bus.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-				</div>
-				<h2>Milo</h2>
-				<div class="grid">
-					<figure class="effect-milo">
-						<img src="images/1.jpg" alt="img11"/>
-						<figcaption>
-							<h2>Faithful <span>Milo</span></h2>
-							<p>Milo went to the woods. He took a fun ride and never came back.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-					<figure class="effect-milo">
-						<%
-							
-							String fullpath = (String)session.getAttribute("fullpath");
-							
-							if (fullpath==null){
-							%>
-							<form method="post" enctype="multipart/form-data" action="imgup.jsp">
-							<input type="file" name="filename1" size=40>
-							<input type="submit" value="업로드"><br><br>
-							</form>
-							<%}
-							else{
-								%>
-								<img alt="추가하세요" src="<%=fullpath%>">
-								<figcaption>
-								<h2>Faithful <span>Milo</span></h2>
-								<p>Milo went to the woods. He took a fun ride and never came back.</p>
-								<a href="#">View more</a>
-								</figcaption>
-								<%	
-							}%>		
-					</figure>
-				</div>
-			</div>
-			<nav class="codrops-demos">
-				<a class="current-demo" href="diary1.jsp">Set 1</a>
-				<a href="diary2.jsp">Set 2</a>
-			</nav>
-			<!-- Related demos -->
-			<section class="related">
-				<p>Images from <a href="http://unsplash.com/">Unsplash</a>. <a href="https://gumroad.com/l/feather">Feather Icons</a> by Cole Bemis.</p>
-				<p><strong>If you enjoyed this demo you might also like:</strong></p>
-				<a href="http://tympanus.net/Tutorials/CaptionHoverEffects/">
-					<img src="http://tympanus.net/codrops/wp-content/uploads/2013/06/CaptionHoverEffect-300x162.png" />
-					<h3>Caption Hover Effects</h3>
-				</a>
-				<a href="http://tympanus.net/Tutorials/ShapeHoverEffectSVG/">
-					<img src="http://tympanus.net/codrops/wp-content/uploads/2014/01/ShapeHoverEffect-300x162.png" />
-					<h3>Shape Hover Effects</h3>
-				</a>
-			</section>
-		</div><!-- /container -->
-		<script>
-			// For Demo purposes only (show hover effect on mobile devices)
-			[].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
-				el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
-			} );
-		</script>
-		 <!-- Back to Top -->
+	}
+	
+			//페이지 이동시 localStorage의 값을 가져오는 함수(자동실행)
+			
+			
+			window.onload=getInPlan();
+				
+				
+					function getInPlan(){
+
+						//localStorage에서 꺼내기
+						var getNums =[];
+						var getAdds =[];
+						var getNames =[];
+					
+			         	// JSON 문자열을 객체, 배열로 변환
+			         	getNums = localStorage.getItem('tourNum');
+			         	getAdds = localStorage.getItem('tourAdd');
+			         	getNames = localStorage.getItem('tourName');
+			         	numList = getNums.split(",");
+			         	addList = getAdds.split(",");
+			         	nameList = getNames.split(",");
+			         	console.log(numList);
+			            
+			           for(i=0; i<numList.length; i++){
+							$(document).ready(createItem(nameList[i], numList[i], addList[i]));
+							addMaker(addList[i],nameList[i]);
+			           }
+			           
+			           
+					};
+			
+			         function removeInplan(){
+			             window.localStorage.clear();
+			          }
+			
+			
+			//임시플랜 제출시 localStorage 삭제
+	         function removeInplan(){
+	            window.localStorage.clear();
+	         }
+				
+			
+	</script>
+
+	 <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
@@ -500,5 +594,7 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/maintest.js"></script>
-	</body>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+	
+</body>
 </html>

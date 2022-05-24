@@ -13,13 +13,15 @@
 <%	
 	//데이터 가져오기, 선언부
 	Member loginMember = (Member)session.getAttribute("loginMember");
+	String dia_tripday_str = (String)session.getAttribute("dia_tripday");
+	Timestamp dia_tripday = Timestamp.valueOf(dia_tripday_str); //타임스탬프로 형변환!!(에러나면 여기보자^__^)
 	String mem_id = loginMember.getId();
-	String plan_date_Str = request.getParameter("dia_tripday");
 	tourDAO dao = new tourDAO();
-	Timestamp plan_date = Timestamp.valueOf(plan_date_Str);
 	
 	//플랜상세 가져오기
-	inplan inplan=new inplan(mem_id, plan_date);	
+	inplan inplan=new inplan(mem_id, dia_tripday);	
+	
+	//사용자의 하루 plan목록
 	List<tour> inplanTourList = dao.selectTour(inplan);
 	pageContext.setAttribute("inplanTourList",inplanTourList);
 
@@ -96,7 +98,7 @@
 		<!-- -------------------------관광지메뉴 영역 시작--------------------------------- -->
 		<div id="tour_div">
 		
-			
+			<h2>이거본사람 바보</h2>
 		
 		
 		
@@ -109,6 +111,8 @@
 		<div id="plan_div">
 
 	    <div id = "main_plan">
+	    
+	    
     <div> <a class="logo" href="main.jsp"><span><img src="images/logo2.png" alt="logo"></span></a></div>
     <img src="images/right.png" class = "rightPage"> <!--다음 플래너로 넘어 가기  -->
     <img src="images/left.png" class = "leftPage"> <!--이전 플래너로 넘어 가기  -->
@@ -134,6 +138,7 @@
                     <span class="source"></span>
                         <span class = "source_inner"> <c:out value="${t.address}"/></span>
                  </div>
+                 <div><a href="review?tour_num=${t.num}">리뷰작성</a></div>
             </li>
         </c:forEach>
         

@@ -46,8 +46,8 @@
 	</select>
  -->
 
-<select id="selectTour" parameterType="com.smhrd.domain.inplan" resultType="com.smhrd.domain.tour">
-      select * from tour
-      where tour_num in (select tour_num from inplan where mem_id=#{mem_id} and plan_date = #{plan_date})
-   </select>
+	<select id="selectTour" parameterType="com.smhrd.domain.inplan" resultType="com.smhrd.domain.tour">
+      	select * from tour
+      	where tour_num in (select tour_num from inplan where mem_id=#{mem_id} and plan_date = #{plan_date})
+    </select>
 </mapper>
