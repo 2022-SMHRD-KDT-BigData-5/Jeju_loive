@@ -8,7 +8,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%
-int num=1;
 tourDAO dao = new tourDAO();
 List<tour> cafeList = dao.selectCafeList();
 pageContext.setAttribute("cafeList", cafeList);
@@ -51,10 +50,6 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
         right: 20px;
        	top: 10px;
        	color:white
-	}.active{
-		 background-color: #F29661;
-	}
-	.contents{text-align: center;
 	}
 </style>
 	
@@ -100,13 +95,13 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
             <a href="main.jsp" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-paper-plane"></i> 제주살앙</h1>
             </a>
-            <!-- <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
-            </button> -->
+            </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
                     <a href="maintest.jsp" class="nav-item nav-link">Home</a>
-                    <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
+                    <a href="tour_att.jsp" class="nav-item nav-link active">투어</a>
                     <a href="planner.jsp" class="nav-item nav-link">플래너</a>
                     <a href= "diarytest.jsp" class="nav-item nav-link">다이어리</a>
                     <a href= "board.jsp" class="nav-item nav-link">게시판</a>
@@ -141,7 +136,6 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 
 <!--  container-->
 		<script>
-		
 			// For Demo purposes only (show hover effect on mobile devices)
 			[].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
 				el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
@@ -156,17 +150,17 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 				</nav>
 			</header>
 		
-		<div class="contents"><br>
+		<div class="content">
 		
 
 		
-		
-			<div class="grid"><br>
+		<h2>츄릅</h2>
+			<div class="grid">	
 			<%-- <c:set var="str" value="" />  --%>
 						<c:forEach var="c" items="${cafeList}" varStatus="statusNum">
 					<%--  <c:forEach var="i" items="${tourImgList}" varStatus="status">
 							<c:if test="${i.tour_num != str }">  --%>
-								<figure class="effect-marley" id="num<%=num%>"><%num++; %>
+								<figure class="effect-marley">
 									<img src="${c.img }" alt="img11" width=480px" height="330px" />
 									<!-- 이미지 주소를 넣는 공간입니다^^ -->
 									<figcaption>
@@ -224,7 +218,10 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 		                <input type="button" class = "w-btn-red w-btn-red-outline" id="addItem" value="추가" onclick="createItem('${tourInfo.getName()}','${tourInfo.getNum()}','${tourInfo.getAddress()}')"/>
 		                <input type="button" class = "w-btn-red w-btn-red-outline" value="임시저장" onclick="setInPlan();  updatePage();" style="margin-left:20px"/>
 		                <input type="submit" class = "w-btn-red w-btn-red-outline" id="submitItem" value="내 Planner에 저장하기" onclick="removeInplan();"  style="margin-left:20px"/>
-		             </div>
+		               
+		                
+		               
+		            </div>
 		        </div>
 		        <br />
 		        <div id="itemBoxWrap"></div>
@@ -242,7 +239,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
         </a> -->
     </em>
 </p>
-<div id="map" style="width:110%;height:350px;"></div>
+<div id="map" style="width:100%;height:350px;"></div>
 
 
 	<!-- JavaScript Libraries -->
@@ -320,25 +317,39 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 			        map.setCenter(coords); 
 			        
+			        
 			    } 
 			});   
 			
 		}
 		
 		
+	
+
 </script>
 		
 	</div>
-	
-		</div><br>
-		<div style="float:right;height:10%; width:42%;"><input type="button" value="맨위로" onClick="javascript:window.scrollTo(0,0)" />
-</div>
-	<!-- <nav class="codrops-demos">
+		</div>
+
+	<nav class="codrops-demos">
 					<a href="tour_att.jsp">관광지</a>
 					<a href="tour_food.jsp">음식점</a>
 					<a href="#" class="current-demo">카페</a>
-	</nav> -->
+	</nav>
 	<!-- Related demos -->
+<<<<<<< HEAD
+	<section class="related"></section>
+	
+	<!-- /container -->
+	<script>
+		// For Demo purposes only (show hover effect on mobile devices)
+		[].slice.call(document.querySelectorAll('a[href="#"')).forEach(
+				function(el) {
+					el.addEventListener('click', function(ev) {
+						ev.preventDefault();
+					});
+				});
+=======
 	<section class="related"></section>
 	
 	
@@ -425,6 +436,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 		
 	});
 		
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/Jeju_loive.git
 	</script>
 	
 	<!-- 드래그앤드롭 JS -->
@@ -521,14 +533,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 			         function updatePage(){
 			        	 location.reload();
 						}
-			         /* function goTop(){
-			        		$('html').scrollTop(0);
-			        	
-			        	} */
 			
 	</script>
-	
-	
 </body>
-
 </html>
