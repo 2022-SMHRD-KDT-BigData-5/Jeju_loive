@@ -159,6 +159,7 @@
 							<c:set var="str" value="${i.tour_num}" />
 						 </c:forEach>  --%>
 					</c:forEach>
+					<div class = "empty"></div>
 			</div>
 
 
@@ -327,7 +328,7 @@
 		let s =document.getElementsByClassName('effect-marley').length;
 		let k = document.getElementsByClassName('effect-marley').length/20;
 		for(i=1;i<=k;i++){
-			$('.grid').before('<button>'+i+'</button>'+' ');
+			$('.empty').before('<button>'+i+'</button>'+' ');
 		}
 		$('button').eq(0).attr('class','active');
 		let i2=$('.active').text();
