@@ -67,13 +67,13 @@
    .soohyeon{
       position: fixed;
         right: 20px;
-       	top: 10px;
-       	color:white;
-	}.contents{text-align: center;
-	}
-	.active{
-		 background-color: #F29661;
-	}
+          top: 10px;
+          color:white;
+   }.contents{text-align: center;
+   }
+   .active{
+       background-color: #F29661;
+   }
           top: 10px;
           color:white;
    }
@@ -164,57 +164,57 @@
                <a href="tour_food.jsp">음식점</a>
                <a href="tour_cafe.jsp">카페</a>
 
-				</nav>
-			</header>
-		
-		
-		
-		<div class="contents" >
-		
-		<!-- 관광지 정보 반복출력 -->
+            </nav>
+         </header>
+      
+      
+      
+      <div class="contents" >
+      
+      <!-- 관광지 정보 반복출력 -->
 <br>
       
       
       <div class="content">
       
       <!-- 관광지 정보 반복출력 -->
-		
-			<div class="grid" ><br>
-<%-- 			<h1><%=tourImgList.get(1).getT_add() %></h1> --%>
-				 	<%-- <c:set var="str" value="" />  --%>
-						<c:forEach var="t" items="${tourList}" varStatus="status">
-					<%--  <c:forEach var="i" items="${tourImgList}" varStatus="status">
-							<c:if test="${i.tour_num != str }">  --%>
-								<figure class="effect-marley" id="num<%=num%>"><%num++; %>
-									<img src="${t.img}" alt="img11" width=480px" height="300px" />
-									<!-- 이미지 주소를 넣는 공간입니다^^ -->
-									<figcaption>
-										<h2>
-											<span><c:out value="${t.name}" /></span>
-										</h2>
-										<p>
-											<c:out value="${t.address}" />
-										</p>
-										<a href="TourInfoCon?tourNum=${t.num}">View more</a>
-									</figcaption>
-								</figure>
-							<%--  </c:if>
-							<c:set var="str" value="${i.tour_num}" />
-						 </c:forEach>  --%>
-					</c:forEach>
-				</div>
-			
-			</div>
-			<!-- 
-			<nav class="codrops-demos">
-				<a href="#" class="current-demo">관광지</a>
-				<a href="tour_food.jsp">음식점</a>
-				<a href="tour_cafe.jsp">카페</a>
+      
+         <div class="grid" ><br>
+<%--          <h1><%=tourImgList.get(1).getT_add() %></h1> --%>
+                <%-- <c:set var="str" value="" />  --%>
+                  <c:forEach var="t" items="${tourList}" varStatus="status">
+               <%--  <c:forEach var="i" items="${tourImgList}" varStatus="status">
+                     <c:if test="${i.tour_num != str }">  --%>
+                        <figure class="effect-marley" id="num<%=num%>"><%num++; %>
+                           <img src="${t.img}" alt="img11" width=480px" height="300px" />
+                           <!-- 이미지 주소를 넣는 공간입니다^^ -->
+                           <figcaption>
+                              <h2>
+                                 <span><c:out value="${t.name}" /></span>
+                              </h2>
+                              <p>
+                                 <c:out value="${t.address}" />
+                              </p>
+                              <a href="TourInfoCon?tourNum=${t.num}">View more</a>
+                           </figcaption>
+                        </figure>
+                     <%--  </c:if>
+                     <c:set var="str" value="${i.tour_num}" />
+                   </c:forEach>  --%>
+               </c:forEach>
+            </div>
+         
+         </div>
+         <!-- 
+         <nav class="codrops-demos">
+            <a href="#" class="current-demo">관광지</a>
+            <a href="tour_food.jsp">음식점</a>
+            <a href="tour_cafe.jsp">카페</a>
 
-		</nav> -->
-	</div>
-	
-	
+      </nav> -->
+   </div>
+   
+   
    </div>
    
    
@@ -295,181 +295,181 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
 <script>
-		var getAdds =[];
-		getAdds = localStorage.getItem('tourAdd');
-		addList = getAdds.split(",");
-		var getNames =[];
-		getNames = localStorage.getItem('tourName');
-		nameList = getNames.split(",");
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-		    mapOption = {
-		        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-		        level:10 // 지도의 확대 레벨
-		    };  
-		// 지도를 생성합니다    
-		var map = new kakao.maps.Map(mapContainer, mapOption); 
-		// 주소-좌표 변환 객체를 생성합니다
-		var geocoder = new kakao.maps.services.Geocoder();
-		
-		
-		function addMaker(addr,namel){
-			
-			// 주소로 좌표를 검색합니다
-			geocoder.addressSearch(addr, function(result, status) {
-			    // 정상적으로 검색이 완료됐으면 
-			     if (status === kakao.maps.services.Status.OK) {
-			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-			        // 결과값으로 받은 위치를 마커로 표시합니다
-			        var marker = new kakao.maps.Marker({
-			            map: map,
-			            position: coords
-			        });
-			        
-			        //marker.setMap(map);
-			        // 인포윈도우로 장소에 대한 설명을 표시합니다
-			        var infowindow = new kakao.maps.InfoWindow({
-			            content: '<div style="width:150px;text-align:center;padding:6px 0;">'+namel+'</div>'
-			        });
-			        infowindow.open(map, marker);
-			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-			        map.setCenter(coords); 
-			        
-			    } 
-			});   
-			
-		}
-		
+      var getAdds =[];
+      getAdds = localStorage.getItem('tourAdd');
+      addList = getAdds.split(",");
+      var getNames =[];
+      getNames = localStorage.getItem('tourName');
+      nameList = getNames.split(",");
+      var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+          mapOption = {
+              center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+              level:10 // 지도의 확대 레벨
+          };  
+      // 지도를 생성합니다    
+      var map = new kakao.maps.Map(mapContainer, mapOption); 
+      // 주소-좌표 변환 객체를 생성합니다
+      var geocoder = new kakao.maps.services.Geocoder();
+      
+      
+      function addMaker(addr,namel){
+         
+         // 주소로 좌표를 검색합니다
+         geocoder.addressSearch(addr, function(result, status) {
+             // 정상적으로 검색이 완료됐으면 
+              if (status === kakao.maps.services.Status.OK) {
+                 var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+                 // 결과값으로 받은 위치를 마커로 표시합니다
+                 var marker = new kakao.maps.Marker({
+                     map: map,
+                     position: coords
+                 });
+                 
+                 //marker.setMap(map);
+                 // 인포윈도우로 장소에 대한 설명을 표시합니다
+                 var infowindow = new kakao.maps.InfoWindow({
+                     content: '<div style="width:150px;text-align:center;padding:6px 0;">'+namel+'</div>'
+                 });
+                 infowindow.open(map, marker);
+                 // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                 map.setCenter(coords); 
+                 
+             } 
+         });   
+         
+      }
+      
 </script>
-		</div>
-		
-		</div> <!--  컨테이너 끝 -->
-		</div><br>
-		<div style="float:right;height:10%; width:35%;"><input type="button" value="맨위로" onClick="javascript:window.scrollTo(0,0)" />
+      </div>
+      
+      </div> <!--  컨테이너 끝 -->
+      </div><br>
+      <div style="float:right;height:10%; width:42%;"><input type="button" value="맨위로" onClick="javascript:window.scrollTo(0,0)" />
 </div>
-		
-			<!-- Related demos -->
-	<section class="related" ></section>
-	<script>
-		
-		let i=1;
-		let s =document.getElementsByClassName('effect-marley').length;
-		let k = document.getElementsByClassName('effect-marley').length/20;
-		for(i=1;i<=k;i++){
-			$('.grid').before('<button>'+i+'</button>'+' ');
-		}
-		$('button').eq(0).attr('class','active');
-		let i2=$('.active').text();
-		console.log(i2);
-		let h=1;
-		for(h=1;h<=s;h++){
-			$('#num'+h).css("display" ,"none")
-		}
-		if(i2==1){
-			for(h=1;h<=20;h++){
-				$('#num'+h).css("display" ,"inline")
-			}
-		}
-		
-		
-		$(document).on('click','button',function(){
-			  
-   			
-			$('button').removeAttr('class');
-			$(this).attr('class','active');
-			i2=$('.active').text();
-			console.log(i2);
-			let h=1;
-			for(h=1;h<=s;h++){
-				$('#num'+h).css("display" ,"none")
-			}
-			if(i2==1){
-				for(h=1;h<=20;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			}
-			else if(i2==2){
-				for(h=21;h<=40;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			}
-			else if(i2==3){
-				for(h=41;h<=60;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			}
-			else if(i2==4){
-				for(h=61;h<=80;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			}
-			else if(i2==5){
-				for(h=81;h<=100;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			}
-			else if(i2==6){
-				for(h=101;h<=120;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			} 
-			else if(i2==7){
-				for(h=121;h<=140;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			} 
-			else if(i2==8){
-				for(h=141;h<=160;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			} 
-			else if(i2==9){
-				for(h=161;h<=180;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			} 
-			else if(i2==10){
-				for(h=181;h<=200;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			} 
-			else if(i2==11){
-				for(h=201;h<=220;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			} 
-			else if(i2==12){
-				for(h=221;h<=240;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			} 
-			else if(i2==13){
-				for(h=241;h<=260;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			} 
-			else if(i2==14){
-				for(h=261;h<=280;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			} 
-			else if(i2==15){
-				for(h=281;h<=300;h++){
-					$('#num'+h).css("display" ,"inline")
-				}
-			} 
-			
-		});
-		
-		
-		// For Demo purposes only (show hover effect on mobile devices)
-		[].slice.call(document.querySelectorAll('a[href="#"')).forEach(
-				function(el) {
-					el.addEventListener('click', function(ev) {
-						ev.preventDefault();
-					});
-				});
-	</script>
-	
+      
+         <!-- Related demos -->
+   <section class="related" ></section>
+   <script>
+      
+      let i=1;
+      let s =document.getElementsByClassName('effect-marley').length;
+      let k = document.getElementsByClassName('effect-marley').length/20;
+      for(i=1;i<=k;i++){
+         $('.grid').before('<button>'+i+'</button>'+' ');
+      }
+      $('button').eq(0).attr('class','active');
+      let i2=$('.active').text();
+      console.log(i2);
+      let h=1;
+      for(h=1;h<=s;h++){
+         $('#num'+h).css("display" ,"none")
+      }
+      if(i2==1){
+         for(h=1;h<=20;h++){
+            $('#num'+h).css("display" ,"inline")
+         }
+      }
+      
+      
+      $(document).on('click','button',function(){
+           
+            
+         $('button').removeAttr('class');
+         $(this).attr('class','active');
+         i2=$('.active').text();
+         console.log(i2);
+         let h=1;
+         for(h=1;h<=s;h++){
+            $('#num'+h).css("display" ,"none")
+         }
+         if(i2==1){
+            for(h=1;h<=20;h++){
+               $('#num'+h).css("display" ,"inline")
+            }
+         }
+         else if(i2==2){
+            for(h=21;h<=40;h++){
+               $('#num'+h).css("display" ,"inline")
+            }
+         }
+         else if(i2==3){
+            for(h=41;h<=60;h++){
+               $('#num'+h).css("display" ,"inline")
+            }
+         }
+         else if(i2==4){
+            for(h=61;h<=80;h++){
+               $('#num'+h).css("display" ,"inline")
+            }
+         }
+         else if(i2==5){
+            for(h=81;h<=100;h++){
+               $('#num'+h).css("display" ,"inline")
+            }
+         }
+         else if(i2==6){
+            for(h=101;h<=120;h++){
+               $('#num'+h).css("display" ,"inline")
+            }
+         } 
+         else if(i2==7){
+            for(h=121;h<=140;h++){
+               $('#num'+h).css("display" ,"inline")
+            }
+         } 
+         else if(i2==8){
+            for(h=141;h<=160;h++){
+               $('#num'+h).css("display" ,"inline")
+            }
+         } 
+         else if(i2==9){
+            for(h=161;h<=180;h++){
+               $('#num'+h).css("display" ,"inline")
+            }
+         } 
+         else if(i2==10){
+            for(h=181;h<=200;h++){
+               $('#num'+h).css("display" ,"inline")
+            }
+         } 
+         else if(i2==11){
+            for(h=201;h<=220;h++){
+               $('#num'+h).css("display" ,"inline")
+            }
+         } 
+         else if(i2==12){
+            for(h=221;h<=240;h++){
+               $('#num'+h).css("display" ,"inline")
+            }
+         } 
+         else if(i2==13){
+            for(h=241;h<=260;h++){
+               $('#num'+h).css("display" ,"inline")
+            }
+         } 
+         else if(i2==14){
+            for(h=261;h<=280;h++){
+               $('#num'+h).css("display" ,"inline")
+            }
+         } 
+         else if(i2==15){
+            for(h=281;h<=300;h++){
+               $('#num'+h).css("display" ,"inline")
+            }
+         } 
+         
+      });
+      
+      
+      // For Demo purposes only (show hover effect on mobile devices)
+      [].slice.call(document.querySelectorAll('a[href="#"')).forEach(
+            function(el) {
+               el.addEventListener('click', function(ev) {
+                  ev.preventDefault();
+               });
+            });
+   </script>
+   
    
    <!-- 전화번호 하이픈(-) 자동입력  JS -->
     <script>
@@ -567,23 +567,23 @@
                      addMaker(addList[i],nameList[i]);
                     }
   
-					};
+               };
 
-				//임시플랜 제출시 localStorage 삭제
-	         function removeInplan(){
-	            window.localStorage.clear();
-	         }
-				
-			
-	         function updatePage(){
-	        	 location.reload();
-				}
-			
-	         
-			
-			
-	</script>
-	
+            //임시플랜 제출시 localStorage 삭제
+            function removeInplan(){
+               window.localStorage.clear();
+            }
+            
+         
+            function updatePage(){
+               location.reload();
+            }
+         
+            
+         
+         
+   </script>
+   
     
 </body>
 </html>

@@ -37,7 +37,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33d9767578d4d72c4d7cc3b81595ef94&libraries=services"></script>
-<script src="assets/js/dragdrop.js"></script>
+<script type="text/javascript" src="assets/js/dragdrop.js"></script>
 <link rel="stylesheet" href="assets/css/maintest.css" />
 <!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -330,7 +330,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 	</div>
 	
 		</div><br>
-		<div style="float:right;height:10%; width:35%;"><input type="button" value="맨위로" onClick="javascript:window.scrollTo(0,0)" />
+		<div style="float:right;height:10%; width:42%;"><input type="button" value="맨위로" onClick="javascript:window.scrollTo(0,0)" />
 </div>
 	<!-- <nav class="codrops-demos">
 					<a href="tour_att.jsp">관광지</a>

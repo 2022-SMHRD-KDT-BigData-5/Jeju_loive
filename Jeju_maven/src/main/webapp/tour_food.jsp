@@ -309,7 +309,7 @@
 			
 			</div> <!-- 컨테이너 끝 -->
 			</div><br>
-		<div style="float:right;height:10%; width:35%;"><input type="button" value="맨위로" onClick="javascript:window.scrollTo(0,0)" />
+		<div style="float:right;height:10%; width:42%;"><input type="button" value="맨위로" onClick="javascript:window.scrollTo(0,0)" />
 </div>
 			
 		<!-- <nav class="codrops-demos">
