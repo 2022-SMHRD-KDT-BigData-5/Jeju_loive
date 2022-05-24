@@ -580,7 +580,6 @@
 							addMaker(addList[i],nameList[i]);
 			           }
 
-			           location.reload(true);
 			           
 					};
 			
