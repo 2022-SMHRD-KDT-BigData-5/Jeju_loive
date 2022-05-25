@@ -203,7 +203,6 @@ int num=1;
 				<h2>무엇을 적으면 좋을까요</h2>
 
 				<div class="content">
-					<a href="PlanAddCon?tourNum=${tourInfo.getNum()}">플래너에 추가하기</a>
 
 				</div>
 
