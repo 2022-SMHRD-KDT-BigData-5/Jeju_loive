@@ -21,20 +21,15 @@
 |데이터베이스|oracleDB|
 
 ## 4. 아키텍처(구조)
-![서비스 아키텍처](https://user-images.githubusercontent.com/25995055/169925538-15867bd9-aa0b-42fc-a39b-88981e926e51.png)
+
 
 
 ## 5. 기능 흐름도
 ### 서비스 흐름도(유스케이스)
-#### SW 유스케이스
-![image](https://user-images.githubusercontent.com/99248886/166611717-6a761c62-393f-444b-9945-34d5533b50dc.png)
-#### 서비스 흐름도(웹 화면설계서)
-![image](https://user-images.githubusercontent.com/97463172/170166361-aa7474cf-d286-469e-b14c-9581ad16b473.png)
-#### ER 다이어그램
-![image](https://user-images.githubusercontent.com/25995055/169925318-102784c2-893f-4fd7-bec9-a54c44b669d4.png)
+![image](https://user-images.githubusercontent.com/97463172/170167886-7dba2f80-8696-4301-93e5-8eb5486e0c19.png)
+
 
 ## 6 SW 동작 화면
-
 ### 메인화면
 ![image](https://user-images.githubusercontent.com/97463172/170166484-1aaaf669-7602-480b-a43d-2f5cb3486fca.png)
 
@@ -55,10 +50,10 @@
 
 
 ## 7 제작 일정
-![image](https://user-images.githubusercontent.com/99248886/166612988-dc4d1968-a694-456c-b7fe-b65feef835bb.png)
+
 
 ## 8 팀원 단위 업무 분장 및 결과표
-![image](https://user-images.githubusercontent.com/99248886/166613023-0cd70ef4-9f0d-4f6c-b8b1-7395e67684a1.png)
+
 
 ## 9 트러블슈팅
 ![image](https://user-images.githubusercontent.com/97463172/170167308-04fe4688-56e1-4f93-b4ec-ebeefe91a647.png)
