@@ -221,11 +221,11 @@ int num=1;
 						<img src="${i}" alt="img11" width="300px" height="200px" />
 					</c:forEach>
 					<br/><br/><br/><br/><br/>
-					<h2>방문자들의 후기</h2>
+					<h2>------------------------ 방문자들의 후기 ------------------------</h2>
 					<br/>
 					
 					
-					
+					<%if(ReviewList.size()>=1){ %>
 					<c:forEach var="r" items="${ReviewList}" varStatus="status">
 
 
@@ -254,6 +254,11 @@ int num=1;
 			</script>
 					<%num++; %>
 					</c:forEach>
+				<%} 
+				else{
+					%><h2>후기가 존재하지 않습니다😂 첫번째 방문자가 되어보시는 건 어떨까요?</h2>
+					<%
+				}%>
 				</div>
 			</div>
 			
