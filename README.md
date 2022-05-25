@@ -1,5 +1,5 @@
 # 제주살앙 (팀명: 돌하르방스)
-![image](https://user-images.githubusercontent.com/99248886/166611412-9fc116d1-6efe-40ea-acc6-2ddd7b4f26e7.png)
+![image](https://user-images.githubusercontent.com/97463172/170165560-205e130b-17ee-43cc-990e-64391c09859a.png)
 
 ## 1. 프로젝트명
 * 제주도 한달살기를 위한 여행 추천&다이어리 서비스
