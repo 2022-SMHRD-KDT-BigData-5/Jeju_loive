@@ -61,11 +61,5 @@
 ![image](https://user-images.githubusercontent.com/99248886/166613023-0cd70ef4-9f0d-4f6c-b8b1-7395e67684a1.png)
 
 ## 9 트러블슈팅
-개념: 문제 해결을 위해 문제의 원인을 논리적이고 체계적으로 찾는 일이며 제품이나 프로세스의 운영을 재개
-프로젝트 진행하는 동안 발생했던 이슈 중 가장 기억에 남았던 문제와 해결 프로세스 나열(2가지 정도)
-* 문제1<br>
- 문제점 설명 및 해결방안
- 
-* 문제2<br>
- 문제점 설명 및 해결방안
+![image](https://user-images.githubusercontent.com/97463172/170167308-04fe4688-56e1-4f93-b4ec-ebeefe91a647.png)
 
