@@ -57,10 +57,6 @@
    </head>
    <body>
    
-   
-  
-
-
     <!-- Navbar Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
@@ -73,7 +69,7 @@
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
                     <a href="maintest.jsp" class="nav-item nav-link">Home</a>
-                    <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
+                    <a href="tour_att.jsp" class="nav-item nav-link active">투어</a>
                     <a href="planner.jsp" class="nav-item nav-link">플래너</a>
                     <a href= "diary1.jsp" class="nav-item nav-link">다이어리</a>
                    
