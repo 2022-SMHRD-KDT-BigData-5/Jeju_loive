@@ -335,8 +335,8 @@ figure{
 					<a href="maintest.jsp" class="nav-item nav-link active">Home</a> <a
 						href="tour_att.jsp" class="nav-item nav-link">투어</a> <a
 						href="planner.jsp" class="nav-item nav-link">플래너</a> <a
-						href="diary1.jsp" class="nav-item nav-link">다이어리</a> <a
-						href="board.jsp" class="nav-item nav-link">게시판</a>
+						href="diary1.jsp" class="nav-item nav-link">다이어리</a> 
+						
 				</div>
 				<nav>
 					<c:choose>

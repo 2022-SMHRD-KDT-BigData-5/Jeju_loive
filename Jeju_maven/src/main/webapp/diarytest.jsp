@@ -126,7 +126,7 @@ if(loginMember != null){
                     <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
                     <a href="planner.jsp" class="nav-item nav-link">플래너</a>
                     <a href= "diarytest.jsp" class="nav-item nav-link active">다이어리</a>
-                    <a href= "board.jsp" class="nav-item nav-link">게시판</a>
+                    
                 </div>
                <nav>
                 <c:choose>
