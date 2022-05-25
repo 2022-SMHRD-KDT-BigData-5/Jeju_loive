@@ -31,7 +31,7 @@
 
 ## 6 SW 동작 화면
 ### 메인화면
-![image](https://user-images.githubusercontent.com/97463172/170166484-1aaaf669-7602-480b-a43d-2f5cb3486fca.png)
+![image](https://user-images.githubusercontent.com/97463172/170187449-3c6e1836-a490-4ce7-a819-8bbfbe7ed6ef.png)
 
 ### 회원가입/로그인
 ![image](https://user-images.githubusercontent.com/97463172/170166547-d548b32d-40c8-4cb4-a185-4e9c742fa86b.png)
