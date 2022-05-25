@@ -224,7 +224,7 @@ color
 
 			<header class="codrops-header">
 				<h1>
-					ATTRACTION<span>광고문의 010-9927-8280</span>
+					ATTRACTION<span>당신만의 여행을 찾아보세요.</span>
 				</h1>
 				<nav class="codrops-demos">
 
@@ -291,7 +291,7 @@ color
 
 		<div id="plan_div">
 			<header class="codrops-header">
-			<br><br><br><br><br><br>
+			
 				<h1>
 					Plan<span>수정 후 임시저장을 눌러주세요.</span>
 				</h1>
