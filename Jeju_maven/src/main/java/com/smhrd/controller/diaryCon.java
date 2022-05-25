@@ -20,9 +20,11 @@ public class diaryCon extends HttpServlet {
 
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		
+		String head= request.getParameter("head");
 		String text=request.getParameter("content");
 		String date = request.getParameter("date");
-		String head= request.getParameter("head");
 		String date2="";
 		date2=date+" "+"00:00:00.0";
 		System.out.print(date);

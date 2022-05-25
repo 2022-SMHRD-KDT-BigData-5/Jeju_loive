@@ -223,6 +223,7 @@ int num=1;
 					<br/><br/><br/><br/><br/>
 					<h2>방문자들의 후기</h2>
 					<br/>
+					
 					<c:forEach var="r" items="${ReviewList}" varStatus="status">
 
 
