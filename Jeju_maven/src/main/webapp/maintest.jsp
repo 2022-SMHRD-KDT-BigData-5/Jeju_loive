@@ -52,7 +52,7 @@
                     <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
                     <a href="planner.jsp" class="nav-item nav-link">플래너</a>
                     <a href= "diarytest.jsp" class="nav-item nav-link">다이어리</a>
-                    <a href= "board.jsp" class="nav-item nav-link">게시판</a>
+                    
                 </div>
                <nav>
                 <c:choose>
@@ -110,7 +110,7 @@
                 <div class="col-lg-7">
                     <h6 class="text-primary text-uppercase font-weight-bold">About Us</h6>
                     <h1 class="mb-4">제주여행을 손쉽게 계획</h1>
-                    <p class="mb-4">내용 입력</p>
+                    
                     
                 </div>
             </div>

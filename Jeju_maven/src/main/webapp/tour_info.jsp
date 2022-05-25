@@ -114,27 +114,6 @@ int num=1;
 
 <body>
 
-
-
-	<!-- Topbar Start -->
-	<div class="container-fluid bg-dark">
-		<div class="row py-2 px-lg-5">
-			<div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0"></div>
-			<div class="col-lg-6 text-center text-lg-right">
-				<div class="d-inline-flex align-items-center">
-					<a class="text-white px-2" href=""> <i class="fa fa-globe"></i>
-					</a> <a class="text-white px-2" href=""> <i class="fa fa-minus"></i>
-					</a> <a class="text-white px-2" href=""> <i class="fa fa-minus"></i>
-					</a> <a class="text-white px-2" href=""> <i class="fa fa-minus"></i>
-					</a> <a class="text-white pl-2" href=""> <i class="fa fa-plane"></i>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Topbar End -->
-
-
 	<!-- Navbar Start -->
 	<div class="container-fluid p-0">
 		<nav
@@ -154,8 +133,7 @@ int num=1;
 					<a href="maintest.jsp" class="nav-item nav-link">Home</a> <a
 						href="tour_att.jsp" class="nav-item nav-link active">투어</a> <a
 						href="planner.jsp" class="nav-item nav-link">플래너</a> <a
-						href="diary1.jsp" class="nav-item nav-link">다이어리</a> <a
-						href="board.jsp" class="nav-item nav-link">게시판</a>
+						href="diary1.jsp" class="nav-item nav-link">다이어리</a> 
 				</div>
 				<nav>
 

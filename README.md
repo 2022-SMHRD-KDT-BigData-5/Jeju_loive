@@ -1,25 +1,24 @@
-# 제주도 한달 살기!(팀명: MATCH&FIX)
-![image](https://user-images.githubusercontent.com/99248886/166611412-9fc116d1-6efe-40ea-acc6-2ddd7b4f26e7.png)
+# 제주살앙 (팀명: 돌하르방스)
+![image](https://user-images.githubusercontent.com/97463172/170165560-205e130b-17ee-43cc-990e-64391c09859a.png)
 
 ## 1. 프로젝트명
-* 모바일 앱을 활용한 IoT 스마트 옷장
-* 서비스설명: 
+* 제주도 한달살기를 위한 여행 추천&다이어리 서비스
 
 ## 2. 주요기능
-* 기능1
-* 기능2
-* 기능3
-* 기능4
-* 기능5
+* 카테고리 별 인기 관광지와 관광지에 맞는 후기 조회기능
+* 추천 관광지에 대해 drag&drop으로 손쉬운 여행계획 제작
+* 계획한 관광지들의 위치 지도에 출력하여 경로 조회
+* 여행 후 사진, 게시글 업로드하여 나만의 다이어리 작성
+* 계획하고 방문한 여행지에 대한 후기 작성
 
 ## 3. 개발환경
 |구분|내용|
 |------|---|
-|사용언어|Java, HTML, CSS, JavaScript|
-|사용한 라이브러리| Bootstrap / Kakao Map / etc...|
-|개발도구|Eclipse / RaspberryPi  /  Arduino  /  VisualStudioCode  /  AndroidStudio  / SpringFramework / etc...|
+|사용언어|Java / HTML / CSS / JavaScript / Python|
+|사용한 라이브러리| Bootstrap / Kakao Map / BeautifulSoup|
+|개발도구|Eclipse  /  VisualStudioCode  /  Jupyter Notebook  /  SQL Developer  /  etc...|
 |서버환경|tomcat 9.0|
-|데이터베이스|Firebase  /  oracle 11g / etc..|
+|데이터베이스|oracleDB|
 
 ## 4. 아키텍처(구조)
 ![서비스 아키텍처](https://user-images.githubusercontent.com/25995055/169925538-15867bd9-aa0b-42fc-a39b-88981e926e51.png)

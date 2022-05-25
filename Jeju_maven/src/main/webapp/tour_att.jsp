@@ -99,7 +99,8 @@ int num = 1;
 	text-align: center;
 }
 
-.active {
+
+.active2 {
 	background-color: #F29661;
 }
 top
@@ -158,25 +159,6 @@ color
 
 <body>
 
-	<!-- Topbar Start -->
-	<div class="container-fluid bg-dark">
-		<div class="row py-2 px-lg-5">
-			<div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0"></div>
-			<div class="col-lg-6 text-center text-lg-right">
-				<div class="d-inline-flex align-items-center">
-					<a class="text-white px-2" href=""> <i class="fa fa-globe"></i>
-					</a> <a class="text-white px-2" href=""> <i class="fa fa-minus"></i>
-					</a> <a class="text-white px-2" href=""> <i class="fa fa-minus"></i>
-					</a> <a class="text-white px-2" href=""> <i class="fa fa-minus"></i>
-					</a> <a class="text-white pl-2" href=""> <i class="fa fa-plane"></i>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Topbar End -->
-
-
 	<!-- Navbar Start -->
 	<div class="container-fluid p-0">
 		<nav
@@ -193,10 +175,9 @@ color
 				id="navbarCollapse">
 				<div class="navbar-nav m-auto py-0">
 					<a href="maintest.jsp" class="nav-item nav-link">Home</a> <a
-						href="tour_att.jsp" class="nav-item nav-link">투어</a> <a
+						href="tour_att.jsp" class="nav-item nav-link active">투어</a> <a
 						href="planner.jsp" class="nav-item nav-link">플래너</a> <a
-						href="diarytest.jsp" class="nav-item nav-link">다이어리</a> <a
-						href="board.jsp" class="nav-item nav-link">게시판</a>
+						href="diarytest.jsp" class="nav-item nav-link">다이어리</a> 
 				</div>
 				<nav>
 					<c:choose>
@@ -435,8 +416,8 @@ color
 		for (addbutton = 1; addbutton <= soohyeonbuttonk; addbutton++) {
 			$('.empty').before('<button>' + addbutton + '</button>' + ' ');
 		}
-		$('button').eq(0).attr('class', 'active');
-		let i2 = $('.active').text();
+		$('button').eq(0).attr('class', 'active2');
+		let i2 = $('.active2').text();
 		console.log(i2);
 		let h = 1;
 		for (h = 1; h <= soohyeonbuttons; h++) {
@@ -451,8 +432,8 @@ color
 		$(document).on('click', 'button', function() {
 
 			$('button').removeAttr('class');
-			$(this).attr('class', 'active');
-			i2 = $('.active').text();
+			$(this).attr('class', 'active2');
+			i2 = $('.active2').text();
 			console.log(i2);
 			let h = 1;
 			for (h = 1; h <= soohyeonbuttons; h++) {
