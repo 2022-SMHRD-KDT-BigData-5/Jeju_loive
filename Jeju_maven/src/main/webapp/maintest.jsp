@@ -96,26 +96,7 @@
     <!-- Header End -->
 
 
-    <!-- About Start -->
-    <div class="container-fluid py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5 pb-4 pb-lg-0">
-                    <img class="img-fluid w-100" src="images/about.jpg" alt="">
-                    <div class="bg-primary text-dark text-center p-4">
-                    	
-                     	<h3 class="m-0">제주여행 계획 세우기</h3>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <h6 class="text-primary text-uppercase font-weight-bold">About Us</h6>
-                    <h1 class="mb-4">제주여행을 손쉽게 계획</h1>
-                    
-                    
-                </div>
-            </div>
-        </div>
-    <!-- About End -->
+ 
 
     
     <!-- Team Start -->
