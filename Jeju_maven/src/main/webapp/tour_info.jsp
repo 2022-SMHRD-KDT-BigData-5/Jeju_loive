@@ -171,7 +171,7 @@ int num=1;
 				</h1>
 				<nav class="codrops-demos">
 
-				<a href="tour_att.jsp" class="current-demo">관광지</a> 
+				<a href="tour_att.jsp" >관광지</a> 
 				<a href="tour_food.jsp">음식점</a>
 				<a href="tour_cafe.jsp">카페</a>
 
