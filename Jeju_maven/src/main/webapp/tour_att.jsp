@@ -291,13 +291,11 @@ color
 
 		<div id="plan_div">
 			<header class="codrops-header">
+			<br><br><br><br><br><br>
 				<h1>
-					Plan<span>추가 후 임시저장을 눌러주세요.</span>
+					Plan<span>수정 후 임시저장을 눌러주세요.</span>
 				</h1>
-				<nav class="codrops-demos">
-					<a href="#" class="current-demo">관광지</a> <a href="#">음식점</a> <a
-						href="#">카페</a>
-				</nav>
+				
 			</header>
 
 
@@ -432,16 +430,16 @@ color
 		<!-- -------------------------------여기부터 페이징----------------------------------- -->
 	<script>
 		let addbutton = 1;
-		let soohyeonbutton = document.getElementsByClassName('effect-marley').length;
+		let soohyeonbuttons = document.getElementsByClassName('effect-marley').length;
 		let soohyeonbuttonk = document.getElementsByClassName('effect-marley').length / 20;
 		for (addbutton = 1; addbutton <= soohyeonbuttonk; addbutton++) {
-			$('.empty').before('<button>' + i + '</button>' + ' ');
+			$('.grid').before('<button>' + addbutton + '</button>' + ' ');
 		}
 		$('button').eq(0).attr('class', 'active');
 		let i2 = $('.active').text();
 		console.log(i2);
 		let h = 1;
-		for (h = 1; h <= s; h++) {
+		for (h = 1; h <= soohyeonbuttons; h++) {
 			$('#num' + h).css("display", "none")
 		}
 		if (i2 == 1) {
@@ -457,7 +455,7 @@ color
 			i2 = $('.active').text();
 			console.log(i2);
 			let h = 1;
-			for (h = 1; h <= s; h++) {
+			for (h = 1; h <= soohyeonbuttons; h++) {
 				$('#num' + h).css("display", "none")
 			}
 			if (i2 == 1) {

@@ -109,7 +109,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
       
          <header class="codrops-header">
             <h1>
-               DESSERT
+               DESSERT<span>당신만의 여행을 찾아보세요.</span>
             </h1>
             <nav class="codrops-demos">
 
@@ -126,7 +126,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
                <a href="tour_att.jsp">관광지</a>
                <a href="tour_food.jsp">음식점</a>
                <a href="#" class="current-demo">카페</a>
-
+	
             </nav>
          </header>
       
@@ -169,7 +169,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
       <div id="plan_div">
          <header class="codrops-header">
             <h1>
-               Plan<span>수정 후 임시저장을 눌러주세요</span>
+               Plan<span>수정 후 임시저장을 눌러주세요.</span>
             </h1>
             
          </header>
