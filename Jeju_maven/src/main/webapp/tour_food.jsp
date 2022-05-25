@@ -145,7 +145,7 @@
       <div id="plan_div">
          <header class="codrops-header">
             <h1>
-               Plan<span>추가 후 임시저장을 눌러주세요.</span>
+               Plan<span>수정 후 임시저장을 눌러주세요.</span>
             </h1>
          
          </header>

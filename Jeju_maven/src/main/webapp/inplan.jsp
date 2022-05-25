@@ -373,7 +373,7 @@ figure{
 				<li class="theme_itme">
 
 					<div class="imgBoxDiv">
-						<a href="#" class="theme_thumb">
+						<a href="TourInfoCon?tourNum=${t.num}"class="theme_thumb">
 							<div class="imgDiv">
 								<img src="${t.img}" class="imgc">
 							</div>
