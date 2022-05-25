@@ -9546,8 +9546,8 @@ p,
 }
 
 .jumbotron {
-  background: linear-gradient(rgb(0 0 0 / 8%), rgb(0 0 0 / 52%)), url(images/jeju2.jpg);
-  background-position: top;
+  background: linear-gradient(rgb(255 255 255 / 50%), rgb(0 0 0 / 8%)), url(images/jejuu.jpg);
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   

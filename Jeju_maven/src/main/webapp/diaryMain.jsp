@@ -361,34 +361,7 @@ figure{
 <body>
    
   
-    <!-- Topbar Start -->
-    <div class="container-fluid bg-dark">
-        <div class="row py-2 px-lg-5">
-            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
-                
-            </div>
-            <div class="col-lg-6 text-center text-lg-right">
-                <div class="d-inline-flex align-items-center">
-                    <a class="text-white px-2" href="">
-                        <i class="fa fa-globe"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fa fa-minus"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fa fa-minus"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fa fa-minus"></i>
-                    </a>
-                    <a class="text-white pl-2" href="">
-                        <i class="fa fa-plane"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
+    
 
 
     <!-- Navbar Start -->
@@ -402,10 +375,10 @@ figure{
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
-                    <a href="maintest.jsp" class="nav-item nav-link active">Home</a>
+                    <a href="maintest.jsp" class="nav-item nav-link ">Home</a>
                     <a href="tour_att.jsp" class="nav-item nav-link">투어</a>
                     <a href="planner.jsp" class="nav-item nav-link">플래너</a>
-                    <a href= "diarytest.jsp" class="nav-item nav-link">다이어리</a>
+                    <a href= "diarytest.jsp" class="nav-item nav-link active">다이어리</a>
                     
                 </div>
                <nav>
@@ -437,7 +410,7 @@ figure{
       
          <header class="codrops-header">
             <h1>
-               
+               My DIARY
             </h1>
          </header>
       
@@ -448,7 +421,7 @@ figure{
       <!-- 관광지 정보 출력 영역 -->
 
 
-         <h2>My DIARY</h2>
+         
       
          <div class="content">
          <p class="sh"><%=date %></p>
@@ -475,18 +448,24 @@ figure{
          </div>
          
           <%if(diary2!=null&&diary2.getDia_name()!=null){
-                  %><h2>
+                  %>
+                  <br><br><br>
+                  <button class="change">수정</button>
+                  <h2>
                      <span class="head"><%=diary2.getDia_name() %>
                   </h2>
+                  <br>
                   <pre class="context"><%=diary2.getDia_content() %></pre>
-                  <button class="change">수정</button>
+                  
                   <% 
                }else{
                
                %>
-                  <h2><span class="head">제목</span></h2>
-                  <h2><span class="context">내용</span></h2>
-                  <button class="change">수정</button>
+               		<br><br><br>
+               		<button class="change">작성</button>
+                  <h2><span class="head">- 제목</span></h2>
+                  <h2><span class="context">- 내용</span></h2>
+                  
                   <%} %>
          
 			
@@ -506,8 +485,8 @@ figure{
                Plan
             </h1>
             
-          <div  class = "dayPlan"><h1> <%=date.substring(5,7) %>월 <%=date.substring(8,10) %>일 플랜</h1></div>
-          
+          <h3> 잘 다녀오셨다면 리뷰를 작성해주세요.💖</h3>
+       </header>   
     <div id = "main_plan">
     
         <ul class = "list_theme">
