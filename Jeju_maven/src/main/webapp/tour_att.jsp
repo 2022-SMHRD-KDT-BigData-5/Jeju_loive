@@ -433,7 +433,7 @@ color
 		let soohyeonbuttons = document.getElementsByClassName('effect-marley').length;
 		let soohyeonbuttonk = document.getElementsByClassName('effect-marley').length / 20;
 		for (addbutton = 1; addbutton <= soohyeonbuttonk; addbutton++) {
-			$('.grid').before('<button>' + addbutton + '</button>' + ' ');
+			$('.empty').before('<button>' + addbutton + '</button>' + ' ');
 		}
 		$('button').eq(0).attr('class', 'active');
 		let i2 = $('.active').text();
