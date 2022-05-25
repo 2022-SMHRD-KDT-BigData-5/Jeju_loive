@@ -209,7 +209,7 @@ if(loginMember != null){
 							
 							<figure class="effect-marley">
 									<%-- <%if (albumlist.size()!=0){ %> --%>
-									<img src="images/click.png" alt="img11" width=480px" height="300px" />
+									<img src="images/click.png?after" alt="img11" width=480px" height="300px" />
 									<%-- <%}else{ %>
 									<img src="images/click.png" alt="img11" width=480px" height="300px" />
 									<%} %> --%>
@@ -344,7 +344,7 @@ if(loginMember != null){
 		$('.grid').append(
 				'<figure class="effect-marley">'+
 				'<input type="date" class="dateadd">'+
-				'<img src="images/plus.png" alt="img11" width=480px" height="300px" class="adddiary"/>'+
+				'<img src="images/plus.png?after" alt="img11" width=480px" height="300px" class="adddiary"/>'+
 				'</figure>')
 			
 	})
