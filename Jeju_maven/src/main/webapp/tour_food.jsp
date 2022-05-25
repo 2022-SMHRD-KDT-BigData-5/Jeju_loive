@@ -53,6 +53,9 @@
           top: 10px;
           color:white
    }
+   .active2 {
+	background-color: #F29661;
+}
 </style>
    </head>
    <body>
@@ -293,8 +296,8 @@
 		for (addbutton = 1; addbutton <= soohyeonbuttonk; addbutton++) {
 			$('.empty').before('<button>' + addbutton + '</button>' + ' ');
 		}
-		$('button').eq(0).attr('class', 'active');
-		let i2 = $('.active').text();
+		$('button').eq(0).attr('class', 'active2');
+		let i2 = $('.active2').text();
 		console.log(i2);
 		let h = 1;
 		for (h = 1; h <= soohyeonbuttons; h++) {
@@ -310,8 +313,8 @@
            
             
          $('button').removeAttr('class');
-         $(this).attr('class','active');
-         i2=$('.active').text();
+         $(this).attr('class','active2');
+         i2=$('.active2').text();
          console.log(i2);
          let h=1;
          for(h=1;h<=soohyeonbuttons;h++){
