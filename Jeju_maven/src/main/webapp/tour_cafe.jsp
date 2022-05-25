@@ -311,24 +311,24 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
    
    <script>
    
-   let i=1;
-   let s =document.getElementsByClassName('effect-marley').length;
-   let k = document.getElementsByClassName('effect-marley').length/20;
-   for(i=1;i<=k;i++){
-      $('.empty').before('<button>'+i+'</button>'+' ');
-   }
-   $('button').eq(0).attr('class','active');
-   let i2=$('.active').text();
-   console.log(i2);
-   let h=1;
-   for(h=1;h<=s;h++){
-      $('#num'+h).css("display" ,"none")
-   }
-   if(i2==1){
-      for(h=1;h<=20;h++){
-         $('#num'+h).css("display" ,"inline")
-      }
-   }
+   let addbutton = 1;
+	let soohyeonbuttons = document.getElementsByClassName('effect-marley').length;
+	let soohyeonbuttonk = document.getElementsByClassName('effect-marley').length / 20;
+	for (addbutton = 1; addbutton <= soohyeonbuttonk; addbutton++) {
+		$('.grid').before('<button>' + addbutton + '</button>' + ' ');
+	}
+	$('button').eq(0).attr('class', 'active');
+	let i2 = $('.active').text();
+	console.log(i2);
+	let h = 1;
+	for (h = 1; h <= soohyeonbuttons; h++) {
+		$('#num' + h).css("display", "none")
+	}
+	if (i2 == 1) {
+		for (h = 1; h <= 20; h++) {
+			$('#num' + h).css("display", "inline")
+		}
+	}
    
    $(document).on('click','button',function(){
          $('button').removeAttr('class');
@@ -336,7 +336,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
       i2=$('.active').text();
       console.log(i2);
       let h=1;
-      for(h=1;h<=s;h++){
+      for(h=1;h<=soohyeonbuttons;h++){
          $('#num'+h).css("display" ,"none")
       }
       if(i2==1){

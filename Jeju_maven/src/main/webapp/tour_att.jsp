@@ -546,9 +546,7 @@ color
 	<!--  컨테이너 끝 -->
 
 	<br>
-	<div style="float: right; height: 10%; width: 42%;">
-		<input type="button" value="맨위로"
-			onClick="javascript:window.scrollTo(0,0)" />
+	 <div style="position: fixed; bottom:20%; right:33%;"><input type="button" value="맨위로" onClick="javascript:window.scrollTo(0,0)" />
 	</div>
 
 	<!-- Related demos -->
