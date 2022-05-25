@@ -357,8 +357,6 @@ figure{
 
 <body>
    
-   
-
   
     <!-- Topbar Start -->
     <div class="container-fluid bg-dark">
