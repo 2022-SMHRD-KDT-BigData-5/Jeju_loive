@@ -29,20 +29,30 @@
 #### SW 유스케이스
 ![image](https://user-images.githubusercontent.com/99248886/166611717-6a761c62-393f-444b-9945-34d5533b50dc.png)
 #### 서비스 흐름도(웹 화면설계서)
-![image](https://user-images.githubusercontent.com/99248886/166611795-b01ddc4f-8236-4955-ae77-be4b576025d7.png)
+![image](https://user-images.githubusercontent.com/97463172/170166361-aa7474cf-d286-469e-b14c-9581ad16b473.png)
 #### ER 다이어그램
 ![image](https://user-images.githubusercontent.com/25995055/169925318-102784c2-893f-4fd7-bec9-a54c44b669d4.png)
 
 ## 6 SW 동작 화면
 
-### 로그인/회원가입/회원괸리/회원수정/회원탈퇴
-![image](https://user-images.githubusercontent.com/99248886/166612486-a17733a6-a3bb-4fd5-873f-57020ab80a16.png)
+### 메인화면
+![image](https://user-images.githubusercontent.com/97463172/170166484-1aaaf669-7602-480b-a43d-2f5cb3486fca.png)
 
-### 옷 정보/코디 추천(날씨, 팁, 오늘의 코디, 참고할 수 있는 코디)
-![image](https://user-images.githubusercontent.com/99248886/166612875-aee9b25d-00ff-4c07-a21f-975ccd8e6a0f.png)
+### 회원가입/로그인
+![image](https://user-images.githubusercontent.com/97463172/170166547-d548b32d-40c8-4cb4-a185-4e9c742fa86b.png)
 
-### 일정/고객센터
-![image](https://user-images.githubusercontent.com/99248886/166612374-a2f6d85b-501d-4a51-a0d1-8cde0c07ebf2.png)
+### 여행정보 추천(카테고리에 맞는 여행지의 이름과 주소)
+![image](https://user-images.githubusercontent.com/97463172/170166622-3cd52388-2037-42fa-8db3-5cd82ae752d6.png)
+
+### 여행정보를 플래너에 drag&drop으로 손 쉬운 추가
+![image](https://user-images.githubusercontent.com/97463172/170166738-c1c68356-6d82-461f-a4b1-2297ed358f96.png)
+
+### 저장된 여행계획 플래너메뉴에서 확인
+![image](https://user-images.githubusercontent.com/97463172/170166873-31e2cff0-2bfc-4f86-93cd-1079da792a82.png)
+
+### 여행 후 다이어리와 후기작성
+![image](https://user-images.githubusercontent.com/97463172/170166956-a72e816f-9ea2-4751-a20f-d46787f35213.png)
+
 
 ## 7 제작 일정
 ![image](https://user-images.githubusercontent.com/99248886/166612988-dc4d1968-a694-456c-b7fe-b65feef835bb.png)
