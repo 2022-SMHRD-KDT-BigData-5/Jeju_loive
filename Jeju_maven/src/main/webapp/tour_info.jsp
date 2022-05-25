@@ -189,10 +189,17 @@ int num=1;
 
 			<header class="codrops-header">
 				<h1>
-					tour 상세메뉴<span>${tourInfo.getName()}</span>
+					${tourInfo.getName()}<span></span>
 				</h1>
-			</header>
+				<nav class="codrops-demos">
 
+				<a href="#" class="current-demo">관광지</a> 
+				<a href="tour_food.jsp">음식점</a>
+				<a href="tour_cafe.jsp">카페</a>
+
+			</nav>
+			</header>
+			
 
 
 			<div class="content">
@@ -200,7 +207,6 @@ int num=1;
 				<!-- 관광지 정보 출력 영역 -->
 
 
-				<h2>무엇을 적으면 좋을까요</h2>
 
 				<div class="content">
 
@@ -214,6 +220,9 @@ int num=1;
 					<c:forEach var="i" items="${ImgList}" varStatus="status">
 						<img src="${i}" alt="img11" width="300px" height="200px" />
 					</c:forEach>
+					<br/><br/><br/><br/><br/>
+					<h2>방문자들의 후기</h2>
+					<br/>
 					<c:forEach var="r" items="${ReviewList}" varStatus="status">
 
 
@@ -257,14 +266,9 @@ int num=1;
 	<div id="plan_div">
 		<header class="codrops-header">
 			<h1>
-				Plan<span>Plan에 대한 정보를 추천해주는 메뉴입니다.</span>
+				Plan<span>수정 후 임시저장을 눌러주세요.</span>
 			</h1>
-			<nav class="codrops-demos">
-
-				<a href="#" class="current-demo">관광지</a> <a href="tour_food.jsp">음식점</a>
-				<a href="tour_cafe.jsp">카페</a>
-
-			</nav>
+			
 		</header>
 
 
