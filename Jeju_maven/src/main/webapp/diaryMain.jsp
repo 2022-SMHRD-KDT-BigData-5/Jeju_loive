@@ -345,6 +345,11 @@ figure{
   
   }
    
+   
+   
+.dayPlan h1{
+	font-size : 3em;
+}
 </style>
    
 </head>
@@ -500,7 +505,7 @@ figure{
                Plan
             </h1>
             
-          <div  class = "dayPlan"><h1> 1일차 플랜</h1></div>
+          <div  class = "dayPlan"><h1> <%=date.substring(5,7) %>월 <%=date.substring(8,10) %>일 플랜</h1></div>
           
     <div id = "main_plan">
     
