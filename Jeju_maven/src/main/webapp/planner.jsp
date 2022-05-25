@@ -112,8 +112,8 @@
         <figure class="effect-ming">
             <img src="images/yeonhee-VWLhifg5VMA-unsplash.jpg" alt="yeonhee-VWLhifg5VMA-unsplash"/>
             <figcaption>
-                <h2><span><c:out value="${p.plan_name}"/></span></h2>
-                <p><c:out value="${p.plan_date}"/></p>
+                <h2><span><c:out value="${p.plan_date.getMonth()+1}"/>월<c:out value="${p.plan_date.getDate()}"/>일</span></h2>
+                <p><c:out value="${p.plan_name}"/></p>
                 <a href="inplan.jsp?plan_date=${p.plan_date}&mem_id=${p.mem_id}">View more</a>
             </figcaption>
             </figure>         

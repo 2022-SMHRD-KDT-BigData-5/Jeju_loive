@@ -357,7 +357,7 @@ figure{
 
 
 	<div class="dayPlan">
-		<h1>1일차 플랜</h1>
+		<h1><%=plan_date.getMonth()+1 %>월<%=plan_date.getDate() %>일 플랜</h1>
 	</div>
 	<div id="main_plan">
 		<div>
