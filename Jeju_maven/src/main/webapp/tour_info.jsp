@@ -19,6 +19,7 @@ int tourNum = Integer.parseInt(str_num);
 List<tour> ImgList = tdao.selectImgList(tourNum);
 pageContext.setAttribute("ImgList", ImgList);
 tour tourInfo = (tour) session.getAttribute("tourInfo");
+int num=1;
 %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -218,34 +219,33 @@ tour tourInfo = (tour) session.getAttribute("tourInfo");
 
 
 						<h2>
-							<span class="sh"><c:out value="${r.rev_star}" /></span>
+							<span class="sh" id="jsh<%=num%>"><c:out value="${r.rev_star}" /></span>
 							<div class="score-wrapper">
 								<div class="score">
-									<div class="foreground">★★★★★</div>
+									<div class="foreground" id="changewidth<%=num%>">★★★★★</div>
 									<div class="background">☆☆☆☆☆</div>
 								</div>
-								<span class="display"> </span>
+								<span class="display" id="display<%=num%>"> </span>
 						</h2>
 						<c:out value="${r.rev_time}" />
 						<p>
 							<c:out value="${r.rev_content}" />
 						</p>
-
-
-					</c:forEach>
-				</div>
-			</div>
-			<script>
+						<script>
 				$(function() {
-					const rate = 1;
+					const rate = Number($('#jsh<%=num%>').text());
 					const max = 5;
 					const percent = rate / max * 100;
 
-					$(".score-wrapper").find(".foreground").css("width",
-							percent + "%");
-					$(".scope-wrapper").find(".display").text(rate);
+					$("#changewidth<%=num%>").css("width",percent + "%");
+					$("#display<%=num%>").text(rate);
 				});
 			</script>
+					<%num++; %>
+					</c:forEach>
+				</div>
+			</div>
+			
 
 
 		</div>
@@ -312,28 +312,7 @@ tour tourInfo = (tour) session.getAttribute("tourInfo");
 		<div id="map" style="width: 110%; height: 350px;"></div>
 
 
-		<!-- JavaScript Libraries -->
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-		<script
-			src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-		<script src="lib/easing/easing.min.js"></script>
-		<script src="lib/waypoints/waypoints.min.js"></script>
-		<script src="lib/counterup/counterup.min.js"></script>
-		<script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-		<!-- Contact Javascript File -->
-		<script src="mail/jqBootstrapValidation.min.js"></script>
-		<script src="mail/contact.js"></script>
-
-		<!-- Template Javascript -->
-		<script src="assets/js/maintest.js"></script>
-
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/maintest.js"></script>
-
+		
 
 
 		<script>
@@ -511,31 +490,6 @@ tour tourInfo = (tour) session.getAttribute("tourInfo");
 		}
 	</script>
 
-	<!-- Back to Top -->
-	<a href="#" class="btn btn-lg btn-primary back-to-top"><i
-		class="fa-angle-double-up"></i></a>
-
-
-	<!-- JavaScript Libraries -->
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-	<script src="lib/easing/easing.min.js"></script>
-	<script src="lib/waypoints/waypoints.min.js"></script>
-	<script src="lib/counterup/counterup.min.js"></script>
-	<script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-	<!-- Contact Javascript File -->
-	<script src="mail/jqBootstrapValidation.min.js"></script>
-	<script src="mail/contact.js"></script>
-
-	<!-- Template Javascript -->
-
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-
+	
 </body>
 </html>

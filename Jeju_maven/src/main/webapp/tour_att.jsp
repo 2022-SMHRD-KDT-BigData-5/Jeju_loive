@@ -428,10 +428,10 @@ color
 		
 		<!-- -------------------------------여기부터 페이징----------------------------------- -->
 	<script>
-		let i = 1;
-		let s = document.getElementsByClassName('effect-marley').length;
-		let k = document.getElementsByClassName('effect-marley').length / 20;
-		for (i = 1; i <= k; i++) {
+		let addbutton = 1;
+		let soohyeonbutton = document.getElementsByClassName('effect-marley').length;
+		let soohyeonbuttonk = document.getElementsByClassName('effect-marley').length / 20;
+		for (addbutton = 1; addbutton <= soohyeonbuttonk; addbutton++) {
 			$('.empty').before('<button>' + i + '</button>' + ' ');
 		}
 		$('button').eq(0).attr('class', 'active');
