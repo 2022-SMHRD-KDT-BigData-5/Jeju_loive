@@ -59,7 +59,7 @@ if(loginMember != null){
 <link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300'	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
-<link rel="stylesheet" type="text/css" href="assets/css/set1.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/set1.css?after" />
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="assets/css/dragdrop.css" />
@@ -102,6 +102,7 @@ if(loginMember != null){
 	.active{
 		 background-color: pink;
 	}
+	
 </style>
 	
 </head>
