@@ -73,8 +73,11 @@ int num = 1;
 
 
 <style>
+
+
 #flex_cont {
 	display: flex;
+	
 }
 
 #tour_div {
