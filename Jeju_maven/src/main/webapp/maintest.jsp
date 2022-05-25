@@ -110,7 +110,7 @@
                 <div class="col-lg-7">
                     <h6 class="text-primary text-uppercase font-weight-bold">About Us</h6>
                     <h1 class="mb-4">제주여행을 손쉽게 계획</h1>
-                    <p class="mb-4">내용 입력</p>
+                    
                     
                 </div>
             </div>
