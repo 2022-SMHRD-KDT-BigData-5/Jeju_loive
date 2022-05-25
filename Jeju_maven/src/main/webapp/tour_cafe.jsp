@@ -64,12 +64,14 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
 <body>
 
 
+   
+    <!-- Topbar End -->
 
 
     <!-- Navbar Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
-            <a href="maintest.jsp" class="navbar-brand ml-lg-3">
+            <a href="main.jsp" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-paper-plane"></i> 제주살앙</h1>
             </a>
             <!-- <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -107,7 +109,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
       
          <header class="codrops-header">
             <h1>
-               DESSERT<span>당신만의 여행을 찾아보세요.</span>
+               DESSERT
             </h1>
             <nav class="codrops-demos">
 
@@ -128,8 +130,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
             </nav>
          </header>
       
-      <div class="contents"><br>
-      
+      <div class="contents">
 
       
       
@@ -168,9 +169,9 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
       <div id="plan_div">
          <header class="codrops-header">
             <h1>
-               Plan<span>추가 후 임시저장을 눌러주세요.</span>
+               Plan<span>수정 후 임시저장을 눌러주세요</span>
             </h1>
-          
+            
          </header>
       
       
@@ -297,7 +298,7 @@ tour tourInfo = (tour)session.getAttribute("tourInfo");
    </div>
    
       </div><br>
-      <div style="float:right;height:10%; width:42%;"><input type="button" value="맨위로" onClick="javascript:window.scrollTo(0,0)" />
+      <div style="position: fixed; bottom:20%; right:35%;"><input type="button" value="맨위로" onClick="javascript:window.scrollTo(0,0)" />
 </div>
    <!-- <nav class="codrops-demos">
                <a href="tour_att.jsp">관광지</a>
