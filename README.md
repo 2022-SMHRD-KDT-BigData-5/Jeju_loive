@@ -20,8 +20,8 @@
 |서버환경|tomcat 9.0|
 |데이터베이스|oracleDB|
 
-## 4. 아키텍처(구조)
-
+## 4. 개발언어 및 도구
+![image](https://user-images.githubusercontent.com/102156535/170404092-5eec7a9e-4eae-4845-aff1-abcfdc01069f.png)
 
 
 ## 5. 기능 흐름도
