@@ -28,6 +28,8 @@
 ### 서비스 흐름도(유스케이스)
 ![image](https://user-images.githubusercontent.com/97463172/170167886-7dba2f80-8696-4301-93e5-8eb5486e0c19.png)
 
+![image](https://user-images.githubusercontent.com/102156535/170400653-d3179301-2c99-4c2f-8ece-dab4f5693802.png)
+
 
 ## 6 SW 동작 화면
 ### 메인화면
