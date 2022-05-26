@@ -26,7 +26,8 @@
 
 ## 5. 기능 흐름도
 ### 서비스 흐름도(웹화면설계서)
-![image](https://user-images.githubusercontent.com/97463172/170167886-7dba2f80-8696-4301-93e5-8eb5486e0c19.png)
+![image](https://user-images.githubusercontent.com/102156535/170403691-b4efc219-2398-4c75-8e2e-6665ea31d55d.png)
+
 ### 서비스 흐름도(DB설계서)
 ![image](https://user-images.githubusercontent.com/102156535/170400709-1a0769ca-091b-46b1-b4f4-93e2def30678.png)
 
