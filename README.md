@@ -1,4 +1,4 @@
-# 제주살앙 (팀명: 돌하르방스)
+# 제주살앙 (팀명: 돌하라방스)
 ![image](https://user-images.githubusercontent.com/97463172/170165560-205e130b-17ee-43cc-990e-64391c09859a.png)
 
 ## 1. 프로젝트명
