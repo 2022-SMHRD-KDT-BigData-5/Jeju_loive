@@ -39,7 +39,7 @@
 ![image](https://user-images.githubusercontent.com/97463172/170166547-d548b32d-40c8-4cb4-a185-4e9c742fa86b.png)
 
 ### 여행정보 추천(카테고리에 맞는 여행지의 이름과 주소)
-![image](https://user-images.githubusercontent.com/97463172/170166622-3cd52388-2037-42fa-8db3-5cd82ae752d6.png)
+![image](https://user-images.githubusercontent.com/102156535/170403614-7a5cfa20-e4d4-4ab4-a91d-e0789f9900c4.png)
 
 ### 여행정보를 플래너에 drag&drop으로 손 쉬운 추가
 ![image](https://user-images.githubusercontent.com/97463172/170166738-c1c68356-6d82-461f-a4b1-2297ed358f96.png)
