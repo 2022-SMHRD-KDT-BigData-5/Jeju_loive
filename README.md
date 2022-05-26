@@ -25,10 +25,10 @@
 
 
 ## 5. 기능 흐름도
-### 서비스 흐름도(유스케이스)
+### 서비스 흐름도(웹화면설계서)
 ![image](https://user-images.githubusercontent.com/97463172/170167886-7dba2f80-8696-4301-93e5-8eb5486e0c19.png)
-
-![image](https://user-images.githubusercontent.com/102156535/170400653-d3179301-2c99-4c2f-8ece-dab4f5693802.png)
+### 서비스 흐름도(DB설계서)
+![image](https://user-images.githubusercontent.com/102156535/170400709-1a0769ca-091b-46b1-b4f4-93e2def30678.png)
 
 
 ## 6 SW 동작 화면
@@ -55,8 +55,11 @@
 
 
 ## 8 팀원 단위 업무 분장 및 결과표
+![image](https://user-images.githubusercontent.com/102156535/170400858-c62fcb8f-20e2-4581-af95-650ba2072803.png)
 
 
 ## 9 트러블슈팅
 ![image](https://user-images.githubusercontent.com/97463172/170167308-04fe4688-56e1-4f93-b4ec-ebeefe91a647.png)
+![image](https://user-images.githubusercontent.com/102156535/170400933-b3c82936-a093-4d66-bdb5-4941faaf50c0.png)
+
 
